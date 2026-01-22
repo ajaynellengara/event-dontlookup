@@ -13,8 +13,8 @@ export async function GET(request) {
       name: "WASSO Project Management LLC",
       name_ar: "واسو لإدارة المشاريع",
       slug: "/",
-      logoUrl: "/images/brand-logo-primary.svg",
-      logoWhiteUrl: "/images/brand-logo.svg",
+      logoUrl: "/images/brand-logo.svg",
+      logoWhiteUrl: "/images/brand-footer-logo.svg",
       description: "Leading project management and workspace solutions",
       description_ar: "الحلول الرائدة في إدارة المشاريع ومساحات العمل",
       websiteUrl: "https://wasso.ae/",
@@ -196,7 +196,7 @@ export async function GET(request) {
       name: "WASSO Project Management LLC",
       name_ar: "واسو لإدارة المشاريع",
       slug: "/",
-      logoUrl: "/images/brand-logo-primary.svg",
+      logoUrl: "/images/brand-footer-logo.svg",
       logoWhiteUrl: "/images/brand-logo.svg",
       address:
         "<p>WASSO Project Management LLC<br /> Office No 133, Business Tower, Meydan Road,<br /> Al Qouz, Dubai P.O Box: 294568</p>",
@@ -261,42 +261,42 @@ export async function GET(request) {
           link: "/careers",
         },
       ],
-      other_link_navigation: [
-        {
-          id: "01",
-          label: "Privacy Policy",
-          label_ar: "سياسة الخصوصية",
-          link: "/privacy-policy",
-        },
-        {
-          id: "02",
-          label: "Terms & Conditions",
-          label_ar: "الشروط والأحكام",
-          link: "/terms-and-conditions",
-        },
-        {
-          id: "03",
-          label: "FAQ",
-          label_ar: "الأسئلة الشائعة",
-          link: "/faqs",
-        },
-      ],
-      sale_enquiry: {
-        title: "For Sales Enquiry",
-        title_ar: "للاستفسار عن المبيعات",
-        phone: "+971 56 503 6378",
-        email: "sales@wasso.ae",
-      },
-      support_enquiry: {
-        title: "For Support Enquiry",
-        title_ar: "للاستفسار عن الدعم",
-        phone: "+971 56 503 6379",
-        email: "support@wasso.ae",
-      },
-      copyright: "<p>© 2025 WASSO Project Management LLC. All Rights Reserved.</p>",
+      // other_link_navigation: [
+      //   {
+      //     id: "01",
+      //     label: "Privacy Policy",
+      //     label_ar: "سياسة الخصوصية",
+      //     link: "/privacy-policy",
+      //   },
+      //   {
+      //     id: "02",
+      //     label: "Terms & Conditions",
+      //     label_ar: "الشروط والأحكام",
+      //     link: "/terms-and-conditions",
+      //   },
+      //   {
+      //     id: "03",
+      //     label: "FAQ",
+      //     label_ar: "الأسئلة الشائعة",
+      //     link: "/faqs",
+      //   },
+      // ],
+      // sale_enquiry: {
+      //   title: "For Sales Enquiry",
+      //   title_ar: "للاستفسار عن المبيعات",
+      //   phone: "+971 56 503 6378",
+      //   email: "sales@wasso.ae",
+      // },
+      // support_enquiry: {
+      //   title: "For Support Enquiry",
+      //   title_ar: "للاستفسار عن الدعم",
+      //   phone: "+971 56 503 6379",
+      //   email: "support@wasso.ae",
+      // },
+      copyright: "<p>© 2025 WASSO. All Rights Reserved.</p>",
       copyright_ar: "<p>© 2025 واسو لإدارة المشاريع ش.ذ.م.م. جميع الحقوق محفوظة.</p>",
-      subscription_title: "<p>Stay Updated. Subscribe to Our Newsletter</p>",
-      subscription_title_ar: "<p>ابق على اطلاع. اشترك في نشرتنا الإخبارية</p>",
+      // subscription_title: "<p>Stay Updated. Subscribe to Our Newsletter</p>",
+      // subscription_title_ar: "<p>ابق على اطلاع. اشترك في نشرتنا الإخبارية</p>",
       card: [
         {
           id: "01",
@@ -317,7 +317,7 @@ export async function GET(request) {
         link: "https://www.facebook.com/",
         media: {
           media_type: "image",
-          media_path: "/images/social-fb.svg",
+          media_path: "/images/social-1.svg",
           media_alt: "social-fb",
         },
       },
@@ -327,7 +327,7 @@ export async function GET(request) {
         link: "https://www.instagram.com/",
         media: {
           media_type: "image",
-          media_path: "/images/social-insta.svg",
+          media_path: "/images/social-2.svg",
           media_alt: "social-insta",
         },
       },
@@ -337,7 +337,7 @@ export async function GET(request) {
         link: "https://www.youtube.com/",
         media: {
           media_type: "image",
-          media_path: "/images/social-youtube.svg",
+          media_path: "/images/social-3.svg",
           media_alt: "social-youtube",
         },
       },
@@ -347,7 +347,7 @@ export async function GET(request) {
         link: "https://www.linkedin.com/",
         media: {
           media_type: "image",
-          media_path: "/images/social-linkedin.svg",
+          media_path: "/images/social-4.svg",
           media_alt: "social-linkedin",
         },
       },
