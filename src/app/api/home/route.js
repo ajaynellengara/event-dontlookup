@@ -3,202 +3,375 @@ import { NextResponse } from "next/server";
 /**
  * GET /api/home
  */
-export async function GET() {
+export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const locale = searchParams.get("locale") || "en";
   const homeData = {
-    sliders: [
-      {
-        id: 1,
-        title:
-          "Designed for Comfort.<br/> Engineered for Your <br /> Workspace",
-        title_ar: "wrwr",
-        description:
-          "<p>Shaping the future of work environments across the world </p>",
-        description_ar: "rwwr",
-        media_type: "image",
-        media_alt: "ewrwer",
-        media_alt_ar: "rwrw",
-        media: {
-          desktop: {
-            path: "/images/home-hero-1.jpg",
-          },
-          mobile: {
-            path: "/images/home-hero-1.jpg",
-          },
-        },
-        button: {
-          label: "View Product",
-          label_ar: "werw",
-          link: "/",
-        },
-      },
-      {
-        id: 2,
-        title:
-          "22 Designed for Comfort.<br/> Engineered for Your <br /> Workspace",
-        title_ar: "wrwr",
-        description:
-          "<p>Shaping the future of work environments across the world </p>",
-        description_ar: "rwwr",
-        media_type: "image",
-        media_alt: "ewrwer",
-        media_alt_ar: "rwrw",
-        media: {
-          desktop: {
-            path: "/images/home-hero-1.jpg",
-          },
-          mobile: {
-            path: "/images/home-hero-1.jpg",
-          },
-        },
-        button: {
-          label: "View Product",
-          label_ar: "werw",
-          link: "/",
-        },
-      },
-      {
-        id: 3,
-        title:
-          "33 Designed for Comfort.<br/> Engineered for Your <br /> Workspace",
-        title_ar: "wrwr",
-        description:
-          "<p>Shaping the future of work environments across the world </p>",
-        description_ar: "rwwr",
-        media_type: "image",
-        media_alt: "ewrwer",
-        media_alt_ar: "rwrw",
-        media: {
-          desktop: {
-            path: "/images/home-hero-1.jpg",
-          },
-          mobile: {
-            path: "/images/home-hero-1.jpg",
-          },
-        },
-        button: {
-          label: "View Product",
-          label_ar: "werw",
-          link: "/",
-        },
-      },
-    ],
-
-    aboutSection: {
-      title: "Crafting Innovative Workspace Solutions Since 2012",
-      title_ar: "معلومات عنا",
-      description:
-        "<p>BOSQ started in India in 2012, specializing in ergonomic seating for top corporations. Known for design, innovation, and quality, we’ve earned the trust of clients like BMW, Audi, and Siemens. Now a leading brand in the UAE, we're poised for expansion across the GCC.</p>",
-      description_ar: "هذا وصف قسم معلومات عنا",
-      media_type: "image",
-      media_alt: "About Image",
-      media_alt_ar: "صورة عن",
-      media: {
-        path: "/images/home-about-2.png",
-        alt: "Modern office workspace",
-        alt_ar: "مساحة عمل حديثة",
-      },
-    },
-
-    formSection: {
-      title: "Let's Get in Touch",
-      title_ar: "نموذج الاتصال",
-      description:
-        "<p>Let's work together to find the most effective solution for your business.</p>",
-      description_ar: "املأ النموذج",
-      media_type: "image",
-      media_alt: "Form alt",
-      media_alt_ar: "نص بديل لصورة النموذج",
-      media: {
-        media_path: "/images/home-enquiry-1.jpg",
-        alt: "Business meeting",
-        alt_ar: "اجتماع عمل",
-      },
-    },
-
-    journeySection: {
-      title: "The journey: From Concept <br /> to Craft",
-      title_ar: "رحلتنا",
-      description:
-        "<p>At BOSQ, every piece starts with a purpose-driven vision. From initial sketch to final polish, we blend creativity and craftsmanship, obsessing over every detail to ensure our furniture is not just made—but designed.</p>",
-      description_ar: "وصف قسم الرحلة",
-      media_type: "video",
-      media: {
-        desktop: {
-          path: "/videos/home-journey-bg.mp4",
-          alt: "Journey video",
-          alt_ar: "فيديو الرحلة",
-        },
-        mobile: {
-          path: "/videos/home-journey-bg.mp4",
-          alt: "Journey video",
-          alt_ar: "فيديو الرحلة",
-        },
-      },
-    },
-
-    featuredSection: {
-      title: "Featured Products",
-      title_ar: "المنتجات المميزة",
-    },
-
-    projectSection: {
-      title: "Projects",
-      title_ar: "مشاريعنا",
-      list: [
+    hero: {
+      sliders: [
         {
           id: 1,
-          title: "Luxury Tower",
-          title_ar: "برج سكني فاخر",
-          media_alt: "Luxury building",
-          media_alt_ar: "مبنى فاخر",
-          media: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+          title: "Designing Spaces, Defining Lifestyles",
+          title_ar: "تصميم المساحات، تعريف أنماط الحياة",
+          project_tag: "PROJECT",
+          project_tag_ar: "مشروع",
+          project_name: "SKYLINE HEIGHTS",
+          project_name_ar: "سكايلاين هايتس",
+          media_type: "image",
+          media_alt: "Skyline Heights Project",
+          media_alt_ar: "مشروع سكايلاين هايتس",
+          media: {
+            desktop: {
+              path: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&h=1080&fit=crop",
+            },
+            mobile: {
+              path: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=1200&fit=crop",
+            },
+          },
         },
         {
           id: 2,
-          title: "Corporate Office",
-          title_ar: "مكتب شركات",
-          media_alt: "Corporate office",
-          media_alt_ar: "مكتب شركات",
-          media: "https://images.unsplash.com/photo-1497366754035-f200968a6e72",
+          title: "Transforming Visions into Reality",
+          title_ar: "تحويل الرؤى إلى واقع",
+          project_tag: "PROJECT",
+          project_tag_ar: "مشروع",
+          project_name: "INFORMATION & TECHNOLOGY COMPLEX",
+          project_name_ar: "مجمع المعلومات والتكنولوجيا",
+          media_type: "image",
+          media_alt: "IT Complex Project",
+          media_alt_ar: "مشروع المجمع التقني",
+          media: {
+            desktop: {
+              path: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop",
+            },
+            mobile: {
+              path: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=1200&fit=crop",
+            },
+          },
+        },
+        {
+          id: 3,
+          title: "Building Excellence, Creating Legacy",
+          title_ar: "بناء التميز، خلق الإرث",
+          project_tag: "PROJECT",
+          project_tag_ar: "مشروع",
+          project_name: "LUXURY RESIDENCE",
+          project_name_ar: "الإقامة الفاخرة",
+          media_type: "image",
+          media_alt: "Luxury Residence Project",
+          media_alt_ar: "مشروع الإقامة الفاخرة",
+          media: {
+            desktop: {
+              path: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1920&h=1080&fit=crop",
+            },
+            mobile: {
+              path: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=1200&fit=crop",
+            },
+          },
         },
       ],
     },
 
-    fitsSection: {
-      title: "Find Your Fit",
-      title_ar: "قسم الملاءمة",
+    aboutSection: {
+      small_title: "ABOUT WASSO",
+      small_title_ar: "عن واسو",
+      title: "Discover the WASSO Difference",
+      title_ar: "اكتشف الفرق في واسو",
       description:
-        "<p>as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem</p>",
-      description_ar: "وصف قسم الملاءمة",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      description_ar:
+        "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
       button: {
-        label: "View All projects",
+        label: "Know More",
+        label_ar: "اعرف المزيد",
+        link: "/about",
+      },
+      graphic: {
+        type: "image",
+        path: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
+        alt: "WASSO Graphic",
+        alt_ar: "رسم توضيحي لواسو",
+      },
+      mission: {
+        title: "Our Mission",
+        title_ar: "مهمتنا",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        description_ar:
+          "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
+      },
+      vision: {
+        title: "Our Vision",
+        title_ar: "رؤيتنا",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        description_ar:
+          "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
+      },
+      sister_concern: {
+        title: "Our Sister Concern",
+        title_ar: "شركتنا الشقيقة",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        description_ar:
+          "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
+        logo: {
+          path: "/images/sister-concern-logo.png",
+          alt: "Sister Concern Logo",
+          alt_ar: "شعار الشركة الشقيقة",
+        },
+      },
+    },
+
+    statistics: {
+      title: "Our Achievements",
+      title_ar: "إنجازاتنا",
+      items: [
+        {
+          number: "25+",
+          label: "Years of Experience",
+          label_ar: "سنة من الخبرة",
+          description: "Trusted project management solutions across the UAE.",
+          description_ar: "حلول إدارة مشاريع موثوقة في جميع أنحاء الإمارات العربية المتحدة.",
+        },
+        {
+          number: "50+",
+          label: "Projects Delivered",
+          label_ar: "مشروع تم تسليمه",
+          description: "Completed residential, commercial, and infrastructure projects.",
+          description_ar: "مشاريع سكنية وتجارية وبنية تحتية مكتملة.",
+        },
+        {
+          number: "2B+",
+          label: "Project Value Managed",
+          label_ar: "قيمة المشاريع المدارة",
+          description: "Managing diverse projects with precision and efficiency.",
+          description_ar: "إدارة مشاريع متنوعة بدقة وكفاءة.",
+        },
+        {
+          number: "300+",
+          label: "Expert Professionals",
+          label_ar: "محترف خبير",
+          description: "Skilled team delivering quality, on-time execution.",
+          description_ar: "فريق ماهر يقدم تنفيذًا عالي الجودة وفي الوقت المحدد.",
+        },
+        {
+          number: "95%",
+          label: "Client Satisfaction",
+          label_ar: "رضا العملاء",
+          description: "Proven record of exceeding project expectations.",
+          description_ar: "سجل مثبت في تجاوز توقعات المشروع.",
+        },
+      ],
+    },
+
+    services: {
+      small_title: "OUR SERVICES",
+      small_title_ar: "خدماتنا",
+      title: "Shaping Projects, Building Trust",
+      title_ar: "تشكيل المشاريع، بناء الثقة",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
+      description_ar:
+        "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
+      button: {
+        label: "All Services",
+        label_ar: "جميع الخدمات",
+        link: "/services",
+      },
+      items: [
+        {
+          id: 1,
+          title: "Project Management",
+          title_ar: "إدارة المشاريع",
+          slug: "project-management",
+          image: {
+            path: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+            alt: "Project Management",
+            alt_ar: "إدارة المشاريع",
+          },
+        },
+        {
+          id: 2,
+          title: "Engineering Supervision",
+          title_ar: "الإشراف الهندسي",
+          slug: "engineering-supervision",
+          image: {
+            path: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop",
+            alt: "Engineering Supervision",
+            alt_ar: "الإشراف الهندسي",
+          },
+        },
+        {
+          id: 3,
+          title: "Contracts & Tenders Management",
+          title_ar: "إدارة العقود والمناقصات",
+          slug: "contracts-tenders-management",
+          image: {
+            path: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop",
+            alt: "Contracts & Tenders Management",
+            alt_ar: "إدارة العقود والمناقصات",
+          },
+        },
+        {
+          id: 4,
+          title: "Quality & Safety Assurance",
+          title_ar: "ضمان الجودة والسلامة",
+          slug: "quality-safety-assurance",
+          image: {
+            path: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop",
+            alt: "Quality & Safety Assurance",
+            alt_ar: "ضمان الجودة والسلامة",
+          },
+        },
+      ],
+    },
+
+    portfolio: {
+      small_title: "LATEST PROJECTS",
+      small_title_ar: "أحدث المشاريع",
+      title: "Our Signature Portfolio",
+      title_ar: "محفظتنا المميزة",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim",
+      description_ar:
+        "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
+      button: {
+        label: "View All Projects",
         label_ar: "عرض جميع المشاريع",
-        link: "/",
+        link: "/projects",
       },
       projects: [
         {
           id: 1,
-          media: {
-            path: "https://images.unsplash.com/photo-1524758631624-e2822e304c36",
-            alt: "Modern office chair",
-            alt_ar: "كرسي مكتب حديث",
+          slug: "information-technology-complex",
+          title: "Information & Technology Complex",
+          title_ar: "مجمع المعلومات والتكنولوجيا",
+          location: "Riyadh, KSA",
+          location_ar: "الرياض، المملكة العربية السعودية",
+          featured_image: {
+            path: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
+            alt: "Information & Technology Complex",
+            alt_ar: "مجمع المعلومات والتكنولوجيا",
           },
-          title: "Ergonomic Seating",
-          title_ar: "مقاعد مريحة",
-          description: "Designed for comfort and productivity.",
-          description_ar: "مصمم للراحة والإنتاجية.",
-          button: {
-            label: "View Details",
-            label_ar: "عرض التفاصيل",
-            link: "https://example.com",
+        },
+        {
+          id: 2,
+          slug: "skyline-heights",
+          title: "Skyline Heights",
+          title_ar: "سكايلاين هايتس",
+          location: "Dubai, UAE",
+          location_ar: "دبي، الإمارات العربية المتحدة",
+          featured_image: {
+            path: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=600&fit=crop",
+            alt: "Skyline Heights",
+            alt_ar: "سكايلاين هايتس",
+          },
+        },
+        {
+          id: 3,
+          slug: "luxury-residence",
+          title: "Luxury Residence",
+          title_ar: "الإقامة الفاخرة",
+          location: "Dubai, UAE",
+          location_ar: "دبي، الإمارات العربية المتحدة",
+          featured_image: {
+            path: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
+            alt: "Luxury Residence",
+            alt_ar: "الإقامة الفاخرة",
           },
         },
       ],
     },
 
-    brandsSection: {
-      title: "Discover our Brands",
-      title_ar: "علاماتنا التجارية",
+    partners: {
+      small_title: "PARTNERS",
+      small_title_ar: "الشركاء",
+      title: "Trusted by Leading Partners",
+      title_ar: "موثوق به من قبل شركاء رائدين",
+      logos: [
+        {
+          id: 1,
+          name: "EMPOWER",
+          logo: {
+            path: "/images/partners/empower.png",
+            alt: "EMPOWER",
+            alt_ar: "إمباور",
+          },
+        },
+        {
+          id: 2,
+          name: "LAGUNA TOWER",
+          logo: {
+            path: "/images/partners/laguna-tower.png",
+            alt: "Laguna Tower",
+            alt_ar: "برج لاجونا",
+          },
+        },
+        {
+          id: 3,
+          name: "WARNER BROS. WORLD",
+          logo: {
+            path: "/images/partners/warner-bros.png",
+            alt: "Warner Bros. World",
+            alt_ar: "وارنر بروس وورلد",
+          },
+        },
+        {
+          id: 4,
+          name: "CAYAN",
+          logo: {
+            path: "/images/partners/cayan.png",
+            alt: "Cayan",
+            alt_ar: "كيان",
+          },
+        },
+        {
+          id: 5,
+          name: "TECOM INVESTMENTS",
+          logo: {
+            path: "/images/partners/tecom.png",
+            alt: "TECOM Investments",
+            alt_ar: "استثمارات تيكوم",
+          },
+        },
+        {
+          id: 6,
+          name: "Dubai Industrial City",
+          logo: {
+            path: "/images/partners/dubai-industrial.png",
+            alt: "Dubai Industrial City",
+            alt_ar: "مدينة دبي الصناعية",
+          },
+        },
+        {
+          id: 7,
+          name: "NAKHEEL",
+          logo: {
+            path: "/images/partners/nakheel.png",
+            alt: "Nakheel",
+            alt_ar: "نخيل",
+          },
+        },
+        {
+          id: 8,
+          name: "MUBADALA",
+          logo: {
+            path: "/images/partners/mubadala.png",
+            alt: "Mubadala",
+            alt_ar: "مبادلة",
+          },
+        },
+        {
+          id: 9,
+          name: "Saudi Aramco",
+          logo: {
+            path: "/images/partners/saudi-aramco.png",
+            alt: "Saudi Aramco",
+            alt_ar: "أرامكو السعودية",
+          },
+        },
+      ],
     },
   };
 
@@ -206,6 +379,7 @@ export async function GET() {
     {
       success: true,
       message: "Home data fetched successfully",
+      message_ar: "تم جلب بيانات الصفحة الرئيسية بنجاح",
       data: homeData,
     },
     { status: 200 }

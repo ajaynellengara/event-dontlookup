@@ -1,130 +1,139 @@
-import { Geist, Poppins } from "next/font/google";
-
-import localFont from "next/font/local";
-import { Cairo } from "next/font/google";
 import "./../globals.css";
 import { cn } from "@/lib/utils";
 import { locales, localeDirection } from "../../il8n/config";
+import { poppins, cairo, getFontVariable, getFontClassName } from "@/lib/fonts";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-
-// const heroNew = localFont({
-//   src: [
-//     {
-//       path: "../../../public/fonts/HeroNew-Thin.woff2",
-//       weight: "100",
-//       style: "normal",
-//     },
-//     {
-//       path: "../../../public/fonts/HeroNew-UltraLight.woff2",
-//       weight: "200",
-//       style: "normal",
-//     },
-//     {
-//       path: "../../../public/fonts/HeroNew-Light.woff2",
-//       weight: "300",
-//       style: "normal",
-//     },
-//     {
-//       path: "../../../public/fonts/HeroNew-Regular.woff2",
-//       weight: "400",
-//       style: "normal",
-//     },
-//     {
-//       path: "../../../public/fonts/HeroNew-Medium.woff2",
-//       weight: "500",
-//       style: "italic",
-//     },
-//     {
-//       path: "../../../public/fonts/HeroNew-SemiBold.woff2",
-//       weight: "600",
-//       style: "normal",
-//     },
-//     {
-//       path: "../../../public/fonts/HeroNew-Bold.woff2",
-//       weight: "700",
-//       style: "italic",
-//     },
-//     {
-//       path: "../../../public/fonts/HeroNew-ExtraBold.woff2",
-//       weight: "800",
-//       style: "italic",
-//     },
-//   ],
-// });
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
 export const metadata = {
-  title: "WASSO Project Management LLC",
-  description: "wasso project management llc",
+  title: {
+    default: "WASSO Project Management LLC",
+    template: "%s | WASSO",
+  },
+  description: "Leading project management, engineering, and real estate development solutions across the UAE and GCC region.",
+  keywords: ["project management", "engineering", "real estate", "UAE", "construction", "workspace solutions"],
+  authors: [{ name: "WASSO Project Management LLC" }],
+  creator: "WASSO Project Management LLC",
+  publisher: "WASSO Project Management LLC",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    alternateLocale: "ar_AE",
+    siteName: "WASSO Project Management LLC",
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@wasso",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
+
+export const dynamic = "force-dynamic";
 
 export default async function RootLayout({ children, params }) {
   const resolvedParams = await params;
 
   const locale = resolvedParams.locale;
-  const dir = localeDirection[resolvedParams.locale];
+  const dir = localeDirection[resolvedParams.locale] || "ltr";
 
 
   
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/global`, {
-    cache: "no-store", // or "force-cache" if static
-  });
+  let globalData = null;
+  
+  try {
+    // During build, use relative URL or skip fetch
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+    const url = `${baseUrl}/api/global?locale=${locale}`;
+    
+    const res = await fetch(url, {
+      cache: "no-store",
+      next: { revalidate: 0 },
+    });
 
-  if (!res.ok) {
-    notFound();
+    if (res.ok) {
+      const response = await res.json();
+      globalData = response.data;
+    }
+  } catch (error) {
+    // Silently fail during build - will use fallback data
+    if (process.env.NODE_ENV !== 'production') {
+      console.error("Error fetching global data:", error);
+    }
   }
 
-  const { data } = await res.json();
+  // Fallback data if API fails
+  const fallbackData = {
+    header_data: {
+      name: "WASSO Project Management LLC",
+      name_ar: "واسو لإدارة المشاريع",
+      logoUrl: "/images/brand-logo-primary.svg",
+      logoWhiteUrl: "/images/brand-logo.svg",
+    },
+    navigation_data: [],
+    footer_data: {
+      name: "WASSO Project Management LLC",
+      name_ar: "واسو لإدارة المشاريع",
+      logoUrl: "/images/brand-logo-primary.svg",
+    },
+    social_link_data: [],
+  };
 
-  const {
-    sliders,
-    aboutSection,
-    formSection,
-    journeySection,
-    featuredSection,
-    projectSection,
-    fitsSection,
-    brandsSection,
-  } = data;
+  const data = globalData || fallbackData;
+
+  const fontVariable = getFontVariable(locale);
+  const fontClassName = getFontClassName(locale);
 
   return (
     <html
       lang={locale}
       dir={dir}
-      className={cn(
-        locale === "ar" ? "cairo.className" : "heroNew.className",
-        "antialiased",
-      )}
+      className={cn(fontVariable, "antialiased")}
+      suppressHydrationWarning
     >
+      <head>
+        {/* Preconnect to Google Fonts for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* DNS prefetch for external resources */}
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </head>
       <body
-        className={cn(
-          "antialiased",
-          locale === "ar" ? "font-cairo" : "font-hero",
-          geistSans.variable,
-        )}
+        className={cn("antialiased", fontClassName, fontVariable)}
+        suppressHydrationWarning
       >
         <Header
           locale={locale}
-          headerData={local_data.header_data}
-          navigationData={local_data.navigation_data}
+          headerData={data.header_data}
+          navigationData={data.navigation_data}
         />
 
-        <main>{children}</main>
+        <main className="min-h-screen">{children}</main>
 
         <Footer
           locale={locale}
-          footerData={local_data.footer_data}
-          socialLinkData={local_data.social_link_data}
+          footerData={data.footer_data}
+          socialLinkData={data.social_link_data}
         />
       </body>
     </html>
