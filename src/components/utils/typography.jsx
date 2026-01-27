@@ -6,15 +6,16 @@ import PropTypes from "prop-types";
 // Heading Variants
 // ============================================================================
 
-const headingVariants = cva("leading-tight tracking-tight font-light", {
+const headingVariants = cva("leading-tight font-light", {
   variants: {
     size: {
-      h1: "text-[24px] sm:text-[24px] lg:text-[28px] xl:text-[32px] 2xl:text-[40px] 3xl:text-[50px]",
-      h2: "text-[18px] sm:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[24px] 3xl:text-[30px]",
-      h3: "text-[16px] sm:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[20px]",
+      h1: "text-[36px] sm:text-[40px] lg:text-[48px] xl:text-[54px] 2xl:text-[65px] 3xl:text-[80px]",
+      h2: "text-[30px] sm:text-[36px] lg:text-[44px] xl:text-[48px] 2xl:text-[58px] 3xl:text-[70px]",
+      h3: "text-[26px] sm:text-[32px] lg:text-[38px] xl:text-[40px] 2xl:text-[48px] 3xl:text-[60px]",
+
       h4: "text-[14px] sm:text-[12px] lg:text-[13px] xl:text-[14px] 2xl:text-[16px] 3xl:text-[20px]",
-      h5: "text-[12px] sm:text-[12px] lg:text-[12px] xl:text-[12px] 2xl:text-[14px] 3xl:text-[16px]",
-      h6: "text-[20px] sm:text-[20px] lg:text-[24px] xl:text-[26px] 2xl:text-[32px] 3xl:text-[40px]",
+      h5: "text-[14px] sm:text-[16px] lg:text-[16px] xl:text-[17px] 2xl:text-[20px] 3xl:text-[25px]",
+      h6: "text-[14px] sm:text-[12px] lg:text-[13px] xl:text-[14px] 2xl:text-[16px] 3xl:text-[20px]",
     },
   },
   defaultVariants: {

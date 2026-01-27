@@ -68,10 +68,10 @@
   --container-3xl: 1800px;
 
   /* Header Sizes */
-  --header-y-sm: 60px;
-  --header-y-lg: 60px;
-  --header-y-2xl: 80px;
-  --header-y-3xl: 90px;
+  --header-y-sm: 100px;
+  --header-y-lg: 120px;
+  --header-y-2xl: 160px;
+  --header-y-3xl: 180px;
 
   --animate-scroll: scroll 40s forwards linear infinite;
 

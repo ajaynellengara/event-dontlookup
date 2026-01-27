@@ -14,7 +14,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 import dynamic from "next/dynamic";
-import { Menu, X } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const MediaQuery = dynamic(() => import("react-responsive"), {
   ssr: false,
@@ -42,6 +42,7 @@ export default function Header({ headerData, navigationData, locale }) {
   const [sheetOpen, setSheetOpen] = useState(true);
   const [isPending, startTransition] = useTransition();
   const [headerHover, setHeaderHover] = useState(true);
+  const [toggle, setToggle] = useState(false);
 
   const pathname = usePathname();
 
@@ -102,116 +103,105 @@ export default function Header({ headerData, navigationData, locale }) {
           headerHover
             ? "bg-white from-white to-white"
             : bg
-            ? showDarkHeader
-              ? "bg-white/90"
-              : "bg-black/90"
-            : showDarkHeader
-            ? "bg-linear-to-b from-white/20 to-white"
-            : "bg-linear-to-b from-black/20 to-transparent"
+              ? showDarkHeader
+                ? "bg-white/90"
+                : "bg-black/90"
+              : showDarkHeader
+                ? "bg-linear-to-b from-white/20 to-white"
+                : "bg-transparent",
         )}
       >
         <div className="container">
-          <div className="flex justify-between items-center gap-x-3 lg:gap-x-8">
-            {/* <MediaQuery maxWidth={1023}>
-              <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-                <SheetTrigger className="flex items-center gap-x-1.5 2xs:gap-x-2">
-                  <Menu
-                    size={18}
-                    strokeWidth={1}
-                    className={cn(
-                      "size-5",
-                      showDarkHeader ? "text-[#282828]" : "text-white"
-                    )}
-                  />
-                  <div
-                    className={cn(
-                      "w-[1px] h-5 2xs:h-6",
-                      showDarkHeader ? "bg-[#282828]/10" : "bg-white/10"
-                    )}
-                  />
-                </SheetTrigger>
-                <SheetContent
-                  className="max-w-[320px] sm:max-w-[320px] bg-white"
-                  side={locale === "ar" ? "right" : "left"}
-                >
-                  <SheetHeader className="sr-only">
-                    <SheetTitle>Navigation</SheetTitle>
-                    <SheetDescription>Navigation</SheetDescription>
-                  </SheetHeader>
-                  <Link
-                    href={`/${locale}/login`}
-                    className="text-[14px] leading-none font-light text-white min-h-(--header-y) h-(--header-y) bg-black flex items-center gap-x-2 px-4"
-                  >
-                    <Image
-                      src="/images/icon-user.svg"
-                      alt="user"
-                      width={12}
-                      height={12}
-                      unoptimized
-                      className="w-[15px]"
-                    />
-                    Login/Sign Up
-                  </Link>
-                  <div className="w-full h-[calc(100%_-_var(--header-y)} overflow-y-auto">
-                    <AnimatePresence mode="wait">
-                      {sheetOpen && (
-                        <motion.div
-                          key="menu-anim"
-                          variants={containerVariants}
-                          initial="hidden"
-                          animate="show"
-                          exit="exit"
-                        >
-                          <MobileHeaderNavigation
-                            locale={locale}
-                            pathname={pathname}
-                            menuItems={navigationData}
-                            onNavigationClick={handleNavigationLinkClick}
-                          />
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                  <SheetClose
-                    className={cn(
-                      "w-14 h-(--header-y) bg-[#121212] absolute z-1 top-0 rounded-none! flex items-center justify-center",
-                      locale === "ar" ? "left-0" : "right-0"
-                    )}
-                    asChild
-                  >
-                    <Button variant="none">
-                      <X className="size-5 text-white" />
-                    </Button>
-                  </SheetClose>
-                </SheetContent>
-              </Sheet>
-            </MediaQuery> */}
-
+          <div className="flex justify-end items-center gap-x-3 lg:gap-x-8 relative z-0">
             {/* Brand Logo */}
-            <div className="w-[80px] 2xs:w-[90px] sm:w-[100px] xl:w-[120px] 2xl:w-[140px] 3xl:w-[176px]">
-              <Link href={`/${locale}${headerData?.slug}`}>
-                <Image
-                  src={
-                    showDarkHeader
-                      ? headerData?.logoUrl
-                      : headerData?.logoWhiteUrl
-                  }
-                  alt={headerData?.name}
-                  width={176}
-                  height={57}
-                  unoptimized
-                  className="w-full h-full block object-contain"
-                  priority
-                />
-              </Link>
+            <div className="absolute left-1/2 -translate-x-1/2">
+              <div className="w-[80px] sm:w-[75px] 2xl:w-[90px] 3xl:w-[110px]">
+                <Link href={`/${locale}${headerData?.slug}`}>
+                  <Image
+                    src={
+                      showDarkHeader
+                        ? headerData?.logoUrl
+                        : headerData?.logoWhiteUrl
+                    }
+                    alt={headerData?.name}
+                    width={110}
+                    height={120}
+                    unoptimized
+                    className="w-full h-full block object-contain"
+                    priority
+                  />
+                </Link>
+              </div>
             </div>
 
             <div
               className={cn(
-                "flex-1 flex items-center justify-end lg:justify-between transition gap-x-[15px] 2xs:gap-x-[20px] sm:gap-sm-[30px] lg:gap-x-[30px] 2xl:gap-x-[40px]"
+                "flex items-center justify-end lg:justify-end transition gap-x-3.75 sm:gap-x-5 lg:gap-x-7.5 2xl:gap-x-10",
               )}
             >
+              {locale == "ar" ? (
+                <Button
+                  variant="none"
+                  onClick={() => switchLocale("ar")}
+                  className={cn(
+                    "text-[12px] leading-none font-normal uppercase p-0! gap-1",
+                    showDarkHeader ? "text-[#282828]" : "text-white",
+                  )}
+                >
+                  English
+                  <ChevronDown className="text-[10px]" />
+                </Button>
+              ) : (
+                <Button
+                  variant="none"
+                  onClick={() => switchLocale("en")}
+                  className={cn(
+                    "text-[12px] leading-none font-normal uppercase font-cairo p-0! gap-1",
+                    showDarkHeader ? "text-[#282828]" : "text-white",
+                  )}
+                >
+                  العربية
+                  <ChevronDown className="text-[10px]" />
+                </Button>
+              )}
+              <Button
+                variant="none"
+                size="none"
+                className={cn(
+                  "text-[12px] leading-none font-normal uppercase",
+                  showDarkHeader ? "text-black" : "text-white",
+                )}
+                asChild
+              >
+                <Link href={`/${locale}/contact`}>Contact Us</Link>
+              </Button>
+
               <MediaQuery minWidth={1024}>
+                <Button
+                  variant="none"
+                  size="none"
+                  onClick={() => setToggle((prev) => !prev)}
+                  className="flex flex-col items-end gap-1.5"
+                >
+                  {[1, 2, 3].map((item) => (
+                    <span
+                      key={item}
+                      className={cn(
+                        "h-0.5 rounded-full transition-all duration-300 ease-in-out origin-center",
+                        item === 1 && "w-8",
+                        item === 2 && "w-6",
+                        item === 3 && "w-8",
+                        showDarkHeader ? "bg-black" : "bg-white",
+
+                        // OPEN STATE
+                        toggle && item === 1 && "rotate-45 translate-y-2",
+                        toggle && item === 2 && "opacity-0 translate-x-2",
+                        toggle && item === 3 && "-rotate-45 -translate-y-2",
+                      )}
+                    />
+                  ))}
+                </Button>
+
                 {/* <HeaderNavigation
                   locale={locale}
                   pathname={pathname}
@@ -220,75 +210,6 @@ export default function Header({ headerData, navigationData, locale }) {
                   showDarkHeader={showDarkHeader}
                 /> */}
               </MediaQuery>
-              <Button variant="none" size="none" asChild>
-                <Link href={`/${locale}/cart`}>
-                  <Image
-                    src={
-                      showDarkHeader
-                        ? "/images/icon-bag-dark.svg"
-                        : "/images/icon-bag.svg"
-                    }
-                    alt="bag"
-                    width={12}
-                    height={12}
-                    unoptimized
-                    className="w-[15px] 2xl:w-[18px]"
-                  />
-                </Link>
-              </Button>
-              <Button variant="none" size="none" asChild>
-                <Link href={`/${locale}/account/profile`}>
-                  <Image
-                    src={
-                      showDarkHeader
-                        ? "/images/icon-user-dark.svg"
-                        : "/images/icon-user.svg"
-                    }
-                    alt="user"
-                    width={12}
-                    height={12}
-                    unoptimized
-                    className="w-[15px] 2xl:w-[18px]"
-                  />
-                </Link>
-              </Button>
-              {locale == "ar" ? (
-                <Button
-                  variant="link"
-                  onClick={() => switchLocale("ar")}
-                  className={cn(
-                    "text-[12px] leading-none font-normal font-cairo text-white min-w-[60px] sm:min-w-[60px] lg:min-w-[80px] 2xl:min-w-[100px] gap-1",
-                    showDarkHeader ? "text-[#282828]" : "text-white"
-                  )}
-                >
-                  <Image
-                    src="/images/lang-2.jpg"
-                    alt="lang-1"
-                    width={12}
-                    height={12}
-                    className="w-[15px] 2xl:w-[18px] aspect-square rounded-full block border-black border-1"
-                  />
-                  English
-                </Button>
-              ) : (
-                <Button
-                  variant="link"
-                  onClick={() => switchLocale("en")}
-                  className={cn(
-                    "text-[12px] leading-none font-normal font-cairo min-w-[60px] sm:min-w-[60px] lg:min-w-[80px] 2xl:min-w-[100px] gap-1",
-                    showDarkHeader ? "text-[#282828]" : "text-white"
-                  )}
-                >
-                  <Image
-                    src="/images/lang-1.jpg"
-                    alt="lang-1"
-                    width={12}
-                    height={12}
-                    className="w-[15px] 2xl:w-[18px] aspect-square rounded-full block border-black border-1"
-                  />
-                  العربية
-                </Button>
-              )}
             </div>
           </div>
         </div>

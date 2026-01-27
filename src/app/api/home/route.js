@@ -11,7 +11,7 @@ export async function GET(request) {
       sliders: [
         {
           id: 1,
-          title: "Designing Spaces, Defining Lifestyles",
+          title: "Designing Spaces,<span>Defining Lifestyles</span> ",
           title_ar: "تصميم المساحات، تعريف أنماط الحياة",
           project_tag: "PROJECT",
           project_tag_ar: "مشروع",
@@ -20,18 +20,12 @@ export async function GET(request) {
           media_type: "image",
           media_alt: "Skyline Heights Project",
           media_alt_ar: "مشروع سكايلاين هايتس",
-          media: {
-            desktop: {
-              path: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&h=1080&fit=crop",
-            },
-            mobile: {
-              path: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=1200&fit=crop",
-            },
-          },
+          media_desktop_path: "/images/home-hero-1.jpg",
+          media_mobile_path: "/images/home-hero-1.jpg",
         },
         {
           id: 2,
-          title: "Transforming Visions into Reality",
+          title: "Transforming Visions,<span> into Reality</span>",
           title_ar: "تحويل الرؤى إلى واقع",
           project_tag: "PROJECT",
           project_tag_ar: "مشروع",
@@ -40,41 +34,57 @@ export async function GET(request) {
           media_type: "image",
           media_alt: "IT Complex Project",
           media_alt_ar: "مشروع المجمع التقني",
-          media: {
-            desktop: {
-              path: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop",
-            },
-            mobile: {
-              path: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=1200&fit=crop",
-            },
-          },
+          media_desktop_path: "/images/home-hero-2.jpg",
+          media_mobile_path: "/images/home-hero-2.jpg",
         },
         {
           id: 3,
-          title: "Building Excellence, Creating Legacy",
+          title: "Building Excellence,<span> Creating Legacy</span>",
           title_ar: "بناء التميز، خلق الإرث",
           project_tag: "PROJECT",
           project_tag_ar: "مشروع",
-          project_name: "LUXURY RESIDENCE",
+          project_name: "GOLDEN DUNES APARTMENTS",
           project_name_ar: "الإقامة الفاخرة",
           media_type: "image",
           media_alt: "Luxury Residence Project",
           media_alt_ar: "مشروع الإقامة الفاخرة",
-          media: {
-            desktop: {
-              path: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1920&h=1080&fit=crop",
-            },
-            mobile: {
-              path: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=1200&fit=crop",
-            },
-          },
+          media_desktop_path: "/images/home-hero-3.jpg",
+          media_mobile_path: "/images/home-hero-3.jpg",
+        },
+        {
+          id: 4,
+          title: "Building Excellence,<span> Creating Legacy</span>",
+          title_ar: "بناء التميز، خلق الإرث",
+          project_tag: "PROJECT",
+          project_tag_ar: "مشروع",
+          project_name: "EMERALD OASIS HOMES",
+          project_name_ar: "الإقامة الفاخرة",
+          media_type: "image",
+          media_alt: "Luxury Residence Project",
+          media_alt_ar: "مشروع الإقامة الفاخرة",
+          media_desktop_path: "/images/home-hero-4.jpg",
+          media_mobile_path: "/images/home-hero-4.jpg",
+        },
+        {
+          id: 5,
+          title: "Building Excellence,<span> Creating Legacy</span>",
+          title_ar: "بناء التميز، خلق الإرث",
+          project_tag: "PROJECT",
+          project_tag_ar: "مشروع",
+          project_name: "BLUE HORIZON TOWERS",
+          project_name_ar: "الإقامة الفاخرة",
+          media_type: "image",
+          media_alt: "Luxury Residence Project",
+          media_alt_ar: "مشروع الإقامة الفاخرة",
+          media_desktop_path: "/images/home-hero-5.jpg",
+          media_mobile_path: "/images/home-hero-5.jpg",
         },
       ],
     },
 
     aboutSection: {
-      small_title: "ABOUT WASSO",
-      small_title_ar: "عن واسو",
+      sub_title: "ABOUT WASSO",
+      sub_title_ar: "عن واسو",
       title: "Discover the WASSO Difference",
       title_ar: "اكتشف الفرق في واسو",
       description:
@@ -132,20 +142,23 @@ export async function GET(request) {
           label: "Years of Experience",
           label_ar: "سنة من الخبرة",
           description: "Trusted project management solutions across the UAE.",
-          description_ar: "حلول إدارة مشاريع موثوقة في جميع أنحاء الإمارات العربية المتحدة.",
+          description_ar:
+            "حلول إدارة مشاريع موثوقة في جميع أنحاء الإمارات العربية المتحدة.",
         },
         {
           number: "50+",
           label: "Projects Delivered",
           label_ar: "مشروع تم تسليمه",
-          description: "Completed residential, commercial, and infrastructure projects.",
+          description:
+            "Completed residential, commercial, and infrastructure projects.",
           description_ar: "مشاريع سكنية وتجارية وبنية تحتية مكتملة.",
         },
         {
           number: "2B+",
           label: "Project Value Managed",
           label_ar: "قيمة المشاريع المدارة",
-          description: "Managing diverse projects with precision and efficiency.",
+          description:
+            "Managing diverse projects with precision and efficiency.",
           description_ar: "إدارة مشاريع متنوعة بدقة وكفاءة.",
         },
         {
@@ -153,7 +166,8 @@ export async function GET(request) {
           label: "Expert Professionals",
           label_ar: "محترف خبير",
           description: "Skilled team delivering quality, on-time execution.",
-          description_ar: "فريق ماهر يقدم تنفيذًا عالي الجودة وفي الوقت المحدد.",
+          description_ar:
+            "فريق ماهر يقدم تنفيذًا عالي الجودة وفي الوقت المحدد.",
         },
         {
           number: "95%",
@@ -382,6 +396,6 @@ export async function GET(request) {
       message_ar: "تم جلب بيانات الصفحة الرئيسية بنجاح",
       data: homeData,
     },
-    { status: 200 }
+    { status: 200 },
   );
 }
