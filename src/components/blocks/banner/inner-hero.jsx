@@ -9,10 +9,10 @@ import {
 import Image from "next/image";
 import parse from "html-react-parser";
 import { Heading } from "@/components/utils/typography";
-export default function ProductHero({ slug, data, locale }) {
+export default function innerHero({ slug, data, locale }) {
   return (
-    <section className="w-full">
-      <div className="w-full aspect-6/4 sm:aspect-1920/770 overflow-hidden bg-black flex items-end mt-[10px] sm:mt-[15px] xl:mt-[20px] 2xl:mt-[30px] relative z-0">
+    <section className="w-full aspect-6/4 sm:aspect-1920/770 overflow-hidden bg-black flex items-end relative z-0">
+      
         <div
           className= "w-full h-full bg-gradient-to-b from-black/50 via-transparent to-black/50 absolute -z-1 inset-0"
         />
@@ -81,7 +81,6 @@ export default function ProductHero({ slug, data, locale }) {
             </Breadcrumb>
           </div>
         </div>
-      </div>
     </section>
   );
 }

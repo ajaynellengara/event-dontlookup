@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ServiceList from "@/components/blocks/service/service-list";
-import ProductHero from "@/components/blocks/product/product-hero";
+import ProductHero from "@/components/blocks/banner/inner-hero";
 
 const local_data = {
   productInfo: {
@@ -79,7 +79,7 @@ export default async function ServicesPage({ params, searchParams }) {
         slug={"Services"}
       />
       
-    <ServiceList data={local_data?.serviceList} />
+    {/* <ServiceList data={local_data?.serviceList} /> */}
 
 
     <div className="min-h-screen">
