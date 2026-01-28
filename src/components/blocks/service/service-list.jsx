@@ -1,4 +1,8 @@
-export default function ServiceList({ data }) {
+import Image from "next/image";
+import parse from "html-react-parser";
+import { Button } from "@/components/ui/button";
+import { Heading } from "@/components/utils/typography";
+export default function ServiceList({ data, locale }) {
   return (
     <section className="w-full h-auto block bg-white relative z-0">
       <div className="container mx-auto px-4">

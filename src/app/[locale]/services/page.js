@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ServiceList from "@/components/blocks/service/service-list";
-import ProductHero from "@/components/blocks/product/product-hero";
+import ProductHero from "@/components/blocks/banner/inner-hero";
 
 const local_data = {
   productInfo: {
