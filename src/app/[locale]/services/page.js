@@ -1,5 +1,21 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import ServiceList from "@/components/blocks/service/service-list";
+import ProductHero from "@/components/blocks/product/product-hero";
+
+const local_data = {
+  productInfo: {
+    media: {
+      media_type: "image",
+      mobile_path: "/images/service-hero.webp",
+      desktop_path: "/images/service-hero.webp",
+      media_alt: "service-hero-1",
+    },
+    title_ar: "الخدمات",
+    title: "Our Services",
+  },
+}
+
 
 export const dynamic = "force-dynamic";
 
@@ -56,6 +72,16 @@ export default async function ServicesPage({ params, searchParams }) {
   const { services, pagination } = servicesData;
 
   return (
+  <>
+    <ProductHero
+        locale={locale}
+        data={local_data?.productInfo}
+        slug={"Services"}
+      />
+      
+    <ServiceList data={local_data?.serviceList} />
+
+
     <div className="min-h-screen">
       {/* Header */}
       <section className="bg-gray-900 py-16 text-white md:py-24">
@@ -143,5 +169,7 @@ export default async function ServicesPage({ params, searchParams }) {
         </div>
       </section>
     </div>
+
+    </>
   );
 }
