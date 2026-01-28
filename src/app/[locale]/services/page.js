@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ServiceList from "@/components/blocks/service/service-list";
-import ProductHero from "@/components/blocks/banner/inner-hero";
+import InnerHero from "@/components/blocks/banner/inner-hero";
 
 const local_data = {
   productInfo: {
@@ -73,7 +73,7 @@ export default async function ServicesPage({ params, searchParams }) {
 
   return (
   <>
-    <ProductHero
+    <InnerHero
         locale={locale}
         data={local_data?.productInfo}
         slug={"Services"}
