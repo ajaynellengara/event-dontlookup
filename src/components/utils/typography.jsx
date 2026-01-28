@@ -14,8 +14,10 @@ const headingVariants = cva("leading-tight font-light", {
       h3: "text-[26px] sm:text-[32px] lg:text-[38px] xl:text-[40px] 2xl:text-[48px] 3xl:text-[60px]",
 
       h4: "text-[14px] sm:text-[12px] lg:text-[13px] xl:text-[14px] 2xl:text-[16px] 3xl:text-[20px]",
+
       h5: "text-[14px] sm:text-[16px] lg:text-[16px] xl:text-[17px] 2xl:text-[20px] 3xl:text-[25px]",
       h6: "text-[14px] sm:text-[12px] lg:text-[13px] xl:text-[14px] 2xl:text-[16px] 3xl:text-[20px]",
+      h7: "text-[12px] 2xl:text-[14px] 3xl:text-[18px]",
     },
   },
   defaultVariants: {
@@ -27,16 +29,17 @@ const headingVariants = cva("leading-tight font-light", {
 // Text Variants
 // ============================================================================
 
-const textVariants = cva("leading-normal font-light", {
+const textVariants = cva("leading-normal font-normal", {
   variants: {
     size: {
-      sm: "text-[11px] lg:text-[11px] 2xl:text-[12px] 3xl:text-[14px]",
-      md: "text-[12px] lg:text-[12px] 2xl:text-[14px] 3xl:text-[18px]",
-      lg: "text-[12px] lg:text-[13px] 2xl:text-[16px] 3xl:text-[20px]",
+      p1: "text-[12px] lg:text-[13px] 2xl:text-[15px] 3xl:text-[18px]",
+      
+      p2: "text-[12px] lg:text-[12px] 2xl:text-[14px] 3xl:text-[18px]",
+      p3: "text-[12px] lg:text-[13px] 2xl:text-[16px] 3xl:text-[20px]",
     },
   },
   defaultVariants: {
-    size: "md",
+    size: "p1",
   },
 });
 

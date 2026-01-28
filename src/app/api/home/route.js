@@ -96,17 +96,16 @@ export async function GET(request) {
         label_ar: "اعرف المزيد",
         link: "/about",
       },
-      graphic: {
-        type: "image",
-        path: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
-        alt: "WASSO Graphic",
-        alt_ar: "رسم توضيحي لواسو",
-      },
+      media_type: "image",
+      media_alt: "WASSO Graphic",
+      media_alt_ar: "مشروع سكايلاين هايتس",
+      media_path:
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
       mission: {
         title: "Our Mission",
         title_ar: "مهمتنا",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
         description_ar:
           "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
       },
@@ -125,11 +124,9 @@ export async function GET(request) {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         description_ar:
           "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
-        logo: {
-          path: "/images/sister-concern-logo.png",
-          alt: "Sister Concern Logo",
-          alt_ar: "شعار الشركة الشقيقة",
-        },
+        logo_path: "/images/hwmn-logo.png",
+        logo_alt: "Sister Concern Logo",
+        logo_alt_ar: "شعار الشركة الشقيقة",
       },
     },
 
