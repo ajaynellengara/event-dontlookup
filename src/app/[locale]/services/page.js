@@ -79,7 +79,7 @@ export default async function ServicesPage({ params, searchParams }) {
         slug={"Services"}
       />
       
-    <ServiceList data={local_data?.serviceList} />
+    {/* <ServiceList data={local_data?.serviceList} /> */}
 
 
     <div className="min-h-screen">
