@@ -9,7 +9,7 @@ import {
 import Image from "next/image";
 import parse from "html-react-parser";
 import { Heading } from "@/components/utils/typography";
-export default function innerHero({ slug, data, locale }) {
+export default function InnerHero({ slug, data, locale }) {
   return (
     <section className="w-full aspect-6/4 sm:aspect-1920/770 overflow-hidden bg-black flex items-end relative z-0">
       
