@@ -101,7 +101,7 @@ function SubItems({ data, locale }) {
         size="p1"
         className="line-clamp-3 text-black mb-4 xl:mb-8 2xl:mb-10"
       >
-        {parse(locale == "ar" ? data?.description_ar : data?.description)}
+        {parse(locale == "ar" ? "data?.description_ar" : "data?.description")}
       </Text>
     </div>
   );

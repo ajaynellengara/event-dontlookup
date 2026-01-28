@@ -18,7 +18,7 @@
     "html-react-parser": "^5.2.11",
     "lucide-react": "^0.562.0",
     "motion": "^12.28.1",
-    "next": "16.1.4",
+    "next": "^16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-responsive": "^10.0.1",
