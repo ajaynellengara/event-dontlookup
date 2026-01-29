@@ -41,7 +41,7 @@ export default function Header({ headerData, navigationData, locale }) {
   const [bg, setBg] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(true);
   const [isPending, startTransition] = useTransition();
-  const [headerHover, setHeaderHover] = useState(true);
+  const [headerHover, setHeaderHover] = useState(false);
   const [toggle, setToggle] = useState(false);
 
   const pathname = usePathname();
@@ -107,7 +107,7 @@ export default function Header({ headerData, navigationData, locale }) {
                 ? "bg-white/90"
                 : "bg-black/90"
               : showDarkHeader
-                ? "bg-linear-to-b from-white/20 to-white"
+                ? "bg-linear-to-b from-white/20 to-transparent"
                 : "bg-transparent",
         )}
       >
@@ -118,11 +118,7 @@ export default function Header({ headerData, navigationData, locale }) {
               <div className="w-[80px] sm:w-[75px] 2xl:w-[90px] 3xl:w-[110px]">
                 <Link href={`/${locale}${headerData?.slug}`}>
                   <Image
-                    src={
-                      showDarkHeader
-                        ? headerData?.logoUrl
-                        : headerData?.logoWhiteUrl
-                    }
+                    src={headerData?.logoWhiteUrl}
                     alt={headerData?.name}
                     width={110}
                     height={120}

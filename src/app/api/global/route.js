@@ -20,7 +20,11 @@ export async function GET(request) {
       websiteUrl: "https://wasso.ae/",
       countryOfOrigin: "AE",
       establishedYear: "2025",
-      specialties: ["project management", "workspace solutions", "office furniture"],
+      specialties: [
+        "project management",
+        "workspace solutions",
+        "office furniture",
+      ],
       specialties_ar: ["إدارة المشاريع", "حلول مساحات العمل", "أثاث المكاتب"],
       isFeatured: true,
       sortOrder: 0,
@@ -199,10 +203,13 @@ export async function GET(request) {
       logoUrl: "/images/brand-footer-logo.svg",
       logoWhiteUrl: "/images/brand-logo.svg",
       address:
-        "<p>WASSO Project Management LLC<br /> Office No 133, Business Tower, Meydan Road,<br /> Al Qouz, Dubai P.O Box: 294568</p>",
+        "<p>WASSO Project Management LLC,<br /> 57PH+4PJ - Business Bay - Bay Square Dubai United Arab Emirates</p>",
       address_ar:
-        "<p>واسو لإدارة المشاريع ش.ذ.م.م<br /> مكتب رقم 133، برج الأعمال، طريق ميدان،<br /> القوز، دبي ص.ب: 294568</p>",
+        "<p>واسو لإدارة المشاريع ش.ذ.م.م<br /> مكتب رقم 133، برج الأعمال، طريق ميدان،294568</p>",
       websiteUrl: "https://wasso.ae/",
+      phone: ["+971 56 503 6378"],
+      email: ["sales@wasso.ae"],
+      location_map_link: "https://goo.gl/maps/example",
       services_navigation: [
         {
           id: "01",
@@ -212,19 +219,19 @@ export async function GET(request) {
         },
         {
           id: "02",
-          label: "Workspace Solutions",
+          label: "Engineering Supervision",
           label_ar: "حلول مساحات العمل",
           link: "/services/workspace-solutions",
         },
         {
           id: "03",
-          label: "Consulting",
+          label: "Contracts & Tenders",
           label_ar: "الاستشارات",
-          link: "/services/consulting",
+          link: "/services",
         },
         {
           id: "04",
-          label: "View All Services",
+          label: "Quality Assurance",
           label_ar: "عرض جميع الخدمات",
           link: "/services",
         },
@@ -244,71 +251,38 @@ export async function GET(request) {
         },
         {
           id: "03",
-          label: "Contact",
-          label_ar: "اتصل بنا",
-          link: "/contact",
-        },
-        {
-          id: "04",
           label: "Projects",
           label_ar: "المشاريع",
           link: "/projects",
         },
         {
+          id: "04",
+          label: "Our Verticals",
+          label_ar: "مجالاتنا الرأسية",
+          link: "/our-verticals",
+        },
+        {
           id: "05",
+          label: "Media Center",
+          label_ar: "مركز الإعلام",
+          link: "/media-center",
+        },
+        {
+          id: "06",
           label: "Careers",
           label_ar: "الوظائف",
           link: "/careers",
         },
-      ],
-      // other_link_navigation: [
-      //   {
-      //     id: "01",
-      //     label: "Privacy Policy",
-      //     label_ar: "سياسة الخصوصية",
-      //     link: "/privacy-policy",
-      //   },
-      //   {
-      //     id: "02",
-      //     label: "Terms & Conditions",
-      //     label_ar: "الشروط والأحكام",
-      //     link: "/terms-and-conditions",
-      //   },
-      //   {
-      //     id: "03",
-      //     label: "FAQ",
-      //     label_ar: "الأسئلة الشائعة",
-      //     link: "/faqs",
-      //   },
-      // ],
-      // sale_enquiry: {
-      //   title: "For Sales Enquiry",
-      //   title_ar: "للاستفسار عن المبيعات",
-      //   phone: "+971 56 503 6378",
-      //   email: "sales@wasso.ae",
-      // },
-      // support_enquiry: {
-      //   title: "For Support Enquiry",
-      //   title_ar: "للاستفسار عن الدعم",
-      //   phone: "+971 56 503 6379",
-      //   email: "support@wasso.ae",
-      // },
-      copyright: "<p>© 2025 WASSO. All Rights Reserved.</p>",
-      copyright_ar: "<p>© 2025 واسو لإدارة المشاريع ش.ذ.م.م. جميع الحقوق محفوظة.</p>",
-      // subscription_title: "<p>Stay Updated. Subscribe to Our Newsletter</p>",
-      // subscription_title_ar: "<p>ابق على اطلاع. اشترك في نشرتنا الإخبارية</p>",
-      card: [
         {
-          id: "01",
-          name: "card",
-          link: "https://www.bosq.ae/",
-          media: {
-            media_type: "image",
-            media_path: "/images/footer-card.png",
-            media_alt: "footer-card",
-          },
+          id: "07",
+          label: "Blog",
+          label_ar: "المدونة",
+          link: "/blog",
         },
       ],
+      copyright: "<p>© 2025 WASSO. All Rights Reserved.</p>",
+      copyright_ar:
+        "<p>© 2025 واسو لإدارة المشاريع ش.ذ.م.م. جميع الحقوق محفوظة.</p>",
     },
     social_link_data: [
       {
@@ -351,6 +325,16 @@ export async function GET(request) {
           media_alt: "social-linkedin",
         },
       },
+      {
+        id: "05",
+        name: "linkedin",
+        link: "https://www.linkedin.com/",
+        media: {
+          media_type: "image",
+          media_path: "/images/social-5.svg",
+          media_alt: "social-linkedin",
+        },
+      },
     ],
   };
 
@@ -361,6 +345,6 @@ export async function GET(request) {
       message_ar: "تم جلب البيانات العامة بنجاح",
       data: globalData,
     },
-    { status: 200 }
+    { status: 200 },
   );
 }
