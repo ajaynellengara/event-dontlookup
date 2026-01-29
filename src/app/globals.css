@@ -64,14 +64,14 @@
   --container-md: 48rem;
   --container-lg: 1024px;
   --container-xl: 1180px;
-  --container-2xl: 1420px;
+  --container-2xl: 1410px;
   --container-3xl: 1800px;
 
   /* Header Sizes */
   --header-y-sm: 100px;
   --header-y-lg: 120px;
-  --header-y-2xl: 160px;
-  --header-y-3xl: 180px;
+  --header-y-2xl: 155px;
+  --header-y-3xl: 170px;
 
   --animate-scroll: scroll 40s forwards linear infinite;
 

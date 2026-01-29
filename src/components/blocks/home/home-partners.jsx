@@ -4,8 +4,8 @@ import { Heading } from "@/components/utils/typography";
 
 import parse from "html-react-parser";
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 export default function HomePartners({ data, locale }) {
   const [visibleIndices, setVisibleIndices] = useState([]);
@@ -76,7 +76,7 @@ export default function HomePartners({ data, locale }) {
   }));
 
   return (
-    <section className="w-full h-auto block py-[30px_10px] sm:py-[40px_10px] xl:py-[70px_15px] 2xl:py-[90px_20px] overflow-hidden">
+    <section className="w-full h-auto block py-[30px_10px] sm:py-[40px_10px] xl:py-[70px_10px] 2xl:py-[90px_10px] overflow-hidden">
       <div
         className={cn(
           "w-full sm:max-w-[calc(var(--container-sm)/2+50%)] md:max-w-[calc(var(--container-md)/2+50%)] lg:max-w-[calc(var(--container-lg)/2+50%)] xl:max-w-[calc(var(--container-xl)/2+50%)] 2xl:max-w-[calc(var(--container-2xl)/2+50%)] 3xl:max-w-[calc(var(--container-3xl)/2+50%)]",
@@ -90,7 +90,7 @@ export default function HomePartners({ data, locale }) {
             <Heading
               as="div"
               size="h6"
-              className="tracking-widest font-normal text-[#1e1e1e] flex items-center gap-x-4 mb-1 xl:mb-2 2xl:mb-3"
+              className="tracking-widest font-normal text-[#1e1e1e] flex items-center gap-x-4 mb-1 xl:mb-1.5 2xl:mb-1.5"
             >
               <span className="size-2 rounded-full bg-[#c09c86] inline-block" />
               {parse(locale == "ar" ? data?.sub_title_ar : data?.sub_title)}
@@ -120,7 +120,7 @@ export default function HomePartners({ data, locale }) {
                         duration: 0.5,
                         ease: [0.4, 0, 0.2, 1],
                       }}
-                      className="absolute inset-0 p-3 xl:p-5"
+                      className="absolute inset-0 p-3 xl:p-5 2xl:p-8"
                     >
                       <motion.div
                         whileHover={{

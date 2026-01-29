@@ -197,7 +197,7 @@ export async function GET(request) {
       items: [
         {
           id: 1,
-          title: "Project Management",
+          title: "Project<br/> Management",
           title_ar: "إدارة المشاريع",
           description:
             "Our expert team of engineers and supervisors oversee construction works, ensuring that all activities meet technical specifications, safety regulations, and international best practices. This guarantees that your project is built to last.",
@@ -213,7 +213,7 @@ export async function GET(request) {
         },
         {
           id: 2,
-          title: "Engineering Supervision",
+          title: "Engineering<br/> Supervision",
           title_ar: "الإشراف الهندسي",
           description:
             "Our expert team of engineers and supervisors oversee construction works, ensuring that all activities meet technical specifications, safety regulations, and international best practices. This guarantees that your project is built to last.",

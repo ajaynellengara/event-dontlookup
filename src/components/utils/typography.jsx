@@ -9,12 +9,12 @@ import PropTypes from "prop-types";
 const headingVariants = cva("leading-tight font-light", {
   variants: {
     size: {
-      h1: "text-[36px] sm:text-[40px] lg:text-[48px] xl:text-[54px] 2xl:text-[65px] 3xl:text-[80px]",
-      h2: "text-[30px] sm:text-[36px] lg:text-[44px] xl:text-[48px] 2xl:text-[58px] 3xl:text-[70px]",
-      h3: "text-[26px] sm:text-[32px] lg:text-[38px] xl:text-[40px] 2xl:text-[48px] 3xl:text-[60px]",
-      h4: "text-[18px] xl:text-[20px] 2xl:text-[26px] 3xl:text-[30px]",
-      h5: "text-[14px] sm:text-[16px] lg:text-[16px] xl:text-[17px] 2xl:text-[20px] 3xl:text-[25px]",
-      h6: "text-[14px] sm:text-[12px] lg:text-[13px] xl:text-[14px] 2xl:text-[16px] 3xl:text-[20px]",
+      h1: "text-[36px] sm:text-[40px] lg:text-[54px] 2xl:text-[65px] 3xl:text-[80px]",
+      h2: "text-[30px] sm:text-[36px] lg:text-[48px] 2xl:text-[58px] 3xl:text-[70px]",
+      h3: "text-[26px] sm:text-[32px] lg:text-[40px] 2xl:text-[48px] 3xl:text-[60px]",
+      h4: "text-[18px] sm:text-[18px] lg:text-[20px] 2xl:text-[24px] 3xl:text-[30px]",
+      h5: "text-[14px] sm:text-[16px] lg:text-[17px] 2xl:text-[20px] 3xl:text-[25px]",
+      h6: "text-[13px] sm:text-[13px] lg:text-[14px] 2xl:text-[16px] 3xl:text-[20px]",
       h7: "text-[12px] 2xl:text-[14px] 3xl:text-[18px]",
     },
   },
@@ -31,9 +31,7 @@ const textVariants = cva("leading-normal font-normal", {
   variants: {
     size: {
       p1: "text-[12px] lg:text-[13px] 2xl:text-[15px] 3xl:text-[18px]",
-      p2: "text-[12px] lg:text-[11px] 2xl:text-[14px] 3xl:text-[16px]",
-
-      p3: "text-[12px] lg:text-[13px] 2xl:text-[16px] 3xl:text-[20px]",
+      p2: "text-[12px] lg:text-[11px] 2xl:text-[13px] 3xl:text-[16px]",
     },
   },
   defaultVariants: {

@@ -140,11 +140,11 @@ export default function Header({ headerData, navigationData, locale }) {
                   variant="none"
                   onClick={() => switchLocale("ar")}
                   className={cn(
-                    "text-[12px] leading-none font-normal uppercase p-0! gap-1",
+                    "text-[12px] 2xl:text-[14px] 3xl:text-[18px] leading-none font-normal p-0! gap-1",
                     showDarkHeader ? "text-[#282828]" : "text-white",
                   )}
                 >
-                  English
+                  EN
                   <ChevronDown className="text-[10px]" />
                 </Button>
               ) : (
@@ -152,11 +152,12 @@ export default function Header({ headerData, navigationData, locale }) {
                   variant="none"
                   onClick={() => switchLocale("en")}
                   className={cn(
-                    "text-[12px] leading-none font-normal uppercase font-cairo p-0! gap-1",
+                    "text-[12px] 2xl:text-[14px] 3xl:text-[18px] leading-none font-normal font-cairo p-0! gap-1",
                     showDarkHeader ? "text-[#282828]" : "text-white",
                   )}
                 >
-                  العربية
+                  EN
+                  {/* العر */}
                   <ChevronDown className="text-[10px]" />
                 </Button>
               )}
@@ -164,12 +165,12 @@ export default function Header({ headerData, navigationData, locale }) {
                 variant="none"
                 size="none"
                 className={cn(
-                  "text-[12px] leading-none font-normal uppercase",
+                  "text-[12px] 2xl:text-[14px] 3xl:text-[18px] leading-none font-normal",
                   showDarkHeader ? "text-black" : "text-white",
                 )}
                 asChild
               >
-                <Link href={`/${locale}/contact`}>Contact Us</Link>
+                <Link href={`/${locale}/contact`}>CONTACT US</Link>
               </Button>
 
               <MediaQuery minWidth={1024}>
@@ -177,22 +178,22 @@ export default function Header({ headerData, navigationData, locale }) {
                   variant="none"
                   size="none"
                   onClick={() => setToggle((prev) => !prev)}
-                  className="flex flex-col items-end gap-1.5"
+                  className="flex flex-col items-end gap-1 2xl:gap-1"
                 >
                   {[1, 2, 3].map((item) => (
                     <span
                       key={item}
                       className={cn(
                         "h-0.5 rounded-full transition-all duration-300 ease-in-out origin-center",
-                        item === 1 && "w-8",
-                        item === 2 && "w-6",
-                        item === 3 && "w-8",
+                        item === 1 && "w-4.5 2xl:w-5.5",
+                        item === 2 && "w-4 2xl:w-5",
+                        item === 3 && "w-4.5 2xl:w-5.5",
                         showDarkHeader ? "bg-black" : "bg-white",
 
                         // OPEN STATE
-                        toggle && item === 1 && "rotate-45 translate-y-2",
+                        toggle && item === 1 && "rotate-45 translate-y-1.5",
                         toggle && item === 2 && "opacity-0 translate-x-2",
-                        toggle && item === 3 && "-rotate-45 -translate-y-2",
+                        toggle && item === 3 && "-rotate-45 -translate-y-1.5",
                       )}
                     />
                   ))}

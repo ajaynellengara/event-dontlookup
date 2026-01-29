@@ -207,8 +207,8 @@ export async function GET(request) {
       address_ar:
         "<p>واسو لإدارة المشاريع ش.ذ.م.م<br /> مكتب رقم 133، برج الأعمال، طريق ميدان،294568</p>",
       websiteUrl: "https://wasso.ae/",
-      phone: ["+971 56 503 6378"],
-      email: ["sales@wasso.ae"],
+      phone: ["+971 4 123 4567"],
+      email: ["info@wassopm.com"],
       location_map_link: "https://goo.gl/maps/example",
       services_navigation: [
         {

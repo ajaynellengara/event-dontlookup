@@ -6,6 +6,7 @@ import parse from "html-react-parser";
 import { Heading, Text } from "@/components/utils/typography";
 
 import { Parallax, ParallaxProvider } from "react-scroll-parallax";
+import { cn } from "@/lib/utils";
 
 export default function HomeAbout({ data, locale }) {
   return (
@@ -17,7 +18,7 @@ export default function HomeAbout({ data, locale }) {
               <Heading
                 as="div"
                 size="h6"
-                className="tracking-widest font-normal text-[#1e1e1e] flex items-center gap-x-4 mb-2 xl:mb-4 2xl:mb-6"
+                className="tracking-widest font-normal text-[#1e1e1e] flex items-center gap-x-4 mb-1 xl:mb-2.5 2xl:mb-4"
               >
                 <span className="size-2 rounded-full bg-[#c09c86] inline-block" />
                 {parse(locale == "ar" ? data?.sub_title_ar : data?.sub_title)}
@@ -39,8 +40,9 @@ export default function HomeAbout({ data, locale }) {
                 )}
               </Text>
               <Button
-                variant={"black"}
-                className="min-w-[100px] sm:min-w-[120px] xl:min-w-[135px] 2xl:min-w-40"
+                size="lg"
+                variant={"outline"}
+                className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px]"
                 asChild
               >
                 <Link href={data?.button?.link}>
@@ -66,15 +68,20 @@ export default function HomeAbout({ data, locale }) {
             </div>
 
             <div className="w-full sm:w-4/12">
-              <div className="w-full max-w-[320px] ml-auto">
+              <div
+                className={cn(
+                  "w-full max-w-[320px] 2xl:max-w-[350px]",
+                  locale == "ar" ? "mr-auto" : "ml-auto",
+                )}
+              >
                 {data?.mission && (
                   <SubItems data={data?.mission} locale={locale} />
                 )}
-                <hr className="my-3 xl:my-5 border-[#d9d9d9]" />
+                <hr className="my-3 xl:my-5 2xl:my-6 border-[#d9d9d9]" />
                 {data?.vision && (
                   <SubItems data={data?.vision} locale={locale} />
                 )}
-                <hr className="my-3 xl:my-5 border-[#d9d9d9]" />
+                <hr className="my-3 xl:my-5 2xl:my-6 border-[#d9d9d9]" />
                 {data?.sister_concern && (
                   <SubItems data={data?.sister_concern} locale={locale} />
                 )}
@@ -102,7 +109,7 @@ function SubItems({ data, locale }) {
             alt={locale == "ar" ? data?.logo_alt_ar : data?.logo_alt}
             width={52}
             height={27}
-            className="w-[40px] xl:w-[50px]"
+            className="w-[40px] xl:w-[50px] 2xl:w-[60px]"
           />
         )}
       </Heading>

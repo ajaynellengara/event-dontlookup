@@ -129,7 +129,7 @@ export default function HomeHero({ data, locale }) {
               >
                 <div
                   className={cn(
-                    "w-full h-full bg-linear-to-b from-black/50 via-transparent to-black/50 absolute -z-1 inset-0 ",
+                    "w-full h-full bg-linear-to-b from-black/70 via-transparent to-black/60 absolute -z-1 inset-0 ",
                   )}
                 />
 
@@ -199,7 +199,7 @@ export default function HomeHero({ data, locale }) {
                         <Heading
                           as="h6"
                           size="h6"
-                          className="text-end tracking-widest font-normal text-white mb-1 xl:mb-2"
+                          className="text-end tracking-widest font-normal text-white/50 mb-1 xl:mb-2"
                         >
                           {locale === "ar"
                             ? item?.project_tag_ar
@@ -208,7 +208,7 @@ export default function HomeHero({ data, locale }) {
                         <Heading
                           as="h5"
                           size="h5"
-                          className="text-end font-medium tracking-widest text-white"
+                          className="text-end font-medium tracking-widest text-white/50"
                         >
                           {locale === "ar"
                             ? item?.project_name_ar

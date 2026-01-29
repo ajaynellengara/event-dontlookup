@@ -6,33 +6,21 @@ import parse from "html-react-parser";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
-import dynamic from "next/dynamic";
 import { useState } from "react";
 import { Heading, Text } from "../utils/typography";
+
+import dynamic from "next/dynamic";
 
 const MediaQuery = dynamic(() => import("react-responsive"), {
   ssr: false,
 });
 
 export default function Footer({ footerData, socialLinkData, locale }) {
-  const placeholders = [
-    "Enter Your Email",
-    "Enter Your Email Address",
-    "Subscribe to our newsletter",
-  ];
-
-  const handleChange = (e) => {
-    console.log(e.target.value);
-  };
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log("submitted");
-  };
   return (
-    <footer className="w-full py-[30px_20px] xl:py-[60px_30px] 2xl:py-[70px_40px] overflow-hidden bg-[#fffbf2] relative z-0">
+    <footer className="w-full py-[30px_20px] xl:py-[60px_30px] 2xl:py-[60px_40px] overflow-hidden bg-[#fffbf2] relative z-0">
       <div className="container">
-        <div className="flex flex-wrap -mx-2.5 sm:-mx-3 xl:-mx-5 2xl:-mx-7.5 [&>*]:p-2.5 sm:[&>*]:p-3 xl:[&>*]:p-5 2xl:[&>*]:p-7.5 ">
-          <div className="w-full lg:w-[24%] ">
+        <div className="flex flex-wrap -mx-2.5 sm:-mx-3 xl:-mx-5 2xl:-mx-7.5 [&>*]:p-2.5 sm:[&>*]:p-3 xl:[&>*]:p-5 2xl:[&>*]:p-7.5">
+          <div className="w-full lg:w-[24%] 2xl:w-[23.5%]">
             {footerData?.quick_link_navigation && (
               <div className="w-full">
                 <MediaQuery minWidth={1024}>
@@ -42,7 +30,7 @@ export default function Footer({ footerData, socialLinkData, locale }) {
                       size="h7"
                       className="font-medium text-[#c09c86] mb-1 xl:mb-2.5 2xl:mb-4"
                     >
-                      QUICK LINKS
+                      {locale == "ar" ? "QUICK LINKS ar" : "QUICK LINKS"}
                     </Heading>
                     {footerData?.quick_link_navigation?.map((item, index) => (
                       <div key={"quick_link_navigation" + index}>
@@ -80,7 +68,7 @@ export default function Footer({ footerData, socialLinkData, locale }) {
             )}
           </div>
 
-          <div className="w-full lg:w-[26%]">
+          <div className="w-full lg:w-[26%] 2xl:w-[27%]">
             {footerData?.services_navigation && (
               <div className="w-full">
                 <MediaQuery minWidth={1024}>
@@ -90,7 +78,7 @@ export default function Footer({ footerData, socialLinkData, locale }) {
                       size="h7"
                       className="font-medium text-[#c09c86] mb-1 xl:mb-2.5 2xl:mb-4"
                     >
-                      SERVICES
+                      {locale == "ar" ? "SERVICES ar" : "SERVICES"}
                     </Heading>
                     {footerData?.services_navigation?.map((item, index) => (
                       <div key={"services_navigation" + index}>
@@ -134,7 +122,7 @@ export default function Footer({ footerData, socialLinkData, locale }) {
                   size="h7"
                   className="font-medium text-[#c09c86] mb-1 xl:mb-2.5 2xl:mb-4"
                 >
-                  FOLLOW US
+                  {locale == "ar" ? "FOLLOW US ar" : "FOLLOW US"}
                 </Heading>
                 <div className="flex flex-wrap items-center gap-x-3 xl:gap-x-5">
                   {socialLinkData?.map((item, index) => (
@@ -158,10 +146,10 @@ export default function Footer({ footerData, socialLinkData, locale }) {
             )}
           </div>
 
-          <div className="w-full lg:w-[24%]">
+          <div className="w-full lg:w-[24%] 2xl:w-[23%]">
             <Link
               href={`/${locale}/${footerData?.slug}`}
-              className="w-[120px] xl:w-[160px] 2xl:w-[240px] block"
+              className="w-[120px] xl:w-[160px] 2xl:w-[200px] block"
             >
               <Image
                 src={footerData?.logoUrl}
@@ -174,7 +162,7 @@ export default function Footer({ footerData, socialLinkData, locale }) {
             </Link>
           </div>
 
-          <div className="w-full lg:w-[26%] ">
+          <div className="w-full lg:w-[26%] 2xl:w-[24%]">
             {footerData?.address && (
               <div>
                 <Heading
@@ -182,7 +170,7 @@ export default function Footer({ footerData, socialLinkData, locale }) {
                   size="h7"
                   className="font-medium text-[#c09c86] mb-1 xl:mb-2.5 2xl:mb-4"
                 >
-                  CONTACT US
+                  {locale == "ar" ? "CONTACT US ar" : "CONTACT US"}
                 </Heading>
                 <Heading
                   as="div"
@@ -255,11 +243,9 @@ export default function Footer({ footerData, socialLinkData, locale }) {
             )}
             {footerData?.location_map_link && (
               <Button
-                variant="link"
-                size="none"
-                className={
-                  "min-w-20 sm:min-w-25 xl:min-w-30 2xl:min-w-55 h-8 bg-red-500"
-                }
+                size="lg"
+                variant={"outline"}
+                className="text-[#cda278] min-w-[100px] xl:min-w-[100px] 2xl:min-w-[130px]"
                 asChild
               >
                 <a href={footerData?.location_map_link} target="_blank">
@@ -273,7 +259,7 @@ export default function Footer({ footerData, socialLinkData, locale }) {
                     className="w-3 xl:w-5 block"
                     unoptimized
                   />
-                  Locate on Map
+                  {locale == "ar" ? "Locate on Map ar" : "Locate on Map"}
                 </a>
               </Button>
             )}
@@ -281,23 +267,23 @@ export default function Footer({ footerData, socialLinkData, locale }) {
         </div>
 
         <div className="flex items-center justify-center sm:justify-between  gap-x-5 mt-6 xl:mt-8 2xl:mt-10">
-          <Text as="div" size="p2" className="tracking-wider text-[#1e1e1e]">
+          <Text as="div" size="p2" className="tracking-wide text-[#1e1e1e]">
             {parse(footerData?.copyright)}
           </Text>
           <hr className="border-[#eadcce] flex-1" />
           <Text
             as="div"
             size="p2"
-            className="whitespace-nowrap text-end tracking-wider text-[#1e1e1e] flex"
+            className="whitespace-nowrap text-end tracking-wide text-[#1e1e1e] flex"
           >
-            Designed By:{" "}
+            {locale == "ar" ? "Designed By: ar" : "Designed By:"}{" "}
             <a href="https://www.intersmartsolution.com/" target="_blank">
               <Image
                 src="/images/footer-author.svg"
                 alt="footer-author"
                 width={100}
                 height={20}
-                className="w-[50px] xl:w-[70px] 2xl:w-[100px] inline ml-1"
+                className="w-[50px] xl:w-[70px] 2xl:w-[85px] inline ml-1"
                 unoptimized
               />
             </a>
