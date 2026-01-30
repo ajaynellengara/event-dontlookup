@@ -4,6 +4,8 @@ import { locales, localeDirection } from "../../il8n/config";
 import { poppins, cairo, getFontVariable, getFontClassName } from "@/lib/fonts";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import CursorFollower from "@/components/animations/cursor-follower";
+import PageLoader from "@/components/animations/page-loader";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -122,6 +124,9 @@ export default async function RootLayout({ children, params }) {
         className={cn("antialiased", fontClassName, fontVariable)}
         suppressHydrationWarning
       >
+        <PageLoader />
+        <CursorFollower />
+
         <Header
           locale={locale}
           headerData={data.header_data}

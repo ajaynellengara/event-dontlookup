@@ -6,6 +6,7 @@ import parse from "html-react-parser";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import ScrollReveal from "@/components/animations/scroll-reveal";
 
 export default function HomePartners({ data, locale }) {
   const [visibleIndices, setVisibleIndices] = useState([]);
@@ -87,14 +88,16 @@ export default function HomePartners({ data, locale }) {
       >
         <div className="flex flex-wrap items-center -mx-1 [&>*]:p-1">
           <div className="w-4/12">
-            <Heading
-              as="div"
-              size="h6"
-              className="tracking-widest font-normal text-[#1e1e1e] flex items-center gap-x-4 mb-1 xl:mb-1.5 2xl:mb-1.5"
-            >
-              <span className="size-2 rounded-full bg-[#c09c86] inline-block" />
-              {parse(locale == "ar" ? data?.sub_title_ar : data?.sub_title)}
-            </Heading>
+            <ScrollReveal delay={0.1}>
+              <Heading
+                as="div"
+                size="h6"
+                className="tracking-widest font-normal text-[#1e1e1e] flex items-center gap-x-4 mb-1 xl:mb-1.5 2xl:mb-1.5"
+              >
+                <span className="size-2 rounded-full bg-[#c09c86] inline-block" />
+                {parse(locale == "ar" ? data?.sub_title_ar : data?.sub_title)}
+              </Heading>
+            </ScrollReveal>
             <Heading as="h2" size="h3" className="font-normal text-[#1e1e1e]">
               {parse(locale == "ar" ? data?.title_ar : data?.title)}
             </Heading>
@@ -107,7 +110,7 @@ export default function HomePartners({ data, locale }) {
                 <div
                   key={`slot-${index}`}
                   className={cn(
-                    "w-full h-full aspect-[16/11] relative bg-white",
+                    "w-full h-full aspect-[16/11] relative bg-white select-none",
                   )}
                 >
                   {item && (
@@ -151,7 +154,7 @@ export default function HomePartners({ data, locale }) {
           </div>
         </div>
       </div>
-      <div className="container mt-[40px] sm:mt-[60px] xl:mt-[90px] 2xl:mt-[120px]">
+      <div className="container mt-[40px] sm:mt-[60px] xl:mt-[90px] 2xl:mt-[120px] pointer-events-none">
         <Image
           src={"/images/home-delmt-1.svg"}
           alt={"home-delmt-1"}

@@ -14,6 +14,7 @@ import Image from "next/image";
 
 import { motion } from "motion/react";
 import { Skeleton } from "@/components/ui/skeleton";
+import ScrollReveal from "@/components/animations/scroll-reveal";
 
 export default function HomeServices({ data, locale }) {
   const [emblaRef] = useEmblaCarousel(
@@ -26,14 +27,16 @@ export default function HomeServices({ data, locale }) {
       <div className="container">
         <div className="flex flex-wrap mb-6 xl:mb-10 2xl:mb-14">
           <div className="w-7/12">
-            <Heading
-              as="div"
-              size="h6"
-              className="tracking-widest font-normal text-[#1e1e1e] flex items-center gap-x-4 mb-1 xl:mb-1.5 2xl:mb-1.5"
-            >
-              <span className="size-2 rounded-full bg-[#c09c86] inline-block" />
-              {parse(locale == "ar" ? data?.sub_title_ar : data?.sub_title)}
-            </Heading>
+            <ScrollReveal delay={0.1}>
+              <Heading
+                as="div"
+                size="h6"
+                className="tracking-widest font-normal text-[#1e1e1e] flex items-center gap-x-4 mb-1 xl:mb-1.5 2xl:mb-1.5"
+              >
+                <span className="size-2 rounded-full bg-[#c09c86] inline-block" />
+                {parse(locale == "ar" ? data?.sub_title_ar : data?.sub_title)}
+              </Heading>
+            </ScrollReveal>
             <Heading
               as="h2"
               size="h3"
@@ -55,7 +58,7 @@ export default function HomeServices({ data, locale }) {
             <Button
               size="lg"
               variant={"outline"}
-              className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px]"
+              className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px] transition-all duration-300 hover:scale-105 hover:shadow-lg"
               asChild
             >
               <Link href={data?.button?.link}>
@@ -157,7 +160,7 @@ function ServiceCard({ data, index, locale }) {
               <Button
                 size="lg"
                 variant={"outline"}
-                className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px]"
+                className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px] transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 asChild
               >
                 <Link href={data?.slug}>
