@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { Heading, Text } from "@/components/utils/typography";
 import { cn } from "@/lib/utils";
 import parse from "html-react-parser";
 import Image from "next/image";
@@ -8,7 +10,7 @@ export default function ServiceCard({ data, index, locale }) {
   return (
     <div
       className={cn(
-        "group relative h-full w-full bg-[#FAFAFA] overflow-hidden rounded-md p-6 sm:p-[35px_35px_50px] 2xl:p-[45px_45px_80px] transition-colors duration-300",
+        "group relative h-full w-full bg-[#FAFAFA] overflow-hidden p-[20px_20px_30px] sm:p-[25px_25px_40px] lg:p-[35px_35px_50px] 2xl:p-[45px_45px_80px] transition-colors duration-300",
         index % 2 === 0 ? "hover:bg-[#FFFBF2]" : "bg-[#FAFAFA]",
       )}
     >
@@ -25,32 +27,40 @@ export default function ServiceCard({ data, index, locale }) {
       )}
 
       <div className="flex items-start justify-between">
-        <div className="w-[40px] xl:w-[56px] 2xl:w-[80px] 3xl:w-[120px] h-[40px] xl:h-[56px] 2xl:h-[80px] 3xl:h-[120px]">
+        <div className="w-[40px] sm:w-[50px] md:w-[60px] xl:w-[76px] 2xl:w-[100px] 3xl:w-[120px] h-[40px] sm:h-[50px] md:h-[60px] xl:h-[76px] 2xl:h-[100px] 3xl:h-[120px]">
           <Image
             src={data?.icon || "/images/icon-placeholder.svg"}
             alt={data?.title}
-            width={56}
-            height={56}
+            width={120}
+            height={120}
             className="h-full w-full object-contain"
           />
         </div>
-
-        <Link
-          href={data?.slug ?? "#"}
-          className="rounded-[10px] border border-[#E2C2A4] px-7 py-2 text-xs font-medium text-black transition hover:bg-black hover:text-white"
+        <Button
+          variant={"black"}
+          className="min-w-[90px] sm:min-w-[100px] xl:min-w-[110px] 2xl:min-w-[120px] 3xl:min-w-[160px] h-[30px] lg:h-[35px] 2xl:h-[45px] 3xl:h-[50px]  rounded-[10px] border border-[#E2C2A4]  transition hover:bg-black hover:text-white"
+          asChild
         >
-          Know More
-        </Link>
+          <Link
+            href={"/service"}
+            className="text-[12px] lg:text-[13px] 2xl:text-[15px] 3xl:text-[18px]"
+          >
+            {locale == "ar" ? "اعرف المزيد" : "Know More"}
+          </Link>
+        </Button>
       </div>
 
-      <div className="mt-4 xl:mt-6 2xl:mt-8 max-w-[80%] 2xl:max-w-[52%]">
-        <h3 className="mb-4 text-xl font-semibold text-black">
+      <div className="mt-4 xl:mt-6 2xl:mt-8 xl:max-w-[74%] 2xl:max-w-[65%] 3xl:max-w-[52%]">
+        <Heading
+          as="h4"
+          size="h4"
+          className="mb-4 text-xl font-normal text-black text-[16px] sm:text-[18px] lg:text-[22px] xl:text-[26px] 2xl:text-[35px] 3xl:text-[40px]"
+        >
           {parse(locale === "ar" ? data?.title_ar : data?.title)}
-        </h3>
-
-        <p className="max-w-md text-sm leading-relaxed text-gray-600">
+        </Heading>
+        <Text as="div" size="p1" className="font-normal line-clamp-3 text-[#1E1E1E]">
           {parse(locale == "ar" ? data?.description_ar : data?.description)}
-        </p>
+        </Text>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+"use client";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,59 +9,62 @@ import {
 } from "@/components/ui/breadcrumb";
 import Image from "next/image";
 import parse from "html-react-parser";
+
 import { Heading } from "@/components/utils/typography";
+import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 export default function InnerHero({ slug, data, locale }) {
   return (
-    <section className="w-full aspect-6/4 sm:aspect-1920/770 overflow-hidden bg-black flex items-end relative z-0">
-        <div className= "w-full h-full bg-gradient-to-b from-black/50 via-transparent to-black/50 absolute -z-1 inset-0"
-        />
-        {data?.media?.media_type === "video" ? (
-          <>
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover absolute -z-2 inset-0 opacity-80 block sm:hidden"
-            >
-              <source src={data?.media?.mobile_path} type="video/mp4" />
-            </video>
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover absolute -z-2 inset-0 opacity-80 hidden sm:block"
-            >
-              <source src={data?.media?.desktop_path} type="image/webp" />
-            </video>
-          </>
-        ) : (
-          <picture className="absolute -z-2 inset-0 opacity-95">
-            <source
-              media="(max-width: 640px)"
-              srcSet={data?.media?.mobile_path}
-            />
-            <Image
-              src={data?.media?.desktop_path}
-              alt={data?.media?.media_alt}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 80vw"
-              className="-z-2 object-cover"
-              placeholder="blur"
-              blurDataURL="/images/placeholder.jpg"
-            />
-          </picture>
-        )}
+    <ParallaxProvider>
+      <section className="w-full aspect-6/4 sm:aspect-1920/770 overflow-hidden bg-black flex items-end relative z-0">
+        <div className="w-full h-full bg-gradient-to-b from-black/50 via-transparent to-black/50 absolute -z-1 inset-0" />
+        <Parallax speed={-30} className="absolute -z-2 inset-0">
+          {data?.media?.media_type === "video" ? (
+            <>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover absolute -z-2 inset-0 opacity-80 block sm:hidden"
+              >
+                <source src={data?.media?.mobile_path} type="video/mp4" />
+              </video>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover absolute -z-2 inset-0 opacity-80 hidden sm:block"
+              >
+                <source src={data?.media?.desktop_path} type="image/webp" />
+              </video>
+            </>
+          ) : (
+            <picture className="absolute -z-2 inset-0 opacity-95">
+              <source
+                media="(max-width: 640px)"
+                srcSet={data?.media?.mobile_path}
+              />
+              <Image
+                src={data?.media?.desktop_path}
+                alt={data?.media?.media_alt}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 80vw"
+                className="-z-2 object-cover"
+                placeholder="blur"
+                blurDataURL="/images/placeholder.jpg"
+              />
+            </picture>
+          )}
+        </Parallax>
         <div className="container">
           <div className="w-full sm:max-w-1/2 xl:max-w-[468px] 2xl:max-w-[576px] 2xl:max-w-[676px] py-[20px] sm:py-[40px] xl:py-[60px] 2xl:py-[80px]">
             <Heading
               as="h2"
               size="h2"
-              className="leading-snug text-white mb-4 xl:mb-5 2xl:mb-6 [&>span]:text-[128%] [&>span]:font-medium [&>span]:block"
+              className="leading-snug text-white mb-1 [&>span]:text-[128%] [&>span]:font-medium [&>span]:block"
             >
-              {parse (locale == "ar" ? data?.title_ar : data?.title)}
-             
+              {parse(locale == "ar" ? data?.title_ar : data?.title)}
             </Heading>
             <Breadcrumb className="mb-1 xl:mb-2">
               <BreadcrumbList>
@@ -79,6 +83,7 @@ export default function InnerHero({ slug, data, locale }) {
             </Breadcrumb>
           </div>
         </div>
-    </section>
+      </section>
+    </ParallaxProvider>
   );
 }

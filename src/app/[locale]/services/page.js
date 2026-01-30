@@ -37,8 +37,6 @@ const local_data = {
         },
       ],
   },
-
-  
 };
 
 
@@ -110,8 +108,6 @@ export default async function ServicesPage({ params, searchParams }) {
       data={local_data?.serviceList}
       locale={locale}
     />
-
-
 
 
     <div className="min-h-screen">
