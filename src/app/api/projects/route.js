@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const locale = searchParams.get("locale") || "en";
-  
+
   const projectsPageData = {
     id: "projects_page",
     slug: "projects",
@@ -192,8 +192,6 @@ export async function GET(request) {
   );
 }
 
-
-
 // import { NextResponse } from "next/server";
 
 // /**
@@ -205,7 +203,6 @@ export async function GET(request) {
 //   const category = searchParams.get("category") || null;
 //   const page = parseInt(searchParams.get("page") || "1");
 //   const limit = parseInt(searchParams.get("limit") || "10");
-
 
 //   const allProjects = [
 //     {
