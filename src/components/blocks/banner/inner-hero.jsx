@@ -12,9 +12,7 @@ import { Heading } from "@/components/utils/typography";
 export default function InnerHero({ slug, data, locale }) {
   return (
     <section className="w-full aspect-6/4 sm:aspect-1920/770 overflow-hidden bg-black flex items-end relative z-0">
-      
-        <div
-          className= "w-full h-full bg-gradient-to-b from-black/50 via-transparent to-black/50 absolute -z-1 inset-0"
+        <div className= "w-full h-full bg-gradient-to-b from-black/50 via-transparent to-black/50 absolute -z-1 inset-0"
         />
         {data?.media?.media_type === "video" ? (
           <>

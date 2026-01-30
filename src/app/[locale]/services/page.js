@@ -4,17 +4,43 @@ import ServiceList from "@/components/blocks/service/service-list";
 import InnerHero from "@/components/blocks/banner/inner-hero";
 
 const local_data = {
-  productInfo: {
+  heroInfo: {
     media: {
       media_type: "image",
       mobile_path: "/images/service-hero.webp",
       desktop_path: "/images/service-hero.webp",
       media_alt: "service-hero-1",
     },
-    title_ar: "الخدمات",
     title: "Our Services",
+    title_ar: "الخدمات",
   },
-}
+
+  serviceList: {
+    sub_title: "WHAT WE DO",
+    sub_title_ar: "ماذا نقدم",
+
+    title: "Comprehensive Project Solutions",
+    title_ar: "خدمات <span>احترافية</span>",
+
+    description:
+      "Wasso is a leading project management company committed to delivering excellence in construction and engineering solutions. We specialize in providing end-to-end services that ensure projects are completed on time, within budget, and to the highest quality standards. With expertise in project management, engineering supervision, contracts & tenders management, and quality",
+    description_ar:
+      "نقدم حلولاً متكاملة في إدارة المشاريع، والإشراف الهندسي، وإدارة العقود، وضمان الجودة.",
+
+    services: [
+        {
+          id: 1,
+          title: "Project Management",
+          description: " At Wasso, we understand that successful projects require more thanplanning — they demand foresight, coordination, and commitment.",
+          slug: "/services/project-management",
+          icon: "/images/service-icon.svg",
+        },
+      ],
+  },
+
+  
+};
+
 
 
 export const dynamic = "force-dynamic";
@@ -31,6 +57,7 @@ export async function generateMetadata({ params }) {
         : "Browse our services in project management, engineering supervision, contracts management, and quality assurance",
   };
 }
+
 
 export default async function ServicesPage({ params, searchParams }) {
   const resolvedParams = await params;
@@ -75,11 +102,16 @@ export default async function ServicesPage({ params, searchParams }) {
   <>
     <InnerHero
         locale={locale}
-        data={local_data?.productInfo}
+        data={local_data?.heroInfo}
         slug={"Services"}
-      />
+        />
       
-    {/* <ServiceList data={local_data?.serviceList} /> */}
+    <ServiceList 
+      data={local_data?.serviceList}
+      locale={locale}
+    />
+
+
 
 
     <div className="min-h-screen">
@@ -89,7 +121,7 @@ export default async function ServicesPage({ params, searchParams }) {
           <h1 className="mb-4 text-4xl font-bold md:text-5xl">
             {locale === "ar" ? "خدماتنا" : "Our Services"}
           </h1>
-          <p className="text-lg text-gray-300">
+          <p className="text-lg text-black">
             {locale === "ar"
               ? "حلول شاملة في إدارة المشاريع والهندسة وتطوير العقارات"
               : "Comprehensive solutions in project management, engineering, and real estate development"}
@@ -124,7 +156,7 @@ export default async function ServicesPage({ params, searchParams }) {
                       <h3 className="mb-2 text-xl font-semibold">
                         {locale === "ar" ? service.title_ar : service.title}
                       </h3>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-black">
                         {locale === "ar"
                           ? service.short_description_ar
                           : service.short_description}
