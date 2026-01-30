@@ -33,8 +33,8 @@ export async function GET(request) {
       ],
       media: {
         type: "image",
-        desktop: "/images/projects/projects-hero.jpg",
-        mobile: "/images/projects/projects-hero-m.jpg",
+        desktop: "/images/projects/project-banner.jpg",
+        mobile: "/images/projects/project-banner-m.jpg",
         alt: "WASSO Projects",
         alt_ar: "مشاريع واسو",
       },

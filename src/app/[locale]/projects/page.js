@@ -1,6 +1,23 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ProjectMonth from "@/components/blocks/project/project-month";
+import InnerHero from "@/components/blocks/banner/inner-hero";
+import SuccessStories from "@/components/blocks/project/success-stories";
+
+
+const local_data = {
+  productInfo: {
+    media: {
+      media_type: "image",
+      mobile_path: "/images/project-banner.jpg",
+      desktop_path: "/images/project-banner.jpg",
+      media_alt: "service-hero-1",
+    },
+    title_ar: "الخدمات",
+    title: "Our Projects",
+  },
+}
+
 
 export const dynamic = "force-dynamic";
 
@@ -20,7 +37,6 @@ export async function generateMetadata({ params }) {
 export default async function ProjectsPage({ params, searchParams }) {
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
-
 
   let projectsData = null;
 
@@ -42,10 +58,7 @@ export default async function ProjectsPage({ params, searchParams }) {
     notFound();
   }
 
-  const { hero, projects } =
-    projectsData;
-
-
+  const { hero, projects } = projectsData;
 
   // const category = searchParams?.category || null;
   // const page = searchParams?.page || "1";
@@ -84,7 +97,15 @@ export default async function ProjectsPage({ params, searchParams }) {
 
   return (
     <>
+      <InnerHero
+        locale={locale}
+        data={local_data?.productInfo}
+        slug={"Our Projects"}
+      />
+
       <ProjectMonth />
+      
+      <SuccessStories />
     </>
   );
 }
