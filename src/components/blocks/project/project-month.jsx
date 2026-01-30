@@ -3,10 +3,10 @@ import { Heading, Text } from "@/components/utils/typography";
 
 export default function ProjectMonth({ data, locale }) {
   return (
-    <section className="project-month w-full h-auto block py-[30px] sm:py-[40px] xl:py-[100px] 2xl:py-[111px_172px]">
+    <section className="project-month w-full h-auto block py-7.5 sm:py-10 xl:py-25 2xl:py-[111px_172px]">
       <div className="container">
-        <div className="max-w-[1022px] mx-auto text-center mb-[90px]">
-          <Heading as="h2" size="h2" className="mb-[19px] text-[#1e1e1e]">
+        <div className="max-w-255.5 mx-auto text-center mb-10 xl:mb-17 2xl:mb-22.5">
+          <Heading as="h2" size="h2" className="mb-4.75 text-[#1e1e1e]">
             Projects of the Month
           </Heading>
           <Text

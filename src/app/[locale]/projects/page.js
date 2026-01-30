@@ -3,6 +3,8 @@ import Link from "next/link";
 import ProjectMonth from "@/components/blocks/project/project-month";
 import InnerHero from "@/components/blocks/banner/inner-hero";
 import SuccessStories from "@/components/blocks/project/success-stories";
+import MoreStories from "@/components/blocks/project/more-stories";
+import ProjectImage from "@/components/blocks/project/project-image";
 
 
 const local_data = {
@@ -104,8 +106,12 @@ export default async function ProjectsPage({ params, searchParams }) {
       />
 
       <ProjectMonth />
-      
+
       <SuccessStories />
+
+      <MoreStories />
+
+      <ProjectImage/>
     </>
   );
 }
