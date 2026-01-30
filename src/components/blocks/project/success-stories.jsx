@@ -14,8 +14,8 @@ export default function SuccessStories({ data, locale }) {
   return (
     <section className="bg-[#FFFBF2] w-full h-auto block py-[30px_40px] sm:py-[40px_60px] xl:py-[60px_100px] 2xl:py-[78px_133px]">
       <div className="container">
-        <div className="max-w-[255.5] mx-auto text-center mb-[25]">
-          <Heading as="h2" size="h2" className="mb-[3.75] text-[#1e1e1e]">
+        <div className="max-w-[1022px] mx-auto text-center mb-[25]">
+          <Heading as="h2" size="h2" className="mb-[15px] text-[#1e1e1e]">
             Building Success Stories
           </Heading>
           <Text
@@ -30,7 +30,7 @@ export default function SuccessStories({ data, locale }) {
         </div>
         <div className="flex flex-wrap">
           <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
-            <div className="flex justify-start touch-pan-y touch-pinch-zoom -mx-1 [&>div]:px-7.5">
+            <div className="flex justify-start touch-pan-y touch-pinch-zoom -mx-1 [&>div]:px-[30px]">
               {[1, 2, 3, 4].map((item, index) => (
                 <div
                   key={"product" + index}
