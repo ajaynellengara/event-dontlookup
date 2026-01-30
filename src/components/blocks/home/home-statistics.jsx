@@ -26,7 +26,7 @@ export default function HomeStatistics({ data, locale }) {
               className="w-1/2 sm:w-1/5 cursor-pointer"
             >
               <div
-                className="w-full py-[30px] sm:py-[40px] xl:py-[60px] 2xl:py-[70px] relative z-0 transition-transform duration-300"
+                className="w-full py-[15px] sm:py-[40px] xl:py-[60px] 2xl:py-[70px] relative z-0 transition-transform duration-300"
                 onMouseEnter={() => setActiveIndex(index)}
                 onMouseLeave={() => setActiveIndex(null)}
               >
@@ -38,7 +38,7 @@ export default function HomeStatistics({ data, locale }) {
                     as="div"
                     size="h1"
                     className={cn(
-                      "font-normal text-[#1e1e1e] mb-1 xl:mb-2 2xl:mb-3 transition-all duration-300",
+                      "max-sm:text-[22px] font-normal text-[#1e1e1e] mb-1 xl:mb-2 2xl:mb-3 transition-all duration-300",
                       activeIndex === index && "text-[#cda278]",
                     )}
                   >
@@ -60,7 +60,7 @@ export default function HomeStatistics({ data, locale }) {
                   <Text
                     as="div"
                     size="p2"
-                    className="line-clamp-2 font-normal text-black mb-1 xl:mb-2 2xl:mb-2.5"
+                    className="line-clamp-2 font-normal text-black mb-3 xl:mb-2 2xl:mb-2.5"
                   >
                     {parse(
                       locale === "ar"
@@ -74,7 +74,7 @@ export default function HomeStatistics({ data, locale }) {
                   {activeIndex === index && (
                     <motion.div
                       layoutId="underline"
-                      className="w-[60%] h-1 bg-[#cda278] absolute z-1 top-0 left-0 right-0 -translate-y-1/2"
+                      className="w-[60%] h-0.5 sm:h-1 bg-[#cda278] absolute z-1 top-0 left-0 right-0 -translate-y-1/2"
                       transition={{
                         type: "spring",
                         stiffness: 500,

@@ -43,7 +43,7 @@ export default function HomeHero({ data, locale }) {
         <AnimatePresence>
           {!isRevealed && (
             <motion.div
-              className="absolute inset-0 z-50 bg-white origin-bottom"
+              className="absolute inset-0 z-50 bg-black origin-bottom"
               initial={{ scaleY: 1 }}
               exit={{ scaleY: 0 }}
               transition={{
@@ -108,7 +108,7 @@ export default function HomeHero({ data, locale }) {
                     </picture>
                   )}
                 </Parallax>
-                <div className="w-full h-[468px] sm:h-[576px] xl:h-screen min-h-[468px] sm:min-h-[468px] xl:min-h-[576px] 2xl:min-h-[768px] 3xl:min-h-[900px] flex items-end py-[calc(20px+var(--header-y))_20px] sm:py-[calc(30px+var(--header-y))_30px] xl:py-[calc(40px+var(--header-y))_40px] 2xl:py-[calc(60px+var(--header-y))_60px]">
+                <div className="w-full h-[576px] sm:h-[576px] xl:h-screen min-h-[576px] sm:min-h-[576px] xl:min-h-[576px] 2xl:min-h-[768px] 3xl:min-h-[900px] flex items-end py-[calc(20px+var(--header-y))_20px] sm:py-[calc(30px+var(--header-y))_30px] xl:py-[calc(40px+var(--header-y))_40px] 2xl:py-[calc(60px+var(--header-y))_60px]">
                   <div className="container">
                     <div className="flex flex-wrap items-end">
                       <div className="w-full">
@@ -182,7 +182,7 @@ export default function HomeHero({ data, locale }) {
                           <Heading
                             as="h6"
                             size="h6"
-                            className="text-end tracking-widest font-normal text-white/50 mb-1 xl:mb-2"
+                            className="max-sm:text-[12px] text-end tracking-widest font-normal text-white/50 mb-1 xl:mb-2"
                           >
                             {locale === "ar"
                               ? item?.project_tag_ar
@@ -191,7 +191,7 @@ export default function HomeHero({ data, locale }) {
                           <Heading
                             as="h5"
                             size="h5"
-                            className="text-end font-medium tracking-widest text-white/50"
+                            className="max-sm:text-[14px] text-end font-medium tracking-widest text-white/50"
                           >
                             {locale === "ar"
                               ? item?.project_name_ar

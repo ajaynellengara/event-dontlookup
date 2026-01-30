@@ -11,7 +11,7 @@ export default function PageLoader() {
     const timer = setTimeout(() => {
       setIsLoading(false);
       // document.body.style.overflow = "auto";
-    }, 2500);
+    }, 2000);
 
     // document.body.style.overflow = "hidden";
 

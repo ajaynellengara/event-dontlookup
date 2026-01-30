@@ -23,10 +23,10 @@ export default function HomeServices({ data, locale }) {
   );
 
   return (
-    <section className="w-full h-auto block py-[30px] sm:py-[40px] xl:py-[70px_80px] 2xl:py-[80px_110px] overflow-hidden">
+    <section className="w-full h-auto block py-[40px] sm:py-[40px] xl:py-[70px_80px] 2xl:py-[80px_110px] overflow-hidden">
       <div className="container">
         <div className="flex flex-wrap mb-6 xl:mb-10 2xl:mb-14">
-          <div className="w-7/12">
+          <div className="w-full sm:w-7/12">
             <ScrollReveal delay={0.1}>
               <Heading
                 as="div"
@@ -45,7 +45,7 @@ export default function HomeServices({ data, locale }) {
               {parse(locale == "ar" ? data?.title_ar : data?.title)}
             </Heading>
           </div>
-          <div className="w-5/12">
+          <div className="w-full sm:w-5/12">
             <Text
               as="div"
               size="p1"
@@ -67,12 +67,21 @@ export default function HomeServices({ data, locale }) {
             </Button>
           </div>
         </div>
+      </div>
+      <div
+        className={cn(
+          "container",
+          locale === "ar"
+            ? "pl-0 [mask-image:linear-gradient(to_left,black_0%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_left,black_0%,black_95%,transparent_100%)]"
+            : "pr-0 [mask-image:linear-gradient(to_right,black_0%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,black_0%,black_95%,transparent_100%)]",
+        )}
+      >
         <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
           <div className="flex touch-pan-y touch-pinch-zoom">
             {data?.items?.map((item, index) => (
               <div
                 key={"product" + index}
-                className="flex-[0_0_176px] sm:flex-[0_0_25%] min-w-0 select-none"
+                className="flex-[0_0_220px] sm:flex-[0_0_25%] min-w-0 select-none"
               >
                 <ServiceCard data={item} index={index} locale={locale} />
               </div>
@@ -89,11 +98,11 @@ function ServiceCard({ data, index, locale }) {
   return (
     <Suspense
       fallback={
-        <Skeleton className="w-full h-[368px] lg:h-[440px] 2xl:h-[548px] 3xl:h-[668px] bg-gray-400" />
+        <Skeleton className="w-full h-[320px] sm:h-[368px] lg:h-[440px] 2xl:h-[548px] 3xl:h-[668px] bg-gray-400" />
       }
     >
       <motion.div
-        className="w-full h-[368px] lg:h-[440px] 2xl:h-[540px] 3xl:h-[668px] relative"
+        className="w-full h-[320px] sm:h-[368px] lg:h-[440px] 2xl:h-[540px] 3xl:h-[668px] relative"
         onHoverStart={() => setHovered(index)}
         onHoverEnd={() => setHovered(null)}
       >

@@ -113,12 +113,17 @@ export default function Header({ headerData, navigationData, locale }) {
         )}
       >
         <div className="container">
-          <div className="flex justify-end items-center gap-x-3 lg:gap-x-8 relative z-0">
+          <div className="flex justify-between sm:justify-end items-center gap-x-3 lg:gap-x-8 relative z-0">
             {/* Brand Logo */}
-            <div className="absolute left-1/2 -translate-x-1/2">
-              <div className={cn("w-[80px] sm:w-[75px] 2xl:w-[90px] 3xl:w-[110px]",
-                bg && "w-[60px] sm:w-[60px] 2xl:w-[70px] 3xl:w-[90px]",
-              )}>
+            <div className={cn("sm:absolute left-1/2 sm:-translate-x-1/2",
+              // locale === "ar" ? "right-4 sm:right-1/2" : "left-4 sm:left-1/2"
+            )}>
+              <div
+                className={cn(
+                  "w-[60px] sm:w-[75px] 2xl:w-[90px] 3xl:w-[110px]",
+                  bg && "w-[40px] sm:w-[60px] 2xl:w-[70px] 3xl:w-[90px]",
+                )}
+              >
                 <Link href={`/${locale}${headerData?.slug}`}>
                   <Image
                     src={headerData?.logoWhiteUrl}
@@ -135,7 +140,7 @@ export default function Header({ headerData, navigationData, locale }) {
 
             <div
               className={cn(
-                "flex items-center justify-end lg:justify-end transition gap-x-3.75 sm:gap-x-5 lg:gap-x-7.5 2xl:gap-x-10",
+                "flex items-center justify-end lg:justify-end transition gap-x-7 sm:gap-x-7 lg:gap-x-7.5 2xl:gap-x-10",
               )}
             >
               {locale == "ar" ? (
@@ -175,17 +180,14 @@ export default function Header({ headerData, navigationData, locale }) {
               >
                 <Link href={`/${locale}/contact`}>CONTACT US</Link>
               </Button>
-
-              <MediaQuery minWidth={1024}>
-                <HeaderNavigation
-                  locale={locale}
-                  setIsOpen={setToggle}
-                  menuItems={navigationData}
-                  pathname={pathname}
-                  showDarkHeader={showDarkHeader}
-                  headerData={headerData}
-                />
-              </MediaQuery>
+              <HeaderNavigation
+                locale={locale}
+                setIsOpen={setToggle}
+                menuItems={navigationData}
+                pathname={pathname}
+                showDarkHeader={showDarkHeader}
+                headerData={headerData}
+              />
             </div>
           </div>
         </div>

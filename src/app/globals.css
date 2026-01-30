@@ -166,7 +166,11 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+    font-family:
+      var(--font-poppins),
+      system-ui,
+      -apple-system,
+      sans-serif;
     @apply [--header-y:var(--header-y-sm)] lg:[--header-y:var(--header-y-lg)] 2xl:[--header-y:var(--header-y-2xl)] 3xl:[--header-y:var(--header-y-3xl)];
   }
 
@@ -178,7 +182,11 @@
 
   /* Font utility classes */
   .font-poppins {
-    font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+    font-family:
+      var(--font-poppins),
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 
   .font-cairo {
@@ -216,19 +224,6 @@
   ::selection {
     background-color: var(--color-foreground);
     color: var(--color-background);
-  }
-
-  /* Smooth cursor for better UX */
-  html,
-  body {
-    cursor: none;
-  }
-
-  @media (max-width: 1023px) {
-    html,
-    body {
-      cursor: auto;
-    }
   }
 
   /* Enhanced link and button hover effects */
