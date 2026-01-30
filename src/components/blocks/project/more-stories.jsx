@@ -12,7 +12,7 @@ export default function MoreStories({ data, locale }) {
     [Autoplay({ delay: 6000, stopOnInteraction: true, pauseOnHover: true })],
   );
   return (
-    <section className="w-full h-auto block py-[30px_40px] sm:py-[40px_60px] xl:py-[60px_100px] 2xl:py-[78px_133px]">
+    <section className="w-full h-auto block py-[40px] sm:py-[80px_60px] xl:py-[135px_100px] 2xl:py-[173px_127px]">
       <div className="container">
         
         <div className="flex flex-wrap">
