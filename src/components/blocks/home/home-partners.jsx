@@ -8,6 +8,43 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import ScrollReveal from "@/components/animations/scroll-reveal";
 
+const listVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
+  exit: {
+    opacity: 0,
+    y: 20,
+    transition: { duration: 0.25 },
+  },
+};
+
+const hoverVariants = {
+  initial: { y: 0, opacity: 0.4 },
+  hover: {
+    y: -6,
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.25, ease: "easeOut" },
+  },
+};
+
 export default function HomePartners({ data, locale }) {
   const [visibleIndices, setVisibleIndices] = useState([]);
 
@@ -82,8 +119,8 @@ export default function HomePartners({ data, locale }) {
         className={cn(
           "w-full sm:max-w-[calc(var(--container-sm)/2+50%)] md:max-w-[calc(var(--container-md)/2+50%)] lg:max-w-[calc(var(--container-lg)/2+50%)] xl:max-w-[calc(var(--container-xl)/2+50%)] 2xl:max-w-[calc(var(--container-2xl)/2+50%)] 3xl:max-w-[calc(var(--container-3xl)/2+50%)]",
           locale === "ar"
-            ? "pr-4 mr-auto [mask-image:linear-gradient(to_left,black_0%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_left,black_0%,black_95%,transparent_100%)]"
-            : "pl-4 ml-auto [mask-image:linear-gradient(to_right,black_0%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,black_0%,black_95%,transparent_100%)]",
+            ? "pr-4 mr-auto [mask-image:linear-gradient(to_left,black_0%,black_90%,transparent_100%)] max-sm:[-webkit-mask-image:linear-gradient(to_left,black_0%,black_95%,transparent_100%)]"
+            : "pl-4 ml-auto [mask-image:linear-gradient(to_right,black_0%,black_90%,transparent_100%)] max-sm:[-webkit-mask-image:linear-gradient(to_right,black_0%,black_95%,transparent_100%)]",
         )}
       >
         <div className="flex flex-wrap items-center -mx-1 [&>*]:p-1">
@@ -104,7 +141,13 @@ export default function HomePartners({ data, locale }) {
           </div>
 
           <div className="w-full sm:w-8/12">
-            <div className="grid grid-cols-5 grid-rows-2 gap-[1px] relative overflow-hidden">
+            <div
+              variants={listVariants}
+              initial="hidden"
+              animate="show"
+              exit="exit"
+              className="grid grid-cols-5 grid-rows-2 gap-[1px] relative overflow-hidden"
+            >
               <div className="w-full sm:w-8/10 h-full sm:h-8/10 bg-black opacity-10 m-auto blur-md absolute -z-1 inset-0" />
               {currentItems.map((item, index) => (
                 <div
@@ -123,29 +166,66 @@ export default function HomePartners({ data, locale }) {
                         duration: 0.5,
                         ease: [0.4, 0, 0.2, 1],
                       }}
-                      className="absolute inset-0 p-2 sm:p-3 xl:p-5 2xl:p-8"
+                      className="absolute inset-0 p-2 sm:p-3 xl:p-5 2xl:p-8 overflow-hidden"
                     >
-                      <motion.div
-                        whileHover={{
-                          scale: 1.1,
-                          rotate: [0, -2, 2, 0],
-                          transition: { duration: 0.4 },
-                        }}
-                        className="w-full h-full"
-                      >
-                        <Image
-                          src={item?.media?.path}
-                          alt={
-                            locale == "ar"
-                              ? item?.media?.alt_ar
-                              : item?.media?.alt
-                          }
-                          width={125}
-                          height={60}
-                          className="w-full h-full object-contain transition-all duration-500"
-                          title={item?.name}
-                        />
-                      </motion.div>
+                      <div variants={itemVariants} className="w-full h-full">
+                        <motion.div
+                          initial="initial"
+                          whileHover="hover"
+                          className={cn(
+                            "w-full h-full overflow-hidden relative",
+                          )}
+                        >
+                          <motion.span
+                            variants={{
+                              initial: { y: 0 },
+                              hover: { y: "-100%" },
+                            }}
+                            transition={{
+                              duration: 0.3,
+                              ease: [0.33, 1, 0.68, 1],
+                            }}
+                            className="w-full h-full"
+                          >
+                            <Image
+                              src={item?.media?.path}
+                              alt={
+                                locale == "ar"
+                                  ? item?.media?.alt_ar
+                                  : item?.media?.alt
+                              }
+                              width={125}
+                              height={60}
+                              className="w-full h-full object-contain transition-all duration-500"
+                              title={item?.name}
+                            />
+                          </motion.span>
+                          <motion.span
+                            variants={{
+                              initial: { y: "100%" },
+                              hover: { y: 0 },
+                            }}
+                            transition={{
+                              duration: 0.3,
+                              ease: [0.33, 1, 0.68, 1],
+                            }}
+                            className="absolute inset-0 block"
+                          >
+                            <Image
+                              src={item?.media?.path}
+                              alt={
+                                locale == "ar"
+                                  ? item?.media?.alt_ar
+                                  : item?.media?.alt
+                              }
+                              width={125}
+                              height={60}
+                              className="w-full h-full object-contain transition-all duration-500"
+                              title={item?.name}
+                            />
+                          </motion.span>
+                        </motion.div>
+                      </div>
                     </motion.div>
                   )}
                 </div>
@@ -156,7 +236,7 @@ export default function HomePartners({ data, locale }) {
       </div>
       <div
         className={cn(
-          "sm:container sm:mt-[60px] xl:mt-[90px] 2xl:mt-[120px] pointer-events-none max-sm:opacity-30 max-sm:absolute max-sm:z-1 max-sm:top-6 max-sm:max-w-[320px]",
+          "container sm:mt-[60px] xl:mt-[90px] 2xl:mt-[120px] pointer-events-none max-sm:opacity-30 max-sm:absolute max-sm:z-1 max-sm:top-6 max-sm:max-w-[320px]! select-none",
           locale === "ar" ? "max-sm:left-4" : "max-sm:right-4",
         )}
       >

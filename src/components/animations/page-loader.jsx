@@ -7,17 +7,12 @@ export default function PageLoader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate minimum loading time for smooth animation
     const timer = setTimeout(() => {
       setIsLoading(false);
-      // document.body.style.overflow = "auto";
-    }, 2000);
-
-    // document.body.style.overflow = "hidden";
+    }, 2500); // Slightly longer for premium feel
 
     return () => {
       clearTimeout(timer);
-      // document.body.style.overflow = "auto";
     };
   }, []);
 
@@ -25,54 +20,33 @@ export default function PageLoader() {
     <AnimatePresence mode="wait">
       {isLoading && (
         <motion.div
-          className="fixed inset-0 z-[99999] bg-black backdrop-blur-3xl flex items-center justify-center px-4"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
+          className="fixed inset-0 z-[99999] flex items-center justify-center bg-black"
+          initial={{ y: 0 }}
+          exit={{ y: "-100%" }}
+          transition={{
+            duration: 1.0,
+            ease: [0.76, 0, 0.24, 1] // Custom quint-like easing for "curtain" feel
+          }}
         >
-          <div className="relative">
-            <motion.div
-              initial={{ opacity: 1, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 4 }}
-              transition={{
-                duration: 0.5,
-                ease: [0.43, 0.13, 0.23, 0.96],
-              }}
-            >
-              <Image
-                src="/images/brand-logo.svg"
-                alt="WASSO"
-                width={110}
-                height={120}
-                className="w-[90px] xl:w-[110px] h-auto"
-                priority
-              />
-            </motion.div>
-            {/* <motion.div
-              className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-1.5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.4 }}
-            >
-              {[0, 1, 2].map((i) => (
-                <motion.div
-                  key={i}
-                  className="w-2 h-2 rounded-full bg-[#c09c86]"
-                  animate={{
-                    y: [0, -10, 0],
-                    opacity: [0.5, 1, 0.5],
-                  }}
-                  transition={{
-                    duration: 0.8,
-                    repeat: Infinity,
-                    delay: i * 0.15,
-                    ease: "easeInOut",
-                  }}
-                />
-              ))}
-            </motion.div> */}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, y: -100 }}
+            transition={{
+              duration: 0.8,
+              ease: "easeOut",
+            }}
+            className="relative z-10"
+          >
+            <Image
+              src="/images/brand-logo.svg"
+              alt="WASSO"
+              width={110}
+              height={120}
+              className="w-[100px] xl:w-[130px] h-auto"
+              priority
+            />
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

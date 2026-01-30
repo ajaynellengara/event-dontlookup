@@ -12,6 +12,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { Skeleton } from "@/components/ui/skeleton";
 import ScrollReveal from "@/components/animations/scroll-reveal";
+import Magnetic from "@/components/animations/magnetic";
 
 export default function HomePortfolio({ data, locale }) {
   const items = data?.items || [];
@@ -82,8 +83,8 @@ export default function HomePortfolio({ data, locale }) {
         className={cn(
           "container",
           locale === "ar"
-            ? "sm:pl-0 sm:[mask-image:linear-gradient(to_left,black_0%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_left,black_0%,black_95%,transparent_100%)]"
-            : "sm:pr-0 sm:[mask-image:linear-gradient(to_right,black_0%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,black_0%,black_95%,transparent_100%)]",
+            ? "max-sm:pl-0 max-sm:[mask-image:linear-gradient(to_left,black_0%,black_90%,transparent_100%)] max-sm:[-webkit-mask-image:linear-gradient(to_left,black_0%,black_95%,transparent_100%)]"
+            : "max-sm:pr-0 max-sm:[mask-image:linear-gradient(to_right,black_0%,black_90%,transparent_100%)] max-sm:[-webkit-mask-image:linear-gradient(to_right,black_0%,black_95%,transparent_100%)]",
         )}
       >
         <div className="relative">
@@ -110,7 +111,7 @@ export default function HomePortfolio({ data, locale }) {
 
           <button
             onClick={goToNext}
-            className="w-[60px] sm:w-[100px] xl:w-[130px] 2xl:w-[160px] absolute z-0 bottom-0 right-2 sm:right-4"
+            className="w-[60px] sm:w-[100px] xl:w-[130px] 2xl:w-[160px] absolute z-0 bottom-0 right-2 sm:right-4 cursor-pointer"
           >
             <div className="w-full h-full bg-[url('/images/home-portfolio-button-1.svg')] bg-center bg-no-repeat bg-size-[30px] sm:bg-size-[40px] xl:bg-size-[45px] 2xl:bg-size-[50px] relative hover:bg-size-[100px] transition-all duration-300">
               <Image
@@ -150,8 +151,8 @@ function PortfolioCard({ data, slot, locale }) {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "-100%", opacity: 0 }}
             transition={{
-              duration: 0.2,
-              ease: [0.25, 0.8, 0.25, 1],
+              duration: 0.8,
+              ease: [0.16, 1, 0.3, 1],
             }}
             className="absolute inset-0"
           >

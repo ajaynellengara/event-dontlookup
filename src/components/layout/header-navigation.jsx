@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import { motion, AnimatePresence, scale } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -62,7 +62,7 @@ const hoverVariants = {
   hover: {
     y: -6,
     opacity: 1,
-    scale: 1.05,
+    scale: 1,
     transition: { duration: 0.25, ease: "easeOut" },
   },
 };
@@ -117,7 +117,7 @@ export default function HeaderNavigation({
                       initial="hidden"
                       animate="show"
                       exit="exit"
-                      className="flex flex-col items-center gap-6 xl:gap-4"
+                      className="flex flex-col items-center gap-6 xl:gap-6 2xl:gap-10"
                     >
                       {menuItems?.map((item) => {
                         const isActive = pathname === `/${locale}${item?.slug}`;
@@ -129,11 +129,11 @@ export default function HeaderNavigation({
                             className="relative"
                           >
                             <motion.div
-                              variants={hoverVariants}
                               initial="initial"
                               whileHover="hover"
                               className={cn(
-                                isActive && "text-white opacity-100!",
+                                "relative overflow-hidden block h-auto",
+                                isActive && "opacity-100!",
                               )}
                             >
                               <Button
@@ -144,13 +144,43 @@ export default function HeaderNavigation({
                                   setOpen(false);
                                 }}
                                 className={cn(
-                                  "text-[36px] sm:text-[48px] xl:text-[60px] leading-none font-light tracking-tight",
+                                  "text-[36px] sm:text-[48px] xl:text-[60px] leading-none font-light tracking-tight uppercase block",
+                                  "hover:scale-100",
                                   isActive ? "text-white" : "text-white/90",
                                 )}
                                 asChild
                               >
                                 <Link href={`/${locale}${item?.slug}`}>
-                                  {locale === "ar" ? item?.name_ar : item?.name}
+                                  <motion.span
+                                    variants={{
+                                      initial: { y: 0 },
+                                      hover: { y: "-100%" },
+                                    }}
+                                    transition={{
+                                      duration: 0.3,
+                                      ease: [0.33, 1, 0.68, 1],
+                                    }} // Smooth snappy
+                                    className="block"
+                                  >
+                                    {locale === "ar"
+                                      ? item?.name_ar
+                                      : item?.name}
+                                  </motion.span>
+                                  <motion.span
+                                    variants={{
+                                      initial: { y: "100%" },
+                                      hover: { y: 0 },
+                                    }}
+                                    transition={{
+                                      duration: 0.3,
+                                      ease: [0.33, 1, 0.68, 1],
+                                    }}
+                                    className="absolute inset-0 block text-white"
+                                  >
+                                    {locale === "ar"
+                                      ? item?.name_ar
+                                      : item?.name}
+                                  </motion.span>
                                 </Link>
                               </Button>
                             </motion.div>

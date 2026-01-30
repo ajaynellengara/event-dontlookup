@@ -103,7 +103,7 @@ export default function HomeAbout({ data, locale }) {
               <ScrollReveal delay={0.4}>
                 <div
                   className={cn(
-                    "w-full sm:max-w-[320px] 2xl:max-w-[350px]",
+                    "w-full sm:max-w-[320px] 2xl:max-w-[350px] 2xl:max-w-[350px] 3xl:max-w-[430px]",
                     locale == "ar" ? "mr-auto" : "ml-auto",
                   )}
                 >

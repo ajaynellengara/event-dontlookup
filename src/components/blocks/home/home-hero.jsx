@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import Fade from "embla-carousel-fade";
+
 import {
   DotButton,
   useDotButton,
@@ -20,11 +20,13 @@ import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 export default function HomeHero({ data, locale }) {
   const [isRevealed, setIsRevealed] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, direction: locale === "ar" ? "rtl" : "ltr" },
-    [
-      Autoplay({ delay: 6000, stopOnInteraction: true, pauseOnHover: true }),
-      Fade(),
-    ],
+    {
+      loop: true,
+      direction: locale === "ar" ? "rtl" : "ltr",
+      duration: 60, // Slower duration for "heavy" feel
+      dragFree: false,
+    },
+    [Autoplay({ delay: 6000, stopOnInteraction: true, pauseOnHover: true })],
   );
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -56,13 +58,16 @@ export default function HomeHero({ data, locale }) {
 
         <motion.div
           initial={{ opacity: 0, scale: 1.1 }}
-          animate={isRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.1 }}
+          animate={
+            isRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.1 }
+          }
           transition={{
             duration: 1,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
           className="w-full max-w-full overflow-hidden"
           ref={emblaRef}
+          data-cursor="carousel"
         >
           <div className="flex touch-pan-y touch-pinch-zoom">
             {data?.sliders?.map((item, index) => (
