@@ -345,6 +345,32 @@ export async function GET(request) {
             alt_ar: "الإقامة الفاخرة",
           },
         },
+        {
+          id: 5,
+          slug: "skyline-heights",
+          title: "Skyline Heights",
+          title_ar: "سكايلاين هايتس",
+          location: "Dubai, UAE",
+          location_ar: "دبي، الإمارات العربية المتحدة",
+          media: {
+            path: "/images/home-portfolio-2.jpg",
+            alt: "Skyline Heights",
+            alt_ar: "سكايلاين هايتس",
+          },
+        },
+        {
+          id: 6,
+          slug: "luxury-residence",
+          title: "Luxury Residence",
+          title_ar: "الإقامة الفاخرة",
+          location: "Dubai, UAE",
+          location_ar: "دبي، الإمارات العربية المتحدة",
+          media: {
+            path: "/images/home-portfolio-3.jpg",
+            alt: "Luxury Residence",
+            alt_ar: "الإقامة الفاخرة",
+          },
+        },
       ],
     },
 

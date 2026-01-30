@@ -1,284 +1,238 @@
 "use client";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
-import Image from "next/image";
-import Link from "next/link";
+
 import { useState } from "react";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
-import dynamic from "next/dynamic";
+import { motion, AnimatePresence, scale } from "motion/react";
 
-const MediaQuery = dynamic(() => import("react-responsive"), {
-  ssr: false,
-});
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
+import { X } from "lucide-react";
+import Image from "next/image";
+
+const dialogVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { duration: 0.35, ease: "easeOut" },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.25, ease: "easeIn" },
+  },
+};
+
+const listVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.15,
+    },
+  },
+};
 
 const itemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.35, ease: "easeOut" } },
-  exit: { opacity: 0, x: -20, transition: { duration: 0.2 } },
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
+  exit: {
+    opacity: 0,
+    y: 20,
+    transition: { duration: 0.25 },
+  },
+};
+
+const hoverVariants = {
+  initial: { y: 0, opacity: 0.4 },
+  hover: {
+    y: -6,
+    opacity: 1,
+    scale: 1.05,
+    transition: { duration: 0.25, ease: "easeOut" },
+  },
 };
 
 export default function HeaderNavigation({
   locale,
-  isDesktop,
-  pathname,
-  onNavigationClick,
+  setIsOpen,
   menuItems,
+  pathname,
   showDarkHeader,
+  headerData,
 }) {
-  const [hoveredSubmenu, setHoveredSubmenu] = useState(null);
-  const [hoveredSubSubmenu, setHoveredSubSubmenu] = useState(null);
-
-  const getNavigationMenuTriggerStyle = (isActive) => {
-    const baseStyle =
-      "text-[20px] lg:text-[12px] 2xl:text-[14px] 3xl:text-[18px] leading-normal font-medium lg:font-normal text-start lg:text-center w-full h-auto p-[8px_15px] lg:p-[6px_12px] 2xl:p-[10px_15px] 3xl:p-[15px_25px] bg-transparent border border-transparent hover:bg-black/0 focus:bg-black/0 ring-0 hover:border-white/10 data-[state=open]:border-white/10 data-[state=open]:hover:bg-black/0 data-[state=open]:focus:bg-black/0 data-[state=open]:bg-black/0 transition-all duration-200 max-lg:justify-between";
-
-    const pageTextColor = showDarkHeader
-      ? "text-[#282828] lg:data-[state=open]:text-black hover:text-[#282828] focus:text-[#282828]"
-      : "text-[#282828] lg:text-white lg:data-[state=open]:text-white hover:text-white focus:text-white";
-
-    const activeColor = isActive ? "text-[#f17423]" : "";
-
-    return cn(baseStyle, pageTextColor, activeColor);
-  };
-  const getSubNavMenuTriggerStyle = (isActive, isHovered) => {
-    return cn(
-      "text-[14px] lg:text-[14px] 2xl:text-[17px] 3xl:text-[22px] leading-normal font-normal text-start hover:bg-black/0 px-0 py-2 2xl:py-3 transition-colors duration-200",
-      isActive
-        ? "text-[#f17423]"
-        : isHovered
-        ? "text-black underline"
-        : "text-black/80 lg:text-black group-hover:text-black/50"
-    );
-  };
-
-  const getSubSubNavMenuTriggerStyle = (isActive, isHovered) => {
-    return cn(
-      "text-[12px] lg:text-[12px] 2xl:text-[14px] 3xl:text-[18px] leading-normal font-normal text-start hover:bg-black/0 px-0 py-2 transition-colors duration-200",
-      isActive
-        ? "text-[#f17423]"
-        : isHovered
-        ? "text-black underline"
-        : "text-black/60 lg:text-black group-hover:text-black/50"
-    );
-  };
-
-  const handleNavigation = (slug) => {
-    console.log("Navigating to:", slug);
-  };
+  const [open, setOpen] = useState(false);
 
   return (
-    <NavigationMenu
-      data-motion="from-end"
-      viewport={isDesktop ? false : true}
-      // defaultValue={"toplevel1"}
-      className="w-full max-w-full justify-start lg:justify-center max-lg:[&>div]:w-full static"
-    >
-      <NavigationMenuList className="xl:gap-x-3 2xl:gap-x-4 max-lg:flex-col max-lg:[&>div]:w-full">
-        {menuItems.map((item, i) => {
-          const isActive = pathname === item.slug;
-          return (
-            <motion.div key={i} variants={itemVariants}>
-              {item?.hasSubmenu ? (
-                <NavigationMenuItem value={"toplevel" + i}>
-                  <NavigationMenuTrigger
-                    className={cn(getNavigationMenuTriggerStyle(isActive))}
-                  >
-                    {item.name}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent
-                    data-motion="from-end"
-                    className={cn(
-                      "md:w-full min-w-full py-1 px-0 lg:py-6 xl:py-16 2xl:py-20",
-                      "group-data-[viewport=false]/navigation-menu:data-[state=closed]:zoom-out-0 group-data-[viewport=false]/navigation-menu:data-[state=open]:zoom-in-0"
-                    )}
-                  >
-                    <div className="container">
-                      <div className="flex justify-between">
-                        <ul
-                          className="group w-full lg:w-3/12 relative z-0"
-                          onMouseLeave={() => {
-                            setHoveredSubmenu(null);
-                            setHoveredSubSubmenu(null);
-                          }}
-                        >
-                          {item?.items?.map((subItem) => {
-                            const isSubActive = pathname === subItem.slug;
-                            const hasSubSubItems =
-                              subItem?.items && subItem.items.length > 0;
-                            const isSubHovered =
-                              hoveredSubmenu?.id === subItem.id;
+    <>
+      {/* HAMBURGER BUTTON */}
+      <HumbergerButton
+        open={open}
+        onClick={() => {
+          setIsOpen(true);
+          setOpen(true);
+        }}
+        showDarkHeader={showDarkHeader}
+      />
 
-                            return (
-                              <li
-                                key={"subItem" + subItem.id}
-                                onMouseEnter={() => {
-                                  setHoveredSubmenu(subItem);
-                                  if (hasSubSubItems) {
-                                    setHoveredSubSubmenu(null);
-                                  }
-                                }}
-                              >
-                                {subItem.slug ? (
-                                  <NavigationMenuLink
-                                    className={getSubNavMenuTriggerStyle(
-                                      isSubActive,
-                                      isSubHovered
-                                    )}
-                                    asChild
-                                  >
-                                    <Link
-                                      href={`/${locale}${subItem.slug}`}
-                                      onClick={onNavigationClick}
-                                    >
-                                      {subItem.name}
-                                    </Link>
-                                  </NavigationMenuLink>
-                                ) : (
-                                  <div
-                                    className={getSubNavMenuTriggerStyle(
-                                      isSubActive,
-                                      isSubHovered
-                                    )}
-                                  >
-                                    {subItem.name}
-                                  </div>
-                                )}
-
-                                {hasSubSubItems && (
-                                  <div
-                                    className={cn(
-                                      "w-full lg:w-[320px] xl:w-[420px] 2xl:w-[500px] 3xl:w-[576px] lg:absolute top-0 left-full transition-opacity duration-200",
-                                      hoveredSubmenu?.id === subItem.id
-                                        ? "opacity-100 pointer-events-auto max-h-auto"
-                                        : "opacity-0 pointer-events-none max-h-0"
-                                    )}
-                                  >
-                                    <ul>
-                                      {subItem.items.map((subSubItem) => {
-                                        const isSubSubActive =
-                                          pathname === subSubItem.slug;
-                                        const isSubSubHovered =
-                                          hoveredSubSubmenu?.id ===
-                                          subSubItem.id;
-
-                                        return (
-                                          <li
-                                            key={"subsubmenu" + subSubItem.id}
-                                            onMouseEnter={() =>
-                                              setHoveredSubSubmenu(subSubItem)
-                                            }
-                                          >
-                                            {subSubItem.slug ? (
-                                              <NavigationMenuLink
-                                                className={getSubSubNavMenuTriggerStyle(
-                                                  isSubSubActive,
-                                                  isSubSubHovered
-                                                )}
-                                                asChild
-                                              >
-                                                <Link
-                                                  href={`/${locale}${subSubItem.slug}`}
-                                                  onClick={() => {
-                                                    handleNavigation(
-                                                      subSubItem.slug
-                                                    );
-                                                    onNavigationClick();
-                                                  }}
-                                                >
-                                                  {subSubItem.name}
-                                                </Link>
-                                              </NavigationMenuLink>
-                                            ) : (
-                                              <div
-                                                className={getSubSubNavMenuTriggerStyle(
-                                                  isSubSubActive,
-                                                  isSubSubHovered
-                                                )}
-                                              >
-                                                {subSubItem.name}
-                                              </div>
-                                            )}
-                                          </li>
-                                        );
-                                      })}
-                                    </ul>
-                                  </div>
-                                )}
-                              </li>
-                            );
-                          })}
-                        </ul>
-
-                        {/* Image container */}
-                        <MediaQuery minWidth={1024}>
-                          <div className="w-4/12">
-                            {(() => {
-                              // Priority: hoveredSubSubmenu > hoveredSubmenu > first item
-                              let imageToShow = null;
-                              let nameToShow = "" || "placeholder";
-
-                              if (hoveredSubSubmenu?.image) {
-                                imageToShow = hoveredSubSubmenu.image;
-                                nameToShow = hoveredSubSubmenu.name;
-                              } else if (hoveredSubmenu?.image) {
-                                imageToShow = hoveredSubmenu.image;
-                                nameToShow = hoveredSubmenu.name;
-                              } else if (item.items[0]?.image) {
-                                imageToShow = item.items[0].image;
-                                nameToShow = item.items[0].name;
-                              }
-
-                              return imageToShow ? (
-                                <div
-                                  className={cn(
-                                    "w-full aspect-[3/2] overflow-hidden rounded-lg bg-gray-100"
-                                  )}
-                                >
-                                  <Image
-                                    src={imageToShow}
-                                    alt={nameToShow}
-                                    width={450}
-                                    height={300}
-                                    className="w-full h-full object-cover hover:scale-110 transition"
-                                  />
-                                </div>
-                              ) : null;
-                            })()}
-                          </div>
-                        </MediaQuery>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              ) : (
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    className={cn(getNavigationMenuTriggerStyle(isActive))}
-                    asChild
-                  >
-                    <Link
-                      href={`/${locale}${item.slug}`}
-                      onClick={onNavigationClick}
-                    >
-                      {item.name}
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
+      <Dialog open={open} onOpenChange={setOpen}>
+        <AnimatePresence>
+          {open && (
+            <DialogContent
+              showCloseButton={false}
+              className={cn(
+                "sm:max-w-full h-screen max-h-screen rounded-none bg-black p-0",
               )}
-            </motion.div>
-          );
-        })}
-      </NavigationMenuList>
-    </NavigationMenu>
+            >
+              <motion.div
+                variants={dialogVariants}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                className="h-full w-full"
+              >
+                <DialogHeader className="sr-only">
+                  <DialogTitle>Menu</DialogTitle>
+                  <DialogDescription />
+                </DialogHeader>
+
+                <div className="h-full overflow-y-auto">
+                  <div className="min-h-full flex items-center justify-center py-20">
+                    <motion.ul
+                      variants={listVariants}
+                      initial="hidden"
+                      animate="show"
+                      exit="exit"
+                      className="flex flex-col items-center gap-6 xl:gap-4"
+                    >
+                      {menuItems?.map((item) => {
+                        const isActive = pathname === `/${locale}${item?.slug}`;
+
+                        return (
+                          <motion.li
+                            key={item?.id}
+                            variants={itemVariants}
+                            className="relative"
+                          >
+                            <motion.div
+                              variants={hoverVariants}
+                              initial="initial"
+                              whileHover="hover"
+                              className={cn(isActive && "text-white opacity-100!")}
+                            >
+                              <Button
+                                variant="none"
+                                size="none"
+                                onClick={() => {
+                                  setIsOpen(false);
+                                  setOpen(false);
+                                }}
+                                className={cn(
+                                  "text-[48px] xl:text-[60px] leading-none font-light tracking-tight",
+                                  isActive ? "text-white" : "text-white/90",
+                                )}
+                                asChild
+                              >
+                                <Link href={`/${locale}${item?.slug}`}>
+                                  {locale === "ar" ? item?.name_ar : item?.name}
+                                </Link>
+                              </Button>
+                            </motion.div>
+                          </motion.li>
+                        );
+                      })}
+                    </motion.ul>
+                  </div>
+                </div>
+
+                <div className="container absolute top-6 left-0 right-0 flex justify-between">
+                  <div className="w-[60px] 2xl:w-[80px] 3xl:w-[100px]">
+                    <Link href={`/${locale}${headerData?.slug}`}>
+                      <Image
+                        src={headerData?.logoWhiteUrl}
+                        alt={headerData?.name}
+                        width={110}
+                        height={120}
+                        className="w-full h-full block object-contain"
+                        unoptimized
+                      />
+                    </Link>
+                  </div>
+
+                  <DialogClose asChild>
+                    <Button
+                      type="button"
+                      className={"text-sm text-white hover:scale-105"}
+                    >
+                      Close
+                      <X className="size-4" />
+                    </Button>
+                  </DialogClose>
+                </div>
+
+                <motion.div
+                  initial={{ scale: 0.1, opacity: 0.9 }}
+                  animate={{ scale: 1.2, opacity: 0.1 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="w-full origin-top absolute -z-1 top-0 left-0 opacity-10 pointer-events-none"
+                >
+                  <Image
+                    src={headerData?.logoWhiteUrl}
+                    alt={headerData?.name}
+                    width={110}
+                    height={120}
+                    className="w-full h-full block object-cover"
+                    unoptimized
+                  />
+                </motion.div>
+              </motion.div>
+            </DialogContent>
+          )}
+        </AnimatePresence>
+      </Dialog>
+    </>
+  );
+}
+
+function HumbergerButton({ open, onClick, showDarkHeader }) {
+  return (
+    <Button
+      variant="none"
+      size="none"
+      onClick={onClick}
+      className="flex flex-col items-end gap-1 2xl:gap-1"
+    >
+      {[1, 2, 3].map((item) => (
+        <span
+          key={item}
+          className={cn(
+            "h-0.5 rounded-full transition-all duration-300 ease-in-out origin-center",
+            item === 1 && "w-4.5 2xl:w-5.5",
+            item === 2 && "w-4 2xl:w-5",
+            item === 3 && "w-4.5 2xl:w-5.5",
+            showDarkHeader ? "bg-black" : "bg-white",
+
+            // OPEN STATE
+            open && item === 1 && "rotate-45 translate-y-1.5",
+            open && item === 2 && "opacity-0 translate-x-2",
+            open && item === 3 && "-rotate-45 -translate-y-1.5",
+          )}
+        />
+      ))}
+    </Button>
   );
 }

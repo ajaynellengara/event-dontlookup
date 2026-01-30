@@ -42,150 +42,28 @@ export async function GET(request) {
         hasSubmenu: false,
         name: "Home",
         name_ar: "الرئيسية",
-        slug: "/",
+        slug: "",
       },
       {
         id: 2,
-        hasSubmenu: true,
+        hasSubmenu: false,
         name: "Services",
         name_ar: "الخدمات",
         slug: "/services",
-        items: [
-          {
-            id: 1,
-            hasSubmenu: true,
-            name: "Project Management",
-            name_ar: "إدارة المشاريع",
-            slug: null,
-            image:
-              "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=450&h=300&fit=crop",
-            items: [
-              {
-                id: 1,
-                hasSubmenu: false,
-                name: "Construction Management",
-                name_ar: "إدارة البناء",
-                slug: "/services/construction-management",
-                image:
-                  "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=450&h=300&fit=crop",
-              },
-              {
-                id: 2,
-                hasSubmenu: false,
-                name: "Design & Planning",
-                name_ar: "التصميم والتخطيط",
-                slug: "/services/design-planning",
-                image: "https://picsum.photos/450/300",
-              },
-            ],
-          },
-          {
-            id: 2,
-            hasSubmenu: true,
-            name: "Workspace Solutions",
-            name_ar: "حلول مساحات العمل",
-            slug: "/services/workspace-solutions",
-            image:
-              "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=450&h=300&fit=crop",
-            items: [
-              {
-                id: 1,
-                hasSubmenu: false,
-                name: "Office Design",
-                name_ar: "تصميم المكاتب",
-                slug: "/services/office-design",
-                image:
-                  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=450&h=300&fit=crop",
-              },
-              {
-                id: 2,
-                hasSubmenu: false,
-                name: "Space Planning",
-                name_ar: "تخطيط المساحات",
-                slug: "/services/space-planning",
-                image:
-                  "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=450&h=300&fit=crop",
-              },
-              {
-                id: 3,
-                hasSubmenu: false,
-                name: "Furniture Solutions",
-                name_ar: "حلول الأثاث",
-                slug: "/services/furniture-solutions",
-                image:
-                  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=450&h=300&fit=crop",
-              },
-            ],
-          },
-          {
-            id: 3,
-            hasSubmenu: false,
-            name: "Consulting Services",
-            name_ar: "خدمات الاستشارات",
-            slug: "/services/consulting",
-            image:
-              "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=450&h=300&fit=crop",
-          },
-          {
-            id: 4,
-            hasSubmenu: false,
-            name: "Maintenance & Support",
-            name_ar: "الصيانة والدعم",
-            slug: "/services/maintenance-support",
-            image:
-              "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=450&h=300&fit=crop",
-          },
-        ],
       },
       {
         id: 3,
-        hasSubmenu: true,
+        hasSubmenu: false,
         name: "Projects",
         name_ar: "المشاريع",
         slug: "/projects",
-        items: [
-          {
-            id: 1,
-            hasSubmenu: false,
-            name: "Corporate Offices",
-            name_ar: "المكاتب المؤسسية",
-            slug: "/projects/corporate",
-            image:
-              "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=450&h=300&fit=crop",
-          },
-          {
-            id: 2,
-            hasSubmenu: false,
-            name: "Co-working Spaces",
-            name_ar: "مساحات العمل المشتركة",
-            slug: "/projects/coworking",
-            image:
-              "https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=450&h=300&fit=crop",
-          },
-          {
-            id: 3,
-            hasSubmenu: false,
-            name: "Educational Institutions",
-            name_ar: "المؤسسات التعليمية",
-            slug: "/projects/education",
-            image:
-              "https://images.unsplash.com/photo-1562774053-701939374585?w=450&h=300&fit=crop",
-          },
-        ],
-      },
-      {
-        id: 4,
-        hasSubmenu: false,
-        name: "About Us",
-        name_ar: "من نحن",
-        slug: "/about",
       },
       {
         id: 5,
         hasSubmenu: false,
-        name: "Careers",
-        name_ar: "الوظائف",
-        slug: "/careers",
+        name: "About Us",
+        name_ar: "من نحن",
+        slug: "/about",
       },
       {
         id: 6,

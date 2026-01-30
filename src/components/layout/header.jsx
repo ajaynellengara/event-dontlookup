@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 
 import dynamic from "next/dynamic";
 import { ChevronDown } from "lucide-react";
+import HeaderNavigation from "./header-navigation";
 
 const MediaQuery = dynamic(() => import("react-responsive"), {
   ssr: false,
@@ -89,8 +90,8 @@ export default function Header({ headerData, navigationData, locale }) {
         initial={{ opacity: 1, y: -100 }}
         animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.2 }}
-        onMouseEnter={() => setHeaderHover(true)}
-        onMouseLeave={() => setHeaderHover(false)}
+        // onMouseEnter={() => setHeaderHover(true)}
+        // onMouseLeave={() => setHeaderHover(false)}
         className={cn(
           "w-full h-(--header-y) z-10 top-0 inset-x-0 flex items-center bg-linear-to-b from-black/20 to-transparent transition-background duration-300",
           bg
@@ -174,38 +175,14 @@ export default function Header({ headerData, navigationData, locale }) {
               </Button>
 
               <MediaQuery minWidth={1024}>
-                <Button
-                  variant="none"
-                  size="none"
-                  onClick={() => setToggle((prev) => !prev)}
-                  className="flex flex-col items-end gap-1 2xl:gap-1"
-                >
-                  {[1, 2, 3].map((item) => (
-                    <span
-                      key={item}
-                      className={cn(
-                        "h-0.5 rounded-full transition-all duration-300 ease-in-out origin-center",
-                        item === 1 && "w-4.5 2xl:w-5.5",
-                        item === 2 && "w-4 2xl:w-5",
-                        item === 3 && "w-4.5 2xl:w-5.5",
-                        showDarkHeader ? "bg-black" : "bg-white",
-
-                        // OPEN STATE
-                        toggle && item === 1 && "rotate-45 translate-y-1.5",
-                        toggle && item === 2 && "opacity-0 translate-x-2",
-                        toggle && item === 3 && "-rotate-45 -translate-y-1.5",
-                      )}
-                    />
-                  ))}
-                </Button>
-
-                {/* <HeaderNavigation
+                <HeaderNavigation
                   locale={locale}
-                  pathname={pathname}
+                  setIsOpen={setToggle}
                   menuItems={navigationData}
-                  onNavigationClick={handleNavigationLinkClick}
+                  pathname={pathname}
                   showDarkHeader={showDarkHeader}
-                /> */}
+                  headerData={headerData}
+                />
               </MediaQuery>
             </div>
           </div>
