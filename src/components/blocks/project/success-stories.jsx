@@ -30,11 +30,11 @@ export default function SuccessStories({ data, locale }) {
         </div>
         <div className="flex flex-wrap">
           <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
-            <div className="flex justify-start touch-pan-y touch-pinch-zoom -mx-1 [&>div]:px-[30px]">
+            <div className="flex justify-start touch-pan-y touch-pinch-zoom  sm:[&>div]:px-[10px] md:[&>div]:px-[20px] xl:[&>div]:px-[30px]">
               {[1, 2, 3, 4].map((item, index) => (
                 <div
                   key={"product" + index}
-                  className="flex-[0_0_176px] sm:flex-[0_0_50%] min-w-0 select-none"
+                  className="flex-[0_0_100%] sm:flex-[0_0_50%] min-w-0 select-none"
                 >
                   <div className="w-full">
                     <div className="aspect-[830/518] w-full">
@@ -50,7 +50,7 @@ export default function SuccessStories({ data, locale }) {
                     </div>
                     <div className="inset-x-0 bottom-0 pt-4 xl:pt-10 flex items-center justify-between">
                       <div>
-                        <Heading size="h4" className="text-[#1E1E1E] mb-1">
+                        <Heading size="h4" as="h4" className="text-[#1E1E1E] mb-1">
                           Luxury Residential Tower, Dubai
                         </Heading>
                       </div>
