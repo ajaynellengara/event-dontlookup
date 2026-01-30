@@ -14,6 +14,7 @@ import Image from "next/image";
 
 import { motion } from "motion/react";
 import { Skeleton } from "@/components/ui/skeleton";
+import ScrollReveal from "@/components/animations/scroll-reveal";
 
 export default function HomeServices({ data, locale }) {
   const [emblaRef] = useEmblaCarousel(
@@ -22,18 +23,20 @@ export default function HomeServices({ data, locale }) {
   );
 
   return (
-    <section className="w-full h-auto block py-[30px] sm:py-[40px] xl:py-[70px_80px] 2xl:py-[80px_110px] overflow-hidden">
+    <section className="w-full h-auto block py-[40px] sm:py-[40px] xl:py-[70px_80px] 2xl:py-[80px_110px] overflow-hidden">
       <div className="container">
         <div className="flex flex-wrap mb-6 xl:mb-10 2xl:mb-14">
-          <div className="w-7/12">
-            <Heading
-              as="div"
-              size="h6"
-              className="tracking-widest font-normal text-[#1e1e1e] flex items-center gap-x-4 mb-1 xl:mb-1.5 2xl:mb-1.5"
-            >
-              <span className="size-2 rounded-full bg-[#c09c86] inline-block" />
-              {parse(locale == "ar" ? data?.sub_title_ar : data?.sub_title)}
-            </Heading>
+          <div className="w-full sm:w-7/12">
+            <ScrollReveal delay={0.1}>
+              <Heading
+                as="div"
+                size="h6"
+                className="tracking-widest font-normal text-[#1e1e1e] flex items-center gap-x-4 mb-1 xl:mb-1.5 2xl:mb-1.5"
+              >
+                <span className="size-2 rounded-full bg-[#c09c86] inline-block" />
+                {parse(locale == "ar" ? data?.sub_title_ar : data?.sub_title)}
+              </Heading>
+            </ScrollReveal>
             <Heading
               as="h2"
               size="h3"
@@ -42,7 +45,7 @@ export default function HomeServices({ data, locale }) {
               {parse(locale == "ar" ? data?.title_ar : data?.title)}
             </Heading>
           </div>
-          <div className="w-5/12">
+          <div className="w-full sm:w-5/12">
             <Text
               as="div"
               size="p1"
@@ -55,7 +58,7 @@ export default function HomeServices({ data, locale }) {
             <Button
               size="lg"
               variant={"outline"}
-              className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px]"
+              className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px] transition-all duration-300 hover:scale-105 hover:shadow-lg"
               asChild
             >
               <Link href={data?.button?.link}>
@@ -64,12 +67,21 @@ export default function HomeServices({ data, locale }) {
             </Button>
           </div>
         </div>
+      </div>
+      <div
+        className={cn(
+          "container",
+          locale === "ar"
+            ? "pl-0 [mask-image:linear-gradient(to_left,black_0%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_left,black_0%,black_95%,transparent_100%)]"
+            : "pr-0 [mask-image:linear-gradient(to_right,black_0%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,black_0%,black_95%,transparent_100%)]",
+        )}
+      >
         <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
           <div className="flex touch-pan-y touch-pinch-zoom">
             {data?.items?.map((item, index) => (
               <div
                 key={"product" + index}
-                className="flex-[0_0_176px] sm:flex-[0_0_25%] min-w-0 select-none"
+                className="flex-[0_0_220px] sm:flex-[0_0_25%] min-w-0 select-none"
               >
                 <ServiceCard data={item} index={index} locale={locale} />
               </div>
@@ -86,11 +98,11 @@ function ServiceCard({ data, index, locale }) {
   return (
     <Suspense
       fallback={
-        <Skeleton className="w-full h-[368px] lg:h-[440px] 2xl:h-[548px] 3xl:h-[668px] bg-gray-400" />
+        <Skeleton className="w-full h-[320px] sm:h-[368px] lg:h-[440px] 2xl:h-[548px] 3xl:h-[668px] bg-gray-400" />
       }
     >
       <motion.div
-        className="w-full h-[368px] lg:h-[440px] 2xl:h-[540px] 3xl:h-[668px] relative"
+        className="w-full h-[320px] sm:h-[368px] lg:h-[440px] 2xl:h-[540px] 3xl:h-[668px] relative"
         onHoverStart={() => setHovered(index)}
         onHoverEnd={() => setHovered(null)}
       >
@@ -157,7 +169,7 @@ function ServiceCard({ data, index, locale }) {
               <Button
                 size="lg"
                 variant={"outline"}
-                className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px]"
+                className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px] transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 asChild
               >
                 <Link href={data?.slug}>

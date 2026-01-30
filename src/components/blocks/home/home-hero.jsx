@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -15,97 +17,8 @@ import { Heading } from "@/components/utils/typography";
 
 import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 
-const slideContentVariants = {
-  initial: {
-    opacity: 0,
-    y: 50,
-    scale: 0.95,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 1,
-      ease: [0.25, 0.46, 0.45, 0.94],
-      staggerChildren: 0.2,
-      delayChildren: 0.1,
-    },
-  },
-  exit: {
-    opacity: 0,
-    y: -30,
-    scale: 0.95,
-    transition: {
-      duration: 0.5,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    },
-  },
-};
-
-const titleVariants = {
-  initial: {
-    opacity: 0,
-    y: -40,
-    scale: 0.9,
-    rotateX: -15,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    rotateX: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94],
-      type: "spring",
-      stiffness: 100,
-      damping: 20,
-    },
-  },
-};
-
-const descriptionVariants = {
-  initial: {
-    opacity: 0,
-    y: 20,
-    scale: 0.95,
-    filter: "blur(8px)",
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.7,
-      ease: [0.25, 0.46, 0.45, 0.94],
-      delay: 0.2,
-    },
-  },
-};
-
-const buttonContainerVariants = {
-  initial: {
-    opacity: 0,
-    y: 30,
-    scale: 0.9,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94],
-      delay: 0.4,
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
-    },
-  },
-};
-
 export default function HomeHero({ data, locale }) {
+  const [isRevealed, setIsRevealed] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, direction: locale === "ar" ? "rtl" : "ltr" },
     [
@@ -117,10 +30,40 @@ export default function HomeHero({ data, locale }) {
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsRevealed(true);
+    }, 2200);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <ParallaxProvider>
-      <section className="w-full h-auto block bg-black relative z-0">
-        <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
+      <section className="w-full h-auto block bg-black relative z-0 overflow-hidden">
+        <AnimatePresence>
+          {!isRevealed && (
+            <motion.div
+              className="absolute inset-0 z-50 bg-black origin-bottom"
+              initial={{ scaleY: 1 }}
+              exit={{ scaleY: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.76, 0, 0.24, 1],
+              }}
+            />
+          )}
+        </AnimatePresence>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={isRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.1 }}
+          transition={{
+            duration: 1,
+            ease: [0.25, 0.46, 0.45, 0.94],
+          }}
+          className="w-full max-w-full overflow-hidden"
+          ref={emblaRef}
+        >
           <div className="flex touch-pan-y touch-pinch-zoom">
             {data?.sliders?.map((item, index) => (
               <div
@@ -165,22 +108,49 @@ export default function HomeHero({ data, locale }) {
                     </picture>
                   )}
                 </Parallax>
-                <div className="w-full h-[468px] sm:h-[576px] xl:h-screen min-h-[468px] sm:min-h-[468px] xl:min-h-[576px] 2xl:min-h-[768px] 3xl:min-h-[900px] flex items-end py-[calc(20px+var(--header-y))_20px] sm:py-[calc(30px+var(--header-y))_30px] xl:py-[calc(40px+var(--header-y))_40px] 2xl:py-[calc(60px+var(--header-y))_60px]">
+                <div className="w-full h-[576px] sm:h-[576px] xl:h-screen min-h-[576px] sm:min-h-[576px] xl:min-h-[576px] 2xl:min-h-[768px] 3xl:min-h-[900px] flex items-end py-[calc(20px+var(--header-y))_20px] sm:py-[calc(30px+var(--header-y))_30px] xl:py-[calc(40px+var(--header-y))_40px] 2xl:py-[calc(60px+var(--header-y))_60px]">
                   <div className="container">
                     <div className="flex flex-wrap items-end">
                       <div className="w-full">
-                        <Heading
-                          as="h1"
-                          size="h1"
-                          className="leading-snug text-white mb-4 xl:mb-7.5 2xl:mb-8 [&>span]:text-[128%] [&>span]:font-medium [&>span]:block"
+                        <motion.div
+                          initial={{ opacity: 0, y: 60 }}
+                          animate={
+                            isRevealed
+                              ? { opacity: 1, y: 0 }
+                              : { opacity: 0, y: 60 }
+                          }
+                          transition={{
+                            duration: 0.8,
+                            delay: 0.4,
+                            ease: [0.25, 0.46, 0.45, 0.94],
+                          }}
                         >
-                          {parse(
-                            locale === "ar" ? item?.title_ar : item?.title,
-                          )}
-                        </Heading>
+                          <Heading
+                            as="h1"
+                            size="h1"
+                            className="leading-snug text-white mb-4 xl:mb-7.5 2xl:mb-8 [&>span]:text-[128%] [&>span]:font-medium [&>span]:block"
+                          >
+                            {parse(
+                              locale === "ar" ? item?.title_ar : item?.title,
+                            )}
+                          </Heading>
+                        </motion.div>
                       </div>
                       <div className="w-full sm:w-1/2">
-                        <div className="w-fit rounded-full bg-[#d9d9d9]/20 backdrop-blur-sm p-2 flex items-center gap-0.5">
+                        <motion.div
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={
+                            isRevealed
+                              ? { opacity: 1, y: 0 }
+                              : { opacity: 0, y: 30 }
+                          }
+                          transition={{
+                            duration: 0.6,
+                            delay: 0.6,
+                            ease: [0.25, 0.46, 0.45, 0.94],
+                          }}
+                          className="w-fit rounded-full bg-[#d9d9d9]/20 backdrop-blur-sm p-2 flex items-center gap-0.5"
+                        >
                           {scrollSnaps.map((_, index) => (
                             <DotButton
                               key={index}
@@ -193,27 +163,41 @@ export default function HomeHero({ data, locale }) {
                               )}
                             />
                           ))}
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="w-full sm:w-1/2">
-                        <Heading
-                          as="h6"
-                          size="h6"
-                          className="text-end tracking-widest font-normal text-white/50 mb-1 xl:mb-2"
+                        <motion.div
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={
+                            isRevealed
+                              ? { opacity: 1, y: 0 }
+                              : { opacity: 0, y: 30 }
+                          }
+                          transition={{
+                            duration: 0.6,
+                            delay: 0.7,
+                            ease: [0.25, 0.46, 0.45, 0.94],
+                          }}
                         >
-                          {locale === "ar"
-                            ? item?.project_tag_ar
-                            : item?.project_tag}
-                        </Heading>
-                        <Heading
-                          as="h5"
-                          size="h5"
-                          className="text-end font-medium tracking-widest text-white/50"
-                        >
-                          {locale === "ar"
-                            ? item?.project_name_ar
-                            : item?.project_name}
-                        </Heading>
+                          <Heading
+                            as="h6"
+                            size="h6"
+                            className="max-sm:text-[12px] text-end tracking-widest font-normal text-white/50 mb-1 xl:mb-2"
+                          >
+                            {locale === "ar"
+                              ? item?.project_tag_ar
+                              : item?.project_tag}
+                          </Heading>
+                          <Heading
+                            as="h5"
+                            size="h5"
+                            className="max-sm:text-[14px] text-end font-medium tracking-widest text-white/50"
+                          >
+                            {locale === "ar"
+                              ? item?.project_name_ar
+                              : item?.project_name}
+                          </Heading>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -221,7 +205,7 @@ export default function HomeHero({ data, locale }) {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
     </ParallaxProvider>
   );

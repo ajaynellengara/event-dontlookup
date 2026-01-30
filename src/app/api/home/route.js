@@ -21,7 +21,7 @@ export async function GET(request) {
           media_alt: "Skyline Heights Project",
           media_alt_ar: "مشروع سكايلاين هايتس",
           media_desktop_path: "/images/home-hero-1.jpg",
-          media_mobile_path: "/images/home-hero-1.jpg",
+          media_mobile_path: "/images/home-hero-mob-1.jpg",
         },
         {
           id: 2,
@@ -35,7 +35,7 @@ export async function GET(request) {
           media_alt: "IT Complex Project",
           media_alt_ar: "مشروع المجمع التقني",
           media_desktop_path: "/images/home-hero-2.jpg",
-          media_mobile_path: "/images/home-hero-2.jpg",
+          media_mobile_path: "/images/home-hero-mob-2.jpg",
         },
         {
           id: 3,
@@ -49,7 +49,7 @@ export async function GET(request) {
           media_alt: "Luxury Residence Project",
           media_alt_ar: "مشروع الإقامة الفاخرة",
           media_desktop_path: "/images/home-hero-3.jpg",
-          media_mobile_path: "/images/home-hero-3.jpg",
+          media_mobile_path: "/images/home-hero-mob-3.jpg",
         },
         {
           id: 4,
@@ -63,7 +63,7 @@ export async function GET(request) {
           media_alt: "Luxury Residence Project",
           media_alt_ar: "مشروع الإقامة الفاخرة",
           media_desktop_path: "/images/home-hero-4.jpg",
-          media_mobile_path: "/images/home-hero-4.jpg",
+          media_mobile_path: "/images/home-hero-mob-4.jpg",
         },
         {
           id: 5,
@@ -77,7 +77,7 @@ export async function GET(request) {
           media_alt: "Luxury Residence Project",
           media_alt_ar: "مشروع الإقامة الفاخرة",
           media_desktop_path: "/images/home-hero-5.jpg",
-          media_mobile_path: "/images/home-hero-5.jpg",
+          media_mobile_path: "/images/home-hero-mob-5.jpg",
         },
       ],
     },

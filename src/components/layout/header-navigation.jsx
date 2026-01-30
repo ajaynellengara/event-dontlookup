@@ -95,7 +95,7 @@ export default function HeaderNavigation({
             <DialogContent
               showCloseButton={false}
               className={cn(
-                "sm:max-w-full h-screen max-h-screen rounded-none bg-black p-0",
+                "max-w-full sm:max-w-full h-screen max-h-screen rounded-none bg-black p-0",
               )}
             >
               <motion.div
@@ -132,7 +132,9 @@ export default function HeaderNavigation({
                               variants={hoverVariants}
                               initial="initial"
                               whileHover="hover"
-                              className={cn(isActive && "text-white opacity-100!")}
+                              className={cn(
+                                isActive && "text-white opacity-100!",
+                              )}
                             >
                               <Button
                                 variant="none"
@@ -142,7 +144,7 @@ export default function HeaderNavigation({
                                   setOpen(false);
                                 }}
                                 className={cn(
-                                  "text-[48px] xl:text-[60px] leading-none font-light tracking-tight",
+                                  "text-[36px] sm:text-[48px] xl:text-[60px] leading-none font-light tracking-tight",
                                   isActive ? "text-white" : "text-white/90",
                                 )}
                                 asChild
@@ -159,29 +161,31 @@ export default function HeaderNavigation({
                   </div>
                 </div>
 
-                <div className="container absolute top-6 left-0 right-0 flex justify-between">
-                  <div className="w-[60px] 2xl:w-[80px] 3xl:w-[100px]">
-                    <Link href={`/${locale}${headerData?.slug}`}>
-                      <Image
-                        src={headerData?.logoWhiteUrl}
-                        alt={headerData?.name}
-                        width={110}
-                        height={120}
-                        className="w-full h-full block object-contain"
-                        unoptimized
-                      />
-                    </Link>
-                  </div>
+                <div className="w-full h-(--header-y) flex items-center absolute top-0 left-0 right-0">
+                  <div className="container flex justify-between items-center">
+                    <div className="w-[60px] 2xl:w-[80px] 3xl:w-[100px]">
+                      <Link href={`/${locale}${headerData?.slug}`}>
+                        <Image
+                          src={headerData?.logoWhiteUrl}
+                          alt={headerData?.name}
+                          width={110}
+                          height={120}
+                          className="w-full h-full block object-contain"
+                          unoptimized
+                        />
+                      </Link>
+                    </div>
 
-                  <DialogClose asChild>
-                    <Button
-                      type="button"
-                      className={"text-sm text-white hover:scale-105"}
-                    >
-                      Close
-                      <X className="size-4" />
-                    </Button>
-                  </DialogClose>
+                    <DialogClose asChild>
+                      <Button
+                        type="button"
+                        className={"text-sm text-white hover:scale-105"}
+                      >
+                        Close
+                        <X className="size-4" />
+                      </Button>
+                    </DialogClose>
+                  </div>
                 </div>
 
                 <motion.div

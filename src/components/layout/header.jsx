@@ -95,7 +95,7 @@ export default function Header({ headerData, navigationData, locale }) {
         className={cn(
           "w-full h-(--header-y) z-10 top-0 inset-x-0 flex items-center bg-linear-to-b from-black/20 to-transparent transition-background duration-300",
           bg
-            ? "border-b border-white/10 shadow-[0px_10px_4px_0px_rgba(0,0,0,0.1)] backdrop-blur-sm fixed"
+            ? "h-[calc(var(--header-y)/1.4)] border-b border-white/10 shadow-[0px_10px_4px_0px_rgba(0,0,0,0.1)] backdrop-blur-sm fixed"
             : "absolute",
           // bg && (pathname === `/${locale}` ? "bg-black/90" : "bg-white/90"),
           // pathname === `/${locale}`
@@ -113,10 +113,17 @@ export default function Header({ headerData, navigationData, locale }) {
         )}
       >
         <div className="container">
-          <div className="flex justify-end items-center gap-x-3 lg:gap-x-8 relative z-0">
+          <div className="flex justify-between sm:justify-end items-center gap-x-3 lg:gap-x-8 relative z-0">
             {/* Brand Logo */}
-            <div className="absolute left-1/2 -translate-x-1/2">
-              <div className="w-[80px] sm:w-[75px] 2xl:w-[90px] 3xl:w-[110px]">
+            <div className={cn("sm:absolute left-1/2 sm:-translate-x-1/2",
+              // locale === "ar" ? "right-4 sm:right-1/2" : "left-4 sm:left-1/2"
+            )}>
+              <div
+                className={cn(
+                  "w-[60px] sm:w-[75px] 2xl:w-[90px] 3xl:w-[110px]",
+                  bg && "w-[40px] sm:w-[60px] 2xl:w-[70px] 3xl:w-[90px]",
+                )}
+              >
                 <Link href={`/${locale}${headerData?.slug}`}>
                   <Image
                     src={headerData?.logoWhiteUrl}
@@ -133,7 +140,7 @@ export default function Header({ headerData, navigationData, locale }) {
 
             <div
               className={cn(
-                "flex items-center justify-end lg:justify-end transition gap-x-3.75 sm:gap-x-5 lg:gap-x-7.5 2xl:gap-x-10",
+                "flex items-center justify-end lg:justify-end transition gap-x-7 sm:gap-x-7 lg:gap-x-7.5 2xl:gap-x-10",
               )}
             >
               {locale == "ar" ? (
@@ -173,17 +180,14 @@ export default function Header({ headerData, navigationData, locale }) {
               >
                 <Link href={`/${locale}/contact`}>CONTACT US</Link>
               </Button>
-
-              <MediaQuery minWidth={1024}>
-                <HeaderNavigation
-                  locale={locale}
-                  setIsOpen={setToggle}
-                  menuItems={navigationData}
-                  pathname={pathname}
-                  showDarkHeader={showDarkHeader}
-                  headerData={headerData}
-                />
-              </MediaQuery>
+              <HeaderNavigation
+                locale={locale}
+                setIsOpen={setToggle}
+                menuItems={navigationData}
+                pathname={pathname}
+                showDarkHeader={showDarkHeader}
+                headerData={headerData}
+              />
             </div>
           </div>
         </div>
