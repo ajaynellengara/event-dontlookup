@@ -76,7 +76,11 @@ export default function HomeServices({ data, locale }) {
             : "max-sm:pr-0 max-sm:[mask-image:linear-gradient(to_right,black_0%,black_90%,transparent_100%)] max-sm:[-webkit-mask-image:linear-gradient(to_right,black_0%,black_95%,transparent_100%)]",
         )}
       >
-        <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
+        <div
+          className="w-full max-w-full overflow-hidden"
+          ref={emblaRef}
+          data-cursor="carousel"
+        >
           <div className="flex touch-pan-y touch-pinch-zoom">
             {data?.items?.map((item, index) => (
               <div

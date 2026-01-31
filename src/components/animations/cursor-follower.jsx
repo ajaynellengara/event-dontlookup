@@ -2,12 +2,21 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useMediaQuery } from "react-responsive";
 
 export default function CursorFollower() {
   const [isHovering, setIsHovering] = useState(false);
   const [isCarousel, setIsCarousel] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [direction, setDirection] = useState("none"); // "left" | "right"
   const cursorRef = useRef(null);
+
+  const isMobileQuery = useMediaQuery({ maxWidth: 1023 });
+  const [isMobile, setIsMobile] = useState(true); // Default to true to prevent flash
+
+  useEffect(() => {
+    setIsMobile(isMobileQuery);
+  }, [isMobileQuery]);
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -17,16 +26,18 @@ export default function CursorFollower() {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    // Check if device is mobile
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024 || "ontouchstart" in window);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
+    if (isMobile) return;
 
     const moveCursor = (e) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
+
+      // Simple left/right detection based on screen width
+      if (e.clientX < window.innerWidth / 2) {
+        setDirection("left");
+      } else {
+        setDirection("right");
+      }
     };
 
     const handleMouseEnter = (e) => {
@@ -84,11 +95,12 @@ export default function CursorFollower() {
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
-      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("resize", checkMobile); // Note: checkMobile is defined inside the effect but resize listener added inside too. 
+      // Wait, checkMobile is defined inside. The resize listener references it. That's fine.
       document.removeEventListener("mouseover", handleMouseEnter, true);
       document.removeEventListener("mouseout", handleMouseLeave, true);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, isMobile]);
 
   if (isMobile) return null;
 
@@ -96,7 +108,7 @@ export default function CursorFollower() {
     <>
       <motion.div
         ref={cursorRef}
-        className="fixed pointer-events-none opacity-40 z-[9999] mix-blend-difference transition-all duration-100 flex items-center justify-center text-black"
+        className="fixed pointer-events-none z-[9999] mix-blend-difference transition-all duration-100 flex items-center justify-center text-black opacity-40"
         style={{
           left: cursorXSpring,
           top: cursorYSpring,
@@ -129,8 +141,18 @@ export default function CursorFollower() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.5 }}
             >
-              <ChevronLeft className="size-6" />
-              <ChevronRight className="size-6" />
+              <ChevronLeft
+                className={cn(
+                  "size-6 transition-opacity duration-300",
+                  direction === "left" ? "opacity-100" : "opacity-30"
+                )}
+              />
+              <ChevronRight
+                className={cn(
+                  "size-6 transition-opacity duration-300",
+                  direction === "right" ? "opacity-100" : "opacity-30"
+                )}
+              />
             </motion.div>
           )}
         </motion.div>

@@ -83,7 +83,7 @@ export default function HomeAbout({ data, locale }) {
 
             <MediaQuery minWidth={640}>
               <div className="w-full sm:w-4/12">
-                <Parallax speed={-20}>
+                <Parallax speed={-5}>
                   <div className="w-full max-w-[268px] xl:max-w-[300px] 2xl:max-w-[360px] bg-gray-200 mx-auto mask-[url(/images/icon-brand.svg)] mask-center mask-contain mask-no-repeat">
                     <Image
                       src={data?.media_path}
