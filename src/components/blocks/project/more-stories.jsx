@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Heading, Text } from "@/components/utils/typography";
-import parse from "html-react-parser";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 export default function MoreStories({ data, locale }) {
