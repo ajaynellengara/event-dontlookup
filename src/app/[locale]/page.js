@@ -4,6 +4,7 @@ import HomeStatistics from "@/components/blocks/home/home-statistics";
 import HomeServices from "@/components/blocks/home/home-services";
 import { notFound } from "next/navigation";
 import HomePortfolio from "@/components/blocks/home/home-portfolio";
+import HomeProjects from "@/components/blocks/home/home-projects";
 import HomePartners from "@/components/blocks/home/home-partners";
 
 export const dynamic = "force-dynamic";
@@ -65,6 +66,8 @@ export default async function HomePage({ params }) {
       {/* {services && <HomeServicesCarousel data={services} locale={locale} />} */}
 
       {portfolio && <HomePortfolio data={portfolio} locale={locale} />}
+
+      {portfolio && <HomeProjects data={portfolio} locale={locale} />}
 
       {partners && <HomePartners data={partners} locale={locale} />}
     </>
