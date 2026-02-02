@@ -17,11 +17,11 @@ export default function MoreStories({ data, locale }) {
         
         <div className="flex flex-wrap">
           <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
-            <div className="flex justify-start touch-pan-y touch-pinch-zoom -mx-1 [&>div]:px-[23px]">
+            <div className="flex justify-start touch-pan-y touch-pinch-zoom -mx-1 [&>div]:px-[10px] md:[&>div]:px-[17px] xl:[&>div]:px-[23px] mx-[-10px] md:mx-[-17px] xl:mx-[-23px]">
               {[1, 2, 3, 4].map((item, index) => (
                 <div
                   key={"product" + index}
-                  className="flex-[0_0_176px] sm:flex-[0_0_calc(100%/3)] min-w-0 select-none"
+                  className="flex-[0_0_70%] sm:flex-[0_0_calc(100%/2)] md:flex-[0_0_calc(100%/3)]  min-w-0 select-none"
                 >
                   <div className="w-full">
                     <div className="aspect-[542/799] w-full">
@@ -45,7 +45,7 @@ export default function MoreStories({ data, locale }) {
                       <Button
                         size="none"
                         variant="outline"
-                        className="text-[12px] 2xl:text-[14px] 3xl:text-[18px] leading-none font-normal text-[#1E1E1E] bg-[#FFFBF1] h-8 xl:h-10 2xl:h-12 rounded-[6px] 2xl:rounded-xl px-6 has-[>svg]:px-2 mt-7.5"
+                        className="text-[12px] 2xl:text-[14px] 3xl:text-[18px] leading-none font-normal text-[#1E1E1E] bg-[#FFFBF1] h-8 xl:h-10 2xl:h-12 rounded-[6px] 2xl:rounded-xl px-6 has-[>svg]:px-2 mt-2.5 sm:mt-5 xl:mt-7.5"
                         asChild
                       >
                         <Link href={"#"}>View Project</Link>

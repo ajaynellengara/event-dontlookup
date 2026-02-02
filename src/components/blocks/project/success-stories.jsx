@@ -30,7 +30,7 @@ export default function SuccessStories({ data, locale }) {
         </div>
         <div className="flex flex-wrap">
           <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
-            <div className="flex justify-start touch-pan-y touch-pinch-zoom  sm:[&>div]:px-[10px] md:[&>div]:px-[20px] xl:[&>div]:px-[30px]">
+            <div className="flex justify-start touch-pan-y touch-pinch-zoom  sm:[&>div]:px-[10px] md:[&>div]:px-[20px] xl:[&>div]:px-[30px] sm:mx-[-10px] md:mx-[-20px] xl:mx-[-30px]">
               {[1, 2, 3, 4].map((item, index) => (
                 <div
                   key={"product" + index}
