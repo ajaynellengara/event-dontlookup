@@ -148,7 +148,7 @@ export default function HomePartners({ data, locale }) {
               exit="exit"
               className="grid grid-cols-4 sm:grid-cols-5 grid-rows-2 gap-[1px] relative overflow-hidden"
             >
-              <div className="w-full sm:w-8/10 h-full sm:h-8/10 bg-black opacity-10 m-auto blur-md absolute -z-1 inset-0" />
+              <div className="w-full sm:w-8/10 h-full sm:h-8/10 bg-black opacity-[0%] sm:opacity-10 m-auto blur-md absolute -z-1 inset-0" />
               {currentItems.map((item, index) => (
                 <div
                   key={`slot-${index}`}

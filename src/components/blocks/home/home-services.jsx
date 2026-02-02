@@ -20,7 +20,13 @@ import { useMediaQuery } from "react-responsive";
 
 export default function HomeServices({ data, locale }) {
   const [emblaRef] = useEmblaCarousel(
-    { loop: false, direction: locale === "ar" ? "rtl" : "ltr" },
+    {
+      loop: false,
+      direction: locale === "ar" ? "rtl" : "ltr",
+      align: "start",
+      slidesToScroll: 1,
+      containScroll: "trimSnaps",
+    },
     [Autoplay({ delay: 5000, stopOnInteraction: true, pauseOnHover: true })],
   );
 
@@ -147,19 +153,25 @@ function ServiceCard({ data, index, locale }) {
             animate={
               isMobile
                 ? {
-                    rotateY: 0,
-                    opacity: 1,
-                    filter: "blur(0px)",
-                  }
+                  rotateY: 0,
+                  opacity: 1,
+                  filter: "blur(0px)",
+                }
                 : {
-                    rotateY: hovered === index ? 0 : 180,
-                    opacity: hovered === index ? 1 : 0,
-                    filter: hovered === index ? "blur(0px)" : "blur(2px)",
-                  }
+                  rotateY: hovered === index ? 0 : 180,
+                  opacity: hovered === index ? 1 : 0,
+                  filter: hovered === index ? "blur(0px)" : "blur(2px)",
+                }
             }
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-            style={{ perspective: 1200 }}
-            className="absolute z-2 inset-0 lg:bg-[#fafafa] lg:bg-[url(/images/home-services-box-bg.png)] bg-cover flex items-end lg:items-center p-5 xl:p-7.5 2xl:p-10"
+            transition={{
+              duration: 1,
+              ease: [0.43, 0.13, 0.23, 0.96] // Custom cubic-bezier for smooth professional feel
+            }}
+            style={{
+              perspective: 1200,
+              transformStyle: "preserve-3d",
+            }}
+            className="absolute z-2 inset-0 lg:bg-[#fafafa] lg:bg-[url(/images/home-services-box-bg.png)] bg-cover flex items-end lg:items-center p-4 sm:p-5 xl:p-7.5 2xl:p-10"
           >
             <div>
               <Image
