@@ -24,6 +24,7 @@ import WebglDisplacementCarousel from "@/components/animations/WebglDisplacement
 import HackingText from "@/components/ui/hacking-text";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const MediaQuery = dynamic(() => import("react-responsive"), {
   ssr: false,
@@ -86,6 +87,23 @@ export default function HomeHero({ data, locale }) {
           }}
           className="absolute inset-0 w-full h-full z-0"
         >
+          {/* Priority Static Image for LCP */}
+          {data?.sliders?.[0]?.media_desktop_path && (
+            <Image
+              src={data.sliders[0].media_desktop_path}
+              alt={data.sliders[0].title || "Hero"}
+              fill
+              priority
+              quality={90}
+              sizes="100vw"
+              className="object-cover"
+              style={{
+                opacity: isRevealed ? 0 : 1,
+                transition: 'opacity 0.5s ease-in-out'
+              }}
+            />
+          )}
+
           <div className="absolute inset-0 w-full h-full bg-linear-to-b from-black/70 via-transparent to-black/60 z-10 pointer-events-none" />
           <MediaQuery minWidth={640}>
             <Parallax speed={-10} className="w-full h-full">

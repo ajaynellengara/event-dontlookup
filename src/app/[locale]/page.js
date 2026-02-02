@@ -2,8 +2,6 @@ import HomeAbout from "@/components/blocks/home/home-about";
 import HomeHero from "@/components/blocks/home/home-hero";
 import HomeStatistics from "@/components/blocks/home/home-statistics";
 import HomeServices from "@/components/blocks/home/home-services";
-import HomeServicesCarousel from "@/components/blocks/home/home-services-carousel";
-import HomeHeroWebgl from "@/components/blocks/home/home-hero-webgl";
 import { notFound } from "next/navigation";
 import HomePortfolio from "@/components/blocks/home/home-portfolio";
 import HomePartners from "@/components/blocks/home/home-partners";

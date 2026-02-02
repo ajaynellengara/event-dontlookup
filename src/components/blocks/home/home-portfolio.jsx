@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, Suspense, useEffect } from "react";
+import React, { useMemo, useState, Suspense, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Heading, Text } from "@/components/utils/typography";
 import { cn } from "@/lib/utils";
@@ -12,7 +12,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { Skeleton } from "@/components/ui/skeleton";
 import ScrollReveal from "@/components/animations/scroll-reveal";
-import WebglDisplacementCarousel from "@/components/animations/WebglDisplacementCarousel";
+import { Canvas } from "@react-three/fiber";
+import { CarouselScene } from "@/components/animations/WebglDisplacementCarousel";
 
 export default function HomePortfolio({ data, locale }) {
   const items = data?.items || [];
@@ -140,12 +141,6 @@ export default function HomePortfolio({ data, locale }) {
 }
 
 function PortfolioCard({ data, slot, locale, activeIndex, images }) {
-  // Determine the actual image index for this slot
-  // activeIndex is the global start index.
-  // slot 0 shows index 0, slot 1 shows index 1, etc.
-  // But since we pass `items` cyclically to the list, we must ensure webgl index matches.
-  // The visibleItems logic: items[activeIndex % len], items[(activeIndex+1)%len]...
-  // So yes, `(activeIndex + slot) % len` is correct.
   const webGLIndex = (activeIndex + slot) % images.length;
 
   return (
@@ -163,10 +158,12 @@ function PortfolioCard({ data, slot, locale, activeIndex, images }) {
         )}
       >
         <div className="absolute inset-0 hover:scale-110 transition duration-300">
-          {images.length > 0 && <WebglDisplacementCarousel
-            images={images}
-            activeIndex={webGLIndex}
-          />}
+          {images.length > 0 && (
+            <OptimizedWebglCarousel
+              images={images}
+              activeIndex={webGLIndex}
+            />
+          )}
         </div>
 
         {slot === 0 && (
@@ -222,5 +219,32 @@ function PortfolioCard({ data, slot, locale, activeIndex, images }) {
         )}
       </div>
     </Suspense>
+  );
+}
+
+// Optimized WebGL Carousel with reduced GPU overhead
+function OptimizedWebglCarousel({ images, activeIndex }) {
+  return (
+    <div className="w-full h-full">
+      <Canvas
+        camera={{ position: [0, 0, 1], fov: 50 }}
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        gl={{
+          powerPreference: "low-power",
+          antialias: false,
+          alpha: false,
+          stencil: false,
+          depth: false,
+        }}
+      >
+        <React.Suspense fallback={null}>
+          <CarouselScene
+            images={images}
+            displacementImage="/images/pexels-photo.jpeg"
+            activeIndex={activeIndex}
+          />
+        </React.Suspense>
+      </Canvas>
+    </div>
   );
 }
