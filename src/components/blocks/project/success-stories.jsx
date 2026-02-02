@@ -13,7 +13,7 @@ export default function SuccessStories({ data, locale }) {
   return (
     <section className="bg-[#FFFBF2] w-full h-auto block py-[30px_40px] sm:py-[40px_60px] xl:py-[60px_100px] 2xl:py-[78px_133px]">
       <div className="container">
-        <div className="max-w-[1022px] mx-auto text-center mb-[25]">
+        <div className="max-w-170.25 2xl:max-w-255.5 mx-auto text-center mb-[25]">
           <Heading as="h2" size="h2" className="mb-[15px] text-[#1e1e1e]">
             Building Success Stories
           </Heading>
