@@ -27,9 +27,7 @@ export default function MoreStories({ data, locale }) {
                     <div className="aspect-[542/799] w-full">
                       <Image
                         src={"/images/st3.png"}
-                        alt={
-                          locale == "ar" ? data?.media_alt_ar : data?.media_alt
-                        }
+                        alt={"more stories"}
                         width={830}
                         height={518}
                         className="w-full h-full object-cover"
