@@ -40,9 +40,7 @@ export default function SuccessStories({ data, locale }) {
                     <div className="aspect-[830/518] w-full">
                       <Image
                         src={"/images/st1.jpg"}
-                        alt={
-                          locale == "ar" ? data?.media_alt_ar : data?.media_alt
-                        }
+                        alt={"success stories"}
                         width={830}
                         height={518}
                         className="w-full h-full object-cover"

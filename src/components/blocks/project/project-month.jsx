@@ -23,7 +23,7 @@ export default function ProjectMonth({ data, locale }) {
         <div className="w-full">
           <Image
             src={"/images/pom.png"}
-            alt={locale == "ar" ? data?.media_alt_ar : data?.media_alt}
+            alt={"project month"}
             width={1720}
             height={736}
             className="w-full h-full object-cover"
