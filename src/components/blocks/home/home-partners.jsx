@@ -146,7 +146,7 @@ export default function HomePartners({ data, locale }) {
               initial="hidden"
               animate="show"
               exit="exit"
-              className="grid grid-cols-5 grid-rows-2 gap-[1px] relative overflow-hidden"
+              className="grid grid-cols-4 sm:grid-cols-5 grid-rows-2 gap-[1px] relative overflow-hidden"
             >
               <div className="w-full sm:w-8/10 h-full sm:h-8/10 bg-black opacity-10 m-auto blur-md absolute -z-1 inset-0" />
               {currentItems.map((item, index) => (

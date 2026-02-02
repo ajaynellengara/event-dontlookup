@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 import useEmblaCarousel from "embla-carousel-react";
@@ -20,7 +20,7 @@ import {
   ParallaxBannerLayer,
   ParallaxProvider,
 } from "react-scroll-parallax";
-import LiquidSlider from "@/components/ui/liquid-slider";
+import WebglDisplacementCarousel from "@/components/animations/WebglDisplacementCarousel";
 import HackingText from "@/components/ui/hacking-text";
 
 import dynamic from "next/dynamic";
@@ -53,6 +53,10 @@ export default function HomeHero({ data, locale }) {
 
   const currentSlide = data?.sliders?.[selectedIndex];
 
+  const images = useMemo(() => {
+    return data?.sliders?.map((slide) => slide.media_desktop_path) || [];
+  }, [data?.sliders]);
+
   return (
     <ParallaxProvider>
       <section className="w-full h-auto block bg-black relative z-0 overflow-hidden">
@@ -70,7 +74,7 @@ export default function HomeHero({ data, locale }) {
           )}
         </AnimatePresence>
 
-        {/* Liquid Slider Background */}
+        {/* WebGL Slider Background */}
         <motion.div
           initial={{ opacity: 0, scale: 1.1 }}
           animate={
@@ -85,14 +89,17 @@ export default function HomeHero({ data, locale }) {
           <div className="absolute inset-0 w-full h-full bg-linear-to-b from-black/70 via-transparent to-black/60 z-10 pointer-events-none" />
           <MediaQuery minWidth={640}>
             <Parallax speed={-10} className="w-full h-full">
-              <LiquidSlider
-                slides={data?.sliders}
+              {images.length > 0 && <WebglDisplacementCarousel
+                images={images}
                 activeIndex={selectedIndex}
-              />
+              />}
             </Parallax>
           </MediaQuery>
           <MediaQuery maxWidth={639}>
-            <LiquidSlider slides={data?.sliders} activeIndex={selectedIndex} />
+            {images.length > 0 && <WebglDisplacementCarousel
+              images={images}
+              activeIndex={selectedIndex}
+            />}
           </MediaQuery>
         </motion.div>
 
@@ -124,17 +131,27 @@ export default function HomeHero({ data, locale }) {
                     ease: [0.25, 0.46, 0.45, 0.94],
                   }}
                 >
-                  <Heading
-                    as="h1"
-                    size="h1"
-                    className="leading-snug text-white mb-4 xl:mb-7.5 2xl:mb-8 [&>span]:text-[128%] [&>span]:font-medium [&>span]:block"
-                  >
-                    {parse(
-                      locale === "ar"
-                        ? currentSlide?.title_ar
-                        : currentSlide?.title,
-                    )}
-                  </Heading>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={selectedIndex}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Heading
+                        as="h1"
+                        size="h1"
+                        className="leading-snug text-white mb-4 xl:mb-7.5 2xl:mb-8 [&>span]:text-[128%] [&>span]:font-medium [&>span]:block"
+                      >
+                        {parse(
+                          locale === "ar"
+                            ? currentSlide?.title_ar
+                            : currentSlide?.title,
+                        )}
+                      </Heading>
+                    </motion.div>
+                  </AnimatePresence>
                 </motion.div>
               </div>
 
@@ -167,46 +184,34 @@ export default function HomeHero({ data, locale }) {
               </div>
 
               <div className="w-full sm:w-1/2">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={
-                    isRevealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-                  }
-                  transition={{
-                    duration: 0.6,
-                    delay: 0.7,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                  }}
+                <Heading
+                  as="h6"
+                  size="h6"
+                  className="max-sm:text-[12px] text-end tracking-widest font-normal text-white/50 mb-1 xl:mb-2"
                 >
-                  <Heading
-                    as="h6"
-                    size="h6"
-                    className="max-sm:text-[12px] text-end tracking-widest font-normal text-white/50 mb-1 xl:mb-2"
-                  >
-                    <HackingText
-                      text={
-                        locale === "ar"
-                          ? currentSlide?.project_tag_ar
-                          : currentSlide?.project_tag
-                      }
-                      speed={50}
-                    />
-                  </Heading>
-                  <Heading
-                    as="h5"
-                    size="h5"
-                    className="max-sm:text-[14px] text-end font-medium tracking-widest text-white/50"
-                  >
-                    <HackingText
-                      text={
-                        locale === "ar"
-                          ? currentSlide?.project_name_ar
-                          : currentSlide?.project_name
-                      }
-                      speed={60}
-                    />
-                  </Heading>
-                </motion.div>
+                  <HackingText
+                    text={
+                      locale === "ar"
+                        ? currentSlide?.project_tag_ar
+                        : currentSlide?.project_tag
+                    }
+                    speed={50}
+                  />
+                </Heading>
+                <Heading
+                  as="h5"
+                  size="h5"
+                  className="max-sm:text-[14px] text-end font-medium tracking-widest text-white/50"
+                >
+                  <HackingText
+                    text={
+                      locale === "ar"
+                        ? currentSlide?.project_name_ar
+                        : currentSlide?.project_name
+                    }
+                    speed={60}
+                  />
+                </Heading>
               </div>
             </div>
           </div>

@@ -55,7 +55,7 @@ export default async function HomePage({ params }) {
       {hero?.sliders && hero.sliders.length > 0 && (
         <>
           <HomeHero data={hero} locale={locale} />
-          <HomeHeroWebgl data={hero} locale={locale} />
+          {/* <HomeHeroWebgl data={hero} locale={locale} /> */}
         </>
       )}
       {aboutSection && <HomeAbout data={aboutSection} locale={locale} />}
@@ -64,7 +64,7 @@ export default async function HomePage({ params }) {
 
       {services && <HomeServices data={services} locale={locale} />}
 
-      {services && <HomeServicesCarousel data={services} locale={locale} />}
+      {/* {services && <HomeServicesCarousel data={services} locale={locale} />} */}
 
       {portfolio && <HomePortfolio data={portfolio} locale={locale} />}
 

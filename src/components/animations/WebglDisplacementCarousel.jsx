@@ -176,14 +176,14 @@ function FullScreenPlane(props) {
 
 export default function WebglDisplacementCarousel({
     images,
-    displacementImage = "https://images.pexels.com/photos/5675754/pexels-photo-5675754.jpeg",
+    displacementImage = "/images/pexels-photo.jpeg",
     activeIndex
 }) {
     return (
         <div className="w-full h-full">
             <Canvas
                 camera={{ position: [0, 0, 1], fov: 50 }}
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 gl={{ preserveDrawingBuffer: true }}
             >
                 <React.Suspense fallback={null}>
