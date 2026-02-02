@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, Suspense } from "react";
+import React, { useMemo, useState, Suspense, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Heading, Text } from "@/components/utils/typography";
 import { cn } from "@/lib/utils";
@@ -12,11 +12,16 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { Skeleton } from "@/components/ui/skeleton";
 import ScrollReveal from "@/components/animations/scroll-reveal";
-import Magnetic from "@/components/animations/magnetic";
+import { Canvas } from "@react-three/fiber";
+import { CarouselScene } from "@/components/animations/WebglDisplacementCarousel";
 
 export default function HomePortfolio({ data, locale }) {
   const items = data?.items || [];
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const images = useMemo(() => {
+    return items.map((item) => item.media?.path).filter(Boolean);
+  }, [items]);
 
   const visibleItems = useMemo(() => {
     if (!items.length) return [];
@@ -30,6 +35,11 @@ export default function HomePortfolio({ data, locale }) {
   const goToNext = () => {
     setActiveIndex((prev) => (prev + 1) % items.length);
   };
+
+  useEffect(() => {
+    const timer = setInterval(goToNext, 6000);
+    return () => clearInterval(timer);
+  }, [items.length]);
 
   return (
     <section className="w-full py-[40px] sm:py-[40px] xl:py-[70px] 2xl:py-[100px] bg-[#fffbf2] overflow-hidden">
@@ -88,7 +98,7 @@ export default function HomePortfolio({ data, locale }) {
         )}
       >
         <div className="relative">
-          <div className="flex items-center -mx-[1.5%] [&>div]:px-[1.5%]">
+          <div className="flex items-center -mx-1.5 lg:-mx-[1.5%] [&>div]:px-1.5 lg:[&>div]:px-[1.5%]">
             {visibleItems.map((item, slotIndex) => (
               <div
                 key={`slot-${slotIndex}`}
@@ -104,6 +114,7 @@ export default function HomePortfolio({ data, locale }) {
                   data={item}
                   locale={locale}
                   activeIndex={activeIndex}
+                  images={images}
                 />
               </div>
             ))}
@@ -129,7 +140,9 @@ export default function HomePortfolio({ data, locale }) {
   );
 }
 
-function PortfolioCard({ data, slot, locale }) {
+function PortfolioCard({ data, slot, locale, activeIndex, images }) {
+  const webGLIndex = (activeIndex + slot) % images.length;
+
   return (
     <Suspense
       fallback={
@@ -144,32 +157,29 @@ function PortfolioCard({ data, slot, locale }) {
           slot === 2 && "h-[120px] lg:h-[200px] 2xl:h-[250px] 3xl:h-[300px]",
         )}
       >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={data?.media?.path}
-            initial={{ x: "100%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: "-100%", opacity: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={data?.media?.path}
-              alt={locale === "ar" ? data?.media?.alt_ar : data?.media?.alt}
-              width={432}
-              height={668}
-              className="w-full h-full object-cover hover:scale-110 transition duration-300"
+        <div className="absolute inset-0 hover:scale-110 transition duration-300">
+          {images.length > 0 && (
+            <OptimizedWebglCarousel
+              images={images}
+              activeIndex={webGLIndex}
             />
+          )}
+        </div>
 
-            {slot === 0 && (
-              <>
-                <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/60" />
+        {slot === 0 && (
+          <>
+            <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/60 pointer-events-none" />
 
-                <div className="absolute inset-x-0 bottom-0 p-4 xl:p-10 flex flex-wrap gap-2 flex-col sm:flex-row sm:items-center justify-between">
-                  <div className="flex-1">
+            <div className="absolute inset-x-0 bottom-0 p-4 xl:p-10 flex flex-wrap gap-2 flex-col sm:flex-row sm:items-center justify-between">
+              <div className="flex-1">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={data?.title || activeIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5 }}
+                  >
                     <Heading size="h4" className="text-white mb-1">
                       {parse(locale === "ar" ? data?.title_ar : data?.title)}
                     </Heading>
@@ -179,8 +189,18 @@ function PortfolioCard({ data, slot, locale }) {
                         locale === "ar" ? data?.location_ar : data?.location,
                       )}
                     </Text>
-                  </div>
-                  <div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+              <div>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={data?.title + "-btn" || activeIndex}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                  >
                     <Button
                       size="lg"
                       variant="outline"
@@ -191,13 +211,40 @@ function PortfolioCard({ data, slot, locale }) {
                         {locale === "ar" ? "Know More arabic" : "Know More"}
                       </Link>
                     </Button>
-                  </div>
-                </div>
-              </>
-            )}
-          </motion.div>
-        </AnimatePresence>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </Suspense>
+  );
+}
+
+// Optimized WebGL Carousel with reduced GPU overhead
+function OptimizedWebglCarousel({ images, activeIndex }) {
+  return (
+    <div className="w-full h-full">
+      <Canvas
+        camera={{ position: [0, 0, 1], fov: 50 }}
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        gl={{
+          powerPreference: "low-power",
+          antialias: false,
+          alpha: false,
+          stencil: false,
+          depth: false,
+        }}
+      >
+        <React.Suspense fallback={null}>
+          <CarouselScene
+            images={images}
+            displacementImage="/images/pexels-photo.jpeg"
+            activeIndex={activeIndex}
+          />
+        </React.Suspense>
+      </Canvas>
+    </div>
   );
 }

@@ -95,7 +95,7 @@ export default function HeaderNavigation({
             <DialogContent
               showCloseButton={false}
               className={cn(
-                "max-w-full sm:max-w-full h-screen max-h-screen rounded-none bg-black p-0",
+                "max-w-full sm:max-w-full min-h-full max-h-dvw rounded-none bg-black p-0",
               )}
             >
               <motion.div

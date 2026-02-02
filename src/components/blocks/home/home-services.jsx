@@ -16,10 +16,12 @@ import { motion } from "motion/react";
 import { Skeleton } from "@/components/ui/skeleton";
 import ScrollReveal from "@/components/animations/scroll-reveal";
 
+import { useMediaQuery } from "react-responsive";
+
 export default function HomeServices({ data, locale }) {
   const [emblaRef] = useEmblaCarousel(
     { loop: false, direction: locale === "ar" ? "rtl" : "ltr" },
-    [Autoplay({ delay: 6000, stopOnInteraction: true, pauseOnHover: true })],
+    [Autoplay({ delay: 5000, stopOnInteraction: true, pauseOnHover: true })],
   );
 
   return (
@@ -77,19 +79,22 @@ export default function HomeServices({ data, locale }) {
         )}
       >
         <div
-          className="w-full max-w-full overflow-hidden"
           ref={emblaRef}
+          className="w-full max-w-full overflow-hidden"
           data-cursor="carousel"
         >
-          <div className="flex touch-pan-y touch-pinch-zoom">
+          <div className="flex touch-pan-y touch-pinch-zoom -mx-1.5 lg:-mx-0 [&>*]:p-1.5 lg:[&>*]:p-0">
             {data?.items?.map((item, index) => (
               <div
                 key={"product" + index}
-                className="flex-[0_0_220px] sm:flex-[0_0_25%] min-w-0 select-none"
+                className={cn(
+                  "flex-[0_0_220px] sm:flex-[0_0_33.333%] lg:flex-[0_0_25%] min-w-0 select-none",
+                )}
               >
                 <ServiceCard data={item} index={index} locale={locale} />
               </div>
             ))}
+            <div className={cn("flex-[0_0_15px] min-w-0 select-none")}></div>
           </div>
         </div>
       </div>
@@ -99,6 +104,8 @@ export default function HomeServices({ data, locale }) {
 
 function ServiceCard({ data, index, locale }) {
   const [hovered, setHovered] = useState(null);
+
+  const isMobile = useMediaQuery({ maxWidth: 1023 });
   return (
     <Suspense
       fallback={
@@ -112,12 +119,12 @@ function ServiceCard({ data, index, locale }) {
       >
         <motion.div className="w-full h-full relative">
           <div
-            className="absolute inset-0 backface-hidden overflow-hidden"
+            className="absolute z-1 inset-0 backface-hidden overflow-hidden"
             style={{ backfaceVisibility: "hidden" }}
           >
             <div
               className={cn(
-                "w-full h-[40%] bg-linear-to-b from-transparent to-black/50 absolute z-1 inset-0 top-auto pointer-events-none",
+                "w-full h-[100%] lg:h-[40%] bg-linear-to-b from-transparent to-black/100 lg:to-black/50 absolute z-1 inset-0 top-auto pointer-events-none",
               )}
             />
             <Image
@@ -130,21 +137,29 @@ function ServiceCard({ data, index, locale }) {
             <Heading
               as="div"
               size="h4"
-              className="font-semibold text-white absolute z-1 inset-0 top-auto p-3 xl:p-5 2xl:p-8"
+              className="font-semibold text-white absolute z-1 inset-0 top-auto p-3 xl:p-5 2xl:p-8 max-lg:hidden"
             >
               {parse(locale == "ar" ? data?.title_ar : data?.title)}
             </Heading>
           </div>
 
           <motion.div
-            animate={{
-              rotateY: hovered === index ? 0 : 180,
-              opacity: hovered === index ? 1 : 0,
-              blur: hovered === index ? 0 : 2,
-            }}
+            animate={
+              isMobile
+                ? {
+                    rotateY: 0,
+                    opacity: 1,
+                    filter: "blur(0px)",
+                  }
+                : {
+                    rotateY: hovered === index ? 0 : 180,
+                    opacity: hovered === index ? 1 : 0,
+                    filter: hovered === index ? "blur(0px)" : "blur(2px)",
+                  }
+            }
             transition={{ duration: 0.6, ease: "easeInOut" }}
             style={{ perspective: 1200 }}
-            className="absolute z-1 inset-0 bg-[#fafafa] bg-[url(/images/home-services-box-bg.png)] bg-cover flex items-center p-5 xl:p-7.5 2xl:p-10"
+            className="absolute z-2 inset-0 lg:bg-[#fafafa] lg:bg-[url(/images/home-services-box-bg.png)] bg-cover flex items-end lg:items-center p-5 xl:p-7.5 2xl:p-10"
           >
             <div>
               <Image
@@ -157,14 +172,14 @@ function ServiceCard({ data, index, locale }) {
               <Heading
                 as="div"
                 size="h4"
-                className="font-semibold text-black mb-1 xl:mb-2.5 2xl:mb-3"
+                className="font-semibold text-white lg:text-black mb-2 sm:mb-1 xl:mb-2.5 2xl:mb-3"
               >
                 {parse(locale == "ar" ? data?.title_ar : data?.title)}
               </Heading>
               <Text
                 as="div"
                 size="p1"
-                className="line-clamp-7 text-black mb-4 xl:mb-8 2xl:mb-11"
+                className="line-clamp-2 lg:line-clamp-7 text-white lg:text-black mb-4 xl:mb-8 2xl:mb-11 max-sm:text-[12px]"
               >
                 {parse(
                   locale === "ar" ? data?.description_ar : data?.description,
@@ -173,7 +188,7 @@ function ServiceCard({ data, index, locale }) {
               <Button
                 size="lg"
                 variant={"outline"}
-                className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px] transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className="text-white lg:text-black min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px] transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 asChild
               >
                 <Link href={data?.slug}>

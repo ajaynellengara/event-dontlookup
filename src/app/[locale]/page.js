@@ -2,8 +2,6 @@ import HomeAbout from "@/components/blocks/home/home-about";
 import HomeHero from "@/components/blocks/home/home-hero";
 import HomeStatistics from "@/components/blocks/home/home-statistics";
 import HomeServices from "@/components/blocks/home/home-services";
-import HomeServicesCarousel from "@/components/blocks/home/home-services-carousel";
-import HomeHeroWebgl from "@/components/blocks/home/home-hero-webgl";
 import { notFound } from "next/navigation";
 import HomePortfolio from "@/components/blocks/home/home-portfolio";
 import HomeProjects from "@/components/blocks/home/home-projects";
@@ -56,7 +54,7 @@ export default async function HomePage({ params }) {
       {hero?.sliders && hero.sliders.length > 0 && (
         <>
           <HomeHero data={hero} locale={locale} />
-          <HomeHeroWebgl data={hero} locale={locale} />
+          {/* <HomeHeroWebgl data={hero} locale={locale} /> */}
         </>
       )}
       {aboutSection && <HomeAbout data={aboutSection} locale={locale} />}
@@ -65,7 +63,7 @@ export default async function HomePage({ params }) {
 
       {services && <HomeServices data={services} locale={locale} />}
 
-      {services && <HomeServicesCarousel data={services} locale={locale} />}
+      {/* {services && <HomeServicesCarousel data={services} locale={locale} />} */}
 
       {portfolio && <HomePortfolio data={portfolio} locale={locale} />}
 

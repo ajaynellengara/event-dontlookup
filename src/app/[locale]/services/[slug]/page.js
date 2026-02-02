@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Overview from "@/components/blocks/service/overview";
-import InnerHero from "@/components/blocks/banner/inner-hero";
+import InnerHero from "@/components/common/inner-hero";
 import OurApproach from "@/components/blocks/service/our-approach";
 
 export const dynamic = "force-dynamic";

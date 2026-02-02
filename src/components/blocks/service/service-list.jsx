@@ -4,56 +4,12 @@ import { Heading, Text } from "@/components/utils/typography";
 import ServiceCard from "./service-card";
 import { motion } from "motion/react";
 
-export default function ServiceList({
-  data = {},
-  locale = "en",
-  service_data,
-}) {
+export default function ServiceList({ data, locale = "en", service_data }) {
   const services = data?.service || [];
   // const displayedItems = service_data || services;
 
   const isArabic = locale === "ar";
   const fallbackServices = [
-    {
-      id: 1,
-      title: "Project Management",
-      title_ar: "",
-      description:
-        "At Wasso, we understand that successful projects require more than planning — they demand foresight, coordination, and commitment.",
-      description_ar: "",
-      slug: "/services/project-management",
-      icon: "/images/service-icon-01.png",
-    },
-    {
-      id: 2,
-      title: "Engineering Supervision",
-      title_ar: "",
-      description:
-        "Our engineering supervision services ensure quality, safety, and efficiency at every stage of your project.",
-      description_ar: "",
-      slug: "/services/engineering-supervision",
-      icon: "/images/service-icon-02.png",
-    },
-    {
-      id: 3,
-      title: "Engineering Supervision",
-      title_ar: "",
-      description:
-        "Our engineering supervision services ensure quality, safety, and efficiency at every stage of your project.",
-      description_ar: "",
-      slug: "/services/engineering-supervision",
-      icon: "/images/service-icon-03.png",
-    },
-    {
-      id: 4,
-      title: "Engineering Supervision",
-      title_ar: "",
-      description:
-        "Our engineering supervision services ensure quality, safety, and efficiency at every stage of your project.",
-      description_ar: "",
-      slug: "/services/engineering-supervision",
-      icon: "/images/service-icon-04.png",
-    },
     // Add more services as needed
   ];
 
@@ -85,16 +41,17 @@ export default function ServiceList({
           </div>
 
           <div className="w-full flex items-center md:w-7/12 lg:w-8/12 pt-[20px] md:pt-0 md:pl-[30px] xl:pl-[50px] 2xl:pl-[60px] 3xl:pl-[80px] relative">
-            <div className="w-full md:w-[1px] h-[1px] md:h-full absolute bg-[#EACC99] inset-0 md:right-auto bottom-auto md:bottom-0 m-auto"></div>
-            <Text as="div" size="p1" className="font-light text-black">
-              {data?.description &&
-                parse(isArabic ? data?.description_ar : data?.description)}
-            </Text>
+            <div className="w-full md:w-[1px] h-[1px] md:h-full absolute bg-[#EACC99] inset-0 md:right-auto bottom-auto md:bottom-0 m-auto" />
+            {data?.description && (
+              <Text as="div" size="p1" className="font-light text-black">
+                {parse(isArabic ? data?.description_ar : data?.description)}
+              </Text>
+            )}
           </div>
         </div>
 
         <div className="flex flex-wrap -mx-2 sm:-mx-4 2xl:-mx-6 3xl:-mx-8 [&>*]:p-2 sm:[&>*]:p-4 2xl:[&>*]:p-6 3xl:[&>*]:p-8">
-          {displayedItems.map((item, index) => (
+          {data?.items?.map((item, index) => (
             <motion.div
               key={`${item.id}-${index}`}
               initial={{ y: 10, opacity: 0 }}

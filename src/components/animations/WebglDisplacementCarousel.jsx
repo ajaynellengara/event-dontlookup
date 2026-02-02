@@ -63,21 +63,13 @@ const CarouselDisplacementMaterial = shaderMaterial(
 
 extend({ CarouselDisplacementMaterial });
 
-function CarouselScene({ images, displacementImage, activeIndex }) {
+export function CarouselScene({ images, displacementImage, activeIndex }) {
     const materialRef = useRef();
+    const { viewport } = useThree();
+
     // Load all textures
     const textures = useTexture(images);
     const dispTexture = useTexture(displacementImage); // Displacement map
-
-    // We need to keep track of "current" and "next" textures for the transition
-    // When activeIndex changes, we transition from prevTexture to newTexture.
-    // BUT the shader takes tex1 and tex2 and mixes them with dispFactor (0 to 1).
-
-    // Strategy:
-    // We maintain a "visual state": { currentImageIndex, nextImageIndex, progress }
-    // However, standard shader transitions usually mix from A to B.
-    // When activeIndex changes, we want to animate 0 -> 1.
-    // After animation ends, we swap: A becomes B, and we reset to 0.
 
     const [renderState, setRenderState] = useState({
         idx1: activeIndex,
@@ -89,13 +81,6 @@ function CarouselScene({ images, displacementImage, activeIndex }) {
 
     useFrame((state, delta) => {
         if (materialRef.current) {
-            // Linear interpolation for smooth transition
-            // We want to animate materialRef.current.dispFactor towards renderState.progress
-            // But we handle the logic slightly differently for React state updates.
-
-            // Actually, let's just do the lerp here.
-            // If activeIndex changed, we want to start animating.
-
             let target = 0;
             // If we are in a transition state
             if (renderState.idx1 !== renderState.idx2) {
@@ -108,14 +93,7 @@ function CarouselScene({ images, displacementImage, activeIndex }) {
             const newDisp = THREE.MathUtils.lerp(currentDisp, target, delta * speed);
             materialRef.current.dispFactor = newDisp;
 
-            // If we are close enough to 1, we update state to swap textures.
-            // visual "mix" is at 100% (Image B). We then swap A->B, B->B.
-            // IMPORTANT: We do NOT reset dispFactor to 0 here directly, because props still hold Old/New.
-            // If we reset to 0 now, it snaps to Old.
-            // We wait for React to update renderState, making props New/New.
-            // Then mix(New, New, any) is New.
             if (target === 1 && newDisp >= 0.99) {
-                // materialRef.current.dispFactor = 1; // Optional: ensure it locks to 1 until update
                 setRenderState({
                     idx1: renderState.idx2,
                     idx2: renderState.idx2,
@@ -154,40 +132,33 @@ function CarouselScene({ images, displacementImage, activeIndex }) {
 
 
     return (
-        <carouselDisplacementMaterial
-            ref={materialRef}
-            tex={textures[renderState.idx1]}
-            tex2={textures[renderState.idx2]}
-            disp={dispTexture}
-            toneMapped={false}
-        />
-    );
-}
-
-function FullScreenPlane(props) {
-    const { viewport } = useThree();
-    return (
         <mesh scale={[viewport.width, viewport.height, 1]}>
             <planeGeometry />
-            <CarouselScene {...props} />
+            <carouselDisplacementMaterial
+                ref={materialRef}
+                tex={textures[renderState.idx1]}
+                tex2={textures[renderState.idx2]}
+                disp={dispTexture}
+                toneMapped={false}
+            />
         </mesh>
     );
 }
 
 export default function WebglDisplacementCarousel({
     images,
-    displacementImage = "https://images.pexels.com/photos/5675754/pexels-photo-5675754.jpeg",
+    displacementImage = "/images/pexels-photo.jpeg",
     activeIndex
 }) {
     return (
         <div className="w-full h-full">
             <Canvas
                 camera={{ position: [0, 0, 1], fov: 50 }}
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 gl={{ preserveDrawingBuffer: true }}
             >
                 <React.Suspense fallback={null}>
-                    <FullScreenPlane
+                    <CarouselScene
                         images={images}
                         displacementImage={displacementImage}
                         activeIndex={activeIndex}
