@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Overview from "@/components/blocks/service/overview";
 import InnerHero from "@/components/blocks/banner/inner-hero";
-import OurApproach from "@/components/blocks/service/our-approach";
+import OurApproach from "@/components/blocks/service/approach-card";
 
 export const dynamic = "force-dynamic";
 
@@ -33,7 +33,8 @@ const service_detail_data = {
     description_ar:
       "نقدم حلولاً متكاملة في إدارة المشاريع، والإشراف الهندسي، وإدارة العقود، وضمان الجودة.",
   },
-  approach: {
+  approach: [
+    {
     media: {
       media_type: "image",
       mobile_path: "/images/overview-image.jpg",
@@ -41,13 +42,29 @@ const service_detail_data = {
       media_alt: "overview-image",
     },
     
-    title: "Overview",
+    title: "Planning & Feasibility",
     title_ar: "خدمات <span>احترافية</span>",
     description:
-      "At Wasso Group, we recognize that every project is unique, with its own set of opportunities and challenges. Our project management service is built on the principle of transforming complex requirements into seamless, successful outcomes.",
+      "Defining project goals, resources, and timelines.",
     description_ar:
       "نقدم حلولاً متكاملة في إدارة المشاريع، والإشراف الهندسي، وإدارة العقود، وضمان الجودة.",
   },
+    {
+    media: {
+      media_type: "image",
+      mobile_path: "/images/overview-image.jpg",
+      desktop_path: "/images/overview-image.jpg",
+      media_alt: "overview-image",
+    },
+    
+    title: "Planning & Feasibility",
+    title_ar: "خدمات <span>احترافية</span>",
+    description:
+      "Defining project goals, resources, and timelines.",
+    description_ar:
+      "نقدم حلولاً متكاملة في إدارة المشاريع، والإشراف الهندسي، وإدارة العقود، وضمان الجودة.",
+  },
+]
 };
 
 export async function generateMetadata({ params }) {

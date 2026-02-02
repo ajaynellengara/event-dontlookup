@@ -31,9 +31,42 @@ const local_data = {
         {
           id: 1,
           title: "Project Management",
-          description: " At Wasso, we understand that successful projects require more thanplanning — they demand foresight, coordination, and commitment.",
+          title_ar: "",
+          description:
+            "At Wasso, we understand that successful projects require more than planning — they demand foresight, coordination, and commitment.",
+          description_ar: "",
           slug: "/services/project-management",
-          icon: "/images/service-icon.svg",
+          icon: "/images/service-icon-01.png",
+        },
+        {
+          id: 2,
+          title: "Engineering Supervision",
+          title_ar: "",
+          description:
+            "Our engineering supervision services ensure quality, safety, and efficiency at every stage of your project.",
+          description_ar: "",
+          slug: "/services/engineering-supervision",
+          icon: "/images/service-icon-02.png",
+        },
+        {
+          id: 3,
+          title: "Engineering Supervision",
+          title_ar: "",
+          description:
+            "Our engineering supervision services ensure quality, safety, and efficiency at every stage of your project.",
+          description_ar: "",
+          slug: "/services/engineering-supervision",
+          icon: "/images/service-icon-03.png",
+        },
+        {
+          id: 4,
+          title: "Engineering Supervision",
+          title_ar: "",
+          description:
+            "Our engineering supervision services ensure quality, safety, and efficiency at every stage of your project.",
+          description_ar: "",
+          slug: "/services/engineering-supervision",
+          icon: "/images/service-icon-04.png",
         },
       ],
   },
