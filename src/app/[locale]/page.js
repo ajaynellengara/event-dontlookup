@@ -67,8 +67,6 @@ export default async function HomePage({ params }) {
 
       {portfolio && <HomePortfolio data={portfolio} locale={locale} />}
 
-      {portfolio && <HomeProjects data={portfolio} locale={locale} />}
-
       {partners && <HomePartners data={partners} locale={locale} />}
     </>
   );

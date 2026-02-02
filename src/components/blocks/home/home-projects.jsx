@@ -9,7 +9,104 @@ import Image from "next/image";
 import parse from "html-react-parser";
 import { cn } from "@/lib/utils";
 
-export default function HomeProjects({ data, locale }) {
+
+const local_data = {
+    sub_title: "LATEST PROJECTS",
+    sub_title_ar: "أحدث المشاريع",
+    title: "Our Signature Portfolio",
+    title_ar: "محفظتنا المميزة",
+    description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim",
+    description_ar:
+        "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
+    button: {
+        label: "View All Projects",
+        label_ar: "عرض جميع المشاريع",
+        link: "/projects",
+    },
+    items: [
+        {
+            id: 1,
+            slug: "information-technology-complex",
+            title: "Information & Technology Complex",
+            title_ar: "مجمع المعلومات والتكنولوجيا",
+            location: "Riyadh, KSA",
+            location_ar: "الرياض، المملكة العربية السعودية",
+            media: {
+                path: "/images/home-portfolio-1.jpg",
+                alt: "Information & Technology Complex",
+                alt_ar: "مجمع المعلومات والتكنولوجيا",
+            },
+        },
+        {
+            id: 2,
+            slug: "skyline-heights",
+            title: "Skyline Heights",
+            title_ar: "سكايلاين هايتس",
+            location: "Dubai, UAE",
+            location_ar: "دبي، الإمارات العربية المتحدة",
+            media: {
+                path: "/images/home-portfolio-2.jpg",
+                alt: "Skyline Heights",
+                alt_ar: "سكايلاين هايتس",
+            },
+        },
+        {
+            id: 3,
+            slug: "luxury-residence",
+            title: "Luxury Residence",
+            title_ar: "الإقامة الفاخرة",
+            location: "Dubai, UAE",
+            location_ar: "دبي، الإمارات العربية المتحدة",
+            media: {
+                path: "/images/home-portfolio-3.jpg",
+                alt: "Luxury Residence",
+                alt_ar: "الإقامة الفاخرة",
+            },
+        },
+        {
+            id: 4,
+            slug: "luxury-residence",
+            title: "Luxury Residence",
+            title_ar: "الإقامة الفاخرة",
+            location: "Dubai, UAE",
+            location_ar: "دبي، الإمارات العربية المتحدة",
+            media: {
+                path: "/images/home-portfolio-1.jpg",
+                alt: "Luxury Residence",
+                alt_ar: "الإقامة الفاخرة",
+            },
+        },
+        {
+            id: 5,
+            slug: "skyline-heights",
+            title: "Skyline Heights",
+            title_ar: "سكايلاين هايتس",
+            location: "Dubai, UAE",
+            location_ar: "دبي، الإمارات العربية المتحدة",
+            media: {
+                path: "/images/home-portfolio-2.jpg",
+                alt: "Skyline Heights",
+                alt_ar: "سكايلاين هايتس",
+            },
+        },
+        {
+            id: 6,
+            slug: "luxury-residence",
+            title: "Luxury Residence",
+            title_ar: "الإقامة الفاخرة",
+            location: "Dubai, UAE",
+            location_ar: "دبي، الإمارات العربية المتحدة",
+            media: {
+                path: "/images/home-portfolio-3.jpg",
+                alt: "Luxury Residence",
+                alt_ar: "الإقامة الفاخرة",
+            },
+        },
+    ],
+}
+
+export default function HomeProjects({ data = local_data, locale }) {
     const targetRef = useRef(null);
     const [itemsPerScreen, setItemsPerScreen] = useState(3);
     const items = data?.items || [];
