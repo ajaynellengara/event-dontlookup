@@ -16,6 +16,8 @@ const MediaQuery = dynamic(() => import("react-responsive"), {
 });
 
 export default function Footer({ footerData, socialLinkData, locale }) {
+  const [openSection, setOpenSection] = useState(null);
+
   return (
     <footer className="w-full py-[30px_20px] xl:py-[60px_30px] 2xl:py-[60px_40px] overflow-hidden bg-[#fffbf2] relative z-0">
       <div className="container">
@@ -54,6 +56,8 @@ export default function Footer({ footerData, socialLinkData, locale }) {
                       title="Quick links"
                       title_ar="QUICK LINKS ar"
                       section="quick"
+                      openSection={openSection}
+                      setOpenSection={setOpenSection}
                     >
                       {footerData?.quick_link_navigation?.map((item, index) => (
                         <div key={"quick_link_navigation" + index}>
@@ -109,6 +113,8 @@ export default function Footer({ footerData, socialLinkData, locale }) {
                     title="Services"
                     title_ar="SERVICES ar"
                     section="services"
+                    openSection={openSection}
+                    setOpenSection={setOpenSection}
                   >
                     {footerData?.services_navigation?.map((item, index) => (
                       <div key={"services_navigation" + index}>
@@ -373,23 +379,31 @@ export default function Footer({ footerData, socialLinkData, locale }) {
 }
 
 // Accordion Item Component
-function AccordionItem({ locale, title, title_ar, children, section }) {
-  const [openAccordion, setOpenAccordion] = useState(null);
-  const toggleAccordion = (section) => {
-    setOpenAccordion(openAccordion === section ? null : section);
-  };
+function AccordionItem({
+  locale,
+  title,
+  title_ar,
+  children,
+  section,
+  openSection,
+  setOpenSection,
+}) {
+  const isOpen = openSection === section;
 
-  const isOpen = openAccordion === section;
+  const toggleAccordion = () => {
+    setOpenSection(isOpen ? null : section);
+  };
 
   return (
     <div className="border-t border-[#eadcce]">
       <button
-        onClick={() => toggleAccordion(section)}
+        onClick={toggleAccordion}
         className="w-full flex items-center justify-between pt-4 text-start"
       >
         <Heading as="h6" size="h7" className="font-medium text-black">
-          {locale == "ar" ? title_ar : title}
+          {locale === "ar" ? title_ar : title}
         </Heading>
+
         <ChevronDown
           className={cn(
             "w-4 h-4 text-[#1e1e1e] transition-transform duration-200",
@@ -397,6 +411,7 @@ function AccordionItem({ locale, title, title_ar, children, section }) {
           )}
         />
       </button>
+
       <div
         className={cn(
           "overflow-hidden transition-all duration-300",

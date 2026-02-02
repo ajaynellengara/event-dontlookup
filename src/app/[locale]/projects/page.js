@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ProjectMonth from "@/components/blocks/projects/project-month";
-import InnerHero from "@/components/blocks/banner/inner-hero";
+import InnerHero from "@/components/common/inner-hero";
 import SuccessStories from "@/components/blocks/projects/success-stories";
 import MoreStories from "@/components/blocks/projects/more-stories";
 import ProjectImage from "@/components/blocks/projects/project-image";

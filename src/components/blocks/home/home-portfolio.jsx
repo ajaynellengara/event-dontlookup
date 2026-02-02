@@ -12,7 +12,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { Skeleton } from "@/components/ui/skeleton";
 import ScrollReveal from "@/components/animations/scroll-reveal";
-import Magnetic from "@/components/animations/magnetic";
 
 export default function HomePortfolio({ data, locale }) {
   const items = data?.items || [];
@@ -88,7 +87,7 @@ export default function HomePortfolio({ data, locale }) {
         )}
       >
         <div className="relative">
-          <div className="flex items-center -mx-[1.5%] [&>div]:px-[1.5%]">
+          <div className="flex items-center -mx-1.5 lg:-mx-[1.5%] [&>div]:px-1.5 lg:[&>div]:px-[1.5%]">
             {visibleItems.map((item, slotIndex) => (
               <div
                 key={`slot-${slotIndex}`}

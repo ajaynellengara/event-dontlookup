@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-import InnerHero from "@/components/blocks/banner/inner-hero";
+import InnerHero from "@/components/common/inner-hero";
 import ServiceList from "@/components/blocks/service/service-list";
 
 const local_data = {
