@@ -3,16 +3,16 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Heading, Text } from "@/components/utils/typography";
-import parse from "html-react-parser";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+
 export default function SuccessStories({ data, locale }) {
   const [emblaRef] = useEmblaCarousel(
     { loop: false, direction: locale === "ar" ? "rtl" : "ltr" },
     [Autoplay({ delay: 6000, stopOnInteraction: true, pauseOnHover: true })],
   );
   return (
-    <section className="bg-[#FFFBF2] w-full h-auto block py-[30px_40px] sm:py-[40px_60px] xl:py-[60px_100px] 2xl:py-[78px_133px]">
+    <section className="w-full h-auto block bg-[#FFFBF2] py-[30px_40px] sm:py-[40px_60px] xl:py-[60px_100px] 2xl:py-[78px_133px]">
       <div className="container">
         <div className="max-w-[1022px] mx-auto text-center mb-[25]">
           <Heading as="h2" size="h2" className="mb-[15px] text-[#1e1e1e]">
@@ -50,7 +50,11 @@ export default function SuccessStories({ data, locale }) {
                     </div>
                     <div className="inset-x-0 bottom-0 pt-4 xl:pt-10 flex items-center justify-between">
                       <div>
-                        <Heading size="h4" as="h4" className="text-[#1E1E1E] mb-1">
+                        <Heading
+                          size="h4"
+                          as="h4"
+                          className="text-[#1E1E1E] mb-1"
+                        >
                           Luxury Residential Tower, Dubai
                         </Heading>
                       </div>

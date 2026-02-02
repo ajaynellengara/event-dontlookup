@@ -27,15 +27,17 @@ export default function ServiceCard({ data, index, locale }) {
       )}
 
       <div className="flex items-start justify-between">
-        <div className="w-[40px] sm:w-[50px] md:w-[60px] xl:w-[76px] 2xl:w-[100px] 3xl:w-[120px] h-[40px] sm:h-[50px] md:h-[60px] xl:h-[76px] 2xl:h-[100px] 3xl:h-[120px]">
-          <Image
-            src={data?.icon || "/images/icon-placeholder.svg"}
-            alt={data?.title}
-            width={120}
-            height={120}
-            className="h-full w-full object-contain"
-          />
-        </div>
+        {data?.icon && (
+          <div className="w-[40px] sm:w-[50px] md:w-[60px] xl:w-[76px] 2xl:w-[100px] 3xl:w-[120px] h-[40px] sm:h-[50px] md:h-[60px] xl:h-[76px] 2xl:h-[100px] 3xl:h-[120px]">
+            <Image
+              src={data?.icon}
+              alt={data?.title}
+              width={120}
+              height={120}
+              className="h-full w-full object-contain"
+            />
+          </div>
+        )}
         <Button
           variant={"black"}
           className="min-w-[90px] sm:min-w-[100px] xl:min-w-[110px] 2xl:min-w-[120px] 3xl:min-w-[160px] h-[30px] lg:h-[35px] 2xl:h-[45px] 3xl:h-[50px]  rounded-[10px] border border-[#E2C2A4]  transition hover:bg-black hover:text-white"
@@ -58,7 +60,11 @@ export default function ServiceCard({ data, index, locale }) {
         >
           {parse(locale === "ar" ? data?.title_ar : data?.title)}
         </Heading>
-        <Text as="div" size="p1" className="font-normal line-clamp-3 text-[#1E1E1E]">
+        <Text
+          as="div"
+          size="p1"
+          className="font-normal line-clamp-3 text-[#1E1E1E]"
+        >
           {parse(locale == "ar" ? data?.description_ar : data?.description)}
         </Text>
       </div>

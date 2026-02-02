@@ -2,19 +2,19 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Heading, Text } from "@/components/utils/typography";
-import parse from "html-react-parser";
+import { Heading } from "@/components/utils/typography";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+
 export default function MoreStories({ data, locale }) {
   const [emblaRef] = useEmblaCarousel(
     { loop: false, direction: locale === "ar" ? "rtl" : "ltr" },
     [Autoplay({ delay: 6000, stopOnInteraction: true, pauseOnHover: true })],
   );
+
   return (
     <section className="w-full h-auto block py-[40px] sm:py-[80px_60px] xl:py-[135px_100px] 2xl:py-[173px_127px]">
       <div className="container">
-        
         <div className="flex flex-wrap">
           <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
             <div className="flex justify-start touch-pan-y touch-pinch-zoom -mx-1 [&>div]:px-[10px] md:[&>div]:px-[17px] xl:[&>div]:px-[23px] mx-[-10px] md:mx-[-17px] xl:mx-[-23px]">
