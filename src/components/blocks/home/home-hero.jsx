@@ -16,15 +16,13 @@ import { Heading } from "@/components/utils/typography";
 
 import {
   Parallax,
-  ParallaxBanner,
-  ParallaxBannerLayer,
   ParallaxProvider,
 } from "react-scroll-parallax";
 import WebglDisplacementCarousel from "@/components/animations/WebglDisplacementCarousel";
 import HackingText from "@/components/ui/hacking-text";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
 const MediaQuery = dynamic(() => import("react-responsive"), {
   ssr: false,
@@ -105,19 +103,26 @@ export default function HomeHero({ data, locale }) {
           )}
 
           <div className="absolute inset-0 w-full h-full bg-linear-to-b from-black/70 via-transparent to-black/60 z-10 pointer-events-none" />
+          {/* Single WebGL instance with conditional parallax for desktop */}
           <MediaQuery minWidth={640}>
-            <Parallax speed={-10} className="w-full h-full">
-              {images.length > 0 && <WebglDisplacementCarousel
-                images={images}
-                activeIndex={selectedIndex}
-              />}
-            </Parallax>
+            {images.length > 0 && (
+              <Parallax speed={-10} className="w-full h-full">
+                <WebglDisplacementCarousel
+                  images={images}
+                  activeIndex={selectedIndex}
+                />
+              </Parallax>
+            )}
           </MediaQuery>
           <MediaQuery maxWidth={639}>
-            {images.length > 0 && <WebglDisplacementCarousel
-              images={images}
-              activeIndex={selectedIndex}
-            />}
+            {images.length > 0 && (
+              <div className="w-full h-full">
+                <WebglDisplacementCarousel
+                  images={images}
+                  activeIndex={selectedIndex}
+                />
+              </div>
+            )}
           </MediaQuery>
         </motion.div>
 

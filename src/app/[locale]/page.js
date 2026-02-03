@@ -3,11 +3,28 @@ import HomeHero from "@/components/blocks/home/home-hero";
 import HomeStatistics from "@/components/blocks/home/home-statistics";
 import HomeServices from "@/components/blocks/home/home-services";
 import { notFound } from "next/navigation";
-import HomePortfolio from "@/components/blocks/home/home-portfolio";
-import HomeProjects from "@/components/blocks/home/home-projects";
-import HomePartners from "@/components/blocks/home/home-partners";
 
-export const dynamic = "force-dynamic";
+import dynamic from "next/dynamic";
+
+// Lazy load below-the-fold components for better performance
+const HomePortfolio = dynamic(
+  () => import("@/components/blocks/home/home-portfolio"),
+  {
+    loading: () => (
+      <div className="w-full py-10 sm:py-10 xl:py-17.5 2xl:py-25 bg-[#fffbf2]" />
+    ),
+    ssr: true,
+  },
+);
+
+const HomePartners = dynamic(
+  () => import("@/components/blocks/home/home-partners"),
+  {
+    loading: () => (
+      <div className="w-full h-auto block pt-7.5 sm:pt-10 xl:pt-17.5 2xl:pt-22.5" />
+    ),
+  },
+);
 
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;
@@ -31,7 +48,7 @@ export default async function HomePage({ params }) {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const res = await fetch(`${baseUrl}/api/home?locale=${locale}`, {
-      cache: "no-store",
+      next: { revalidate: 60 }, // Cache for 60 seconds
     });
 
     if (res.ok) {

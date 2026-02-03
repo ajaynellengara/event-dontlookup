@@ -141,30 +141,58 @@ export default function HomePortfolio({ data, locale }) {
 }
 
 function PortfolioCard({ data, slot, locale, activeIndex, images }) {
-  const webGLIndex = (activeIndex + slot) % images.length;
+  const imageIndex = (activeIndex + slot) % images.length;
+  const currentImage = images[imageIndex];
 
   return (
     <Suspense
       fallback={
-        <Skeleton className="w-full h-[320px] sm:h-[368px] bg-gray-300" />
+        <Skeleton className="w-full h-80 sm:h-92 bg-gray-300" />
       }
     >
       <div
         className={cn(
           "relative overflow-hidden w-full bg-[#cda278]/10",
-          slot === 0 && "h-[320px] lg:h-[500px] 2xl:h-[615px] 3xl:h-[668px]",
-          slot === 1 && "h-[220px] lg:h-[390px] 2xl:h-[480px] 3xl:h-[590px]",
-          slot === 2 && "h-[120px] lg:h-[200px] 2xl:h-[250px] 3xl:h-[300px]",
+          slot === 0 && "h-80 lg:h-125 2xl:h-153.75 3xl:h-167",
+          slot === 1 && "h-55 lg:h-97.5 2xl:h-120 3xl:h-147.5",
+          slot === 2 && "h-30 lg:h-50 2xl:h-62.5 3xl:h-75",
         )}
       >
-        <div className="absolute inset-0 hover:scale-110 transition duration-300">
-          {images.length > 0 && (
-            <OptimizedWebglCarousel
-              images={images}
-              activeIndex={webGLIndex}
-            />
-          )}
-        </div>
+        {/* Use WebGL only on main card (slot 0), regular images for smaller cards */}
+        {slot === 0 ? (
+          <div className="absolute inset-0">
+            {images.length > 0 && (
+              <OptimizedWebglCarousel
+                images={images}
+                activeIndex={imageIndex}
+              />
+            )}
+          </div>
+        ) : (
+          <AnimatePresence initial={false}>
+            <motion.div
+              key={imageIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 0.5,
+                ease: "easeInOut"
+              }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={currentImage}
+                alt={data?.title || "Portfolio"}
+                fill
+                priority={slot === 1}
+                sizes="(max-width: 640px) 25vw, 20vw"
+                className="object-cover"
+                quality={85}
+              />
+            </motion.div>
+          </AnimatePresence>
+        )}
 
         {slot === 0 && (
           <>
@@ -204,7 +232,7 @@ function PortfolioCard({ data, slot, locale, activeIndex, images }) {
                     <Button
                       size="lg"
                       variant="outline"
-                      className="text-white min-w-[100px] xl:min-w-[105px] 2xl:min-w-[155px] transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                      className="text-white min-w-25 xl:min-w-26.25 2xl:min-w-38.75 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                       asChild
                     >
                       <Link href={data?.slug}>
@@ -222,20 +250,22 @@ function PortfolioCard({ data, slot, locale, activeIndex, images }) {
   );
 }
 
-// Optimized WebGL Carousel with reduced GPU overhead
+// Optimized WebGL Carousel - only for main portfolio card
 function OptimizedWebglCarousel({ images, activeIndex }) {
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full relative bg-[#cda278]/10">
       <Canvas
         camera={{ position: [0, 0, 1], fov: 50 }}
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
         gl={{
-          powerPreference: "low-power",
+          powerPreference: "default",
           antialias: false,
-          alpha: false,
+          alpha: true,
           stencil: false,
           depth: false,
+          preserveDrawingBuffer: false,
         }}
+        dpr={[1, 1.5]}
       >
         <React.Suspense fallback={null}>
           <CarouselScene
