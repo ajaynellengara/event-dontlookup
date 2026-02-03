@@ -12,8 +12,7 @@ export default function ServiceCard({ data, index, locale }) {
       className={cn(
         "group relative w-full h-full bg-[#FAFAFA] overflow-hidden p-[20px_20px_30px] sm:p-[25px_25px_40px] lg:p-[35px_35px_50px] 2xl:p-[45px_45px_80px] transition-colors duration-300",
         index % 2 === 0 ? "hover:bg-[#FFFBF2]" : "bg-[#FAFAFA]",
-      )}
-    >
+      )}>
       {/* Show background image ONLY for even items */}
       {index % 2 !== 0 && (
         <div className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -49,7 +48,7 @@ export default function ServiceCard({ data, index, locale }) {
         </Button>
       </div>
 
-      <div className="mt-4 xl:mt-6 2xl:mt-8 xl:max-w-[74%] 2xl:max-w-[65%] 3xl:max-w-[52%]">
+      <div className="mt-4 xl:mt-6 2xl:mt-8 xl:max-w-[74%] 2xl:max-w-[65%] 3xl:max-w-[60%]">
         <Heading
           as="h4"
           size="h4"

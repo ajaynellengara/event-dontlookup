@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 export default function ApproachCard({ data, locale, index }) {
   return (
     <div className="group w-full h-full min-h-[420px] relative z-0 transition-transform duration-300 ease-out hover:scale-y-[1.1]">
-      <div className="w-full h-50 2xl:h-59 bg-[url('/images/approach-bg.png')] bg-cover bg-no-repeat absolute z-1 inset-0 top-auto opacity-0 transition-opacity duration-300 group-hover:opacity-100 " />
+      <div className="w-full h-50 2xl:h-59 bg-[url('/images/benefit-bg.png')] bg-cover bg-no-repeat absolute z-1 inset-0 top-auto opacity-0 transition-opacity duration-300 group-hover:opacity-100 " />
       <div
         className={cn(
           "group w-full h-full px-7 px-6 sm:py-10  overflow-hidden flex flex-wrap justify-between relative",

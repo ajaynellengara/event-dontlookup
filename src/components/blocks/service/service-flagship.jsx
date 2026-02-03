@@ -16,7 +16,7 @@ import { motion } from "motion/react";
 import { Skeleton } from "@/components/ui/skeleton";
 import ScrollReveal from "@/components/animations/scroll-reveal";
 
-export default function HomeServices({ data, locale }) {
+export default function ServiceFlagship({ data, locale }) {
   const [emblaRef] = useEmblaCarousel(
     { loop: false, direction: locale === "ar" ? "rtl" : "ltr" },
     [Autoplay({ delay: 6000, stopOnInteraction: true, pauseOnHover: true })],
@@ -26,17 +26,8 @@ export default function HomeServices({ data, locale }) {
     <section className="w-full h-auto block py-[40px] sm:py-[40px] xl:py-[70px_80px] 2xl:py-[80px_110px] overflow-hidden">
       <div className="container">
         <div className="flex flex-wrap mb-6 xl:mb-10 2xl:mb-14">
-          <div className="w-full sm:w-7/12">
-            <ScrollReveal delay={0.1}>
-              <Heading
-                as="div"
-                size="h6"
-                className="tracking-widest font-normal text-[#1e1e1e] flex items-center gap-x-4 mb-1 xl:mb-1.5 2xl:mb-1.5"
-              >
-                <span className="size-2 rounded-full bg-[#c09c86] inline-block" />
-                {parse(locale == "ar" ? data?.sub_title_ar : data?.sub_title)}
-              </Heading>
-            </ScrollReveal>
+          <div className="w-full">
+            
             <Heading
               as="h2"
               size="h3"
@@ -45,27 +36,7 @@ export default function HomeServices({ data, locale }) {
               {parse(locale == "ar" ? data?.title_ar : data?.title)}
             </Heading>
           </div>
-          <div className="w-full sm:w-5/12">
-            <Text
-              as="div"
-              size="p1"
-              className="line-clamp-2 text-[#4b4b4b] mb-3 xl:mb-5 2xl:mb-6"
-            >
-              {parse(
-                locale === "ar" ? data?.description_ar : data?.description,
-              )}
-            </Text>
-            <Button
-              size="lg"
-              variant={"outline"}
-              className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px] transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              asChild
-            >
-              <Link href={data?.button?.link}>
-                {locale == "ar" ? data?.button?.label_ar : data?.button?.label}
-              </Link>
-            </Button>
-          </div>
+          
         </div>
       </div>
       <div
@@ -110,7 +81,7 @@ function ServiceCard({ data, index, locale }) {
         onHoverStart={() => setHovered(index)}
         onHoverEnd={() => setHovered(null)}
       >
-        <motion.div className="w-full h-full relative">
+        <motion.div className="group w-full h-full relative">
           <div
             className="absolute inset-0 backface-hidden overflow-hidden"
             style={{ backfaceVisibility: "hidden" }}
@@ -130,7 +101,7 @@ function ServiceCard({ data, index, locale }) {
             <Heading
               as="div"
               size="h4"
-              className="font-semibold text-white absolute z-1 inset-0 top-auto p-3 xl:p-5 2xl:p-8"
+              className="font-semibold text-white absolute z-1 inset-0 top-auto p-3 xl:p-5 2xl:p-8 group-hover:opacity-0"
             >
               {parse(locale == "ar" ? data?.title_ar : data?.title)}
             </Heading>
@@ -144,16 +115,10 @@ function ServiceCard({ data, index, locale }) {
             }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
             style={{ perspective: 1200 }}
-            className="absolute z-1 inset-0 bg-[#fafafa] bg-[url(/images/home-services-box-bg.png)] bg-cover flex items-center p-5 xl:p-7.5 2xl:p-10"
+            className="absolute z-1 inset-[35px] top-auto m-auto bg-[rgba(255,255,255,90%)] bg-[url(/images/home-services-box-bg.png)] bg-cover flex items-center p-5 xl:p-7.5 2xl:p-10"
           >
             <div>
-              <Image
-                src={data?.icon_path}
-                alt={locale == "ar" ? data?.title_ar : data?.title}
-                width={50}
-                height={52}
-                className="w-8 2xl:w-12 hover:scale-110 transition duration-300 mb-4 xl:mb-8 2xl:mb-10"
-              />
+              
               <Heading
                 as="div"
                 size="h4"
@@ -164,22 +129,13 @@ function ServiceCard({ data, index, locale }) {
               <Text
                 as="div"
                 size="p1"
-                className="line-clamp-7 text-black mb-4 xl:mb-8 2xl:mb-11"
+                className="line-clamp-7 text-black"
               >
                 {parse(
                   locale === "ar" ? data?.description_ar : data?.description,
                 )}
               </Text>
-              <Button
-                size="lg"
-                variant={"outline"}
-                className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px] transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                asChild
-              >
-                <Link href={data?.slug}>
-                  {locale == "ar" ? "Know More arabic" : "Know More"}
-                </Link>
-              </Button>
+              
             </div>
           </motion.div>
         </motion.div>

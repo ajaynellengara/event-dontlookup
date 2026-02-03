@@ -2,6 +2,9 @@ import Overview from "@/components/blocks/service/service-overview";
 import InnerHero from "@/components/blocks/banner/inner-hero";
 import OurApproach from "@/components/blocks/service/service-approach";
 import Benefit from "@/components/blocks/service/service-benefits";
+import ServiceFlagship from "@/components/blocks/service/service-flagship";
+import ServiceForm from "@/components/blocks/service/service-form";
+import ServiceHearFrom from "@/components/blocks/service/service-hear";
 
 export const dynamic = "force-dynamic";
 
@@ -112,6 +115,78 @@ const local_data = {
     `,
     description_ar: "",
   },
+  flagship_data: {
+    title: "Flagship Projects",
+    title_ar: "تشكيل المشاريع، بناء الثقة",
+
+    items: [
+      {
+        id: 1,
+        title: "Office Complex,<br/> Erbil",
+        title_ar: "إدارة المشاريع",
+        description:
+          "At Wasso Group, we recognize that every project is unique, with its own set of opportunities",
+        description_ar:
+          "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
+        slug: "project-management",
+        media: {
+          path: "/images/home-services-1.jpg",
+          alt: "Project Management",
+          alt_ar: "إدارة المشاريع",
+        },
+      },
+      {
+        id: 2,
+        title: "Panorama Trade <br/> Centre, Duhok",
+        title_ar: "الإشراف الهندسي",
+        description:
+          "At Wasso Group, we recognize that every project is unique, with its own set of opportunities",
+        description_ar:
+          "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
+        slug: "engineering-supervision",
+        media: {
+          path: "/images/home-services-2.jpg",
+          alt: "Engineering Supervision",
+          alt_ar: "الإشراف الهندسي",
+        },
+      },
+      {
+        id: 3,
+        title: "Italian City 1 & 2",
+        title_ar: "إدارة العقود والمناقصات",
+        description:
+          "At Wasso Group, we recognize that every project is unique, with its own set of opportunities",
+        description_ar:
+          "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
+        slug: "contracts-tenders-management",
+        media: {
+          path: "/images/home-services-3.jpg",
+          alt: "Contracts & Tenders Management",
+          alt_ar: "إدارة العقود والمناقصات",
+        },
+      },
+      {
+        id: 4,
+        title: "Walati Zheri <br/> Village",
+        title_ar: "ضمان الجودة والسلامة",
+        description:
+          "At Wasso Group, we recognize that every project is unique, with its own set of opportunities",
+        description_ar:
+          "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
+        slug: "quality-safety-assurance",
+        media: {
+          path: "/images/home-services-4.jpg",
+          alt: "Quality & Safety Assurance",
+          alt_ar: "ضمان الجودة والسلامة",
+        },
+      },
+    ],
+  },
+  form_data: {
+    title_lit: "We’d love to ", 
+    title: "hear from you",
+    title_ar: "ضمان الجودة والسلامة",
+  },
 };
 
 export async function generateMetadata({ params }) {
@@ -187,6 +262,8 @@ export default async function ServiceDetailPage({ params, data = local_data }) {
       <Overview data={data?.overview_data} locale={locale} />
       <OurApproach data={data?.approach_data} locale={locale} />
       <Benefit data={data?.benefit_data} locale={locale} />
+      <ServiceFlagship data={data?.flagship_data} locale={locale} />
+      <ServiceHearFrom data={data?.form_data} locale={locale} />
     </>
   );
 }

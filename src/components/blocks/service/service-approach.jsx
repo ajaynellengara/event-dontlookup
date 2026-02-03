@@ -25,13 +25,13 @@ export default function OurApproach({ data, locale }) {
             {parse(locale == "ar" ? data?.main_title_ar : data?.main_title)}
           </Heading>
         </div>
-        <div className="" ref={emblaRef}>
+        <div className="overflow-x-hidden" ref={emblaRef}>
           <div className="flex touch-pan-y touch-pinch-zoom">
             {data?.items?.map((item, index) => (
               <div
                 key={item.id}
                 className={
-                  "flex-[0_0_100px] sm:flex-[0_0_10%] 3xl:flex-[0_0_20%] min-w-0 select-none"
+                  "flex-[0_0_100px] sm:flex-[0_0_25%] xl:flex-[0_0_20%] min-w-0 select-none"
                 }
               >
                 <ApproachCard data={item} index={index} locale={locale} />
