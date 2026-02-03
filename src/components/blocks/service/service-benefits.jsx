@@ -2,8 +2,9 @@
 import parse from "html-react-parser";
 import { Heading, Text } from "@/components/utils/typography";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
-export default function Overview({ data = {}, locale = "en", overview_data }) {
+export default function Benefit({ data, locale = "en" }) {
   const isArabic = locale === "ar";
 
   return (
@@ -27,10 +28,12 @@ export default function Overview({ data = {}, locale = "en", overview_data }) {
             >
               {parse(locale === "ar" ? data?.title_ar : data?.title)}
             </Heading>
-            <Text as="div" size="p1" className="font-light text-black">
-              {data?.description &&
-                parse(isArabic ? data?.description_ar : data?.description)}
-            </Text>
+            <div
+              dir={locale === "ar" ? "rtl" : "ltr"}
+              className={cn("typography", "[--text-color:#282828]")}
+            >
+              {parse(data?.description)}
+            </div>
           </div>
         </div>
       </div>

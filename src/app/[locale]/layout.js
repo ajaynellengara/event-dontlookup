@@ -1,9 +1,12 @@
 import "./../globals.css";
 import { cn } from "@/lib/utils";
 import { locales, localeDirection } from "../../il8n/config";
-import { poppins, cairo, getFontVariable, getFontClassName } from "@/lib/fonts";
+import { getFontVariable, getFontClassName } from "@/lib/fonts";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import CursorFollower from "@/components/animations/cursor-follower";
+import PageLoader from "@/components/animations/page-loader";
+import SmoothScrolling from "@/components/utils/smooth-scrolling";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -14,8 +17,16 @@ export const metadata = {
     default: "WASSO Project Management LLC",
     template: "%s | WASSO",
   },
-  description: "Leading project management, engineering, and real estate development solutions across the UAE and GCC region.",
-  keywords: ["project management", "engineering", "real estate", "UAE", "construction", "workspace solutions"],
+  description:
+    "Leading project management, engineering, and real estate development solutions across the UAE and GCC region.",
+  keywords: [
+    "project management",
+    "engineering",
+    "real estate",
+    "UAE",
+    "construction",
+    "workspace solutions",
+  ],
   authors: [{ name: "WASSO Project Management LLC" }],
   creator: "WASSO Project Management LLC",
   publisher: "WASSO Project Management LLC",
@@ -24,7 +35,9 @@ export const metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  ),
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -48,7 +61,6 @@ export const metadata = {
   },
 };
 
-
 export const dynamic = "force-dynamic";
 
 export default async function RootLayout({ children, params }) {
@@ -57,15 +69,13 @@ export default async function RootLayout({ children, params }) {
   const locale = resolvedParams.locale;
   const dir = localeDirection[resolvedParams.locale] || "ltr";
 
-
-  
   let globalData = null;
-  
+
   try {
     // During build, use relative URL or skip fetch
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const url = `${baseUrl}/api/global?locale=${locale}`;
-    
+
     const res = await fetch(url, {
       cache: "no-store",
       next: { revalidate: 0 },
@@ -77,7 +87,7 @@ export default async function RootLayout({ children, params }) {
     }
   } catch (error) {
     // Silently fail during build - will use fallback data
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV !== "production") {
       console.error("Error fetching global data:", error);
     }
   }
@@ -114,27 +124,33 @@ export default async function RootLayout({ children, params }) {
       <head>
         {/* Preconnect to Google Fonts for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         {/* DNS prefetch for external resources */}
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
-      <body
-        className={cn("antialiased", fontClassName, fontVariable)}
-        suppressHydrationWarning
-      >
-        <Header
-          locale={locale}
-          headerData={data.header_data}
-          navigationData={data.navigation_data}
-        />
+      <body className={cn("antialiased", fontClassName, fontVariable)}>
+        <SmoothScrolling>
+          <PageLoader />
+          <CursorFollower />
 
-        <main className="min-h-screen">{children}</main>
+          <Header
+            locale={locale}
+            headerData={data.header_data}
+            navigationData={data.navigation_data}
+          />
 
-        <Footer
-          locale={locale}
-          footerData={data.footer_data}
-          socialLinkData={data.social_link_data}
-        />
+          <main className="min-h-screen">{children}</main>
+
+          <Footer
+            locale={locale}
+            footerData={data.footer_data}
+            socialLinkData={data.social_link_data}
+          />
+        </SmoothScrolling>
       </body>
     </html>
   );

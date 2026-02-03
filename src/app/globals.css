@@ -55,7 +55,7 @@
   --breakpoint-sm: 40rem;
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
-  --breakpoint-xl: 80rem;
+  --breakpoint-xl: 79rem;
   --breakpoint-2xl: 96rem;
   --breakpoint-3xl: 120rem;
 
@@ -166,7 +166,11 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+    font-family:
+      var(--font-poppins),
+      system-ui,
+      -apple-system,
+      sans-serif;
     @apply [--header-y:var(--header-y-sm)] lg:[--header-y:var(--header-y-lg)] 2xl:[--header-y:var(--header-y-2xl)] 3xl:[--header-y:var(--header-y-3xl)];
   }
 
@@ -178,7 +182,11 @@
 
   /* Font utility classes */
   .font-poppins {
-    font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+    font-family:
+      var(--font-poppins),
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 
   .font-cairo {
@@ -216,6 +224,22 @@
   ::selection {
     background-color: var(--color-foreground);
     color: var(--color-background);
+  }
+
+  /* Enhanced link and button hover effects */
+  a,
+  button {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  a:hover,
+  button:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Image hover effects */
+  img {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 }
 
