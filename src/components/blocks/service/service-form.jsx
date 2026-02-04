@@ -176,15 +176,13 @@ export default function ServiceForm() {
         <div className="w-full mt-2 flex">
           <Button
             type="submit"
-            variant={"black"}
             disabled={loading}
-            className="min-w-[90px] sm:min-w-[100px] xl:min-w-[110px] 2xl:min-w-[120px] 3xl:min-w-[160px] rounded-[10px] border border-[#E2C2A4]  transition hover:bg-black hover:text-white"
-            asChild
+            size="lg"
+            variant={"outline"}
+            className="min-w-[100px] xl:min-w-[105px] 2xl:min-w-[130px] transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
             {loading ? "Sending..." : "Send Message"}
           </Button>
-
-          
         </div>
 
         {/* Success Message */}

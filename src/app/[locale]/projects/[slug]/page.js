@@ -1,7 +1,157 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import InnerHero from "@/components/common/inner-hero";
+import ProjectsInfo from "@/components/blocks/projects/projects-info";
+import ProjectsRecent from "@/components/blocks/projects/projects-recent";
+import ProjectsExplore from "@/components/blocks/projects/projects-explore";
 
 export const dynamic = "force-dynamic";
+
+const local_data = {
+  hero: {
+    media: {
+      media_type: "image",
+      mobile_path: "/images/projects-hero-1.jpg",
+      desktop_path: "/images/projects-hero-1.jpg",
+      media_alt: "projects-hero",
+    },
+    title_ar: "الخدمات",
+    title: "Our Projects",
+  },
+
+  project_info: {
+    title_ar: "الخدمات",
+    title: "Our Projects",
+    items: [
+      {
+        id: 1,
+        title: "Luxury Residential Tower, Dubai",
+        title_ar: "إدارة المشاريع",
+        description:
+          "<p>Location: <b>Dubai, UAE</b></p><p>Completion Year: <b>2022</b></p><p>Scope: <b>Commercial & Technology Development</b></p>",
+        description_ar:
+          "<p>المشاريع: <b>Dubai, UAE</b></p><p>المشاريع Year: <b>2022</b></p><p>المشاريع: <b>Commercial & Technology Development</b></p>",
+        media: {
+          path: "/images/projects-info-1.jpg",
+          alt: "projects-info",
+          alt_ar: "إدارة المشاريع",
+        },
+      },
+      {
+        id: 2,
+        title: "11 Luxury Residential Tower, Dubai",
+        title_ar: "إدارة المشاريع",
+        description:
+          "<p>Location: <b>Dubai, UAE</b></p><p>Completion Year: <b>2022</b></p><p>Scope: <b>Commercial & Technology Development</b></p>",
+        description_ar:
+          "<p>المشاريع: <b>Dubai, UAE</b></p><p>المشاريع Year: <b>2022</b></p><p>المشاريع: <b>Commercial & Technology Development</b></p>",
+        media: {
+          path: "/images/projects-info-1.jpg",
+          alt: "projects-info",
+          alt_ar: "إدارة المشاريع",
+        },
+      },
+      {
+        id: 3,
+        title: "22 Luxury Residential Tower, Dubai",
+        title_ar: "إدارة المشاريع",
+        description:
+          "<p>Location: <b>Dubai, UAE</b></p><p>Completion Year: <b>2022</b></p><p>Scope: <b>Commercial & Technology Development</b></p>",
+        description_ar:
+          "<p>المشاريع: <b>Dubai, UAE</b></p><p>المشاريع Year: <b>2022</b></p><p>المشاريع: <b>Commercial & Technology Development</b></p>",
+        media: {
+          path: "/images/projects-info-1.jpg",
+          alt: "projects-info",
+          alt_ar: "إدارة المشاريع",
+        },
+      },
+      {
+        id: 4,
+        title: "33 FLuxury Residential Tower, Dubai",
+        title_ar: "إدارة المشاريع",
+        description:
+          "<p>Location: <b>Dubai, UAE</b></p><p>Completion Year: <b>2022</b></p><p>Scope: <b>Commercial & Technology Development</b></p>",
+        description_ar:
+          "<p>المشاريع: <b>Dubai, UAE</b></p><p>المشاريع Year: <b>2022</b></p><p>المشاريع: <b>Commercial & Technology Development</b></p>",
+        media: {
+          path: "/images/projects-info-1.jpg",
+          alt: "projects-info",
+          alt_ar: "إدارة المشاريع",
+        },
+      },
+    ],
+  },
+
+  recent_projects: {
+    title: "Recent Projects",
+    title_ar: "المشاريع الحديثة",
+    description: "<p>At Wasso Group, we recognize that every project is unique, with its own set of opportunities and challenges. Our project management service is built on the principle of transforming complex</p>",
+    description_ar: "<p>في مجموعة واسو، ندرك أن كل مشروع فريد من نوعه، مع مجموعة خاصة من الفرص والتحديات. وتستند خدمة إدارة المشاريع لدينا على مبدأ تحويل المشاريع المعقدة إلى نجاحات ملموسة. سواء كان مشروعًا جديدًا أو توسعة أو تجديدًا، فإننا نقدم نهجًا شاملاً يضمن تحقيق أهدافك بكفاءة وفعالية.</p>",
+    items: [
+      {
+        id: 1,
+        title: "Lume Residences, Garden City",
+        title_ar: "إدارة المشاريع",
+        slug: "/project-details-1",
+        media: {
+          path: "/images/projects-recent-1.jpg",
+          alt: "Project Management",
+          alt_ar: "إدارة المشاريع",
+        },
+      },
+      {
+        id: 2,
+        title: "Victoria Residences, UAE",
+        title_ar: "إدارة المشاريع",
+        slug: "/project-details-2",
+        media: {
+          path: "/images/projects-recent-2.jpg",
+          alt: "Project Management",
+          alt_ar: "إدارة المشاريع",
+        },
+      },
+      {
+        id: 3,
+        title: "The Majestic Pointe, Al Shindagha",
+        title_ar: "إدارة المشاريع",
+        slug: "/project-details-3",
+        media: {
+          path: "/images/projects-recent-3.jpg",
+          alt: "Project Management",
+          alt_ar: "إدارة المشاريع",
+        },
+      },
+      {
+        id: 4,
+        title: "Lume Residences, Garden City",
+        title_ar: "إدارة المشاريع",
+        slug: "/project-details-1",
+        media: {
+          path: "/images/projects-recent-1.jpg",
+          alt: "Project Management",
+          alt_ar: "إدارة المشاريع",
+        },
+      },
+      {
+        id: 5,
+        title: "Victoria Residences, UAE",
+        title_ar: "إدارة المشاريع",
+        slug: "/project-details-2",
+        media: {
+          path: "/images/projects-recent-2.jpg",
+          alt: "Project Management",
+          alt_ar: "إدارة المشاريع",
+        },
+      },
+    ],
+  },
+
+  explore_projects: {
+    title: "Explore All Building Project",
+    title_ar: "استكشف جميع مشاريع البناء",
+    slug: "/project-details-3",
+  }
+};
 
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;
@@ -42,7 +192,10 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function ProjectDetailPage({ params }) {
+export default async function ProjectsDetailPage({
+  params,
+  data = local_data,
+}) {
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
   const slug = resolvedParams.slug;
@@ -71,161 +224,14 @@ export default async function ProjectDetailPage({ params }) {
   // }
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      {/* <section className="relative h-[70vh] w-full">
-        <img
-          src={projectData.featured_image.path}
-          alt={
-            locale === "ar"
-              ? projectData.featured_image.alt_ar
-              : projectData.featured_image.alt
-          }
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="mb-4 text-4xl font-bold md:text-6xl">
-              {locale === "ar" ? projectData.title_ar : projectData.title}
-            </h1>
-            <p className="text-xl">
-              {locale === "ar" ? projectData.location_ar : projectData.location}
-            </p>
-          </div>
-        </div>
-      </section> */}
+    <>
+      <InnerHero locale={locale} data={data?.hero} slug={"Our Projects"} />
 
-      {/* Project Details */}
-      {/* <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="md:col-span-2">
-              <h2 className="mb-4 text-3xl font-bold">
-                {locale === "ar" ? "نظرة عامة" : "Overview"}
-              </h2>
-              <p className="mb-6 text-lg text-gray-600">
-                {locale === "ar"
-                  ? projectData.description_ar
-                  : projectData.description}
-              </p>
-              {projectData.full_description && (
-                <div
-                  className="prose max-w-none text-gray-600"
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      locale === "ar"
-                        ? projectData.full_description_ar
-                        : projectData.full_description,
-                  }}
-                />
-              )}
+      <ProjectsInfo locale={locale} data={data?.project_info} />
 
-              {projectData.gallery && projectData.gallery.length > 0 && (
-                <div className="mt-12">
-                  <h3 className="mb-6 text-2xl font-bold">
-                    {locale === "ar" ? "معرض الصور" : "Gallery"}
-                  </h3>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    {projectData.gallery.map((image, index) => (
-                      <img
-                        key={index}
-                        src={image.path}
-                        alt={locale === "ar" ? image.alt_ar : image.alt}
-                        className="h-64 w-full rounded-lg object-cover"
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-            
-            <div className="space-y-6">
-              <div className="rounded-lg bg-gray-50 p-6">
-                <h3 className="mb-4 text-xl font-bold">
-                  {locale === "ar" ? "معلومات المشروع" : "Project Information"}
-                </h3>
-                <div className="space-y-3">
-                  <div>
-                    <span className="font-semibold">
-                      {locale === "ar" ? "الموقع:" : "Location:"}
-                    </span>{" "}
-                    {locale === "ar"
-                      ? projectData.location_ar
-                      : projectData.location}
-                  </div>
-                  {projectData.client && (
-                    <div>
-                      <span className="font-semibold">
-                        {locale === "ar" ? "العميل:" : "Client:"}
-                      </span>{" "}
-                      {locale === "ar"
-                        ? projectData.client_ar
-                        : projectData.client}
-                    </div>
-                  )}
-                  {projectData.year && (
-                    <div>
-                      <span className="font-semibold">
-                        {locale === "ar" ? "السنة:" : "Year:"}
-                      </span>{" "}
-                      {projectData.year}
-                    </div>
-                  )}
-                  {projectData.area && (
-                    <div>
-                      <span className="font-semibold">
-                        {locale === "ar" ? "المساحة:" : "Area:"}
-                      </span>{" "}
-                      {locale === "ar" ? projectData.area_ar : projectData.area}
-                    </div>
-                  )}
-                  {projectData.status && (
-                    <div>
-                      <span className="font-semibold">
-                        {locale === "ar" ? "الحالة:" : "Status:"}
-                      </span>{" "}
-                      {locale === "ar"
-                        ? projectData.status_ar
-                        : projectData.status}
-                    </div>
-                  )}
-                </div>
-              </div>
+      <ProjectsRecent locale={locale} data={data?.recent_projects} />
 
-              {projectData.tags && projectData.tags.length > 0 && (
-                <div className="rounded-lg bg-gray-50 p-6">
-                  <h3 className="mb-4 text-xl font-bold">
-                    {locale === "ar" ? "العلامات" : "Tags"}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {projectData.tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="rounded bg-gray-200 px-3 py-1 text-sm"
-                      >
-                        {locale === "ar" ? projectData.tags_ar[index] : tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Back to Projects */}
-      {/* <section className="bg-gray-50 py-8">
-        <div className="container mx-auto px-4">
-          <Link
-            href={`/${locale}/projects`}
-            className="inline-block text-gray-700 hover:text-gray-900"
-          >
-            ← {locale === "ar" ? "العودة إلى المشاريع" : "Back to Projects"}
-          </Link>
-        </div>
-      </section> */}
-    </div>
+      <ProjectsExplore locale={locale} data={data?.explore_projects} />
+    </>
   );
 }
