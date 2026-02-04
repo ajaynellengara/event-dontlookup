@@ -11,11 +11,13 @@ export async function generateMetadata({ params }) {
   let projectData = null;
 
   try {
-    const baseUrl =
-      process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/projects/${slug}?locale=${locale}`, {
-      cache: "no-store",
-    });
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+    const res = await fetch(
+      `${baseUrl}/api/projects/${slug}?locale=${locale}`,
+      {
+        cache: "no-store",
+      },
+    );
 
     if (res.ok) {
       const response = await res.json();
@@ -32,8 +34,7 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title:
-      locale === "ar" ? projectData.seoTitle_ar : projectData.seoTitle,
+    title: locale === "ar" ? projectData.seoTitle_ar : projectData.seoTitle,
     description:
       locale === "ar"
         ? projectData.seoDescription_ar
@@ -46,31 +47,33 @@ export default async function ProjectDetailPage({ params }) {
   const locale = resolvedParams.locale;
   const slug = resolvedParams.slug;
 
-  let projectData = null;
+  // let projectData = null;
 
-  try {
-    const baseUrl =
-      process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/projects/${slug}?locale=${locale}`, {
-      cache: "no-store",
-    });
+  // try {
+  //   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  //   const res = await fetch(
+  //     `${baseUrl}/api/projects/${slug}?locale=${locale}`,
+  //     {
+  //       cache: "no-store",
+  //     },
+  //   );
 
-    if (res.ok) {
-      const response = await res.json();
-      projectData = response.data;
-    }
-  } catch (error) {
-    console.error("Error fetching project data:", error);
-  }
+  //   if (res.ok) {
+  //     const response = await res.json();
+  //     projectData = response.data;
+  //   }
+  // } catch (error) {
+  //   console.error("Error fetching project data:", error);
+  // }
 
-  if (!projectData) {
-    notFound();
-  }
+  // if (!projectData) {
+  //   notFound();
+  // }
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[70vh] w-full">
+      {/* <section className="relative h-[70vh] w-full">
         <img
           src={projectData.featured_image.path}
           alt={
@@ -91,10 +94,10 @@ export default async function ProjectDetailPage({ params }) {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Project Details */}
-      <section className="py-16 md:py-24">
+      {/* <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid gap-8 md:grid-cols-3">
             <div className="md:col-span-2">
@@ -118,7 +121,6 @@ export default async function ProjectDetailPage({ params }) {
                 />
               )}
 
-              {/* Gallery */}
               {projectData.gallery && projectData.gallery.length > 0 && (
                 <div className="mt-12">
                   <h3 className="mb-6 text-2xl font-bold">
@@ -129,9 +131,7 @@ export default async function ProjectDetailPage({ params }) {
                       <img
                         key={index}
                         src={image.path}
-                        alt={
-                          locale === "ar" ? image.alt_ar : image.alt
-                        }
+                        alt={locale === "ar" ? image.alt_ar : image.alt}
                         className="h-64 w-full rounded-lg object-cover"
                       />
                     ))}
@@ -139,8 +139,7 @@ export default async function ProjectDetailPage({ params }) {
                 </div>
               )}
             </div>
-
-            {/* Sidebar */}
+            
             <div className="space-y-6">
               <div className="rounded-lg bg-gray-50 p-6">
                 <h3 className="mb-4 text-xl font-bold">
@@ -205,9 +204,7 @@ export default async function ProjectDetailPage({ params }) {
                         key={index}
                         className="rounded bg-gray-200 px-3 py-1 text-sm"
                       >
-                        {locale === "ar"
-                          ? projectData.tags_ar[index]
-                          : tag}
+                        {locale === "ar" ? projectData.tags_ar[index] : tag}
                       </span>
                     ))}
                   </div>
@@ -216,10 +213,10 @@ export default async function ProjectDetailPage({ params }) {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Back to Projects */}
-      <section className="bg-gray-50 py-8">
+      {/* <section className="bg-gray-50 py-8">
         <div className="container mx-auto px-4">
           <Link
             href={`/${locale}/projects`}
@@ -228,7 +225,7 @@ export default async function ProjectDetailPage({ params }) {
             ← {locale === "ar" ? "العودة إلى المشاريع" : "Back to Projects"}
           </Link>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
