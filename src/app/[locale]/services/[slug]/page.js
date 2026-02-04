@@ -1,10 +1,9 @@
 import Overview from "@/components/blocks/service/service-overview";
-import InnerHero from "@/components/blocks/banner/inner-hero";
 import OurApproach from "@/components/blocks/service/service-approach";
 import Benefit from "@/components/blocks/service/service-benefits";
 import ServiceFlagship from "@/components/blocks/service/service-flagship";
-import ServiceForm from "@/components/blocks/service/service-form";
 import ServiceHearFrom from "@/components/blocks/service/service-hear";
+import InnerHero from "@/components/common/inner-hero";
 
 export const dynamic = "force-dynamic";
 

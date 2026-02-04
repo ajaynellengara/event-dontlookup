@@ -114,7 +114,7 @@ export default function HomePartners({ data, locale }) {
   }));
 
   return (
-    <section className="w-full h-auto block py-[30px] sm:py-[40px_10px] xl:py-[70px_10px] 2xl:py-[90px_10px] overflow-hidden relative z-0">
+    <section className="w-full h-auto block pt-[30px] sm:pt-[40px] xl:pt-[70px] 2xl:pt-[90px] overflow-hidden relative z-0">
       <div
         className={cn(
           "w-full sm:max-w-[calc(var(--container-sm)/2+50%)] md:max-w-[calc(var(--container-md)/2+50%)] lg:max-w-[calc(var(--container-lg)/2+50%)] xl:max-w-[calc(var(--container-xl)/2+50%)] 2xl:max-w-[calc(var(--container-2xl)/2+50%)] 3xl:max-w-[calc(var(--container-3xl)/2+50%)]",
@@ -146,9 +146,9 @@ export default function HomePartners({ data, locale }) {
               initial="hidden"
               animate="show"
               exit="exit"
-              className="grid grid-cols-5 grid-rows-2 gap-[1px] relative overflow-hidden"
+              className="grid grid-cols-4 sm:grid-cols-5 grid-rows-2 gap-[1px] relative overflow-hidden"
             >
-              <div className="w-full sm:w-8/10 h-full sm:h-8/10 bg-black opacity-10 m-auto blur-md absolute -z-1 inset-0" />
+              <div className="w-full sm:w-8/10 h-full sm:h-8/10 bg-black opacity-[0%] sm:opacity-10 m-auto blur-md absolute -z-1 inset-0" />
               {currentItems.map((item, index) => (
                 <div
                   key={`slot-${index}`}
@@ -234,19 +234,20 @@ export default function HomePartners({ data, locale }) {
           </div>
         </div>
       </div>
-      <div
-        className={cn(
-          "container sm:mt-[60px] xl:mt-[90px] 2xl:mt-[120px] pointer-events-none max-sm:opacity-30 max-sm:absolute max-sm:z-1 max-sm:top-6 max-sm:max-w-[320px]! select-none",
-          locale === "ar" ? "max-sm:left-4" : "max-sm:right-4",
-        )}
-      >
-        <Image
-          src={"/images/home-delmt-1.svg"}
-          alt={"home-delmt-1"}
-          width={1166}
-          height={250}
-          className="w-full h-auto object-contain"
-        />
+      <div className="text-[90px] 3xs:text-[100px] sm:text-[240px] xl:text-[300px] 2xl:text-[368px] 3xl:text-[440px] leading-none font-medium text-center text-[#fff3e8]">
+        {["W", "A", "S", "S", "O"].map((letter, index) => (
+          <motion.span
+            key={"letter-" + index}
+            className="inline-block cursor-default origin-bottom"
+            whileHover={{ scaleY: 1.1 }}
+            transition={{
+              duration: 0.3,
+              ease: [0.33, 1, 0.68, 1],
+            }}
+          >
+            {letter}
+          </motion.span>
+        ))}
       </div>
     </section>
   );

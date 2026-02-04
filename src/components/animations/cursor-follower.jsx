@@ -24,7 +24,6 @@ export default function CursorFollower() {
   const springConfig = { damping: 25, stiffness: 700, mass: 0.5 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
-
   useEffect(() => {
     if (isMobile) return;
 
@@ -60,7 +59,7 @@ export default function CursorFollower() {
           target.closest('[data-cursor="carousel"]')
         ) {
           setIsCarousel(true);
-          setIsHovering(true); // Ensure main hover state is on to expand cursor
+          setIsHovering(true);
         }
       }
     };
@@ -90,15 +89,14 @@ export default function CursorFollower() {
     };
 
     window.addEventListener("mousemove", moveCursor);
-    document.addEventListener("mouseover", handleMouseEnter, true); // Changed to mouseover for better bubbling/target detection
+    document.addEventListener("mouseover", handleMouseEnter, true);
     document.addEventListener("mouseout", handleMouseLeave, true);
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
-      window.removeEventListener("resize", checkMobile); // Note: checkMobile is defined inside the effect but resize listener added inside too. 
-      // Wait, checkMobile is defined inside. The resize listener references it. That's fine.
       document.removeEventListener("mouseover", handleMouseEnter, true);
       document.removeEventListener("mouseout", handleMouseLeave, true);
+      // Removed the checkMobile line that was causing the error
     };
   }, [cursorX, cursorY, isMobile]);
 
@@ -108,49 +106,53 @@ export default function CursorFollower() {
     <>
       <motion.div
         ref={cursorRef}
-        className="fixed pointer-events-none z-[9999] mix-blend-difference transition-all duration-100 flex items-center justify-center text-black opacity-40"
+        className="fixed pointer-events-none z-[9999] mix-blend-difference flex items-center justify-center text-black rounded-full overflow-hidden opacity-80 transition-all duration-50"
         style={{
           left: cursorXSpring,
           top: cursorYSpring,
           x: "-50%",
           y: "-50%",
         }}
+        animate={{
+          backdropFilter: isHovering || isCarousel ? "blur(1px)" : "blur(0)",
+        }}
         transition={{
-          duration: 0.4,
+          duration: 0.2,
           ease: "easeOut",
         }}
       >
         <motion.div
-          className="rounded-full border-1 border-white backdrop-blur-sm transition-all duration-100 flex items-center justify-center relative overflow-hidden"
+          className="rounded-full border-1 border-white backdrop-blur-sm flex items-center justify-center relative overflow-hidden transition-all duration-50"
           animate={{
-            width: isCarousel ? 80 : isHovering ? 60 : 20,
-            height: isCarousel ? 80 : isHovering ? 60 : 20,
-            backgroundColor: isHovering || isCarousel
-              ? "rgba(255, 255, 255, 0.4)"
-              : "rgba(255, 255, 255, 0.2)",
+            width: isCarousel ? 60 : isHovering ? 50 : 20,
+            height: isCarousel ? 60 : isHovering ? 50 : 20,
+            backgroundColor:
+              isHovering || isCarousel
+                ? "rgba(255, 255, 255, 0.1)"
+                : "rgba(255, 255, 255, 0.05)",
           }}
           transition={{
-            duration: 0.4,
+            duration: 0.1,
             ease: "easeOut",
           }}
         >
           {isCarousel && (
             <motion.div
-              className="flex items-center gap-4 text-white"
+              className="flex items-center gap-3 text-white"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.5 }}
             >
               <ChevronLeft
                 className={cn(
-                  "size-6 transition-opacity duration-300",
-                  direction === "left" ? "opacity-100" : "opacity-30"
+                  "size-4 transition-opacity duration-100",
+                  direction === "left" ? "opacity-100" : "opacity-30",
                 )}
               />
               <ChevronRight
                 className={cn(
-                  "size-6 transition-opacity duration-300",
-                  direction === "right" ? "opacity-100" : "opacity-30"
+                  "size-4 transition-opacity duration-100",
+                  direction === "right" ? "opacity-100" : "opacity-30",
                 )}
               />
             </motion.div>
@@ -172,7 +174,7 @@ export default function CursorFollower() {
             height: isHovering ? 8 : 6,
           }}
           transition={{
-            duration: 0.4,
+            duration: 0.1,
             ease: "easeOut",
           }}
         />

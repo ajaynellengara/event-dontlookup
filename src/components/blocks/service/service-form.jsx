@@ -90,7 +90,7 @@ export default function ServiceForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-full flex flex-wrap items-start -mx-4 [&>*]:px-4 [&>*]:py-2"
+        className="flex flex-wrap items-start -mx-4 [&>*]:px-4 [&>*]:py-2"
       >
         {/* Full Name */}
         <FormField

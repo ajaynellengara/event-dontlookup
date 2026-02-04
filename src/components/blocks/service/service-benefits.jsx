@@ -8,12 +8,12 @@ export default function Benefit({ data, locale = "en" }) {
   const isArabic = locale === "ar";
 
   return (
-    <section className="w-full h-auto block relative z-0 py-[30px] sm:py-[40px] xl:py-[90px] 2xl:py-[100px] 3xl:py-[120px] bg-white">
-      <div className="container ">
-        <div className="flex gap-10 sm:items-center bg-[#FFFBF2] relative">
-          <div className="md:w-[50%] absolute inset-0 left-auto z-0 bg-[url('/images/benefit-bg.png')] bg-no-repeat bg-cover"></div>
+    <section className="w-full h-auto block pt-[30px] sm:pt-[40px] xl:pt-[90px] 2xl:pt-[100px] 3xl:pt-[120px] bg-white relative z-0">
+      <div className="container">
+        <div className="lg:gap-10 bg-[#FFFBF2] flex flex-col-reverse md:flex-row  sm:items-center relative">
+          <div className="w-[100%] lg:w-[50%] bg-[url('/images/benefit-bg.png')] bg-no-repeat bg-cover absolute inset-0 lg:left-auto z-0"></div>
 
-          <div className="w-full md:w-6/12 lg:w-[57%]">
+          <div className="w-full lg:w-6/12 2xl:w-[57%]">
             <Image
               src={data?.media?.desktop_path || "/images/icon-placeholder.svg"}
               alt={data?.media?.media_alt}
@@ -22,11 +22,11 @@ export default function Benefit({ data, locale = "en" }) {
               className="h-full w-full object-fill"
             />
           </div>
-          <div className="w-full flex flex-wrap items-center md:w-4/12 lg:w-[43%] pt-[20px] md:pt-0 md:pl-[30px] xl:pl-[50px] 2xl:pl-[60px] 3xl:pl-[80px] relative">
+          <div className="w-full lg:w-6/12 2xl:w-[43%] pt-[20px] lg:pt-0 pb-2 pl-[20px] md:pl-[30px] xl:pl-[50px] 2xl:pl-[60px] 3xl:pl-[80px] flex flex-wrap items-center relative">
             <Heading
               as="h3"
               size="h3"
-              className="mb-4 text-xl font-normal text-black"
+              className="text-xl font-normal text-black w-full mb-4"
             >
               {parse(locale === "ar" ? data?.title_ar : data?.title)}
             </Heading>

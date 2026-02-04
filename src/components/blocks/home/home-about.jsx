@@ -5,7 +5,12 @@ import Link from "next/link";
 import parse from "html-react-parser";
 import { Heading, Text } from "@/components/utils/typography";
 
-import { Parallax, ParallaxProvider } from "react-scroll-parallax";
+import {
+  Parallax,
+  ParallaxBanner,
+  ParallaxBannerLayer,
+  ParallaxProvider,
+} from "react-scroll-parallax";
 import { cn } from "@/lib/utils";
 import ScrollReveal from "@/components/animations/scroll-reveal";
 
@@ -81,8 +86,8 @@ export default function HomeAbout({ data, locale }) {
 
             <MediaQuery minWidth={640}>
               <div className="w-full sm:w-4/12">
-                <Parallax speed={-5}>
-                  <div className="w-full max-w-[268px] xl:max-w-[300px] 2xl:max-w-[360px] bg-gray-200 mx-auto mask-[url(/images/icon-brand.svg)] mask-center mask-contain mask-no-repeat">
+                <ParallaxBanner className="w-full max-w-[268px] xl:max-w-[300px] 2xl:max-w-[360px] aspect-441/378 bg-gray-200 mx-auto mask-[url(/images/icon-brand.svg)] mask-center mask-contain mask-no-repeat">
+                  <ParallaxBannerLayer speed={-5}>
                     <Image
                       src={data?.media_path}
                       alt={
@@ -92,8 +97,8 @@ export default function HomeAbout({ data, locale }) {
                       height={517}
                       className="w-full h-full object-fill"
                     />
-                  </div>
-                </Parallax>
+                  </ParallaxBannerLayer>
+                </ParallaxBanner>
               </div>
             </MediaQuery>
 

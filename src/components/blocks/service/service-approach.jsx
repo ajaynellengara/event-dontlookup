@@ -13,7 +13,7 @@ export default function OurApproach({ data, locale }) {
   );
 
   return (
-    <section className="w-full h-auto block relative z-0 pb-[30px] sm:pb-[40px] xl:pb-[100px] bg-white">
+    <section className="w-full h-auto block relative z-0 pb-[30px] sm:pb-[40px] xl:pb-[60px] 2xl:pb-[60px] bg-white">
       <div className="container">
         <div className="w-full">
         
@@ -31,9 +31,7 @@ export default function OurApproach({ data, locale }) {
               <div
                 key={item.id}
                 className={
-                  "flex-[0_0_100px] sm:flex-[0_0_25%] xl:flex-[0_0_20%] min-w-0 select-none"
-                }
-              >
+                  "flex-[0_0_100%] 3xs:flex-[0_0_50%] xs:flex-[0_0_33.333%] lg:flex-[0_0_25%] xl:flex-[0_0_20%] min-w-0 select-none"}>
                 <ApproachCard data={item} index={index} locale={locale} />
               </div>
             ))}

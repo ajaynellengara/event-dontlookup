@@ -25,42 +25,32 @@ export default function ServiceFlagship({ data, locale }) {
   return (
     <section className="w-full h-auto block py-[40px] sm:py-[40px] xl:py-[70px_80px] 2xl:py-[80px_110px] overflow-hidden">
       <div className="container">
-        <div className="flex flex-wrap mb-6 xl:mb-10 2xl:mb-14">
-          <div className="w-full">
-            
-            <Heading
-              as="h2"
-              size="h3"
-              className="font-normal text-[#1e1e1e] mb-2"
-            >
-              {parse(locale == "ar" ? data?.title_ar : data?.title)}
-            </Heading>
-          </div>
-          
-        </div>
-      </div>
-      <div
-        className={cn(
-          "container",
-          locale === "ar"
-            ? "max-sm:pl-0 max-sm:[mask-image:linear-gradient(to_left,black_0%,black_90%,transparent_100%)] max-sm:[-webkit-mask-image:linear-gradient(to_left,black_0%,black_95%,transparent_100%)]"
-            : "max-sm:pr-0 max-sm:[mask-image:linear-gradient(to_right,black_0%,black_90%,transparent_100%)] max-sm:[-webkit-mask-image:linear-gradient(to_right,black_0%,black_95%,transparent_100%)]",
-        )}
-      >
+        <Heading as="h2" size="h3" className="font-normal text-[#1e1e1e] mb-2">
+          {parse(locale == "ar" ? data?.title_ar : data?.title)}
+        </Heading>
         <div
-          className="w-full max-w-full overflow-hidden"
-          ref={emblaRef}
-          data-cursor="carousel"
+          className={cn(
+            "",
+            locale === "ar"
+              ? "max-sm:pl-0 max-sm:[mask-image:linear-gradient(to_left,black_0%,black_90%,transparent_100%)] max-sm:[-webkit-mask-image:linear-gradient(to_left,black_0%,black_95%,transparent_100%)]"
+              : "max-sm:pr-0 max-sm:[mask-image:linear-gradient(to_right,black_0%,black_90%,transparent_100%)] max-sm:[-webkit-mask-image:linear-gradient(to_right,black_0%,black_95%,transparent_100%)]",
+          )}
         >
-          <div className="flex touch-pan-y touch-pinch-zoom">
-            {data?.items?.map((item, index) => (
-              <div
-                key={"product" + index}
-                className="flex-[0_0_220px] sm:flex-[0_0_25%] min-w-0 select-none"
-              >
-                <ServiceCard data={item} index={index} locale={locale} />
-              </div>
-            ))}
+          <div
+            className="w-full max-w-full overflow-hidden"
+            ref={emblaRef}
+            data-cursor="carousel"
+          >
+            <div className="flex touch-pan-y touch-pinch-zoom">
+              {data?.items?.map((item, index) => (
+                <div
+                  key={"product" + index}
+                  className="flex-[0_0_100%] 3xs:flex-[0_0_50%] sm:flex-[0_0_33.33%] md:flex-[0_0_25%] min-w-0 select-none"
+                >
+                  <ServiceCard data={item} index={index} locale={locale} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -118,7 +108,6 @@ function ServiceCard({ data, index, locale }) {
             className="absolute z-1 inset-[35px] top-auto m-auto bg-[rgba(255,255,255,90%)] bg-[url(/images/home-services-box-bg.png)] bg-cover flex items-center p-5 xl:p-7.5 2xl:p-10"
           >
             <div>
-              
               <Heading
                 as="div"
                 size="h4"
@@ -126,16 +115,11 @@ function ServiceCard({ data, index, locale }) {
               >
                 {parse(locale == "ar" ? data?.title_ar : data?.title)}
               </Heading>
-              <Text
-                as="div"
-                size="p1"
-                className="line-clamp-7 text-black"
-              >
+              <Text as="div" size="p1" className="line-clamp-7 text-black">
                 {parse(
                   locale === "ar" ? data?.description_ar : data?.description,
                 )}
               </Text>
-              
             </div>
           </motion.div>
         </motion.div>
