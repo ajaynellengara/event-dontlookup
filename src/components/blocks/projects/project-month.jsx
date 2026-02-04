@@ -5,7 +5,7 @@ export default function ProjectMonth({ data, locale }) {
   return (
     <section className="w-full h-auto block py-7.5 sm:py-10 xl:py-25 2xl:py-[111px_172px]">
       <div className="container">
-        <div className="max-w-255.5 mx-auto text-center mb-10 xl:mb-17 2xl:mb-22.5">
+        <div className="max-w-170.25 2xl:max-w-255.5 mx-auto text-center mb-10 xl:mb-17 2xl:mb-22.5">
           <Heading as="h2" size="h2" className="mb-4.75 text-[#1e1e1e]">
             Projects of the Month
           </Heading>
@@ -23,7 +23,7 @@ export default function ProjectMonth({ data, locale }) {
         <div className="w-full">
           <Image
             src={"/images/pom.png"}
-            alt={locale == "ar" ? data?.media_alt_ar : data?.media_alt}
+            alt={"project month"}
             width={1720}
             height={736}
             className="w-full h-full object-cover"

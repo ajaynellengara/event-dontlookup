@@ -17,7 +17,7 @@ export default function MoreStories({ data, locale }) {
       <div className="container">
         <div className="flex flex-wrap">
           <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
-            <div className="flex justify-start touch-pan-y touch-pinch-zoom -mx-1 [&>div]:px-[10px] md:[&>div]:px-[17px] xl:[&>div]:px-[23px] mx-[-10px] md:mx-[-17px] xl:mx-[-23px]">
+            <div className="flex justify-start touch-pan-y touch-pinch-zoom mx-[-10px] md:mx-[-17px] xl:mx-[-23px] [&>div]:px-[10px] md:[&>div]:px-[17px] xl:[&>div]:px-[23px]">
               {[1, 2, 3, 4].map((item, index) => (
                 <div
                   key={"product" + index}
@@ -27,9 +27,7 @@ export default function MoreStories({ data, locale }) {
                     <div className="aspect-[542/799] w-full">
                       <Image
                         src={"/images/st3.png"}
-                        alt={
-                          locale == "ar" ? data?.media_alt_ar : data?.media_alt
-                        }
+                        alt={"more stories"}
                         width={830}
                         height={518}
                         className="w-full h-full object-cover"
