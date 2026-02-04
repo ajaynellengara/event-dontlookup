@@ -10,10 +10,9 @@ export default function ServiceCard({ data, index, locale }) {
   return (
     <div
       className={cn(
-        "group relative h-full w-full bg-[#FAFAFA] overflow-hidden p-[20px_20px_30px] sm:p-[25px_25px_40px] lg:p-[35px_35px_50px] 2xl:p-[45px_45px_80px] transition-colors duration-300",
+        "group relative w-full h-full bg-[#FAFAFA] overflow-hidden p-[20px_20px_30px] sm:p-[25px_25px_40px] lg:p-[35px_35px_50px] 2xl:p-[45px_45px_80px] transition-colors duration-300",
         index % 2 === 0 ? "hover:bg-[#FFFBF2]" : "bg-[#FAFAFA]",
-      )}
-    >
+      )}>
       {/* Show background image ONLY for even items */}
       {index % 2 !== 0 && (
         <div className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -40,31 +39,26 @@ export default function ServiceCard({ data, index, locale }) {
         )}
         <Button
           variant={"black"}
-          className="min-w-[90px] sm:min-w-[100px] xl:min-w-[110px] 2xl:min-w-[120px] 3xl:min-w-[160px] h-[30px] lg:h-[35px] 2xl:h-[45px] 3xl:h-[50px] rounded-[10px] border border-[#E2C2A4]  transition hover:bg-black hover:text-white"
+          className="min-w-[90px] sm:min-w-[100px] xl:min-w-[110px] 2xl:min-w-[120px] 3xl:min-w-[160px] rounded-[10px] border border-[#E2C2A4]  transition hover:bg-black hover:text-white"
           asChild
         >
-          <Link
-            href={"/service"}
-            className="text-[12px] lg:text-[13px] 2xl:text-[15px] 3xl:text-[18px]"
-          >
+          <Link href={"/service"}>
             {locale == "ar" ? "اعرف المزيد" : "Know More"}
           </Link>
         </Button>
       </div>
 
-      <div className="mt-4 xl:mt-6 2xl:mt-8 xl:max-w-[74%] 2xl:max-w-[65%] 3xl:max-w-[52%]">
+      <div className="mt-4 xl:mt-6 2xl:mt-8 xl:max-w-[74%] 2xl:max-w-[65%] 3xl:max-w-[60%]">
         <Heading
           as="h4"
           size="h4"
-          className="mb-4 text-xl font-normal text-black text-[16px] sm:text-[18px] lg:text-[22px] xl:text-[26px] 2xl:text-[35px] 3xl:text-[40px]"
-        >
+          className="text-[16px] sm:text-[18px] lg:text-[22px] xl:text-[26px] 2xl:text-[35px] 3xl:text-[40px] font-normal text-black mb-4">
           {parse(locale === "ar" ? data?.title_ar : data?.title)}
         </Heading>
         <Text
           as="div"
           size="p1"
-          className="font-normal line-clamp-3 text-[#1E1E1E]"
-        >
+          className="font-normal line-clamp-3 text-[#1E1E1E]">
           {parse(locale == "ar" ? data?.description_ar : data?.description)}
         </Text>
       </div>

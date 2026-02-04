@@ -2,19 +2,9 @@
 import parse from "html-react-parser";
 import { Heading, Text } from "@/components/utils/typography";
 import ServiceCard from "./service-card";
-import { motion } from "motion/react";
 
-export default function ServiceList({ data, locale = "en", service_data }) {
-  const services = data?.service || [];
-  // const displayedItems = service_data || services;
-
+export default function ServiceList({ data, locale = "en" }) {
   const isArabic = locale === "ar";
-  const fallbackServices = [
-    // Add more services as needed
-  ];
-
-  // Decide which items to display
-  const displayedItems = service_data || data?.service || fallbackServices;
 
   return (
     <section className="w-full h-auto block relative z-0 py-[30px] sm:py-[40px] xl:py-[70px_90px] 2xl:py-[80px_100px] 3xl:py-[100px_130px] bg-white">
@@ -27,8 +17,7 @@ export default function ServiceList({ data, locale = "en", service_data }) {
               className="flex items-center gap-x-4 text-[#1e1e1e]"
             >
               <span className="inline-block size-2 rounded-full bg-[#c09c86]" />
-              {data?.sub_title &&
-                parse(isArabic ? data?.sub_title_ar : data?.sub_title)}
+              {parse(locale == "ar" ? data?.sub_title_ar : data?.sub_title)}
             </Heading>
 
             <Heading
@@ -36,7 +25,7 @@ export default function ServiceList({ data, locale = "en", service_data }) {
               size="h3"
               className="mb-2 font-normal text-[#1E1E1E]"
             >
-              {data?.title && parse(isArabic ? data?.title_ar : data?.title)}
+              {parse(locale == "ar" ? data?.title_ar : data?.title)}
             </Heading>
           </div>
 
@@ -44,7 +33,9 @@ export default function ServiceList({ data, locale = "en", service_data }) {
             <div className="w-full md:w-[1px] h-[1px] md:h-full absolute bg-[#EACC99] inset-0 md:right-auto bottom-auto md:bottom-0 m-auto" />
             {data?.description && (
               <Text as="div" size="p1" className="font-light text-black">
-                {parse(isArabic ? data?.description_ar : data?.description)}
+                {parse(
+                  locale == "ar" ? data?.description_ar : data?.description,
+                )}
               </Text>
             )}
           </div>
@@ -52,16 +43,9 @@ export default function ServiceList({ data, locale = "en", service_data }) {
 
         <div className="flex flex-wrap -mx-2 sm:-mx-4 2xl:-mx-6 3xl:-mx-8 [&>*]:p-2 sm:[&>*]:p-4 2xl:[&>*]:p-6 3xl:[&>*]:p-8">
           {data?.items?.map((item, index) => (
-            <motion.div
-              key={`${item.id}-${index}`}
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="w-full sm:w-1/2"
-            >
+            <div key={`${item.id}-${index}`} className="w-full sm:w-1/2">
               <ServiceCard locale={locale} data={item} index={index} />
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

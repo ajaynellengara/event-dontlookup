@@ -64,7 +64,7 @@ export default function InnerHero({ slug, data, locale }) {
             )}
           </ParallaxBannerLayer>
           <div className="container">
-            <div className="w-full sm:max-w-1/2 xl:max-w-[468px] 2xl:max-w-[576px] 2xl:max-w-[676px] py-[20px] sm:py-[40px] xl:py-[60px] 2xl:py-[80px]">
+            <div className="w-full sm:max-w-1/2 py-[20px] sm:py-[40px] xl:py-[60px] 2xl:py-[80px]">
               <Heading
                 as="h2"
                 size="h2"
