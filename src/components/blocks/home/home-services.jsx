@@ -60,7 +60,7 @@ export default function HomeServices({ data, locale }) {
               className="line-clamp-2 text-[#4b4b4b] mb-3 xl:mb-5 2xl:mb-6"
             >
               {parse(
-                locale === "ar" ? data?.description_ar : data?.description,
+                locale === "ar" ? data?.description_ar : data?.description
               )}
             </Text>
             <Button

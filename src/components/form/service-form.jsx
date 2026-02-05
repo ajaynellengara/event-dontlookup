@@ -181,7 +181,7 @@ export default function ServiceForm() {
             type="submit"
             variant="outline"
             disabled={loading}
-            className="min-w-auto transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            className="w-full min-w-auto transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
             {loading ? "Sending..." : "Send Message"}
           </Button>

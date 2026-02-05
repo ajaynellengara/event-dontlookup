@@ -14,7 +14,7 @@ export default function SuccessStories({ data, locale }) {
   return (
     <section className="w-full h-auto block bg-[#FFFBF2] py-[30px_40px] sm:py-[40px_60px] xl:py-[60px_100px] 2xl:py-[78px_133px]">
       <div className="container">
-        <div className="max-w-[1022px] mx-auto text-center mb-[25]">
+        <div className="max-w-170.25 2xl:max-w-255.5 mx-auto text-center mb-[25]">
           <Heading as="h2" size="h2" className="mb-[15px] text-[#1e1e1e]">
             Building Success Stories
           </Heading>
@@ -30,7 +30,7 @@ export default function SuccessStories({ data, locale }) {
         </div>
         <div className="flex flex-wrap">
           <div className="w-full max-w-full overflow-hidden" ref={emblaRef}>
-            <div className="flex justify-start touch-pan-y touch-pinch-zoom  sm:[&>div]:px-[10px] md:[&>div]:px-[20px] xl:[&>div]:px-[30px] sm:mx-[-10px] md:mx-[-20px] xl:mx-[-30px]">
+            <div className="flex justify-start touch-pan-y touch-pinch-zoom sm:mx-[-10px] md:mx-[-20px] xl:mx-[-30px] sm:[&>div]:px-[10px] md:[&>div]:px-[20px] xl:[&>div]:px-[30px] ">
               {[1, 2, 3, 4].map((item, index) => (
                 <div
                   key={"product" + index}
@@ -40,9 +40,7 @@ export default function SuccessStories({ data, locale }) {
                     <div className="aspect-[830/518] w-full">
                       <Image
                         src={"/images/st1.jpg"}
-                        alt={
-                          locale == "ar" ? data?.media_alt_ar : data?.media_alt
-                        }
+                        alt={"success stories"}
                         width={830}
                         height={518}
                         className="w-full h-full object-cover"
