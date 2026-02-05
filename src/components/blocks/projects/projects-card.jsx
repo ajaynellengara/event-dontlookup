@@ -6,7 +6,7 @@ import Link from 'next/link'
 export default function ProjectsCard({ locale, data }) {
     return (
         <div className="w-full h-auto block">
-            <div className="w-full aspect-54/70 overflow-hidden mb-4 xl:mb-6 2xl:mb-8">
+            <div className="w-full aspect-54/60 2xl:aspect-54/70 overflow-hidden mb-2 xl:mb-4 2xl:mb-6">
                 <Image
                     src={data?.media?.path}
                     alt={
