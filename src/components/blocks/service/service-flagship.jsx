@@ -47,7 +47,7 @@ export default function ServiceFlagship({ data, locale }) {
                   key={"product" + index}
                   className="flex-[0_0_100%] 3xs:flex-[0_0_50%] sm:flex-[0_0_33.33%] md:flex-[0_0_25%] min-w-0 select-none"
                 >
-                  <ServiceCard data={item} index={index} locale={locale} />
+                  <FlagshipCard data={item} index={index} locale={locale} />
                 </div>
               ))}
             </div>
@@ -58,16 +58,16 @@ export default function ServiceFlagship({ data, locale }) {
   );
 }
 
-function ServiceCard({ data, index, locale }) {
+function FlagshipCard({ data, index, locale }) {
   const [hovered, setHovered] = useState(null);
   return (
     <Suspense
       fallback={
-        <Skeleton className="w-full h-[320px] sm:h-[368px] lg:h-[440px] 2xl:h-[548px] 3xl:h-[668px] bg-gray-400" />
+        <Skeleton className="w-full h-[400px] sm:h-[450px] lg:h-[500px] 2xl:h-[548px] 3xl:h-[668px] bg-gray-400" />
       }
     >
       <motion.div
-        className="w-full h-[320px] sm:h-[368px] lg:h-[440px] 2xl:h-[540px] 3xl:h-[668px] relative"
+        className="w-full h-[320px] sm:h-[368px] lg:h-[440px] 2xl:h-[640px] 3xl:h-[760px] relative"
         onHoverStart={() => setHovered(index)}
         onHoverEnd={() => setHovered(null)}
       >
@@ -105,7 +105,7 @@ function ServiceCard({ data, index, locale }) {
             }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
             style={{ perspective: 1200 }}
-            className="absolute z-1 inset-[35px] top-auto m-auto bg-[rgba(255,255,255,90%)] bg-[url(/images/home-services-box-bg.png)] bg-cover flex items-center p-5 xl:p-7.5 2xl:p-10"
+            className="h-fit absolute z-1 inset-[auto_20px_20px] xl:inset-[auto_25px_25px] 3xl:inset-[auto_35px_35px] top-auto m-auto bg-[rgba(255,255,255,90%)] bg-[url(/images/home-services-box-bg.png)] bg-cover flex items-center p-5 xl:p6 2xl:p-10"
           >
             <div>
               <Heading

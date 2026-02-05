@@ -3,7 +3,7 @@ import parse from "html-react-parser";
 import { Heading, Text } from "@/components/utils/typography";
 import Image from "next/image";
 
-export default function Overview({ data = {}, locale = "en", overview_data }) {
+export default function ServiceOverview({ data = {}, locale = "en", overview_data }) {
   const isArabic = locale === "ar";
 
   return (
@@ -30,7 +30,7 @@ export default function Overview({ data = {}, locale = "en", overview_data }) {
             <Text
               as="div"
               size="p1"
-              className="font-light text-black md:max-w-[80%]"
+              className="font-light text-black :max-w-[100%] 3xl:max-w-[80%]"
             >
               {data?.description &&
                 parse(isArabic ? data?.description_ar : data?.description)}

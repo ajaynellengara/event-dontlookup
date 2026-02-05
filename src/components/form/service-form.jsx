@@ -40,14 +40,14 @@ const labelStyle = cn(
 );
 
 const inputStyle = cn(
-  "text-[14px] lg:text-[14px] 2xl:text-[15px] 3xl:text-[18px] leading-none font-light text-black placeholder:text-[#1E1E1E] h-[35px] 2xl:h-[45px] bg-white border-0 border-b border-[#CDA278] rounded-[0px] px-[15px] pl-0 focus-visible:ring-1 focus:shadow-none",
+  "text-[14px] lg:text-[14px] 2xl:text-[15px] 3xl:text-[18px] leading-none font-light text-black placeholder:text-[#1E1E1E] placeholder:uppercase h-[35px] 2xl:h-[45px] bg-white border-0 border-b border-[#CDA278] rounded-[0px] px-[15px] pl-0 focus-visible:ring-1 focus:shadow-none",
 );
 
 const errorStyle = cn("text-[#f17423]");
 
 const textareaStyle = cn(
   inputStyle,
-  "leading-tight min-h-[80px] 2xl:min-h-[100px] py-[15px] resize-none",
+  "leading-tight min-h-[60px] 2xl:min-h-[60px] py-[15px] resize-none",
 );
 
 export default function ServiceForm() {
@@ -158,7 +158,7 @@ export default function ServiceForm() {
           control={form.control}
           name="additionalDetails"
           render={({ field }) => (
-            <FormItem className="w-full">
+            <FormItem className="w-full sm:w-9/12 2xl:w-10/12">
               <FormLabel className={labelStyle}> </FormLabel>
               <FormControl>
                 <Textarea
@@ -173,18 +173,18 @@ export default function ServiceForm() {
         />
 
         {/* Submit */}
-        <div className="w-full mt-2 flex">
+        <div className="w-full sm:w-3/12 2xl:w-2/12 mt-auto flex flex-end">
+          
+
           <Button
+            size="lg"
             type="submit"
-            variant={"black"}
+            variant="outline"
             disabled={loading}
-            className="min-w-[90px] sm:min-w-[100px] xl:min-w-[110px] 2xl:min-w-[120px] 3xl:min-w-[160px] rounded-[10px] border border-[#E2C2A4]  transition hover:bg-black hover:text-white"
-            asChild
+            className="min-w-auto transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
             {loading ? "Sending..." : "Send Message"}
           </Button>
-
-          
         </div>
 
         {/* Success Message */}

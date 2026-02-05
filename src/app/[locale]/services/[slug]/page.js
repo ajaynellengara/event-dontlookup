@@ -1,9 +1,9 @@
-import Overview from "@/components/blocks/service/service-overview";
-import OurApproach from "@/components/blocks/service/service-approach";
-import Benefit from "@/components/blocks/service/service-benefits";
 import ServiceFlagship from "@/components/blocks/service/service-flagship";
 import ServiceHearFrom from "@/components/blocks/service/service-hear";
 import InnerHero from "@/components/common/inner-hero";
+import ServiceApproach from "@/components/blocks/service/service-approach";
+import ServiceOverview from "@/components/blocks/service/service-overview";
+import ServiceBenefit from "@/components/blocks/service/service-benefits";
 
 export const dynamic = "force-dynamic";
 
@@ -129,7 +129,7 @@ const local_data = {
           "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
         slug: "project-management",
         media: {
-          path: "/images/home-services-1.jpg",
+          path: "/images/service-flag-01.jpg",
           alt: "Project Management",
           alt_ar: "إدارة المشاريع",
         },
@@ -144,7 +144,7 @@ const local_data = {
           "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
         slug: "engineering-supervision",
         media: {
-          path: "/images/home-services-2.jpg",
+          path: "/images/service-flag-02.jpg",
           alt: "Engineering Supervision",
           alt_ar: "الإشراف الهندسي",
         },
@@ -159,7 +159,7 @@ const local_data = {
           "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
         slug: "contracts-tenders-management",
         media: {
-          path: "/images/home-services-3.jpg",
+          path: "/images/service-flag-03.jpg",
           alt: "Contracts & Tenders Management",
           alt_ar: "إدارة العقود والمناقصات",
         },
@@ -174,7 +174,7 @@ const local_data = {
           "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت. سيد دو إيوسمود تيمبور إنسيديدونت أوت لابور إت دولور ماجنا أليكوا.",
         slug: "quality-safety-assurance",
         media: {
-          path: "/images/home-services-4.jpg",
+          path: "/images/service-flag-04.jpg",
           alt: "Quality & Safety Assurance",
           alt_ar: "ضمان الجودة والسلامة",
         },
@@ -258,9 +258,9 @@ export default async function ServiceDetailPage({ params, data = local_data }) {
   return (
     <>
       <InnerHero locale={locale} data={data?.heroInfo_data} slug={"Services"} />
-      <Overview data={data?.overview_data} locale={locale} />
-      <OurApproach data={data?.approach_data} locale={locale} />
-      <Benefit data={data?.benefit_data} locale={locale} />
+      <ServiceOverview data={data?.overview_data} locale={locale} />
+      <ServiceApproach data={data?.approach_data} locale={locale} />
+      <ServiceBenefit data={data?.benefit_data} locale={locale} />
       <ServiceFlagship data={data?.flagship_data} locale={locale} />
       <ServiceHearFrom data={data?.form_data} locale={locale} />
     </>

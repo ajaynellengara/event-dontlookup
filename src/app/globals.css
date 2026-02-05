@@ -263,7 +263,7 @@
     p,
     &,
     li {
-      @apply text-[12px] xl:text-[12px] 2xl:text-[14px] 3xl:text-[16px] leading-normal font-light text-(--text-color);
+      @apply text-[12px] xl:text-[14px] 2xl:text-[14px] 3xl:text-[16px] leading-normal font-light text-(--text-color);
     }
 
     h1 {
@@ -302,7 +302,7 @@
 
     ul > li,
     ol > li {
-      @apply my-1 lg:my-1.5;
+      @apply my-1 lg:my-1.5 font-medium;
     }
 
     ul > li {
