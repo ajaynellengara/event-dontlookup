@@ -258,7 +258,7 @@ function HumbergerButton({ open, onClick, showDarkHeader }) {
             item === 1 && "w-4.5 2xl:w-5.5",
             item === 2 && "w-4 2xl:w-5",
             item === 3 && "w-4.5 2xl:w-5.5",
-            showDarkHeader ? "bg-black" : "bg-white",
+            showDarkHeader ? "bg-white" : "bg-white",
 
             // OPEN STATE
             open && item === 1 && "rotate-45 translate-y-1.5",

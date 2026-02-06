@@ -105,10 +105,11 @@ export default function Header({ headerData, navigationData, locale }) {
             ? "bg-white from-white to-white"
             : bg
               ? showDarkHeader
-                ? "bg-white/90"
+                ? "bg-black/90"
                 : "bg-black/90"
               : showDarkHeader
-                ? "bg-linear-to-b from-white/20 to-transparent"
+                // ? "bg-linear-to-b from-white/20 to-transparent"
+                ? "bg-transparent"
                 : "bg-transparent",
         )}
       >
@@ -149,7 +150,7 @@ export default function Header({ headerData, navigationData, locale }) {
                   onClick={() => switchLocale("ar")}
                   className={cn(
                     "text-[12px] 2xl:text-[14px] 3xl:text-[18px] leading-none font-normal p-0! gap-1",
-                    showDarkHeader ? "text-[#282828]" : "text-white",
+                    showDarkHeader ? "text-white" : "text-white",
                   )}
                 >
                   EN
@@ -161,7 +162,7 @@ export default function Header({ headerData, navigationData, locale }) {
                   onClick={() => switchLocale("en")}
                   className={cn(
                     "text-[12px] 2xl:text-[14px] 3xl:text-[18px] leading-none font-normal font-cairo p-0! gap-1",
-                    showDarkHeader ? "text-[#282828]" : "text-white",
+                    showDarkHeader ? "text-white" : "text-white",
                   )}
                 >
                   EN
@@ -174,7 +175,7 @@ export default function Header({ headerData, navigationData, locale }) {
                 size="none"
                 className={cn(
                   "text-[12px] 2xl:text-[14px] 3xl:text-[18px] leading-none font-normal",
-                  showDarkHeader ? "text-black" : "text-white",
+                  showDarkHeader ? "text-white" : "text-white",
                 )}
                 asChild
               >
