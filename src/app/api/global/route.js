@@ -19,7 +19,7 @@ export async function GET(request) {
       description_ar: "الحلول الرائدة في إدارة المشاريع ومساحات العمل",
       websiteUrl: "https://wasso.ae/",
       countryOfOrigin: "AE",
-      establishedYear: "2025",
+      establishedYear: "2026",
       specialties: [
         "project management",
         "workspace solutions",
@@ -158,9 +158,9 @@ export async function GET(request) {
           link: "/blog",
         },
       ],
-      copyright: "<p>© 2025 WASSO. All Rights Reserved.</p>",
+      copyright: "<p>© 2026 WASSO. All Rights Reserved.</p>",
       copyright_ar:
-        "<p>© 2025 واسو لإدارة المشاريع ش.ذ.م.م. جميع الحقوق محفوظة.</p>",
+        "<p>© 2026 واسو لإدارة المشاريع ش.ذ.م.م. جميع الحقوق محفوظة.</p>",
     },
     social_link_data: [
       {
