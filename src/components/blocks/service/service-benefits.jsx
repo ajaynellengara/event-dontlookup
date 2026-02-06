@@ -4,7 +4,7 @@ import { Heading, Text } from "@/components/utils/typography";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-export default function Benefit({ data, locale = "en" }) {
+export default function ServiceBenefit({ data, locale = "en" }) {
   const isArabic = locale === "ar";
 
   return (

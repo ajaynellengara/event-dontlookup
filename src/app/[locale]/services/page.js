@@ -69,6 +69,7 @@ const local_data = {
         slug: "/services/engineering-supervision",
         icon: "/images/service-icon-04.png",
       },
+      
     ],
   },
 };
