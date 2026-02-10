@@ -35,7 +35,7 @@ export default async function Home() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Events</h2>
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {featuredEvents.map((event) => (
+                    {featuredEvents?.items?.map((event) => (
                         <div key={event.id} className="flex flex-col overflow-hidden rounded-lg shadow-lg bg-white hover:shadow-xl transition-shadow duration-300">
                             <div className="flex-shrink-0 h-48 bg-gray-200 relative">
                                 <img className="h-full w-full object-cover" src={event.image} alt={event.title} />

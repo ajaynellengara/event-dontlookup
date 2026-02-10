@@ -1,4 +1,4 @@
-```
+
 import { NextResponse } from 'next/server'
 
 export async function GET() {
@@ -7,7 +7,7 @@ export async function GET() {
       title: "FACE of FASHION",
       backgroundMedia: {
         type: "image",
-        url: "/images/hero-bg.jpg",
+        url: "/images/home-hero-1.jpg",
         alt: "Hero Background"
       }
     },
@@ -62,6 +62,11 @@ export async function GET() {
       }
     ],
     appDownload: {
+      media: {
+        type: "image",
+        url: "/images/app-download-1.png",
+        alt: "App Download"
+      },
       title: "Get the App. Book Your Spot.",
       description: "Your all-in-one platform to explore opportunities, book experiences, and stay connected.",
       qrCodeImage: "/images/qr-code.png",
@@ -70,12 +75,7 @@ export async function GET() {
     },
     intro: {
       title: "Where Fashion Events Become Movements",
-      description: `
-    < p > DontLookupFashion.Events is the global fashion events platform by Don’t Look - Up.Fashion built to create, curate, and connect fashion experiences across the world.</p >
-        <p>We are not just an event organizer. We are where fashion events live, grow, and get discovered.</p>
-        <p>From our own signature DontLookupFashion events to curated fashion experiences hosted by brands, event companies, designers, agencies, and creative communities, we bring the entire fashion event ecosystem together in one powerful destination.</p>
-        <p>This is where fashion goes beyond the surface opportunity.</p>
-`
+      description: "<p>DontLookupFashion.Events is the global fashion events platform by Don’t Look - Up.Fashion built to create, curate, and connect fashion experiences across the world.</p><p>We are not just an event organizer. We are where fashion events live, grow, and get discovered.</p><p>From our own signature DontLookupFashion events to curated fashion experiences hosted by brands, event companies, designers, agencies, and creative communities, we bring the entire fashion event ecosystem together in one powerful destination.</p><p>This is where fashion goes beyond the surface opportunity.</p>"
     },
     featuredEvents: {
       title: "EVENTS",
@@ -84,7 +84,7 @@ export async function GET() {
         {
           id: "1",
           title: "Where Fashion meets Entrepreneurship",
-          eventLogo: "/images/event-logo-1.png",
+          eventLogo: "/images/event-logo-1.svg",
           media: {
             type: "image",
             url: "/images/event-1.jpg",
@@ -93,105 +93,97 @@ export async function GET() {
           slug: "where-fashion-meets-entrepreneurship",
           date: "July 2025",
           category: "EVENT",
-          price: "Register"
         },
         {
           id: "2",
-          title: "Fashion Event 2",
-          eventLogo: "/images/event-logo-1.png",
+          title: "where the next generation of models rise.",
+          eventLogo: "/images/event-logo-2.svg",
           media: {
             type: "image",
-            url: "/images/event-1.jpg",
-            alt: "Fashion Event 2"
+            url: "/images/event-2.jpg",
+            alt: "where the next generation of models rise."
           },
           slug: "fashion-event-2",
           date: "July 2025",
           category: "EVENT",
-          price: "Register"
         },
         {
           id: "3",
-          title: "Fashion Event 3",
-          eventLogo: "/images/event-logo-1.png",
+          title: "complete modeling career launchpad",
+          eventLogo: "/images/event-logo-3.svg",
           media: {
             type: "image",
-            url: "/images/event-1.jpg",
-            alt: "Fashion Event 3"
+            url: "/images/event-3.jpg",
+            alt: "complete modeling career launchpad"
           },
           slug: "fashion-event-3",
           date: "July 2025",
           category: "EVENT",
-          price: "Register"
         },
         {
           id: "4",
-          title: "Fashion Event 4",
-          eventLogo: "/images/event-logo-1.png",
+          title: "Style Sprouts (8–10): Emotional expression, creativity & social skills",
+          eventLogo: "/images/event-logo-4.svg",
           media: {
             type: "image",
-            url: "/images/event-1.jpg",
-            alt: "Fashion Event 4"
+            url: "/images/event-4.jpg",
+            alt: "Style Sprouts (8–10): Emotional expression, creativity & social skills"
           },
           slug: "fashion-event-4",
           date: "July 2025",
           category: "EVENT",
-          price: "Register"
         },
         {
           id: "5",
-          title: "Fashion Event 5",
-          eventLogo: "/images/event-logo-1.png",
+          title: "Fashion Leaders (14–15): Leadership, decision-making & identity building",
+          eventLogo: "/images/event-logo-4.svg",
           media: {
             type: "image",
-            url: "/images/event-1.jpg",
-            alt: "Fashion Event 5"
+            url: "/images/event-5.jpg",
+            alt: "Fashion Leaders (14–15): Leadership, decision-making & identity building"
           },
           slug: "fashion-event-5",
           date: "July 2025",
           category: "EVENT",
-          price: "Register"
         },
         {
           id: "6",
-          title: "Fashion Event 6",
-          eventLogo: "/images/event-logo-1.png",
+          title: "Style Innovators (11–13): Confidence, empathy, collaboration & self-management",
+          eventLogo: "/images/event-logo-4.svg",
           media: {
             type: "image",
-            url: "/images/event-1.jpg",
-            alt: "Fashion Event 6"
+            url: "/images/event-6.jpg",
+            alt: "Style Innovators (11–13): Confidence, empathy, collaboration & self-management"
           },
           slug: "fashion-event-6",
           date: "July 2025",
           category: "EVENT",
-          price: "Register"
         },
         {
           id: "7",
-          title: "Fashion Event 7",
-          eventLogo: "/images/event-logo-1.png",
+          title: "ages 6 to 15, helping them discover their inner confidence and express their personality with style",
+          eventLogo: "/images/event-logo-7.svg",
           media: {
             type: "image",
-            url: "/images/event-1.jpg",
-            alt: "Fashion Event 7"
+            url: "/images/event-7.jpg",
+            alt: "ages 6 to 15, helping them discover their inner confidence and express their personality with style"
           },
           slug: "fashion-event-7",
           date: "July 2025",
           category: "EVENT",
-          price: "Register"
         },
         {
           id: "8",
-          title: "Fashion Event 8",
-          eventLogo: "/images/event-logo-1.png",
+          title: "Step into a world where fashion meets opportunity.",
+          eventLogo: "/images/event-logo-8.svg",
           media: {
             type: "image",
-            url: "/images/event-1.jpg",
-            alt: "Fashion Event 8"
+            url: "/images/event-8.jpg",
+            alt: "Step into a world where fashion meets opportunity."
           },
           slug: "fashion-event-8",
           date: "July 2025",
           category: "EVENT",
-          price: "Register"
         }
       ]
     },
@@ -202,38 +194,17 @@ export async function GET() {
         alt: "Platform Background"
       },
       title: "A Platform Built for Fashion Events",
-      description: `
-    < p > DontLookupFashion.Events is the global fashion events platform by Don’t Look - Up.Fashion built to create, curate, and connect fashion experiences across the world.</p >
-        <p>We are not just an event organizer.</p>
-        <p>We are where fashion events live, grow, and get discovered.</p>
-        <p>From our own signature DontLookupFashion events to curated fashion experiences hosted by brands, event companies, designers, agencies, and creative communities, we bring the entire fashion event ecosystem together in one powerful destination.</p>
-        <p>This is where fashion goes beyond the surface opportunity.</p>
-`
+      description: "<p><b>DontLookupFashion.Events</b> allows fashion event creators to:</p><ul><li>List and showcase their fashion events</li><li>Reach a targeted fashion audience, not a general crowd</li><li>Sell tickets directly through a fashion-focused platform</li><li>Build visibility, credibility, and community.</li></ul><br/><p>For attendees, it’s simple:</p><p>Discover the right fashion events, connect with the right people, and experience fashion in a more meaningful way.</p>"
     },
     globalStage: {
       title: "Dubai: Our Home. The World: Our Stage.",
-      description: `
-    < p > DontLookupFashion.Events is the global fashion events platform by Don’t Look - Up.Fashion built to create, curate, and connect fashion experiences across the world.</p >
-        <p>We are not just an event organizer.</p>
-        <p>We are where fashion events live, grow, and get discovered.</p>
-        <p>From our own signature DontLookupFashion events to curated fashion experiences hosted by brands, event companies, designers, agencies, and creative communities, we bring the entire fashion event ecosystem together in one powerful destination.</p>
-        <p>This is where fashion goes beyond the surface opportunity.</p>
-`,
-      longDescription: `
-    < p > DontLookupFashion.Events is the global fashion events platform by Don’t Look - Up.Fashion built to create, curate, and connect fashion experiences across the world.</p >
-        <p>We are not just an event organizer.</p>
-        <p>We are where fashion events live, grow, and get discovered.</p>
-        <p>From our own signature DontLookupFashion events to curated fashion experiences hosted by brands, event companies, designers, agencies, and creative communities, we bring the entire fashion event ecosystem together in one powerful destination.</p>
-        <p>This is where fashion goes beyond the surface opportunity.</p>
-`
+      description: "<h2>One Ecosystem. Endless Possibilities.</h2><p>Whether you are:</p><ul><li>An event company looking to sell tickets</li><li>A brand or designer launching a concept</li><li>A model or creative building a career</li><li>A fashion enthusiast seeking real experiences</li></ul><br/><p>DontLookupFashion.Events is your entry point.<br/>We bring together creators, organizers, professionals, and audiences — not as spectators, but as participants in the future of fashion.</p>",
+      longDescription: "<p>Headquartered in Dubai one of the world’s most influential fashion, luxury, and creative hubs<br/>DontLookupFashion.Events places the city at the heart of global fashion conversations.</p><br/><p>In Dubai, we host:</p><ul><li>Premium fashion shows</li><li>Professional modeling and career workshops</li><li>Brand pop-ups and creative activations</li><li>Industry networking and collaboration events</li></ul><p>Dubai is where cultures meet, talent rises, and fashion innovation accelerates.<br/>From here, we connect regional creativity with international opportunities</p>"
     },
     impact: {
       title: "Fashion With Meaning. Events With Impact.",
       description: "Join us in Dubai and across the globe — and be part of a fashion ecosystem built on purpose, authenticity, and connection",
-      longDescription: `
-    < h3 > DontLookupFashion.Events</h3 >
-        <p>Beyond events. Beyond borders. Beyond the runway.</p>
-`,
+      longDescription: "<h3>DontLookupFashion.Events</h3><p>Beyond events. Beyond borders. Beyond the runway.</p>",
       items: [
         {
           id: 1,
@@ -242,33 +213,125 @@ export async function GET() {
             url: "/images/impact-1.jpg",
             alt: "Impact Image 1"
           }
+        },
+        {
+          id: 2,
+          media: {
+            type: "image",
+            url: "/images/impact-2.jpg",
+            alt: "Impact Image 2"
+          }
+        },
+        {
+          id: 3,
+          media: {
+            type: "image",
+            url: "/images/impact-3.jpg",
+            alt: "Impact Image 3"
+          }
+        },
+        {
+          id: 4,
+          media: {
+            type: "image",
+            url: "/images/impact-4.jpg",
+            alt: "Impact Image 4"
+          }
+        },
+        {
+          id: 5,
+          media: {
+            type: "image",
+            url: "/images/impact-5.jpg",
+            alt: "Impact Image 5"
+          }
+        },
+        {
+          id: 6,
+          media: {
+            type: "image",
+            url: "/images/impact-6.jpg",
+            alt: "Impact Image 6"
+          }
+        },
+        {
+          id: 7,
+          media: {
+            type: "image",
+            url: "/images/impact-7.jpg",
+            alt: "Impact Image 7"
+          }
         }
       ]
     },
     contact: {
       quickLinks: [
         { id: 1, title: "Workshops for models", slug: "#" },
-        { id: 2, title: "Workshops for models", slug: "#" },
-        { id: 3, title: "Workshops for models", slug: "#" },
-        { id: 4, title: "Workshops for models", slug: "#" },
-        { id: 5, title: "Workshops for models", slug: "#" },
-        { id: 6, title: "Workshops for models", slug: "#" },
-        { id: 7, title: "Workshops for models", slug: "#" },
-        { id: 8, title: "Workshops for models", slug: "#" },
-        { id: 9, title: "Workshops for models", slug: "#" }
+        { id: 2, title: "Courses for models", slug: "#" },
+        { id: 3, title: "Events", slug: "#" },
+        { id: 4, title: "Subscription plan", slug: "#" },
+        { id: 5, title: "Model Features", slug: "#" },
+        { id: 6, title: "Casting", slug: "#" },
+        { id: 7, title: "DLUF Model Agency", slug: "#" }
       ],
       socialLinks: [
-        { id: 1, title: "Facebook", slug: "#" },
-        { id: 2, title: "Instagram", slug: "#" },
-        { id: 3, title: "Twitter", slug: "#" },
-        { id: 4, title: "LinkedIn", slug: "#" },
-        { id: 5, title: "YouTube", slug: "#" },
-        { id: 6, title: "TikTok", slug: "#" },
-        { id: 7, title: "Snapchat", slug: "#" }
+        {
+          id: 1,
+          media: {
+            type: "image",
+            url: "/images/home-social-1.svg",
+            alt: "Facebook"
+          },
+          slug: "#"
+        },
+        {
+          id: 2,
+          media: {
+            type: "image",
+            url: "/images/home-social-2.svg",
+            alt: "Instagram"
+          },
+          slug: "#"
+        },
+        {
+          id: 3,
+          media: {
+            type: "image",
+            url: "/images/home-social-3.svg",
+            alt: "Twitter"
+          },
+          slug: "#"
+        },
+        {
+          id: 4,
+          media: {
+            type: "image",
+            url: "/images/home-social-4.svg",
+            alt: "LinkedIn"
+          },
+          slug: "#"
+        },
+        {
+          id: 5,
+          media: {
+            type: "image",
+            url: "/images/home-social-5.svg",
+            alt: "YouTube"
+          },
+          slug: "#"
+        },
+        {
+          id: 6,
+          media: {
+            type: "image",
+            url: "/images/home-social-6.svg",
+            alt: "TikTok"
+          },
+          slug: "#"
+        }
       ]
     }
   }
 
   return NextResponse.json(data)
 }
-```
