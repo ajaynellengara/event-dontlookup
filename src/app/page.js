@@ -1,3 +1,9 @@
+import LandingAppDownload from '@/components/blocks/landing/landing-app-download'
+import LandingFeaturedEvents from '@/components/blocks/landing/landing-featured-events'
+import LandingHero from '@/components/blocks/landing/landing-hero'
+import LandingIntro from '@/components/blocks/landing/landing-intro'
+import LandingPartners from '@/components/blocks/landing/landing-partners'
+import LandingPlatform from '@/components/blocks/landing/landing-platform'
 import Link from 'next/link'
 
 async function getEvents() {
@@ -13,25 +19,32 @@ export default async function Home() {
     const { hero, featuredEvents = [] } = await getEvents().catch(() => ({ hero: {}, featuredEvents: [] }))
 
     return (
-        <main className="min-h-screen bg-gray-50">
-            {/* Hero Section */}
-            <section className="relative bg-gray-900 text-white py-24 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
-                {hero?.backgroundImage && (
-                    <div className="absolute inset-0 opacity-30">
-                        <img src={hero.backgroundImage} alt="Hero Background" className="w-full h-full object-cover" />
+        <>
+            <LandingHero data={hero} />
+            <LandingPartners data={partners} />
+            <LandingAppDownload data={appDownload} />
+            <LandingIntro data={intro} />
+            <LandingFeaturedEvents data={featuredEvents} />
+            <LandingPlatform data={platform} />
+            <LandingAppDownload data={appDownload} />
+            <LandingDubaiStage data={dubaiStage} />
+            {/* <main className="min-h-screen bg-gray-50">
+                
+                <section className="relative bg-gray-900 text-white py-24 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+                    {hero?.backgroundImage && (
+                        <div className="absolute inset-0 opacity-30">
+                            <img src={hero.backgroundImage} alt="Hero Background" className="w-full h-full object-cover" />
+                        </div>
+                    )}
+                    <div className="relative z-10 max-w-4xl mx-auto">
+                        <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl mb-6">{hero?.headline || 'Upcoming Events'}</h1>
+                        <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">{hero?.subheadline}</p>
+                        <div className="flex justify-center flex-col sm:flex-row gap-4 items-center">
+                            <span className="text-2xl font-bold text-indigo-400">{hero?.date}</span>
+                            {hero?.ctaText && <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-colors">{hero.ctaText}</button>}
+                        </div>
                     </div>
-                )}
-                <div className="relative z-10 max-w-4xl mx-auto">
-                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl mb-6">{hero?.headline || 'Upcoming Events'}</h1>
-                    <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">{hero?.subheadline}</p>
-                    <div className="flex justify-center flex-col sm:flex-row gap-4 items-center">
-                        <span className="text-2xl font-bold text-indigo-400">{hero?.date}</span>
-                        {hero?.ctaText && <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-colors">{hero.ctaText}</button>}
-                    </div>
-                </div>
-            </section>
-
-            {/* Featured Events */}
+                </section>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Events</h2>
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -68,6 +81,8 @@ export default async function Home() {
                     ))}
                 </div>
             </div>
-        </main>
+        </main > */
+            }
+        </>
     )
 }
