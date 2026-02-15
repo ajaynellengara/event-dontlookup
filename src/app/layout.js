@@ -1,9 +1,7 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { sora, bigShouldersDisplay } from '@/lib/fonts'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
     title: 'Event App',
@@ -13,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <body className={`${sora.variable} ${bigShouldersDisplay.variable}`}>
                 <Navbar />
                 {children}
                 <Footer />

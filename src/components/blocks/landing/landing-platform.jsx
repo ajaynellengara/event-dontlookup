@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Heading, Text } from "@/components/utils/typography";
 
 import parse from "html-react-parser";
+import Image from "next/image";
 import Link from "next/link";
 
 
@@ -10,43 +11,60 @@ export default function LandingPlatform({ data }) {
 
 
   return (
-    <section className="w-full h-auto bg-[#121212] block">
-      <div className="w-full h-auto aspect-1280/520 overflow-hidden block">
-        <Image
-          src={data?.media?.url}
-          alt={data?.media?.alt}
-          width={1280}
-          height={520}
-          className="w-full h-full object-cover"
-        />
+    <section className="w-full h-auto bg-[#121212] block py-10 xl:py-25 2xl:py-32 3xl:py-40">
+      <div className="w-full h-auto aspect-1280/520 overflow-hidden block relative z-0">
+        {data?.media?.type === "video" ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src={data?.media?.url} type="video/mp4" />
+          </video>
+        ) : (
+          <picture>
+            <Image
+              src={data?.media?.url}
+              alt={data?.media?.alt}
+              width={1920}
+              height={780}
+              className="w-full h-full object-cover"
+            />
+          </picture>
+        )}
+        {data?.media?.type === "video" && (
+          <div className="w-20 aspect-square rounded-full absolute z-1 inset-0 m-auto" />
+        )}
       </div>
+      <div className="w-full h-1 bg-white mb-10 md:mb-14 lg:mb-16 xl:mb-20 2xl:mb-24 3xl:mb-32" />
       <div className="container">
         <div className="flex flex-wrap">
           <div className="w-full sm:w-5/12">
             <div className="w-full">
               <Heading
-                as="div"
-                size="h6"
-                className="text-[#30C2C5] mb-1 xl:mb-1.5 2xl:mb-1.5"
+                as="h2"
+                size="h1"
+                className="font-medium text-white mb-2 md:mb-2.5 lg:mb-3 xl:mb-3 2xl:mb-4 3xl:mb-5"
               >
-                {parse(data?.sub_title)}
+                {parse(data?.title)}
               </Heading>
             </div>
           </div>
 
           <div className="w-full sm:w-7/12">
             <div className="w-full">
-              <Text
-                as="div"
-                size="p1"
-                className="text-white mb-3 xl:mb-5 2xl:mb-6"
+              <div
+                className="typography [--text-color:#fff]"
+                dir="ltr"
               >
                 {parse(data?.description)}
-              </Text>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }

@@ -3,28 +3,49 @@
  * Centralized font management for the application
  */
 
-import { Poppins, Cairo } from "next/font/google";
+import { Sora } from "next/font/google";
+import localFont from "next/font/local";
 
-// Poppins font for English routes
-export const poppins = Poppins({
-  variable: "--font-poppins",
+// Sora font for primary usage
+export const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   display: "swap",
   preload: true,
   fallback: ["system-ui", "arial"],
   adjustFontFallback: true,
 });
 
-// Cairo font for Arabic routes - commonly used free Arabic font
-export const cairo = Cairo({
-  variable: "--font-cairo",
-  subsets: ["arabic", "latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+// Big Shoulders Display font for headings and display text
+export const bigShouldersDisplay = localFont({
+  src: [
+    {
+      path: "../../public/fonts/BigShouldersDisplay-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/BigShouldersDisplay-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/BigShouldersDisplay-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/BigShouldersDisplay-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-big-shoulders",
   display: "swap",
   preload: true,
-  fallback: ["Arial", "sans-serif"],
-  adjustFontFallback: true,
+  fallback: ["system-ui", "arial"],
+  adjustFontFallback: false,
 });
 
 /**
@@ -33,7 +54,7 @@ export const cairo = Cairo({
  * @returns {string} Font variable class name
  */
 export function getFontVariable(locale) {
-  return locale === "ar" ? cairo.variable : poppins.variable;
+  return `${sora.variable} ${bigShouldersDisplay.variable}`;
 }
 
 /**
@@ -42,5 +63,5 @@ export function getFontVariable(locale) {
  * @returns {string} Font class name
  */
 export function getFontClassName(locale) {
-  return locale === "ar" ? "font-cairo" : "font-poppins";
+  return "font-sora";
 }

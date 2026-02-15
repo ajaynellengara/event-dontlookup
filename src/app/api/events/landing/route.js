@@ -4,10 +4,11 @@ import { NextResponse } from 'next/server'
 export async function GET() {
   const data = {
     hero: {
-      title: "FACE of FASHION",
+      title: null,
       backgroundMedia: {
         type: "image",
         url: "/images/home-hero-1.jpg",
+        mediaUrl: "/images/home-hero-1.jpg",
         alt: "Hero Background"
       }
     },
@@ -198,13 +199,13 @@ export async function GET() {
     },
     globalStage: {
       title: "Dubai: Our Home. The World: Our Stage.",
-      description: "<h2>One Ecosystem. Endless Possibilities.</h2><p>Whether you are:</p><ul><li>An event company looking to sell tickets</li><li>A brand or designer launching a concept</li><li>A model or creative building a career</li><li>A fashion enthusiast seeking real experiences</li></ul><br/><p>DontLookupFashion.Events is your entry point.<br/>We bring together creators, organizers, professionals, and audiences — not as spectators, but as participants in the future of fashion.</p>",
+      description: "<h3>One Ecosystem. Endless Possibilities.</h3><p>Whether you are:</p><ul><li>An event company looking to sell tickets</li><li>A brand or designer launching a concept</li><li>A model or creative building a career</li><li>A fashion enthusiast seeking real experiences</li></ul><br/><p>DontLookupFashion.Events is your entry point.<br/>We bring together creators, organizers, professionals, and audiences — not as spectators, but as participants in the future of fashion.</p>",
       longDescription: "<p>Headquartered in Dubai one of the world’s most influential fashion, luxury, and creative hubs<br/>DontLookupFashion.Events places the city at the heart of global fashion conversations.</p><br/><p>In Dubai, we host:</p><ul><li>Premium fashion shows</li><li>Professional modeling and career workshops</li><li>Brand pop-ups and creative activations</li><li>Industry networking and collaboration events</li></ul><p>Dubai is where cultures meet, talent rises, and fashion innovation accelerates.<br/>From here, we connect regional creativity with international opportunities</p>"
     },
     impact: {
       title: "Fashion With Meaning. Events With Impact.",
       description: "Join us in Dubai and across the globe — and be part of a fashion ecosystem built on purpose, authenticity, and connection",
-      longDescription: "<h3>DontLookupFashion.Events</h3><p>Beyond events. Beyond borders. Beyond the runway.</p>",
+      longDescription: "<h4>DontLookupFashion.Events</h4><p>Beyond events. Beyond borders. Beyond the runway.</p>",
       items: [
         {
           id: 1,

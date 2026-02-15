@@ -1,9 +1,12 @@
 import LandingAppDownload from '@/components/blocks/landing/landing-app-download'
+import LandingContact from '@/components/blocks/landing/landing-contact'
 import LandingFeaturedEvents from '@/components/blocks/landing/landing-featured-events'
 import LandingHero from '@/components/blocks/landing/landing-hero'
 import LandingIntro from '@/components/blocks/landing/landing-intro'
 import LandingPartners from '@/components/blocks/landing/landing-partners'
 import LandingPlatform from '@/components/blocks/landing/landing-platform'
+import LandingDubaiStage from '@/components/blocks/landing/landing-dubai-stage'
+import LandingImpact from '@/components/blocks/landing/landing-impact'
 import Link from 'next/link'
 
 async function getEvents() {
@@ -16,7 +19,7 @@ async function getEvents() {
 }
 
 export default async function Home() {
-    const { hero, featuredEvents = [] } = await getEvents().catch(() => ({ hero: {}, featuredEvents: [] }))
+    const { hero, partners, appDownload, intro, featuredEvents = [], platform, globalStage, impact, contact } = await getEvents().catch(() => ({ hero: {}, partners: [], appDownload: {}, intro: {}, featuredEvents: [], platform: {}, globalStage: {}, impact: {}, contact: {} }))
 
     return (
         <>
@@ -27,7 +30,10 @@ export default async function Home() {
             <LandingFeaturedEvents data={featuredEvents} />
             <LandingPlatform data={platform} />
             <LandingAppDownload data={appDownload} />
-            <LandingDubaiStage data={dubaiStage} />
+            <LandingDubaiStage data={globalStage} />
+
+            <LandingImpact data={impact} />
+            <LandingContact data={contact} />
             {/* <main className="min-h-screen bg-gray-50">
                 
                 <section className="relative bg-gray-900 text-white py-24 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">

@@ -6,17 +6,13 @@ import PropTypes from "prop-types";
 // Heading Variants
 // ============================================================================
 
-const headingVariants = cva("leading-tight font-light", {
+const headingVariants = cva("leading-tight font-big-shoulders font-bold", {
   variants: {
     size: {
-      h1: "text-[30px] sm:text-[40px] lg:text-[54px] 2xl:text-[65px] 3xl:text-[80px]",
-      h2: "text-[26px] sm:text-[36px] lg:text-[48px] 2xl:text-[58px] 3xl:text-[70px]",
-      h3: "text-[22px] sm:text-[32px] lg:text-[40px] 2xl:text-[48px] 3xl:text-[60px]",
-      h4: "text-[16px] sm:text-[18px] lg:text-[20px] 2xl:text-[24px] 3xl:text-[30px]",
-      h5: "text-[16px] sm:text-[16px] lg:text-[17px] 2xl:text-[20px] 3xl:text-[25px]",
-      h6: "text-[14px] sm:text-[13px] lg:text-[14px] 2xl:text-[16px] 3xl:text-[20px]",
-      h7: "text-[13px] 2xl:text-[14px] 3xl:text-[18px]",
-      h8: "text-[20px] sm:text-[24px] lg:text-[30px] 2xl:text-[36px] 3xl:text-[45px]",
+      h1: "text-[26px] sm:text-[36px] md:text-[38px] lg:text-[48px] xl:text-[56px] 2xl:text-[64px] 3xl:text-[80px]",
+      h2: "text-[22px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[48px] 2xl:text-[56px] 3xl:text-[64px]",
+      h3: "text-[18px] sm:text-[22px] md:text-[26px] lg:text-[32px] xl:text-[36px] 2xl:text-[42px] 3xl:text-[48px]",
+      h4: "text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] xl:text-[28px] 2xl:text-[32px] 3xl:text-[36px]",
     },
   },
   defaultVariants: {
@@ -31,8 +27,8 @@ const headingVariants = cva("leading-tight font-light", {
 const textVariants = cva("leading-normal font-normal", {
   variants: {
     size: {
-      p1: "text-[14px] lg:text-[14px] 2xl:text-[15px] 3xl:text-[18px]",
-      p2: "text-[13px] lg:text-[13px] 2xl:text-[13px] 3xl:text-[16px]",
+      p1: "text-[14px] md:text-[15px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px] 3xl:text-[24px]",
+      p2: "text-[12px] md:text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[21px]",
     },
   },
   defaultVariants: {
