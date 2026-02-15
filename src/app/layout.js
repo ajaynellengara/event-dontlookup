@@ -4,8 +4,8 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 export const metadata = {
-    title: 'Event App',
-    description: 'Find and book your next event',
+    title: 'Dontlookup.Events',
+    description: 'Features: Feeds, Flicks , Jobs, Learning, Collabs &amp; More',
 }
 
 export default function RootLayout({ children }) {
