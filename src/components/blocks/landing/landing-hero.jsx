@@ -8,11 +8,11 @@ import { Heading } from "@/components/utils/typography";
 import parse from "html-react-parser";
 import { cn } from "@/lib/utils";
 
-export default function LandingHero({ data, variant }) {
+export default function LandingHero({ data, variant = "default" }) {
     return (
         <ParallaxProvider>
             <section className={cn("w-full min-h-[576px] sm:min-h-[576px] xl:min-h-[576px] 2xl:min-h-[768px] 3xl:min-h-[900px] overflow-hidden relative",
-                variant === "eventDetail" ? "h-auto" : "h-[576px] sm:h-[576px] xl:h-screen")}>
+                variant === "eventDetail" ? "h-auto" : "h-[576px] sm:h-[576px] xl:h-[100vh]")}>
                 <picture className="w-full h-full ">
                     <source
                         media="(max-width: 640px)"
@@ -21,10 +21,10 @@ export default function LandingHero({ data, variant }) {
                     <Image
                         src={data?.backgroundMedia?.url}
                         alt={data?.backgroundMedia?.alt || "Hero Background"}
-                        // fill
-                        // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-                        width={1920}
-                        height={1080}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
+                        // width={1920}
+                        // height={1080}
                         className="object-cover object-bottom"
                         priority
                     />
