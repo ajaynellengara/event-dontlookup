@@ -8,18 +8,10 @@ import LandingPlatform from '@/components/blocks/landing/landing-platform'
 import LandingDubaiStage from '@/components/blocks/landing/landing-dubai-stage'
 import LandingImpact from '@/components/blocks/landing/landing-impact'
 import Link from 'next/link'
-
-async function getEvents() {
-    const res = await fetch('http://localhost:3000/api/events/landing', { cache: 'no-store' })
-    if (!res.ok) {
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data')
-    }
-    return res.json()
-}
+import { landingData } from '@/lib/data/landing-data'
 
 export default async function Home() {
-    const { hero, partners, appDownload, intro, featuredEvents = [], platform, globalStage, impact, contact } = await getEvents().catch(() => ({ hero: {}, partners: [], appDownload: {}, intro: {}, featuredEvents: [], platform: {}, globalStage: {}, impact: {}, contact: {} }))
+    const { hero, partners, appDownload, intro, featuredEvents = [], platform, globalStage, impact, contact } = landingData;
 
     return (
         <>

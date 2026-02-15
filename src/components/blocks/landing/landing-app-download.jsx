@@ -86,7 +86,7 @@ export default function LandingAppDownload({ data }) {
               </div>
             </div>
           </div>
-          <div className="w-full max-w-[80px] sm:max-w-[100px] lg:max-w-[140px] xl:max-w-[150px] 2xl:max-w-[180px] 3xl:max-w-[220px] max-sm:hidden">
+          <div className="w-full max-w-[80px] sm:max-w-[100px] lg:max-w-[140px] xl:max-w-[150px] 2xl:max-w-[180px] 3xl:max-w-[220px] max-sm:hidden hover:scale-110 transition duration-300">
             <Image
               src={data?.qrCodeImage}
               alt={data?.title}

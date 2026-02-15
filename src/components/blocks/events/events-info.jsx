@@ -3,7 +3,7 @@ import { Heading, Text } from "@/components/utils/typography";
 import parse from "html-react-parser";
 
 
-export default function LandingIntro({ data }) {
+export default function EventsInfo({ data }) {
 
   return (
     <section className="w-full h-auto bg-[#121212] block py-8 sm:py-10 md:py-16 lg:py-24 xl:py-32 2xl:py-36 3xl:py-44">

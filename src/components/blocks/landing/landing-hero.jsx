@@ -1,40 +1,34 @@
 "use client";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import { cn } from "@/lib/utils";
 import {
     ParallaxProvider,
 } from "react-scroll-parallax";
 
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { Heading } from "@/components/utils/typography";
 import parse from "html-react-parser";
+import { cn } from "@/lib/utils";
 
-const MediaQuery = dynamic(() => import("react-responsive"), {
-    ssr: false,
-});
-
-export default function LandingHero({ data }) {
+export default function LandingHero({ data, variant }) {
     return (
         <ParallaxProvider>
-            <section className="w-full h-[576px] sm:h-[576px] xl:h-screen min-h-[576px] sm:min-h-[576px] xl:min-h-[576px] 2xl:min-h-[768px] 3xl:min-h-[900px] relative">
-                <div className="absolute inset-0 z-0">
-                    <picture className="absolute -z-2 inset-0">
-                        <source
-                            media="(max-width: 640px)"
-                            srcSet={data?.backgroundMedia?.mediaUrl}
-                        />
-                        <Image
-                            src={data?.backgroundMedia?.url}
-                            alt={data?.backgroundMedia?.alt || "Hero Background"}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-                            className="object-cover"
-                            priority
-                        />
-                    </picture>
-                </div>
+            <section className={cn("w-full min-h-[576px] sm:min-h-[576px] xl:min-h-[576px] 2xl:min-h-[768px] 3xl:min-h-[900px] overflow-hidden relative",
+                variant === "eventDetail" ? "h-auto" : "h-[576px] sm:h-[576px] xl:h-screen")}>
+                <picture className="w-full h-full ">
+                    <source
+                        media="(max-width: 640px)"
+                        srcSet={data?.backgroundMedia?.mediaUrl}
+                    />
+                    <Image
+                        src={data?.backgroundMedia?.url}
+                        alt={data?.backgroundMedia?.alt || "Hero Background"}
+                        // fill
+                        // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
+                        width={1920}
+                        height={1080}
+                        className="object-cover object-bottom"
+                        priority
+                    />
+                </picture>
                 {data?.title && (
                     <div className="absolute inset-0 z-10 flex items-center justify-center">
                         <div className="container text-center">

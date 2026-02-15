@@ -1,35 +1,171 @@
-import Link from 'next/link'
+"use client";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { motion, AnimatePresence } from "motion/react";
+import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
+
+// Navigation Data
+const NAV_ITEMS = [
+    { label: "Home", href: "/" },
+    {
+        label: "About",
+        href: null,
+        submenu: [
+            { label: "About us", href: "/about" },
+            { label: "Our story", href: "/our-story" },
+            { label: "Name", href: "/brand#name" },
+            { label: "Brand", href: "/brand" },
+        ]
+    },
+    {
+        label: "Features",
+        href: null,
+        submenu: [
+            { label: "Features", href: "/features" },
+            { label: "Learning", href: "https://learning.dontlookup.fashion", external: true },
+            { label: "Tutors", href: "/tutor" },
+        ]
+    },
+    { label: "Business", href: "/" },
+    { label: "Community", href: "/" },
+    { label: "Help center", href: "/help-center" },
+];
 
 export default function Navbar() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname();
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 50);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    useEffect(() => {
+        setIsMenuOpen(false);
+    }, [pathname]);
+
+    useEffect(() => {
+        document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
+    }, [isMenuOpen]);
+
+    const menuVariants = {
+        closed: { opacity: 0, transition: { delay: 0.2, duration: 0.3 } },
+        open: { opacity: 1, transition: { duration: 0.3 } }
+    };
+
     return (
-        <nav className="bg-white shadow fixed z-10 top-0 inset-x-0 opacity-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-16">
-                    <div className="flex">
-                        <div className="flex-shrink-0 flex items-center">
-                            <Link href="/" className="text-xl font-bold text-indigo-600">
-                                EventApp
-                            </Link>
-                        </div>
-                        <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                            <Link href="/" className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                                Home
-                            </Link>
-                            <Link href="#" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                                Categories
-                            </Link>
-                        </div>
+        <>
+            <header className={cn("fixed w-full h-[115px] flex items-center top-0 left-0 z-[100] transition-all duration-300", scrolled ? "bg-black/90 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-4")}>
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+
+                    {/* Logo Section */}
+                    {/* Logo Section */}
+                    <div className="relative w-[150px] h-auto">
+                        <LogoLink href="/" className="" visible={!scrolled && !isMenuOpen} src="/images/brand-logo.svg" width={150} />
+                        <LogoLink href="/" className="" visible={scrolled && !isMenuOpen} src="/images/brand-logo.svg" width={150} />
+                        <LogoLink href="/" className="" visible={isMenuOpen} src="/assets/images/logo.webp" width={50} />
                     </div>
-                    <div className="flex items-center">
-                        <button className="bg-indigo-600 p-1 rounded-full text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            <span className="sr-only">Notifications</span>
-                            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                            </svg>
-                        </button>
+
+                    {/* Right Controls */}
+                    <div className="flex items-center gap-6">
+                        <Button
+                            asChild
+                            variant="none"
+                            className="hidden sm:block min-w-[80px] bg-[#06B5B9] rounded-[6px] text-center text-white"
+                        >
+                            <a href="https://learning.dontlookup.fashion/#login" target="_blank">
+                                Login
+                            </a>
+                        </Button>
+
+                        <div className="cursor-pointer hover-target p-2 -mr-2" onClick={toggleMenu}>
+                            <div className={cn("w-[30px] h-[20px] relative flex flex-col justify-between items-end", isMenuOpen && "active")}>
+                                <span className={cn("h-[2px] w-full bg-white transition-transform duration-300 origin-right", isMenuOpen && "rotate-[-45deg] translate-y-[-1px]")} />
+                                <span className={cn("h-[2px] w-full max-w-1/2  bg-white transition-opacity duration-300", isMenuOpen && "opacity-0")} />
+                                <span className={cn("h-[2px] w-full bg-white transition-transform duration-300 origin-right", isMenuOpen && "rotate-[45deg] translate-y-[1px]")} />
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-    )
+            </header>
+
+            {/* Navigation Overlay */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        variants={menuVariants}
+                        initial="closed"
+                        animate="open"
+                        exit="closed"
+                        className="fixed top-0 left-0 w-full h-full bg-[#101010] z-[98] flex items-center justify-center overflow-y-auto"
+                    >
+                        <div className="text-center">
+                            <ul className="list-none p-0 m-0 space-y-6">
+                                {NAV_ITEMS.map((item, index) => (
+                                    <li key={index} className={cn("mb-6", item.submenu && "group relative")}>
+                                        {item.submenu ? (
+                                            <>
+                                                <div className="text-4xl sm:text-6xl font-black text-transparent text-stroke hover:text-white transition-colors uppercase cursor-pointer flex items-center justify-center gap-2 hover-target">
+                                                    {item.label} <span className="text-sm">▼</span>
+                                                </div>
+                                                <ul className="hidden group-hover:block mt-4 space-y-2">
+                                                    {item.submenu.map((subItem, subIndex) => (
+                                                        <li key={subIndex}>
+                                                            <Link
+                                                                href={subItem.href}
+                                                                target={subItem.external ? "_blank" : undefined}
+                                                                onClick={toggleMenu}
+                                                                className="text-xl text-gray-400 hover:text-white block hover-target"
+                                                            >
+                                                                {subItem.label}
+                                                            </Link>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </>
+                                        ) : (
+                                            <Link
+                                                href={item.href}
+                                                onClick={toggleMenu}
+                                                className={cn(
+                                                    "text-4xl sm:text-6xl font-black text-transparent text-stroke hover:text-white transition-colors uppercase block hover-target",
+                                                    pathname === item.href && "active-nav"
+                                                )}
+                                            >
+                                                {item.label}
+                                            </Link>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            <style jsx global>{`
+                .text-stroke { -webkit-text-stroke: 1px rgba(255,255,255,0.5); }
+                .text-stroke:hover { -webkit-text-stroke: 0; }
+                .active-nav { color: white !important; -webkit-text-stroke: 0 !important; }
+            `}</style>
+        </>
+    );
+}
+
+// Helper component for Logo Links to reduce boilerplate
+function LogoLink({ href, className, visible, src, width }) {
+    return (
+        <Link href={href} className={cn("absolute top-1/2 -translate-y-1/2 transition-opacity duration-300 hover-target", className,
+            visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        )}>
+            <Image src={src} width={width} height={109} loading="lazy" alt="logo" className="w-auto h-auto" />
+        </Link>
+    );
 }

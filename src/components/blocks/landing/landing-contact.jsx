@@ -49,7 +49,7 @@ export default function LandingContact({ data }) {
                           alt={item?.media?.alt}
                           width={30}
                           height={30}
-                          className="w-[20px] md:w-[22px] lg:w-[24px] xl:w-[24px] 2xl:w-[28px] 3xl:w-[32px] aspect-square object-contain scale-105 transition-all duration-300 ease-in-out"
+                          className="w-[20px] md:w-[22px] lg:w-[24px] xl:w-[24px] 2xl:w-[28px] 3xl:w-[32px] aspect-square object-contain hover:scale-115 transition-all duration-300 ease-in-out"
                         />
                       </Link>
 

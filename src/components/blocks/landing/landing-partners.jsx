@@ -5,8 +5,9 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 import Image from "next/image";
+import { Text } from "@/components/utils/typography";
 
-export default function LandingPartners({ data }) {
+export default function LandingPartners({ data, variant }) {
   const [emblaRef] = useEmblaCarousel(
     {
       loop: false,
@@ -19,19 +20,30 @@ export default function LandingPartners({ data }) {
   );
 
   return (
-    <section className="w-full h-auto bg-white block py-[8px] sm:py-[10px] xl:py-12 2xl:py-14 overflow-hidden">
+    <section className={cn("w-full h-auto bg-white block py-[8px] sm:py-[10px] xl:py-12 2xl:py-14 overflow-hidden",
+      variant === "eventDetail" && "bg-[#047F82]"
+    )}>
       <div
         className={cn(
           "container",
           "max-sm:pr-0 max-sm:[mask-image:linear-gradient(to_right,black_0%,black_90%,transparent_100%)] max-sm:[-webkit-mask-image:linear-gradient(to_right,black_0%,black_95%,transparent_100%)]")}
       >
+        {variant === "eventDetail" && (
+          <Text
+            as="p"
+            size="p2"
+            className="text-white mb-1 xl:mb-2"
+          >
+            {data?.title}
+          </Text>
+        )}
         <div
           ref={emblaRef}
           className="w-full max-w-full overflow-hidden"
           data-cursor="carousel"
         >
           <div className="flex touch-pan-y touch-pinch-zoom -mx-1.5 lg:-mx-0 [&>*]:p-1.5 lg:[&>*]:p-0">
-            {data?.map((item, index) => (
+            {data?.items?.map((item, index) => (
               <div
                 key={"partners" + item?.id}
                 className={cn(
