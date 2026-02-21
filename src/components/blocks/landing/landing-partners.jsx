@@ -32,7 +32,7 @@ export default function LandingPartners({ data, variant }) {
           <Text
             as="p"
             size="p2"
-            className="text-white mb-1 xl:mb-2"
+            className="text-white mb-3 xl:mb-4 3xl:mb-6"
           >
             {data?.title}
           </Text>
@@ -43,14 +43,16 @@ export default function LandingPartners({ data, variant }) {
           data-cursor="carousel"
         >
           <div className="flex touch-pan-y touch-pinch-zoom -mx-1.5 lg:-mx-0 [&>*]:p-1.5 lg:[&>*]:p-0">
-            {data?.items?.map((item, index) => (
+            {data?.items?.map((item) => (
               <div
                 key={"partners" + item?.id}
                 className={cn(
                   "flex-[0_0_100px] 2xs:flex-[0_0_120px] sm:flex-[0_0_20%] lg:flex-[0_0_16.666%] min-w-0 select-none",
                 )}
               >
-                <div className="w-[60px] 2xs:w-[80px] sm:w-[100px] xl:w-[140px] mx-auto aspect-2/1">
+                <div className={cn("mx-auto",
+                  variant === "eventDetail" ? "w-full aspect-[333/45]" : "w-[60px] 2xs:w-[80px] sm:w-[100px] xl:w-[140px] mx-auto aspect-2/1"
+                )}>
                   <Image
                     src={item?.media?.url}
                     alt={item?.media?.alt}

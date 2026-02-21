@@ -37,7 +37,7 @@ export default function LandingAppDownload({ data }) {
                 <Heading
                   as="h2"
                   size="h1"
-                  className="text-[#BCBEBE] mb-2 md:mb-2 lg:mb-3 xl:mb-3 2xl:mb-4 3xl:mb-5"
+                  className="text-[#30C2C5] mb-2 md:mb-2 lg:mb-3 xl:mb-3 2xl:mb-4 3xl:mb-5"
                 >
                   {parse(data?.title)}
                 </Heading>

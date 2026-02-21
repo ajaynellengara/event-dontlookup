@@ -11,8 +11,9 @@ const headingVariants = cva("leading-tight font-big-shoulders font-bold", {
     size: {
       h1: "text-[26px] sm:text-[36px] md:text-[38px] lg:text-[48px] xl:text-[56px] 2xl:text-[64px] 3xl:text-[80px]",
       h2: "text-[22px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[48px] 2xl:text-[56px] 3xl:text-[64px]",
-      h3: "text-[18px] sm:text-[22px] md:text-[26px] lg:text-[32px] xl:text-[36px] 2xl:text-[42px] 3xl:text-[48px]",
+      h3: "text-[18px] sm:text-[22px] md:text-[26px] lg:text-[30px] xl:text-[32px] 2xl:text-[42px] 3xl:text-[48px]",
       h4: "text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] xl:text-[28px] 2xl:text-[32px] 3xl:text-[36px]",
+      h5: "text-[16px] sm:text-[16px] md:text-[16px] lg:text-[16px] xl:text-[18px] 2xl:text-[21px] 3xl:text-[27px]",
     },
   },
   defaultVariants: {
@@ -27,7 +28,7 @@ const headingVariants = cva("leading-tight font-big-shoulders font-bold", {
 const textVariants = cva("leading-normal font-normal", {
   variants: {
     size: {
-      p1: "text-[14px] md:text-[15px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px] 3xl:text-[24px]",
+      p1: "text-[14px] md:text-[15px] lg:text-[15px] xl:text-[16px] 2xl:text-[20px] 3xl:text-[24px]",
       p2: "text-[12px] md:text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[21px]",
     },
   },

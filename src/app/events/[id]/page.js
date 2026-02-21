@@ -1,6 +1,14 @@
+import EventsInfo from '@/components/blocks/events/events-info'
 import LandingHero from '@/components/blocks/landing/landing-hero'
 import LandingPartners from '@/components/blocks/landing/landing-partners'
 import Link from 'next/link'
+
+import { landingData } from '@/lib/data/landing-data'
+import LandingPlatform from '@/components/blocks/landing/landing-platform'
+import LandingAppDownload from '@/components/blocks/landing/landing-app-download'
+import EventsExpertsSays from '@/components/blocks/events/events-experts-says'
+import EventsWhoIsThisFor from '@/components/blocks/events/events-who-is-this-for'
+import EventsOutcomes from '@/components/blocks/events/events-outcomes'
 
 async function getEvent(id) {
     const res = await fetch(`http://localhost:3000/api/events/${id}`, { cache: 'no-store' })
@@ -27,7 +35,7 @@ const data = {
                 id: 1,
                 media: {
                     type: "image",
-                    url: "/images/partner-logo-1.png",
+                    url: "/images/sponsored-logo-1.png",
                     alt: "Partner Logo 1"
                 }
             },
@@ -35,7 +43,7 @@ const data = {
                 id: 2,
                 media: {
                     type: "image",
-                    url: "/images/partner-logo-2.png",
+                    url: "/images/sponsored-logo-2.png",
                     alt: "Partner Logo 2"
                 }
             },
@@ -43,7 +51,7 @@ const data = {
                 id: 3,
                 media: {
                     type: "image",
-                    url: "/images/partner-logo-3.png",
+                    url: "/images/sponsored-logo-3.png",
                     alt: "Partner Logo 3"
                 }
             },
@@ -51,7 +59,7 @@ const data = {
                 id: 4,
                 media: {
                     type: "image",
-                    url: "/images/partner-logo-4.png",
+                    url: "/images/sponsored-logo-4.png",
                     alt: "Partner Logo 4"
                 }
             },
@@ -59,7 +67,7 @@ const data = {
                 id: 5,
                 media: {
                     type: "image",
-                    url: "/images/partner-logo-5.png",
+                    url: "/images/sponsored-logo-5.png",
                     alt: "Partner Logo 5"
                 }
             },
@@ -67,7 +75,15 @@ const data = {
                 id: 6,
                 media: {
                     type: "image",
-                    url: "/images/partner-logo-6.png",
+                    url: "/images/sponsored-logo-6.png",
+                    alt: "Partner Logo 6"
+                }
+            },
+            {
+                id: 7,
+                media: {
+                    type: "image",
+                    url: "/images/sponsored-logo-6.png",
                     alt: "Partner Logo 6"
                 }
             },
@@ -86,8 +102,16 @@ const data = {
         description: "Dubai’s Professional Entry Point Into the Modeling Industry<br/>Not a workshop. Not a class. A real-world modeling career preparation experience.",
         longDescription: `<p><span>(About the event)</span></p><p>Model Forward Live by Don’t Look-Up Fashion is a live, in-person career launch. Experience designed for aspiring models who want to enter the industry correctly, with clarity, preparation, and confidence.</p><p>This experience bridges the gap between:<br/>“I want to be a model”<br/>and<br/>“I am ready for agencies, castings, and paid opportunities.”</p><p>No recorded lessons.No theory - only sessions.No unrealistic promises.<br/>Only real training, real exposure, and real industry alignment.</p>`,
         price: "500 dhs",
-        slug: "model-forward-live",
+        slug: "/model-forward-live",
         ctaLabel: "Unlock Instant Access",
+    },
+    expertsSays: {
+        media: {
+            type: "image",
+            url: "/images/eventsExpertsSays-1.jpg",
+            alt: "eventsExpertsSays-1"
+        },
+        title: "SEE WHAT THE EXPERTS SAY",
     },
     appDownload: {
         media: {
@@ -107,7 +131,7 @@ const data = {
             url: "/images/events-whoIsThisFor-1.jpg",
             alt: "events-whoIsThisFor"
         },
-        title: "Where Fashion Events Become Movements",
+        title: "WHO IS THIS REALLY FOR",
         description: "<p>This experience is for you if:</p><ul><li>You are serious about modeling</li><li>You want to understand how the industry actually works</li><li>You want professional photos & runway exposure</li><li>You want to be taken seriously by agencies & brands</li><li>You want guidance instead of guessing</li><li>No prior experience required.</li></ul><p>Discipline, commitment, and openness to learn required.</p>"
     },
     outcomes: {
@@ -116,7 +140,7 @@ const data = {
             url: "/images/events-outcomes-1.jpg",
             alt: "events-outcomes"
         },
-        title: "event outcomes",
+        title: "EVENT OUTCOMES",
         description: "<p>By the end of Model Forward Live, you will:</p>",
         items: [
             {
@@ -403,115 +427,17 @@ export default async function EventDetails({ params }) {
     //     )
     // }
 
+    const { hero, partners, appDownload, intro, featuredEvents = [], platform, globalStage, impact, contact } = landingData;
+
     return (
         <>
-            <LandingHero variant="none" data={data?.hero} />
+            <LandingHero variant="eventDetail" data={data?.hero} />
             <LandingPartners variant="eventDetail" data={data?.partners} />
-
-            {/* <div className="min-h-screen bg-white">
-            <div className="relative bg-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8">
-                {event.hero?.backgroundImage && (
-                    <div className="absolute inset-0 opacity-40">
-                        <img src={event.hero.backgroundImage} alt="Event Hero" className="w-full h-full object-cover" />
-                    </div>
-                )}
-                <div className="relative z-10 max-w-7xl mx-auto text-center">
-                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl mb-4">{event.hero?.title}</h1>
-                    <p className="text-2xl font-light text-indigo-300 mb-6">{event.hero?.subtitle}</p>
-                    <div className="flex flex-col sm:flex-row justify-center items-center gap-6 text-lg">
-                        <div className="flex items-center">
-                            <span className="font-semibold text-indigo-400 mr-2">DATE:</span> {event.hero?.date}
-                        </div>
-                        <div className="flex items-center">
-                            <span className="font-semibold text-indigo-400 mr-2">TIME:</span> {event.hero?.time}
-                        </div>
-                        <div className="flex items-center">
-                            <span className="font-semibold text-indigo-400 mr-2">LOC:</span> {event.hero?.location}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                    
-                    <div className="lg:col-span-2 space-y-12">
-                        
-                        <section>
-                            <h2 className="text-2xl font-bold text-gray-900 mb-4">{event.about?.title || 'About Event'}</h2>
-                            <p className="text-gray-600 leading-relaxed mb-6">{event.about?.description}</p>
-                            {event.about?.highlights && (
-                                <ul className="list-disc pl-5 space-y-2 text-gray-600">
-                                    {event.about.highlights.map((item, idx) => <li key={idx}>{item}</li>)}
-                                </ul>
-                            )}
-                        </section>
-
-                        
-                        {event.agenda && (
-                            <section>
-                                <h2 className="text-2xl font-bold text-gray-900 mb-6">Agenda</h2>
-                                <div className="space-y-6">
-                                    {event.agenda.map((item, index) => (
-                                        <div key={index} className="flex gap-4 p-4 rounded-lg bg-gray-50 border border-gray-100">
-                                            <div className="w-24 shrink-0 font-bold text-indigo-600">{item.time}</div>
-                                            <div>
-                                                <h4 className="font-semibold text-gray-900">{item.title || item.activity}</h4>
-                                                {item.description && <p className="text-sm text-gray-500 mt-1">{item.description}</p>}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </section>
-                        )}
-
-                        
-                        {event.speakers && (
-                            <section>
-                                <h2 className="text-2xl font-bold text-gray-900 mb-6">Speakers & Guests</h2>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    {event.speakers.map((speaker, idx) => (
-                                        <div key={idx} className="flex items-center gap-4">
-                                            <div className="h-16 w-16 rounded-full bg-gray-200 overflow-hidden">
-                                                <img src={speaker.image} alt={speaker.name} className="h-full w-full object-cover" />
-                                            </div>
-                                            <div>
-                                                <p className="font-bold text-gray-900">{speaker.name}</p>
-                                                <p className="text-sm text-indigo-600">{speaker.role}</p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </section>
-                        )}
-                    </div>
-
-                    
-                    <div className="lg:col-span-1">
-                        <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 sticky top-24">
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Get Tickets</h3>
-                            <div className="space-y-4">
-                                {event.tickets?.map((ticket, idx) => (
-                                    <div key={idx} className="p-4 border border-gray-200 rounded-lg hover:border-indigo-500 transition-colors cursor-pointer">
-                                        <div className="flex justify-between items-center mb-2">
-                                            <span className="font-semibold text-gray-900">{ticket.type}</span>
-                                            <span className="font-bold text-indigo-600">{ticket.price}</span>
-                                        </div>
-                                        <ul className="text-xs text-gray-500 space-y-1">
-                                            {ticket.benefits?.map((b, i) => <li key={i}>• {b}</li>)}
-                                        </ul>
-                                    </div>
-                                ))}
-                            </div>
-                            <button className="w-full mt-6 bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition-colors">
-                                {event.hero?.ctaText || 'Register Now'}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div > */
-            }
+            <EventsInfo data={data?.eventInfo} />
+            <EventsExpertsSays data={data?.expertsSays} />
+            <LandingAppDownload data={appDownload} />
+            <EventsWhoIsThisFor data={data?.whoIsThisFor} />
+            <EventsOutcomes data={data?.outcomes} />
         </>
     )
 }
