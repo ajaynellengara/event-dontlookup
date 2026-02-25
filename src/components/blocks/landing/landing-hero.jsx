@@ -25,7 +25,7 @@ export default function LandingHero({ data, variant = "default" }) {
                         // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
                         width={1920}
                         height={1080}
-                        className="object-cover object-bottom"
+                        className="w-full h-full object-cover object-bottom"
                         priority
                     />
                 </picture>

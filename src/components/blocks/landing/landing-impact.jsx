@@ -1,10 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Heading, Text } from "@/components/utils/typography";
 
 import parse from "html-react-parser";
-import Link from "next/link";
 
 
 import useEmblaCarousel from "embla-carousel-react";

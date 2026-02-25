@@ -9,6 +9,10 @@ import LandingAppDownload from '@/components/blocks/landing/landing-app-download
 import EventsExpertsSays from '@/components/blocks/events/events-experts-says'
 import EventsWhoIsThisFor from '@/components/blocks/events/events-who-is-this-for'
 import EventsOutcomes from '@/components/blocks/events/events-outcomes'
+import EventsMeetYourCoach from '@/components/blocks/events/events-meet-your-coach'
+import EventsWhatTrainedIn from '@/components/blocks/events/events-what-trained-in'
+import EventsIndustryExposure from '@/components/blocks/events/events-industry-exposure'
+import EventsJoinEvent from '@/components/blocks/events/events-join-event'
 
 async function getEvent(id) {
     const res = await fetch(`http://localhost:3000/api/events/${id}`, { cache: 'no-store' })
@@ -174,8 +178,6 @@ const data = {
         ],
         longDescription: "This experience is designed to help you step into the industry with confidence — not confusion."
     },
-
-
     meetYourCoach: {
         title: "MEET YOUR COACH",
         items: [
@@ -231,7 +233,7 @@ const data = {
             {
                 id: 6,
                 title: "6. WHAT YOU WALK AWAY WITH",
-                description: "<h5>Starter Professional Portfolio</h5><ul><li>‣  One group-based portfolio shoot</li><li>‣  6 High-quality edited images.</li><li>‣  3 Professional modelling videos:</li><li>Runway walk, Posing, Expressions.</li></ul><br/><br/><h5>Perfect for:</h5><ul><li>‣  Agency submissions.</li><li>‣  Casting calls</li><li>‣  Brand Introductions</li><li>‣  Digital Modelling Profiles</li></ul>",
+                description: "<h5>Starter Professional Portfolio</h5><ul><li>‣  One group-based portfolio shoot</li><li>‣  6 High-quality edited images.</li><li>‣  3 Professional modelling videos:</li><li>Runway walk, Posing, Expressions.</li></ul><h5>Perfect for:</h5><ul><li>‣  Agency submissions.</li><li>‣  Casting calls</li><li>‣  Brand Introductions</li><li>‣  Digital Modelling Profiles</li></ul>",
             },
         ],
     },
@@ -257,24 +259,24 @@ const data = {
     },
     joinEvent: {
         title: "HOW CAN I JOIN THE EVENT?",
-        description: "<p>Simplify your booking and event experience —get the app to reserve your seat, plan your day, and enjoy exclusive access.</p>",
+        description: "<p>Simplify your booking and event experience —<br/>get the app to reserve your seat, plan your day, and enjoy exclusive access.</p>",
         items: [
             {
                 id: 1,
                 mediaUrl: "/images/events-joinEvent-1.png",
-                title: "Fashion Show Walk",
-                description: "<h5>Download the app.<br/>Wohoo! You’re in. Here’s what to do next.</h5>Step 1 — Create Your Profile</h5><p>Set up your profile with basic details so we can personalise your  experience with Dont Look Up and recommend the right sessions for you.</p>",
+
+                description: "<h5>Download the app.<br/>Wohoo! You’re in. Here’s what to do next.</h5><h5>Step 1 — Create Your Profile</h5><p>Set up your profile with basic details so we can personalise your  experience with Dont Look Up and recommend the right sessions for you.</p>",
             },
             {
                 id: 2,
-                mediaUrl: "/images/events-joinEvent-2.png",
-                title: "Fashion Show Walk",
+                mediaUrl: "/images/events-joinEvent-1.png",
+
                 description: "<h5>Now let’s dive right into our purpose - Booking for the event!</h5><h5>Step 2— Explore & Book the Event</h5><p>Browse the Stylepreneur event inside the app, view sessions and coaches, and secure your spot with just a few taps.</p>",
             },
             {
                 id: 3,
-                mediaUrl: "/images/events-joinEvent-3.png",
-                title: "Fashion Show Walk",
+                mediaUrl: "/images/events-joinEvent-1.png",
+
                 description: "<h5>After Finishing booking, You are in your last step!</h5><h5>Step 3 — Get Ready & Show Up</h5><p>Once you get booking confirmation, your e-ticket will be provided. Please download the ticket. In the event, dont forget to show the QR Code, so that you get your pass.</p><p>Yes, its that easy.<br/>Just arrive, connect, and experience Stylepreneur.</p>",
             },
         ],
@@ -435,9 +437,14 @@ export default async function EventDetails({ params }) {
             <LandingPartners variant="eventDetail" data={data?.partners} />
             <EventsInfo data={data?.eventInfo} />
             <EventsExpertsSays data={data?.expertsSays} />
-            <LandingAppDownload data={appDownload} />
+            <LandingAppDownload data={data?.appDownload} />
             <EventsWhoIsThisFor data={data?.whoIsThisFor} />
             <EventsOutcomes data={data?.outcomes} />
+            <EventsMeetYourCoach data={data?.meetYourCoach} />
+            <EventsWhatTrainedIn data={data?.whatTrainedIn} />
+            <EventsIndustryExposure data={data?.industryExposure} />
+            <LandingAppDownload data={data?.appDownload} />
+            <EventsJoinEvent data={data?.joinEvent} />
         </>
     )
 }

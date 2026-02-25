@@ -58,7 +58,7 @@ export default function LandingPartners({ data, variant }) {
                     alt={item?.media?.alt}
                     width={151}
                     height={57}
-                    className="w-full h-full object-contain hover:scale-105"
+                    className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               </div>

@@ -1,10 +1,8 @@
 
-import { Button } from "@/components/ui/button";
-import { Heading, Text } from "@/components/utils/typography";
+import { Heading } from "@/components/utils/typography";
 
 import parse from "html-react-parser";
 import Image from "next/image";
-import Link from "next/link";
 
 
 export default function LandingPlatform({ data }) {

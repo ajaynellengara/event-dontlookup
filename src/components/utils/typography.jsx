@@ -28,8 +28,9 @@ const headingVariants = cva("leading-tight font-big-shoulders font-bold", {
 const textVariants = cva("leading-normal font-normal", {
   variants: {
     size: {
-      p1: "text-[14px] md:text-[15px] lg:text-[15px] xl:text-[16px] 2xl:text-[20px] 3xl:text-[24px]",
-      p2: "text-[12px] md:text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[21px]",
+      p1: "text-[14px] lg:text-[16px] xl:text-[16px] 2xl:text-[19px] 3xl:text-[24px]",
+      p2: "text-[12px] lg:text-[15px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[21px]",
+      p3: "text-[12px] lg:text-[12px] 2xl:text-[14px] 3xl:text-[18px]",
     },
   },
   defaultVariants: {

@@ -61,7 +61,6 @@ export default function EventsOutcomes({ data }) {
             >
               {parse(data?.longDescription)}
             </Text>
-
           </div>
         </div>
       </div>

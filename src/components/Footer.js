@@ -5,14 +5,9 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
-export default function Footer() {
-    const [openSection, setOpenSection] = useState(null);
 
-    const toggleSection = (index) => {
-        setOpenSection(openSection === index ? null : index);
-    };
-
-    const footerSections = [
+const footerSections = {
+    navigations: [
         {
             title: "About us",
             links: [
@@ -55,14 +50,39 @@ export default function Footer() {
                 { label: "Partners", href: "/" },
             ]
         }
-    ];
+    ],
+    socialLinks: [
+        {
+            label: "Instagram", href: "/",
+            icon: "/images/social-1.svg"
+        },
+        {
+            label: "Facebook", href: "/",
+            icon: "/images/social-2.svg"
+        },
+        {
+            label: "LinkedIn", href: "/",
+            icon: "/images/social-3.svg"
+        },
+        {
+            label: "YouTube", href: "/",
+            icon: "/images/social-4.svg"
+        },
+    ],
+}
+
+
+export default function Footer({ data = footerSections }) {
+    const [openSection, setOpenSection] = useState(null);
+
+    const toggleSection = (index) => {
+        setOpenSection(openSection === index ? null : index);
+    };
 
     return (
-        <footer id="Footer" className="w-full bg-[#2d2d2d] text-[#a0a0a0]  overflow-hidden relative block z-0 font-sora">
-
-            <Image src="/images/footer-temp.svg" width={1920} height={1080} alt="Footer Top" className="w-full" />
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 hidden">
-                <div className="ftMid py-5 sm:py-10 lg:py-20">
+        <footer id="Footer" className="w-full bg-[#2d2d2d] text-[#a0a0a0] overflow-hidden relative block z-0 font-sora">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="py-5 sm:py-10 lg:py-20">
                     <div id="FtAcco" className="ftAccordion flex flex-wrap -mx-2 md:-mx-4 lg:-mx-5 lg:mx-[-30px]">
 
                         {/* Logo Column */}
@@ -177,26 +197,14 @@ export default function Footer() {
 
                         {/* Bottom Links */}
                         <ul className="flex flex-wrap gap-2.5 w-full md:w-[calc(100%-16.666%-6px)] justify-center md:justify-between p-0 m-0 list-none">
-                            {[
-                                { label: "Blog", href: "/" },
-                                { label: "Brand", href: "/brand" },
-                                { label: "Creator", href: "/" },
-                                { label: "Design", href: "/brand#design" },
-                                { label: "DLU", href: "/" },
-                                { label: "Help", href: "/help-center" },
-                                { label: "Privacy Policy", href: "/privacy-policy" },
-                                { label: "Terms of Services", href: "/terms-and-conditions" },
-                                { label: "API", href: "/" },
-                                { label: "Sitemap", href: "/" },
-                                { label: "Language", href: "/" },
-                            ].map((link, idx) => (
+                            {data?.socialLinks?.map((item, idx) => (
                                 <li key={idx}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-[14px] text-white hover:text-[#3b82f6] transition-colors no-underline whitespace-nowrap"
+                                    <a
+                                        href={item?.href}
+                                        className="w-[20px] 3xl:w-[24px] aspect-square block"
                                     >
-                                        {link.label}
-                                    </Link>
+                                        <Image src={item?.icon} alt={item?.label} width={24} height={24} className="w-full h-full object-contain" />
+                                    </a>
                                 </li>
                             ))}
                         </ul>
@@ -217,6 +225,8 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+
+            <Image src="/images/footer-temp.svg" width={1920} height={1080} alt="Footer Top" className="w-full" />
         </footer>
     );
 }

@@ -34,7 +34,7 @@ export default function EventsInfo({ data }) {
                 {data?.location &&
                   <EventInfoItem icon="/images/icon-events-loc.png" label={data?.location} />}
 
-                {data?.date && <EventInfoItem icon="/images/icon-events-time.png" label={data?.date} />}
+                {data?.date && <EventInfoItem icon="/images/icon-events-cal.png" label={data?.date} />}
 
                 {data?.duration && <EventInfoItem icon="/images/icon-events-time.png" label={data?.duration} />}
 
