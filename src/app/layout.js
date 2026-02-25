@@ -1,7 +1,7 @@
 import './globals.css'
 import { sora, bigShouldersDisplay } from '@/lib/fonts'
-import Navbar from '../components/Navbar'
 import Footer from '@/components/layout/footer'
+import Navbar from '@/components/layout/navbar'
 
 export const metadata = {
     title: 'Dontlookup.Events',

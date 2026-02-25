@@ -10,6 +10,9 @@ import Autoplay from "embla-carousel-autoplay";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import { useEffect } from "react";
 
 
 export default function LandingImpact({ data }) {
@@ -24,9 +27,19 @@ export default function LandingImpact({ data }) {
     [Autoplay({ delay: 5000, stopOnInteraction: true, pauseOnHover: true })],
   );
 
+  useEffect(() => {
+    Fancybox.bind('[data-fancybox="gallery"]', {
+      // Your custom options
+    });
+
+    return () => {
+      Fancybox.destroy();
+    };
+  }, []);
+
 
   return (
-    <section className="w-full h-auto bg-[#121212] block bg-[#121212] pb-10 md:pb-16 lg:pb-20 xl:pb-25 2xl:pb-32 3xl:pb-40">
+    <section className="w-full h-auto bg-[#121212] block pb-10 md:pb-16 lg:pb-20 xl:pb-25 2xl:pb-32 3xl:pb-40">
 
       <div className="container">
 
@@ -57,7 +70,7 @@ export default function LandingImpact({ data }) {
           className="w-full max-w-full overflow-hidden"
           data-cursor="carousel"
         >
-          <div className="flex touch-pan-y touch-pinch-zoom -mx-1.5 md:-mx-2 lg:-mx-3 2xl:-mx-4 3xl:-mx-5 [&>*]:p-1.5 md:[&>*]:p-2 lg:[&>*]:p-3 2xl:[&>*]:p-4 3xl:[&>*]:p-5">
+          <div className="flex touch-pan-y touch-pinch-zoom -mx-1.5 md:-mx-2 lg:-mx-3 2xl:-mx-4 3xl:-mx-5 *:p-1.5 md:*:p-2 lg:*:p-3 2xl:*:p-4 3xl:*:p-5">
             {data?.items?.map((item, index) => (
               <div
                 key={"parners" + item?.id}
@@ -66,13 +79,19 @@ export default function LandingImpact({ data }) {
                 )}
               >
                 <div className="w-full h-auto aspect-48/46 overflow-hidden">
-                  <Image
-                    src={item?.media?.url}
-                    alt={item?.media?.alt}
-                    width={720}
-                    height={690}
-                    className="w-full h-full object-contain hover:scale-120 transition duration-300"
-                  />
+                  <a
+                    href={item?.media?.url}
+                    data-fancybox="gallery"
+                    className="cursor-pointer"
+                  >
+                    <Image
+                      src={item?.media?.url}
+                      alt={item?.media?.alt}
+                      width={720}
+                      height={690}
+                      className="w-full h-full object-contain hover:scale-120 transition duration-300"
+                    />
+                  </a>
                 </div>
               </div>
             ))}
