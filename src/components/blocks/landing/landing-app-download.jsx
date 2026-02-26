@@ -5,6 +5,7 @@ import { Heading, Text } from "@/components/utils/typography";
 import parse from "html-react-parser";
 import Image from "next/image";
 import Link from "next/link";
+import RevealAnimation from "@/components/utils/reveal-animation";
 
 
 export default function LandingAppDownload({ data }) {
@@ -20,7 +21,7 @@ export default function LandingAppDownload({ data }) {
         className="w-[180px] md:w-[200px] xl:w-[230px] absolute -z-1 top-0 left-1/12 -translate-y-1/2"
       />
       <div className="container">
-        <div className="flex flex-wrap gap-x-6 sm:gap-x-10 lg:gap-x-20 xl:gap-x-25 2xl:gap-x-32 3xl:gap-x-40">
+        <RevealAnimation className="flex flex-wrap gap-x-6 sm:gap-x-10 lg:gap-x-20 xl:gap-x-25 2xl:gap-x-32 3xl:gap-x-40">
           <div className="w-full sm:flex-1">
             <div className="w-full flex flex-wrap items-center justify-center sm:justify-start">
               <div className="w-full xs:w-[140px] sm:w-[200px] lg:w-[230px] xl:w-[240px] 2xl:w-[260px] 3xl:w-[320px] mb-3 xs:mb-0 mr-8 md:mr-10 lg:mr-12 xl:mr-14 2xl:mr-16 3xl:mr-20 ml-6 md:ml-8 lg:ml-10 xl:ml-10 2xl:ml-12 3xl:ml-16 sm:translate-y-[20px] md:translate-y-[30px] lg:translate-y-[40px] xl:translate-y-[50px]">
@@ -95,7 +96,7 @@ export default function LandingAppDownload({ data }) {
               className="w-full h-full object-contain"
             />
           </div>
-        </div>
+        </RevealAnimation>
       </div>
     </section>
   );

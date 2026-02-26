@@ -13,6 +13,7 @@ import Image from "next/image";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import { useEffect } from "react";
+import RevealAnimation from "@/components/utils/reveal-animation";
 
 
 export default function LandingImpact({ data }) {
@@ -43,29 +44,31 @@ export default function LandingImpact({ data }) {
 
       <div className="container">
 
-        <Heading
-          as="h2"
-          size="h1"
-          className="font-normal sm:text-center text-white mb-2 md:mb-2 lg:mb-2.5 xl:mb-2.5 2xl:mb-3 3xl:mb-4"
-        >
-          {parse(data?.title)}
-        </Heading>
-        <Text
-          as="div"
-          size="p1"
-          className="sm:text-center text-white mb-3 md:mb-4 lg:mb-5 xl:mb-6 2xl:mb-6 3xl:mb-8"
-        >
-          {parse(data?.description)}
-        </Text>
+        <RevealAnimation>
+          <Heading
+            as="h2"
+            size="h1"
+            className="font-normal sm:text-center text-white mb-2 md:mb-2 lg:mb-2.5 xl:mb-2.5 2xl:mb-3 3xl:mb-4"
+          >
+            {parse(data?.title)}
+          </Heading>
+          <Text
+            as="div"
+            size="p1"
+            className="sm:text-center text-white mb-3 md:mb-4 lg:mb-5 xl:mb-6 2xl:mb-6 3xl:mb-8"
+          >
+            {parse(data?.description)}
+          </Text>
 
-        <div
-          className="typography sm:text-center [--text-color:#fff] [&_h4]:[--text-color:#06B5B9] mb-6 md:mb-14 lg:mb-16 xl:mb-20 2xl:mb-24 3xl:mb-32"
-          dir="ltr"
-        >
-          {parse(data?.longDescription)}
-        </div>
+          <div
+            className="typography sm:text-center [--text-color:#fff] [&_h4]:[--text-color:#06B5B9] mb-6 md:mb-14 lg:mb-16 xl:mb-20 2xl:mb-24 3xl:mb-32"
+            dir="ltr"
+          >
+            {parse(data?.longDescription)}
+          </div>
+        </RevealAnimation>
 
-        <div
+        <RevealAnimation
           ref={emblaRef}
           className="w-full max-w-full overflow-hidden"
           data-cursor="carousel"
@@ -96,7 +99,7 @@ export default function LandingImpact({ data }) {
               </div>
             ))}
           </div>
-        </div>
+        </RevealAnimation>
 
       </div>
     </section>

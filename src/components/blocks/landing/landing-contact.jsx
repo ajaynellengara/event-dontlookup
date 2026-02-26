@@ -1,7 +1,8 @@
-
+import parse from "html-react-parser";
+import RevealAnimation from "@/components/utils/reveal-animation";
 import { Text } from "@/components/utils/typography";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function LandingContact({ data }) {
 
@@ -9,7 +10,7 @@ export default function LandingContact({ data }) {
     <section className="w-full h-auto block bg-[#121212] py-8 sm:py-10 xl:pt-10 xl:pb-20 2xl:pt-12 2xl:pb-24 3xl:pt-14 3xl:pb-34">
 
       <div className="container">
-        <div className="w-full bg-[#042626] border border-[#767676] p-4 sm:p-6 md:p-8 xl:px-15 xl:py-10 2xl:px-20 2xl:py-12 3xl:px-24 3xl:py-16">
+        <RevealAnimation className="w-full bg-[#042626] border border-[#767676] p-4 sm:p-6 md:p-8 xl:px-15 xl:py-10 2xl:px-20 2xl:py-12 3xl:px-24 3xl:py-16">
           <div className="flex flex-wrap">
             <div className="w-full sm:w-9/12">
               <div className="flex flex-wrap">
@@ -59,7 +60,7 @@ export default function LandingContact({ data }) {
               </div>
             </div>
           </div>
-        </div>
+        </RevealAnimation>
       </div>
     </section>
   );

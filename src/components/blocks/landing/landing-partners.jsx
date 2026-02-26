@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import RevealAnimation from "@/components/utils/reveal-animation";
 
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -26,45 +27,47 @@ export default function LandingPartners({ data, variant }) {
       <div
         className={cn(
           "container",
-          "max-sm:pr-0 max-sm:[mask-image:linear-gradient(to_right,black_0%,black_90%,transparent_100%)] max-sm:[-webkit-mask-image:linear-gradient(to_right,black_0%,black_95%,transparent_100%)]")}
+          "max-sm:pr-0 max-sm:mask-[linear-gradient(to_right,black_0%,black_90%,transparent_100%)]")}
       >
-        {variant === "eventDetail" && (
-          <Text
-            as="p"
-            size="p2"
-            className="text-white mb-3 xl:mb-4 3xl:mb-6"
+        <RevealAnimation>
+          {variant === "eventDetail" && (
+            <Text
+              as="p"
+              size="p2"
+              className="text-white mb-3 xl:mb-4 3xl:mb-6"
+            >
+              {data?.title}
+            </Text>
+          )}
+          <div
+            ref={emblaRef}
+            className="w-full max-w-full overflow-hidden"
+            data-cursor="carousel"
           >
-            {data?.title}
-          </Text>
-        )}
-        <div
-          ref={emblaRef}
-          className="w-full max-w-full overflow-hidden"
-          data-cursor="carousel"
-        >
-          <div className="flex touch-pan-y touch-pinch-zoom -mx-1.5 lg:-mx-0 [&>*]:p-1.5 lg:[&>*]:p-0">
-            {data?.items?.map((item) => (
-              <div
-                key={"partners" + item?.id}
-                className={cn(
-                  "flex-[0_0_100px] 2xs:flex-[0_0_120px] sm:flex-[0_0_20%] lg:flex-[0_0_16.666%] min-w-0 select-none",
-                )}
-              >
-                <div className={cn("mx-auto",
-                  variant === "eventDetail" ? "w-full aspect-[333/45]" : "w-[60px] 2xs:w-[80px] sm:w-[100px] xl:w-[140px] mx-auto aspect-2/1"
-                )}>
-                  <Image
-                    src={item?.media?.url}
-                    alt={item?.media?.alt}
-                    width={151}
-                    height={57}
-                    className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
-                  />
+            <div className="flex touch-pan-y touch-pinch-zoom -mx-1.5 lg:mx-0 *:p-1.5 lg:*:p-0">
+              {data?.items?.map((item) => (
+                <div
+                  key={"partners" + item?.id}
+                  className={cn(
+                    "flex-[0_0_100px] 2xs:flex-[0_0_120px] sm:flex-[0_0_20%] lg:flex-[0_0_16.666%] min-w-0 select-none",
+                  )}
+                >
+                  <div className={cn("mx-auto",
+                    variant === "eventDetail" ? "w-full aspect-333/45" : "w-[60px] 2xs:w-[80px] sm:w-[100px] xl:w-[140px] mx-auto aspect-2/1"
+                  )}>
+                    <Image
+                      src={item?.media?.url}
+                      alt={item?.media?.alt}
+                      width={151}
+                      height={57}
+                      className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        </RevealAnimation>
       </div>
     </section>
   );

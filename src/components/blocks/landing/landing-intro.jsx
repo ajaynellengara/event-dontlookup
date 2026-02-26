@@ -1,6 +1,7 @@
 
 import { Heading, Text } from "@/components/utils/typography";
 import parse from "html-react-parser";
+import RevealAnimation from "@/components/utils/reveal-animation";
 
 
 export default function LandingIntro({ data }) {
@@ -8,7 +9,7 @@ export default function LandingIntro({ data }) {
   return (
     <section className="w-full h-auto bg-[#121212] block py-8 sm:py-10 md:py-16 lg:py-24 xl:py-32 2xl:py-36 3xl:py-44">
       <div className="container">
-        <div className="flex flex-wrap">
+        <RevealAnimation className="flex flex-wrap">
           <div className="w-full sm:w-6/12 ">
             <div className="w-full">
               <Heading
@@ -33,7 +34,7 @@ export default function LandingIntro({ data }) {
               </Text>
             </div>
           </div>
-        </div>
+        </RevealAnimation>
       </div>
     </section>
   );

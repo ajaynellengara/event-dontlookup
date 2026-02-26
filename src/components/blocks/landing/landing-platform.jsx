@@ -3,6 +3,7 @@ import { Heading } from "@/components/utils/typography";
 
 import parse from "html-react-parser";
 import Image from "next/image";
+import RevealAnimation from "@/components/utils/reveal-animation";
 
 
 export default function LandingPlatform({ data }) {
@@ -38,7 +39,7 @@ export default function LandingPlatform({ data }) {
       </div>
       <div className="w-full h-1 bg-white mb-10 md:mb-14 lg:mb-16 xl:mb-20 2xl:mb-24 3xl:mb-32" />
       <div className="container">
-        <div className="flex flex-wrap">
+        <RevealAnimation className="flex flex-wrap">
           <div className="w-full sm:w-5/12">
             <div className="w-full">
               <Heading
@@ -61,7 +62,7 @@ export default function LandingPlatform({ data }) {
               </div>
             </div>
           </div>
-        </div>
+        </RevealAnimation>
       </div>
     </section >
   );
