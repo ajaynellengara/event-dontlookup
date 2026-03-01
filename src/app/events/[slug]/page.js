@@ -11,25 +11,18 @@ import EventsIndustryExposure from '@/components/blocks/events/events-industry-e
 import EventsJoinEvent from '@/components/blocks/events/events-join-event'
 import EventsGallery from '@/components/blocks/events/events-gallery'
 import Link from 'next/link'
-
-async function getEvent(slug) {
-    const res = await fetch(`http://localhost:3000/api/events/${slug}`, { cache: 'no-store' })
-    if (!res.ok) {
-        throw new Error('Failed to fetch event')
-    }
-    return res.json()
-}
+import { eventsData } from '@/lib/data/events-data'
 
 export default async function EventDetails({ params }) {
     const resolvedParams = await params
     const { slug } = resolvedParams
-    const event = await getEvent(slug).catch(() => null)
+    const event = eventsData.find((e) => e.slug === slug) || null
 
     if (!event) {
         return (
             <div className="min-h-screen bg-black flex items-center justify-center">
                 <div className="text-center">
-                    <h1 className="text-2xl font-bold">Event not found</h1>
+                    <h1 className="text-2xl font-bold text-white">Event not found</h1>
                     <Link href="/" className="text-indigo-600 hover:underline mt-4 block">Back to Home</Link>
                 </div>
             </div>
