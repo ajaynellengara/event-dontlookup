@@ -8,34 +8,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
-// Navigation Data
-const NAV_ITEMS = [
-    { label: "Home", external: false, href: "/" },
-    {
-        label: "About",
-        href: null,
-        submenu: [
-            { label: "About us", href: "https://dontlookup.fashion/about", external: true },
-            { label: "Our story", href: "https://dontlookup.fashion/our-story", external: true },
-            { label: "Name", href: "https://dontlookup.fashion/brand#name", external: true },
-            { label: "Brand", href: "https://dontlookup.fashion/brand", external: true },
-        ]
-    },
-    {
-        label: "Features",
-        href: null,
-        submenu: [
-            { label: "Features", href: "https://dontlookup.fashion/features", external: true },
-            { label: "Learning", href: "https://learning.dontlookup.fashion", external: true },
-            { label: "Tutors", href: "https://dontlookup.fashion/tutor", external: true },
-        ]
-    },
-    { label: "Business", external: true, href: "https://dontlookup.fashion/" },
-    { label: "Community", external: true, href: "https://dontlookup.fashion/" },
-    { label: "Help center", external: true, href: "https://dontlookup.fashion/help-center" },
-];
-
-export default function Navbar() {
+export default function Navbar({ headerData }) {
+    const NAV_ITEMS = headerData?.navigation || [];
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
@@ -93,8 +67,8 @@ export default function Navbar() {
                 <div className="container flex justify-between items-center">
                     {/* Logo Section */}
                     <div className={cn("relative h-auto block transition-all", scrolled ? "w-[100px] xl:w-[120px]" : "w-[130px] xl:w-[150px]")}>
-                        <LogoLink href="/" className="" visible={!scrolled} src="/images/brand-logo.svg" width={150} />
-                        <LogoLink href="/" className="" visible={scrolled} src="/images/brand-logo.svg" width={120} />
+                        <LogoLink href="/" className="" visible={!scrolled} src={headerData?.logo?.url || "/images/brand-logo.svg"} width={150} />
+                        <LogoLink href="/" className="" visible={scrolled} src={headerData?.logo?.url || "/images/brand-logo.svg"} width={120} />
                     </div>
 
                     {/* Right Controls */}

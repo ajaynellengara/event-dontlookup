@@ -45,7 +45,7 @@ export default function EventsOutcomes({ data }) {
                 <Text
                   as="div"
                   size="p1"
-                  className=" font-semibold text-white w-full p-[12px_15px] xl:p-[18px_22px] 2xl:p-[22px_26px] 3xl:p-[24px_30px] rounded-[10px] 2xl:rounded-[18px] my-5 2xl:my-6 3xl:my-7.5  bg-[#2F2E2E] group-hover:pl-10 transition-all duration-500 ease-in-out "
+                  className="font-normal [&_b]:font-semibold text-white w-full p-[12px_15px] xl:p-[18px_22px] 2xl:p-[22px_26px] 3xl:p-[24px_30px] rounded-[10px] 2xl:rounded-[18px] my-5 2xl:my-6 3xl:my-7.5  bg-[#2F2E2E] group-hover:pl-10 transition-all duration-500 ease-in-out "
                 >
                   {parse(item?.label)}
                 </Text>

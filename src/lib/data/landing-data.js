@@ -91,8 +91,8 @@ export const landingData = {
                     url: "/images/event-1.jpg",
                     alt: "Where Fashion meets Entrepreneurship"
                 },
-                slug: "where-fashion-meets-entrepreneurship",
-                date: "July 2025",
+                slug: "stylepreneur",
+                date: "28 Jan 2025",
                 category: "EVENT",
             },
             {
@@ -104,7 +104,7 @@ export const landingData = {
                     url: "/images/event-2.jpg",
                     alt: "where the next generation of models rise."
                 },
-                slug: "fashion-event-2",
+                slug: "#",
                 date: "July 2025",
                 category: "EVENT",
             },
@@ -117,7 +117,7 @@ export const landingData = {
                     url: "/images/event-3.jpg",
                     alt: "complete modeling career launchpad"
                 },
-                slug: "fashion-event-3",
+                slug: "model-forward-live",
                 date: "July 2025",
                 category: "EVENT",
             },
@@ -130,7 +130,7 @@ export const landingData = {
                     url: "/images/event-4.jpg",
                     alt: "Style Sprouts (8–10): Emotional expression, creativity & social skills"
                 },
-                slug: "fashion-event-4",
+                slug: "#",
                 date: "July 2025",
                 category: "EVENT",
             },
@@ -143,7 +143,7 @@ export const landingData = {
                     url: "/images/event-5.jpg",
                     alt: "Fashion Leaders (14–15): Leadership, decision-making & identity building"
                 },
-                slug: "fashion-event-5",
+                slug: "#",
                 date: "July 2025",
                 category: "EVENT",
             },
@@ -156,7 +156,7 @@ export const landingData = {
                     url: "/images/event-6.jpg",
                     alt: "Style Innovators (11–13): Confidence, empathy, collaboration & self-management"
                 },
-                slug: "fashion-event-6",
+                slug: "#",
                 date: "July 2025",
                 category: "EVENT",
             },
@@ -169,7 +169,7 @@ export const landingData = {
                     url: "/images/event-7.jpg",
                     alt: "ages 6 to 15, helping them discover their inner confidence and express their personality with style"
                 },
-                slug: "fashion-event-7",
+                slug: "#",
                 date: "July 2025",
                 category: "EVENT",
             },
@@ -182,7 +182,7 @@ export const landingData = {
                     url: "/images/event-8.jpg",
                     alt: "Step into a world where fashion meets opportunity."
                 },
-                slug: "fashion-event-8",
+                slug: "#",
                 date: "July 2025",
                 category: "EVENT",
             },

@@ -16,7 +16,7 @@ export default function EventsInfo({ data }) {
             <Heading
               as="h2"
               size="h3"
-              className="font-extralight font-sora text-[#D6A96F] mb-2 sm:mb-0"
+              className="font-extralight font-sora text-[#D6A96F] [&_span]:text-[#C58330] mb-2 sm:mb-0"
             >
               {parse(data?.description)}
             </Heading>
@@ -34,7 +34,7 @@ export default function EventsInfo({ data }) {
                 {data?.location &&
                   <EventInfoItem icon="/images/icon-events-loc.png" label={data?.location} />}
 
-                {data?.date && <EventInfoItem icon="/images/icon-events-cal.png" label={data?.date} />}
+                {data?.dateInfo && <EventInfoItem icon="/images/icon-events-cal.png" label={data?.dateInfo} />}
 
                 {data?.duration && <EventInfoItem icon="/images/icon-events-time.png" label={data?.duration} />}
 

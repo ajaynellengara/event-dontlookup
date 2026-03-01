@@ -1,0 +1,60 @@
+import EventsInfo from '@/components/blocks/events/events-info'
+import LandingHero from '@/components/blocks/landing/landing-hero'
+import LandingPartners from '@/components/blocks/landing/landing-partners'
+import LandingAppDownload from '@/components/blocks/landing/landing-app-download'
+import EventsExpertsSays from '@/components/blocks/events/events-experts-says'
+import EventsWhoIsThisFor from '@/components/blocks/events/events-who-is-this-for'
+import EventsOutcomes from '@/components/blocks/events/events-outcomes'
+import EventsMeetYourCoach from '@/components/blocks/events/events-meet-your-coach'
+import EventsWhatTrainedIn from '@/components/blocks/events/events-what-trained-in'
+import EventsIndustryExposure from '@/components/blocks/events/events-industry-exposure'
+import EventsJoinEvent from '@/components/blocks/events/events-join-event'
+import EventsGallery from '@/components/blocks/events/events-gallery'
+import Link from 'next/link'
+
+async function getEvent(slug) {
+    const res = await fetch(`http://localhost:3000/api/events/${slug}`, { cache: 'no-store' })
+    if (!res.ok) {
+        throw new Error('Failed to fetch event')
+    }
+    return res.json()
+}
+
+export default async function EventDetails({ params }) {
+    const resolvedParams = await params
+    const { slug } = resolvedParams
+    const event = await getEvent(slug).catch(() => null)
+
+    if (!event) {
+        return (
+            <div className="min-h-screen bg-black flex items-center justify-center">
+                <div className="text-center">
+                    <h1 className="text-2xl font-bold">Event not found</h1>
+                    <Link href="/" className="text-indigo-600 hover:underline mt-4 block">Back to Home</Link>
+                </div>
+            </div>
+        )
+    }
+
+    const data = event;
+
+    return (
+        <>
+            <LandingHero variant="parallax" data={data?.hero} />
+            <div className="relative z-10 bg-white">
+                <LandingPartners variant="eventDetail" data={data?.partners} />
+                <EventsInfo data={data?.eventInfo} />
+                <EventsExpertsSays data={data?.expertsSays} />
+                <LandingAppDownload data={data?.appDownload} />
+                <EventsWhoIsThisFor data={data?.whoIsThisFor} />
+                <EventsOutcomes data={data?.outcomes} />
+                <EventsMeetYourCoach data={data?.meetYourCoach} />
+                <EventsWhatTrainedIn data={data?.whatTrainedIn} />
+                <EventsIndustryExposure data={data?.industryExposure} />
+                <LandingAppDownload data={data?.appDownload} />
+                <EventsJoinEvent data={data?.joinEvent} />
+                <EventsGallery data={data?.gallery} />
+            </div>
+        </>
+    )
+}

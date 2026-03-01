@@ -3,6 +3,7 @@ import {
     ParallaxProvider,
     Parallax
 } from "react-scroll-parallax";
+import { useEffect } from "react";
 
 import Image from "next/image";
 import { Heading } from "@/components/utils/typography";
@@ -11,12 +12,18 @@ import { cn } from "@/lib/utils";
 import RevealAnimation from "@/components/utils/reveal-animation";
 
 export default function LandingHero({ data, variant = "default" }) {
+    useEffect(() => {
+        if (variant === "parallax") {
+            window.scrollTo(0, 0);
+        }
+    }, [variant]);
+
     return (
         <ParallaxProvider>
             <section className={cn("w-full overflow-hidden",
                 variant === "parallax" ? "sticky top-0 z-0 h-auto max-h-[768px] sm:max-h-[992px] xl:max-h-[1150px] 2xl:max-h-[1380px] 3xl:max-h-[1720px]" : "relative h-[576px] sm:h-[576px] xl:h-screen")}>
-                <Parallax speed={variant === "parallax" ? 5 : 0} className="w-full h-full">
-                    <picture className="w-full h-full block scale-[1.25] sm:scale-[1.15] origin-top">
+                <Parallax translateY={variant === "parallax" ? ['7%', '-7%'] : ['0%', '0%']} className="w-full h-full">
+                    <picture className="w-full h-full block scale-[1.15] origin-center">
                         <source
                             media="(max-width: 640px)"
                             srcSet={data?.backgroundMedia?.mediaUrl}
