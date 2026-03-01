@@ -13,6 +13,7 @@ import EventsMeetYourCoach from '@/components/blocks/events/events-meet-your-coa
 import EventsWhatTrainedIn from '@/components/blocks/events/events-what-trained-in'
 import EventsIndustryExposure from '@/components/blocks/events/events-industry-exposure'
 import EventsJoinEvent from '@/components/blocks/events/events-join-event'
+import EventsGallery from '@/components/blocks/events/events-gallery'
 
 async function getEvent(id) {
     const res = await fetch(`http://localhost:3000/api/events/${id}`, { cache: 'no-store' })
@@ -105,14 +106,15 @@ const data = {
         title: "Get the App. Book Your Spot.",
         description: "Dubai’s Professional Entry Point Into the Modeling Industry<br/>Not a workshop. Not a class. A real-world modeling career preparation experience.",
         longDescription: `<p><span>(About the event)</span></p><p>Model Forward Live by Don’t Look-Up Fashion is a live, in-person career launch. Experience designed for aspiring models who want to enter the industry correctly, with clarity, preparation, and confidence.</p><p>This experience bridges the gap between:<br/>“I want to be a model”<br/>and<br/>“I am ready for agencies, castings, and paid opportunities.”</p><p>No recorded lessons.No theory - only sessions.No unrealistic promises.<br/>Only real training, real exposure, and real industry alignment.</p>`,
-        price: "500 dhs",
+        price: "499 dhs",
         slug: "/model-forward-live",
         ctaLabel: "Unlock Instant Access",
     },
     expertsSays: {
         media: {
-            type: "image",
-            url: "/images/eventsExpertsSays-1.jpg",
+            type: "youtube",
+            url: "https://www.youtube.com/embed/_Gc6am5tZjg?autoplay=0&mute=0&loop=1&playlist=_Gc6am5tZjg&controls=1&showinfo=0&rel=0",
+            // url: "/images/eventsExpertsSays-1.jpg",
             alt: "eventsExpertsSays-1"
         },
         title: "SEE WHAT THE EXPERTS SAY",
@@ -281,7 +283,7 @@ const data = {
             },
         ],
     },
-    impact: {
+    gallery: {
         title: "VISIT THE MODEL FORWARD GALLERY",
         description: null,
         longDescription: "<h4>DontLookupFashion.Events</h4><p>Beyond events. Beyond borders. Beyond the runway.</p>",
@@ -341,7 +343,15 @@ const data = {
                     url: "/images/gallery-7.jpg",
                     alt: "gallery Image 7"
                 }
-            }
+            },
+            {
+                id: 8,
+                media: {
+                    type: "image",
+                    url: "/images/gallery-8.jpg",
+                    alt: "gallery Image 8"
+                }
+            },
         ]
     },
     contact: {
@@ -445,6 +455,7 @@ export default async function EventDetails({ params }) {
             <EventsIndustryExposure data={data?.industryExposure} />
             <LandingAppDownload data={data?.appDownload} />
             <EventsJoinEvent data={data?.joinEvent} />
+            <EventsGallery data={data?.gallery} />
         </>
     )
 }

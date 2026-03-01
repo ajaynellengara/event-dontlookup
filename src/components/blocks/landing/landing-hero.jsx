@@ -12,9 +12,9 @@ import RevealAnimation from "@/components/utils/reveal-animation";
 export default function LandingHero({ data, variant = "default" }) {
     return (
         <ParallaxProvider>
-            <section className={cn("w-full min-h-[576px] sm:min-h-[576px] xl:min-h-[576px] 2xl:min-h-[768px] 3xl:min-h-[900px] overflow-hidden relative",
-                variant === "eventDetail" ? "h-auto" : "h-[576px] sm:h-[576px] xl:h-screen")}>
-                <picture className="w-full h-full">
+            <section className={cn("w-full overflow-hidden relative",
+                variant === "eventDetail" ? "h-auto max-h-[768px] sm:max-h-[992px] xl:max-h-[1150px] 2xl:max-h-[1380px] 3xl:max-h-[1720px]" : "h-[576px] sm:h-[576px] xl:h-screen")}>
+                <picture className="w-full h-full block">
                     <source
                         media="(max-width: 640px)"
                         srcSet={data?.backgroundMedia?.mediaUrl}
@@ -26,7 +26,7 @@ export default function LandingHero({ data, variant = "default" }) {
                         // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
                         width={1920}
                         height={1080}
-                        className="w-full h-full object-cover object-bottom"
+                        className="w-full h-full min-h-[376px] sm:min-h-[420px] xl:min-h-[576px] 2xl:min-h-[768px] 3xl:min-h-[900px]  object-cover object-bottom"
                         priority
                     />
                 </picture>

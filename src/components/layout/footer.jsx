@@ -220,7 +220,6 @@ const localData = {
             slug: "#"
         },
     ]
-
 }
 
 const MediaQuery = dynamic(() => import("react-responsive"), {
@@ -371,12 +370,12 @@ export default function Footer({ footerData = localData, locale }) {
                     </div> */}
 
                     <div className="w-full mb-5 lg:mb-5 2xl:mb-6 3xl:mb-7">
-                        <div className="flex flex-wrap items-center justify-between -mx-1 sm:-mx-2 xl:-mx-3 [&>*]:p-1 sm:[&>*]:p-2 xl:[&>*]:px-3">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-between -mx-1 sm:-mx-2 xl:-mx-3 [&>*]:p-1 sm:[&>*]:p-2 xl:[&>*]:px-3">
                             {footerData?.partners?.map((item) => (
                                 <div key={item?.id}
                                 >
                                     <a href={item?.slug}
-                                        className="w-14 lg:w-12 2xl:w-18 3xl:w-22 h-auto block hover:scale-110 transition"
+                                        className="w-6 sm:w-14 lg:w-12 2xl:w-18 3xl:w-22 h-auto block hover:scale-110 transition"
                                         target="_blank">
                                         <Image
                                             src={item?.media?.url}

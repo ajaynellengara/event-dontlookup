@@ -29,7 +29,7 @@ export default function EventsIndustryExposure({ data }) {
         <Heading
           as="h2"
           size="h1"
-          className="text-center text-[#06B5B9] mb-3 xl:mb-15 2xl:mb-37 3xl:mb-40"
+          className="text-center text-[#06B5B9] mb-3 xl:mb-15 2xl:mb-17 3xl:mb-25"
         >
           {parse(data?.title)}
         </Heading>

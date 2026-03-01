@@ -1,13 +1,9 @@
 
 import { Heading } from "@/components/utils/typography";
-
 import parse from "html-react-parser";
 import Image from "next/image";
 
-
 export default function EventsExpertsSays({ data }) {
-
-
   return (
     <section className="w-full h-auto bg-[#121212] block pt-5 xl:pt-6 2xl:pt-8 3xl:pt-10 pb-[60px] xl:pb-[120px] 2xl:pb-[180px] 3xl:pb-[180px]">
       <Heading
@@ -17,7 +13,7 @@ export default function EventsExpertsSays({ data }) {
       >
         {parse(data?.title)}
       </Heading>
-      <div className="w-full h-auto aspect-1920/740 overflow-hidden block relative z-0">
+      <div className="w-full h-auto aspect-4/3 sm:aspect-1920/740 overflow-hidden block relative z-0">
         {data?.media?.type === "video" ? (
           <video
             autoPlay
@@ -28,6 +24,14 @@ export default function EventsExpertsSays({ data }) {
           >
             <source src={data?.media?.url} type="video/mp4" />
           </video>
+        ) : data?.media?.type === "youtube" ? (
+          <iframe
+            className="w-full h-full object-cover"
+            src={data?.media?.url}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            title="YouTube Video"
+          />
         ) : (
           <picture>
             <Image

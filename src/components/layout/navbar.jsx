@@ -37,6 +37,7 @@ const NAV_ITEMS = [
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [openSubmenu, setOpenSubmenu] = useState(null);
     const pathname = usePathname();
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -55,22 +56,25 @@ export default function Navbar() {
         document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
     }, [isMenuOpen]);
 
+    const toggleSubmenu = (index) => {
+        setOpenSubmenu(openSubmenu === index ? null : index);
+    };
+
     const menuVariants = {
-        closed: { opacity: 0, transition: { delay: 0.2, duration: 0.3 } },
-        open: { opacity: 1, transition: { duration: 0.3 } }
+        closed: { opacity: 0, x: "-100%", transition: { duration: 0.3 } },
+        open: { opacity: 1, x: 0, transition: { duration: 0.3 } }
     };
 
     return (
         <>
-            <header className={cn("fixed w-full h-[115px] flex items-center top-0 left-0 z-[100] transition-all duration-300", scrolled ? "bg-black/90 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-4")}>
+            <header className={cn("fixed w-full flex items-center top-0 left-0 z-[100] transition-all duration-500", scrolled ? "bg-[#000000e6] backdrop-blur-[20px] h-[100px] py-0" : "bg-transparent py-[15px]")}>
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
 
                     {/* Logo Section */}
                     {/* Logo Section */}
-                    <div className="relative w-[150px] h-auto">
-                        <LogoLink href="/" className="" visible={!scrolled && !isMenuOpen} src="/images/brand-logo.svg" width={150} />
-                        <LogoLink href="/" className="" visible={scrolled && !isMenuOpen} src="/images/brand-logo.svg" width={150} />
-                        <LogoLink href="/" className="" visible={isMenuOpen} src="/assets/images/logo.webp" width={50} />
+                    <div className={cn("relative h-auto block transition-all", scrolled ? "w-[40px] md:w-[80px]" : "w-[150px]")}>
+                        <LogoLink href="/" className="" visible={!scrolled} src="/images/brand-logo.svg" width={150} />
+                        <LogoLink href="/" className="" visible={scrolled} src="/assets/images/logo.webp" width={80} />
                     </div>
 
                     {/* Right Controls */}
@@ -85,11 +89,26 @@ export default function Navbar() {
                             </a>
                         </Button>
 
-                        <div className="cursor-pointer hover-target p-2 -mr-2" onClick={toggleMenu}>
-                            <div className={cn("w-[30px] h-[20px] relative flex flex-col justify-between items-end", isMenuOpen && "active")}>
-                                <span className={cn("h-[2px] w-full bg-white transition-transform duration-300 origin-right", isMenuOpen && "rotate-[-45deg] translate-y-[-1px]")} />
-                                <span className={cn("h-[2px] w-full max-w-1/2  bg-white transition-opacity duration-300", isMenuOpen && "opacity-0")} />
-                                <span className={cn("h-[2px] w-full bg-white transition-transform duration-300 origin-right", isMenuOpen && "rotate-[45deg] translate-y-[1px]")} />
+                        <div className="cursor-pointer p-2 -mr-2 group" onClick={toggleMenu}>
+                            <div className="w-[30px] h-[30px] relative z-[2] block pt-[7px]">
+                                <span className={cn(
+                                    "h-[2px] bg-white block mb-[7px] transition-all duration-200 ease-linear",
+                                    isMenuOpen
+                                        ? "w-[15px] [transform:translate(2px,4px)_rotate(45deg)]"
+                                        : "w-[16.5px] group-hover:w-[30px]"
+                                )} />
+                                <span className={cn(
+                                    "h-[2px] bg-white block mb-[7px] transition-all duration-500 ease-linear",
+                                    isMenuOpen
+                                        ? "w-[30px] [transform:translate(0,0)_rotate(-45deg)]"
+                                        : "w-[30px]"
+                                )} />
+                                <span className={cn(
+                                    "h-[2px] bg-white block transition-all duration-200 ease-linear float-right",
+                                    isMenuOpen
+                                        ? "w-[15px] [transform:translate(-3px,-3.5px)_rotate(45deg)]"
+                                        : "w-[16.5px] group-hover:w-[30px]"
+                                )} />
                             </div>
                         </div>
                     </div>
@@ -104,39 +123,56 @@ export default function Navbar() {
                         initial="closed"
                         animate="open"
                         exit="closed"
-                        className="fixed top-0 left-0 w-full h-full bg-[#101010] z-[98] flex items-center justify-center overflow-y-auto"
+                        className="fixed top-[100px] left-0 w-full h-[calc(100vh-100px)] bg-[#000000e6] backdrop-blur-[20px] z-[98] flex items-start overflow-y-auto px-10 py-10"
                     >
-                        <div className="text-center">
-                            <ul className="list-none p-0 m-0 space-y-6">
+                        <div className="w-full max-w-lg">
+                            <ul className="list-none p-0 m-0 space-y-2">
                                 {NAV_ITEMS.map((item, index) => (
-                                    <li key={index} className={cn("mb-6", item.submenu && "group relative")}>
+                                    <li key={index} className="border-b border-[#828080]">
                                         {item.submenu ? (
                                             <>
-                                                <div className="text-4xl sm:text-6xl font-black text-transparent text-stroke hover:text-white transition-colors uppercase cursor-pointer flex items-center justify-center gap-2 hover-target">
-                                                    {item.label} <span className="text-sm">▼</span>
+                                                <div
+                                                    className="w-full flex justify-between items-center cursor-pointer py-[25px]"
+                                                    onClick={() => toggleSubmenu(index)}
+                                                >
+                                                    <span className="font-primary text-[clamp(1.06rem,.43vw+.9rem,1.25rem)] text-white hover:text-[#06B5B9] transition-colors">
+                                                        {item.label}
+                                                    </span>
+                                                    <span className="text-white w-10 h-10 flex items-center justify-center text-xl">
+                                                        {openSubmenu === index ? "−" : "+"}
+                                                    </span>
                                                 </div>
-                                                <ul className="hidden group-hover:block mt-4 space-y-2">
-                                                    {item.submenu.map((subItem, subIndex) => (
-                                                        <li key={subIndex}>
-                                                            <Link
-                                                                href={subItem.href}
-                                                                target={subItem.external ? "_blank" : undefined}
-                                                                onClick={toggleMenu}
-                                                                className="text-xl text-gray-400 hover:text-white block hover-target"
-                                                            >
-                                                                {subItem.label}
-                                                            </Link>
-                                                        </li>
-                                                    ))}
-                                                </ul>
+                                                <AnimatePresence>
+                                                    {openSubmenu === index && (
+                                                        <motion.ul
+                                                            initial={{ height: 0, opacity: 0 }}
+                                                            animate={{ height: "auto", opacity: 1 }}
+                                                            exit={{ height: 0, opacity: 0 }}
+                                                            className="flex flex-col overflow-hidden pb-[25px] pl-4 space-y-3"
+                                                        >
+                                                            {item.submenu.map((subItem, subIndex) => (
+                                                                <li key={subIndex}>
+                                                                    <Link
+                                                                        href={subItem.href}
+                                                                        target={subItem.external ? "_blank" : undefined}
+                                                                        onClick={toggleMenu}
+                                                                        className="font-primary text-[clamp(.94rem,.14vw+.88rem,1rem)] text-white hover:text-[#06B5B9] block transition-colors"
+                                                                    >
+                                                                        {subItem.label}
+                                                                    </Link>
+                                                                </li>
+                                                            ))}
+                                                        </motion.ul>
+                                                    )}
+                                                </AnimatePresence>
                                             </>
                                         ) : (
                                             <Link
                                                 href={item.href}
                                                 onClick={toggleMenu}
                                                 className={cn(
-                                                    "text-4xl sm:text-6xl font-black text-transparent text-stroke hover:text-white transition-colors uppercase block hover-target",
-                                                    pathname === item.href && "active-nav"
+                                                    "py-[25px] flex items-center w-full font-primary text-[clamp(1.06rem,.43vw+.9rem,1.25rem)] text-white hover:text-[#06B5B9] transition-colors",
+                                                    pathname === item.href && "text-[#06B5B9]"
                                                 )}
                                             >
                                                 {item.label}
@@ -149,12 +185,6 @@ export default function Navbar() {
                     </motion.div>
                 )}
             </AnimatePresence>
-
-            <style jsx global>{`
-                .text-stroke { -webkit-text-stroke: 1px rgba(255,255,255,0.5); }
-                .text-stroke:hover { -webkit-text-stroke: 0; }
-                .active-nav { color: white !important; -webkit-text-stroke: 0 !important; }
-            `}</style>
         </>
     );
 }
@@ -162,7 +192,7 @@ export default function Navbar() {
 // Helper component for Logo Links to reduce boilerplate
 function LogoLink({ href, className, visible, src, width }) {
     return (
-        <Link href={href} className={cn("absolute top-1/2 -translate-y-1/2 transition-opacity duration-300 hover-target", className,
+        <Link href={href} className={cn("absolute top-1/2 -translate-y-1/2 transition-opacity duration-300", className,
             visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}>
             <Image src={src} width={width} height={109} loading="lazy" alt="logo" className="w-auto h-auto" />

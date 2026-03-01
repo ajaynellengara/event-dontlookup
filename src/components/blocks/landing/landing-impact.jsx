@@ -68,36 +68,36 @@ export default function LandingImpact({ data }) {
           </div>
         </RevealAnimation>
 
-        <RevealAnimation
-          ref={emblaRef}
-          className="w-full max-w-full overflow-hidden"
-          data-cursor="carousel"
-        >
-          <div className="flex touch-pan-y touch-pinch-zoom -mx-1.5 md:-mx-2 lg:-mx-3 2xl:-mx-4 3xl:-mx-5 *:p-1.5 md:*:p-2 lg:*:p-3 2xl:*:p-4 3xl:*:p-5">
-            {data?.items?.map((item, index) => (
-              <div
-                key={"parners" + item?.id}
-                className={cn(
-                  "flex-[0_0_220px] sm:flex-[0_0_376px] lg:flex-[0_0_480px] 2xl:flex-[0_0_540px] 3xl:flex-[0_0_640px] min-w-0 select-none",
-                )}
-              >
-                <div className="w-full h-auto aspect-48/46 overflow-hidden">
-                  <a
-                    href={item?.media?.url}
-                    data-fancybox="gallery"
-                    className="cursor-pointer"
-                  >
-                    <Image
-                      src={item?.media?.url}
-                      alt={item?.media?.alt}
-                      width={720}
-                      height={690}
-                      className="w-full h-full object-contain hover:scale-120 transition duration-300"
-                    />
-                  </a>
+        <RevealAnimation className="w-full max-w-full">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex touch-pan-y touch-pinch-zoom -mx-1.5 md:-mx-2 lg:-mx-3 2xl:-mx-4 3xl:-mx-5 *:p-1.5 md:*:p-2 lg:*:p-3 2xl:*:p-4 3xl:*:p-5">
+              {data?.items?.map((item, index) => (
+                <div
+                  key={"impact" + item?.id}
+                  className={cn(
+                    "flex-[0_0_220px] sm:flex-[0_0_376px] lg:flex-[0_0_480px] 2xl:flex-[0_0_540px] 3xl:flex-[0_0_640px] min-w-0 select-none",
+                  )}
+                >
+                  <div className="w-full h-auto aspect-48/46 overflow-hidden">
+                    <a
+                      href={item?.media?.url}
+                      data-fancybox="gallery"
+                      className="cursor-pointer block touch-pan-y"
+                      draggable={false}
+                    >
+                      <Image
+                        src={item?.media?.url}
+                        alt={item?.media?.alt}
+                        width={720}
+                        height={690}
+                        draggable={false}
+                        className="w-full h-full object-contain hover:scale-120 transition duration-300 select-none"
+                      />
+                    </a>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </RevealAnimation>
 

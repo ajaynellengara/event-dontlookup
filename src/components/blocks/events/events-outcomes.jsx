@@ -21,7 +21,7 @@ export default function EventsOutcomes({ data }) {
               >
                 {parse(data?.title)}
               </Heading>
-              <div className="w-full aspect-7/9 overflow-hidden">
+              <div className="w-full aspect-7/7 overflow-hidden">
                 <Image
                   src={data?.media?.url}
                   alt={data?.media?.alt}
