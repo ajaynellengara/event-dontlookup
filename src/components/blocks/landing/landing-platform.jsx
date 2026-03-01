@@ -19,9 +19,18 @@ export default function LandingPlatform({ data }) {
             muted
             playsInline
             className="w-full h-full object-cover"
+            poster={data?.media?.posterUrl}
           >
             <source src={data?.media?.url} type="video/mp4" />
           </video>
+        ) : data?.media?.type === "youtube" ? (
+          <iframe
+            className="w-full h-full object-cover"
+            src={data?.media?.url}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            title="YouTube Video"
+          />
         ) : (
           <picture>
             <Image

@@ -190,9 +190,11 @@ export const landingData = {
     },
     platform: {
         media: {
-            type: "image",
-            url: "/images/platform-bg.jpg",
-            alt: "Platform Background"
+            // type: "image",
+            type: "youtube",
+            posterUrl: "/images/platform-bg.jpg",
+            url: "https://www.youtube.com/embed/_Gc6am5tZjg?autoplay=0&mute=0&loop=1&playlist=_Gc6am5tZjg&controls=1&showinfo=0&rel=0",
+            alt: "Platform Background",
         },
         title: "A Platform Built for Fashion Events",
         description: "<p><b>DontLookupFashion.Events</b> allows fashion event creators to:</p><ul><li>List and showcase their fashion events</li><li>Reach a targeted fashion audience, not a general crowd</li><li>Sell tickets directly through a fashion-focused platform</li><li>Build visibility, credibility, and community.</li></ul><br/><p>For attendees, it’s simple:</p><p>Discover the right fashion events, connect with the right people, and experience fashion in a more meaningful way.</p>"

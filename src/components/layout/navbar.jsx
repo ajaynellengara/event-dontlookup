@@ -6,45 +6,63 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 // Navigation Data
 const NAV_ITEMS = [
-    { label: "Home", href: "/" },
+    { label: "Home", external: false, href: "/" },
     {
         label: "About",
         href: null,
         submenu: [
-            { label: "About us", href: "/about" },
-            { label: "Our story", href: "/our-story" },
-            { label: "Name", href: "/brand#name" },
-            { label: "Brand", href: "/brand" },
+            { label: "About us", href: "https://dontlookup.fashion/about", external: true },
+            { label: "Our story", href: "https://dontlookup.fashion/our-story", external: true },
+            { label: "Name", href: "https://dontlookup.fashion/brand#name", external: true },
+            { label: "Brand", href: "https://dontlookup.fashion/brand", external: true },
         ]
     },
     {
         label: "Features",
         href: null,
         submenu: [
-            { label: "Features", href: "/features" },
+            { label: "Features", href: "https://dontlookup.fashion/features", external: true },
             { label: "Learning", href: "https://learning.dontlookup.fashion", external: true },
-            { label: "Tutors", href: "/tutor" },
+            { label: "Tutors", href: "https://dontlookup.fashion/tutor", external: true },
         ]
     },
-    { label: "Business", href: "/" },
-    { label: "Community", href: "/" },
-    { label: "Help center", href: "/help-center" },
+    { label: "Business", external: true, href: "https://dontlookup.fashion/" },
+    { label: "Community", external: true, href: "https://dontlookup.fashion/" },
+    { label: "Help center", external: true, href: "https://dontlookup.fashion/help-center" },
 ];
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
     const [openSubmenu, setOpenSubmenu] = useState(null);
     const pathname = usePathname();
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50);
-        window.addEventListener("scroll", handleScroll);
+        let lastScrollY = window.scrollY;
+
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            setScrolled(currentScrollY > 50);
+
+            // Hide navbar if scrolling down and past 50px, show if scrolling up
+            if (currentScrollY > lastScrollY && currentScrollY > 50) {
+                setIsVisible(false);
+            } else {
+                setIsVisible(true);
+            }
+
+            lastScrollY = currentScrollY;
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -67,14 +85,16 @@ export default function Navbar() {
 
     return (
         <>
-            <header className={cn("fixed w-full flex items-center top-0 left-0 z-[100] transition-all duration-500", scrolled ? "bg-[#000000e6] backdrop-blur-[20px] h-[100px] py-0" : "bg-transparent py-[15px]")}>
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-
+            <header className={cn(
+                "fixed w-full flex items-center top-0 left-0 z-[100] transition-all duration-500",
+                scrolled ? "bg-[#000000e6] backdrop-blur-[20px] h-[100px] py-0" : " h-[var(--header-y-sm)] lg:h-[var(--header-y-lg)] 2xl:h-[var(--header-y-2xl)] 3xl:h-[var(--header-y-3xl)] bg-transparent py-[15px]",
+                !isVisible && !isMenuOpen ? "-translate-y-full" : "translate-y-0"
+            )}>
+                <div className="container flex justify-between items-center">
                     {/* Logo Section */}
-                    {/* Logo Section */}
-                    <div className={cn("relative h-auto block transition-all", scrolled ? "w-[40px] md:w-[80px]" : "w-[150px]")}>
+                    <div className={cn("relative h-auto block transition-all", scrolled ? "w-[100px] xl:w-[120px]" : "w-[130px] xl:w-[150px]")}>
                         <LogoLink href="/" className="" visible={!scrolled} src="/images/brand-logo.svg" width={150} />
-                        <LogoLink href="/" className="" visible={scrolled} src="/assets/images/logo.webp" width={80} />
+                        <LogoLink href="/" className="" visible={scrolled} src="/images/brand-logo.svg" width={120} />
                     </div>
 
                     {/* Right Controls */}
@@ -90,24 +110,24 @@ export default function Navbar() {
                         </Button>
 
                         <div className="cursor-pointer p-2 -mr-2 group" onClick={toggleMenu}>
-                            <div className="w-[30px] h-[30px] relative z-[2] block pt-[7px]">
+                            <div className="w-[30px] h-[30px] relative z-[2] flex flex-col items-end justify-center">
                                 <span className={cn(
-                                    "h-[2px] bg-white block mb-[7px] transition-all duration-200 ease-linear",
+                                    "h-[1px] bg-white block mb-[7px] transition-all duration-300 ease-in-out origin-center",
                                     isMenuOpen
-                                        ? "w-[15px] [transform:translate(2px,4px)_rotate(45deg)]"
-                                        : "w-[16.5px] group-hover:w-[30px]"
+                                        ? "w-[30px] translate-y-[8px] rotate-45"
+                                        : "w-full group-hover:w-[30px]"
                                 )} />
                                 <span className={cn(
-                                    "h-[2px] bg-white block mb-[7px] transition-all duration-500 ease-linear",
+                                    "h-[1px] bg-white block mb-[7px] transition-all duration-300 ease-in-out origin-center",
                                     isMenuOpen
-                                        ? "w-[30px] [transform:translate(0,0)_rotate(-45deg)]"
-                                        : "w-[30px]"
+                                        ? "w-[30px] opacity-0"
+                                        : "w-1/2"
                                 )} />
                                 <span className={cn(
-                                    "h-[2px] bg-white block transition-all duration-200 ease-linear float-right",
+                                    "h-[1px] bg-white block transition-all duration-300 ease-in-out origin-center",
                                     isMenuOpen
-                                        ? "w-[15px] [transform:translate(-3px,-3.5px)_rotate(45deg)]"
-                                        : "w-[16.5px] group-hover:w-[30px]"
+                                        ? "w-[30px] -translate-y-[8px] -rotate-45"
+                                        : "w-full group-hover:w-[30px]"
                                 )} />
                             </div>
                         </div>
@@ -123,64 +143,74 @@ export default function Navbar() {
                         initial="closed"
                         animate="open"
                         exit="closed"
-                        className="fixed top-[100px] left-0 w-full h-[calc(100vh-100px)] bg-[#000000e6] backdrop-blur-[20px] z-[98] flex items-start overflow-y-auto px-10 py-10"
+                        className="fixed top-0 right-0 w-full h-screen bg-black backdrop-blur-[20px] z-[98] flex overflow-y-auto"
                     >
-                        <div className="w-full max-w-lg">
-                            <ul className="list-none p-0 m-0 space-y-2">
-                                {NAV_ITEMS.map((item, index) => (
-                                    <li key={index} className="border-b border-[#828080]">
-                                        {item.submenu ? (
-                                            <>
-                                                <div
-                                                    className="w-full flex justify-between items-center cursor-pointer py-[25px]"
-                                                    onClick={() => toggleSubmenu(index)}
-                                                >
-                                                    <span className="font-primary text-[clamp(1.06rem,.43vw+.9rem,1.25rem)] text-white hover:text-[#06B5B9] transition-colors">
-                                                        {item.label}
-                                                    </span>
-                                                    <span className="text-white w-10 h-10 flex items-center justify-center text-xl">
-                                                        {openSubmenu === index ? "−" : "+"}
-                                                    </span>
+                        <div className="container">
+                            <div className="w-auto h-full overflow-y-auto pt-[var(--header-y-sm)] lg:pt-[var(--header-y-lg)] 2xl:pt-[var(--header-y-2xl)] 3xl:pt-[var(--header-y-3xl)] ">
+                                <ul className="max-h-[calc(100vh-var(--header-y-sm))] lg:max-h-[calc(100vh-var(--header-y-lg))] 2xl:max-h-[calc(100vh-var(--header-y-2xl))] 3xl:max-h-[calc(100vh-var(--header-y-3xl))] overflow-y-auto list-none flex flex-col gap-y-2 py-10 m-0">
+                                    {NAV_ITEMS.map((item, index) => (
+                                        <li key={index}
+                                            className="w-auto"
+                                        >
+                                            {item.submenu ? (
+                                                <div>
+                                                    <div
+                                                        className="text-[32px] xl:text-[48px] 2xl:text-[56px] 3xl:text-[64px] leading-none font-normal uppercase text-white flex gap-x-2 items-center cursor-pointer py-1.5"
+                                                        onClick={() => toggleSubmenu(index)}
+                                                    >
+                                                        <span>
+                                                            {item.label}
+                                                        </span>
+                                                        <span>
+                                                            {openSubmenu === index ? (
+                                                                <ChevronUp className="size-6 xl:size-10 font-normal text-white/40 hover:text-white transition duration-300" />
+                                                            ) : (
+                                                                <ChevronDown className="size-6 xl:size-10 font-normal text-white/40 hover:text-white transition duration-300" />
+                                                            )
+                                                            }
+                                                        </span>
+                                                    </div>
+                                                    <AnimatePresence>
+                                                        {openSubmenu === index && (
+                                                            <motion.ul
+                                                                initial={{ height: 0, opacity: 0 }}
+                                                                animate={{ height: "auto", opacity: 1 }}
+                                                                exit={{ height: 0, opacity: 0 }}
+                                                                className="flex flex-col overflow-hidden my-3 space-y-3"
+                                                            >
+                                                                {item.submenu.map((subItem, subIndex) => (
+                                                                    <li key={subIndex}>
+                                                                        <Link
+                                                                            href={subItem.href}
+                                                                            target={subItem.external ? "_blank" : undefined}
+                                                                            onClick={toggleMenu}
+                                                                            className="text-[18px] xl:text-[28px] 2xl:text-[38px] 3xl:text-[48px] font-primary text-white/70 hover:text-[#06B5B9] block transition-colors"
+                                                                        >
+                                                                            {subItem.label}
+                                                                        </Link>
+                                                                    </li>
+                                                                ))}
+                                                            </motion.ul>
+                                                        )}
+                                                    </AnimatePresence>
                                                 </div>
-                                                <AnimatePresence>
-                                                    {openSubmenu === index && (
-                                                        <motion.ul
-                                                            initial={{ height: 0, opacity: 0 }}
-                                                            animate={{ height: "auto", opacity: 1 }}
-                                                            exit={{ height: 0, opacity: 0 }}
-                                                            className="flex flex-col overflow-hidden pb-[25px] pl-4 space-y-3"
-                                                        >
-                                                            {item.submenu.map((subItem, subIndex) => (
-                                                                <li key={subIndex}>
-                                                                    <Link
-                                                                        href={subItem.href}
-                                                                        target={subItem.external ? "_blank" : undefined}
-                                                                        onClick={toggleMenu}
-                                                                        className="font-primary text-[clamp(.94rem,.14vw+.88rem,1rem)] text-white hover:text-[#06B5B9] block transition-colors"
-                                                                    >
-                                                                        {subItem.label}
-                                                                    </Link>
-                                                                </li>
-                                                            ))}
-                                                        </motion.ul>
+                                            ) : (
+                                                <Link
+                                                    href={item.href}
+                                                    onClick={toggleMenu}
+                                                    target={item.external ? "_blank" : undefined}
+                                                    className={cn(
+                                                        "text-[32px] xl:text-[48px] 2xl:text-[56px] 3xl:text-[64px] leading-none font-normal uppercase text-white py-1.5 flex items-center hover:text-[#06B5B9] transition-colors",
+                                                        pathname === item.href && "text-[#06B5B9]"
                                                     )}
-                                                </AnimatePresence>
-                                            </>
-                                        ) : (
-                                            <Link
-                                                href={item.href}
-                                                onClick={toggleMenu}
-                                                className={cn(
-                                                    "py-[25px] flex items-center w-full font-primary text-[clamp(1.06rem,.43vw+.9rem,1.25rem)] text-white hover:text-[#06B5B9] transition-colors",
-                                                    pathname === item.href && "text-[#06B5B9]"
-                                                )}
-                                            >
-                                                {item.label}
-                                            </Link>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
+                                                >
+                                                    {item.label}
+                                                </Link>
+                                            )}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                     </motion.div>
                 )}

@@ -29,59 +29,59 @@ const localData = {
         {
             title: "About us",
             links: [
-                { label: "Our Story", href: "/our-story" },
-                { label: "About us", href: "/about" },
-                { label: "Careers", href: "/careers" },
-                { label: "Brand Assets", href: "/brand" },
-                { label: "Our Name", href: "/brand#name" },
-                { label: "Leadership", href: "/" },
+                { label: "Our Story", href: "https://dontlookup.fashion/our-story", external: true },
+                { label: "About us", href: "https://dontlookup.fashion/about", external: true },
+                { label: "Careers", href: "https://dontlookup.fashion/careers", external: true },
+                { label: "Brand Assets", href: "https://dontlookup.fashion/brand", external: true },
+                { label: "Our Name", href: "https://dontlookup.fashion/brand#name", external: true },
+                { label: "Leadership", href: "https://dontlookup.fashion/leadership", external: true },
             ]
         },
         {
             title: "Features",
             links: [
-                { label: "Feeds", href: "/features" },
-                { label: "Explore", href: "/features" },
-                { label: "DLU Verified", href: "/features" },
-                { label: "Flicks", href: "/features" },
+                { label: "Feeds", href: "https://dontlookup.fashion/features", external: true },
+                { label: "Explore", href: "https://dontlookup.fashion/features", external: true },
+                { label: "DLU Verified", href: "https://dontlookup.fashion/features", external: true },
+                { label: "Flicks", href: "https://dontlookup.fashion/features", external: true },
             ]
         },
         {
             title: "Services",
             links: [
-                { label: "Tutors", href: "/tutor" },
+                { label: "Tutors", href: "https://dontlookup.fashion/tutor", external: true },
                 { label: "Learn", href: "https://learning.dontlookup.fashion/learning", external: true },
             ]
         },
         {
             title: "Community",
             links: [
-                { label: "Anti - Bullying", href: "/" },
-                { label: "Parents", href: "/" },
-                { label: "Programs", href: "/" },
+                { label: "Anti - Bullying", href: "https://dontlookup.fashion/anti-bullying", external: true },
+                { label: "Parents", href: "https://dontlookup.fashion/parents", external: true },
+                { label: "Programs", href: "https://dontlookup.fashion/programs", external: true },
             ]
         },
         {
             title: "Business",
             links: [
-                { label: "Advertising", href: "/" },
-                { label: "Partners", href: "/" },
+                { label: "Advertising", href: "https://dontlookup.fashion/advertising", external: true },
+                { label: "Partners", href: "https://dontlookup.fashion/partners", external: true },
             ]
         }
     ],
     quickLinks: [
-        { label: "Blog", href: "/blog" },
-        { label: "Brand", href: "/brand" },
-        { label: "Creator", href: "/creator" },
-        { label: "Design", href: "/design" },
-        { label: "Fboxx", href: "/fboxx" },
-        { label: "Corp", href: "/corp" },
-        { label: "Help", href: "/help" },
-        { label: "Privacy Policy", href: "/privacy-policy" },
-        { label: "Terms of Service", href: "/terms-of-service" },
-        { label: "API", href: "/api" },
-        { label: "Sitemap", href: "/sitemap" },
-        { label: "Language", href: "/language" },
+        { label: "About", href: "https://dontlookup.fashion/about", external: true },
+        { label: "Our Story", href: "https://dontlookup.fashion/our-story", external: true },
+        { label: "Help", href: "https://dontlookup.fashion/help-center", external: true },
+        { label: "Blog", href: "https://dontlookup.fashion/", external: true },
+        { label: "Learn", href: "https://learning.dontlookup.fashion/learning", external: true },
+        { label: "Tutors", href: "https://dontlookup.fashion/tutor", external: true },
+        { label: "Terms", href: "https://dontlookup.fashion/terms-and-conditions", external: true },
+        { label: "Privacy", href: "https://dontlookup.fashion/privacy-policy", external: true },
+        { label: "DLU Verified", href: "https://dontlookup.fashion/", external: true },
+        { label: "Sitemap", href: "https://dontlookup.fashion/", external: true },
+        { label: "API", href: "https://dontlookup.fashion/", external: true },
+        { label: "DLU", href: "https://dontlookup.fashion/", external: true },
     ],
     copyright: "Conditions of Use. Privacy Notice consumer Health Data Privacy Disclosure, Your Ads Privacy Choices",
     designedBy: "Dontlookup. or its affiliates",
@@ -274,7 +274,7 @@ export default function Footer({ footerData = localData, locale }) {
                                                             size="p3"
                                                             className="font-normal text-[#a0a0a0] transition [&>a]:hover:text-[#30C2C5] my-0.5 xl:my-1.5"
                                                         >
-                                                            <Link href={item?.href}>{item?.label}</Link>
+                                                            <Link href={item?.href} target={item.external ? "_blank" : undefined}>{item?.label}</Link>
                                                         </Text>
                                                     </div>
                                                 ))}
@@ -296,7 +296,7 @@ export default function Footer({ footerData = localData, locale }) {
                                                             size="p3"
                                                             className="font-normal text-[#a0a0a0] transition [&>a]:hover:text-[#30C2C5] my-0.5 xl:my-1"
                                                         >
-                                                            <Link href={item?.href}>{item?.label}</Link>
+                                                            <Link href={item?.href} target={item.external ? "_blank" : undefined}>{item?.label}</Link>
                                                         </Text>
                                                     </div>
                                                 ))}
@@ -342,7 +342,7 @@ export default function Footer({ footerData = localData, locale }) {
                                         size="p3"
                                         className="max-lg:text-[14px] max-lg:text-center font-normal text-white transition [&>a]:hover:text-[#30C2C5] my-0.5 xl:my-1"
                                     >
-                                        <Link href={item?.href}>{item?.label}</Link>
+                                        <Link href={item?.href} target={item.external ? "_blank" : undefined}>{item?.label}</Link>
                                     </Text>
                                 </div>
                             ))}

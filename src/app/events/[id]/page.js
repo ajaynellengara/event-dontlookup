@@ -1,10 +1,6 @@
 import EventsInfo from '@/components/blocks/events/events-info'
 import LandingHero from '@/components/blocks/landing/landing-hero'
 import LandingPartners from '@/components/blocks/landing/landing-partners'
-import Link from 'next/link'
-
-import { landingData } from '@/lib/data/landing-data'
-import LandingPlatform from '@/components/blocks/landing/landing-platform'
 import LandingAppDownload from '@/components/blocks/landing/landing-app-download'
 import EventsExpertsSays from '@/components/blocks/events/events-experts-says'
 import EventsWhoIsThisFor from '@/components/blocks/events/events-who-is-this-for'
@@ -14,6 +10,7 @@ import EventsWhatTrainedIn from '@/components/blocks/events/events-what-trained-
 import EventsIndustryExposure from '@/components/blocks/events/events-industry-exposure'
 import EventsJoinEvent from '@/components/blocks/events/events-join-event'
 import EventsGallery from '@/components/blocks/events/events-gallery'
+import { landingData } from '@/lib/data/landing-data'
 
 async function getEvent(id) {
     const res = await fetch(`http://localhost:3000/api/events/${id}`, { cache: 'no-store' })
@@ -443,19 +440,22 @@ export default async function EventDetails({ params }) {
 
     return (
         <>
-            <LandingHero variant="eventDetail" data={data?.hero} />
-            <LandingPartners variant="eventDetail" data={data?.partners} />
-            <EventsInfo data={data?.eventInfo} />
-            <EventsExpertsSays data={data?.expertsSays} />
-            <LandingAppDownload data={data?.appDownload} />
-            <EventsWhoIsThisFor data={data?.whoIsThisFor} />
-            <EventsOutcomes data={data?.outcomes} />
-            <EventsMeetYourCoach data={data?.meetYourCoach} />
-            <EventsWhatTrainedIn data={data?.whatTrainedIn} />
-            <EventsIndustryExposure data={data?.industryExposure} />
-            <LandingAppDownload data={data?.appDownload} />
-            <EventsJoinEvent data={data?.joinEvent} />
-            <EventsGallery data={data?.gallery} />
+            <LandingHero variant="parallax" data={data?.hero} />
+            {/* <LandingHero data={data?.hero} /> */}
+            <div className="relative z-10 bg-white">
+                <LandingPartners variant="eventDetail" data={data?.partners} />
+                <EventsInfo data={data?.eventInfo} />
+                <EventsExpertsSays data={data?.expertsSays} />
+                <LandingAppDownload data={data?.appDownload} />
+                <EventsWhoIsThisFor data={data?.whoIsThisFor} />
+                <EventsOutcomes data={data?.outcomes} />
+                <EventsMeetYourCoach data={data?.meetYourCoach} />
+                <EventsWhatTrainedIn data={data?.whatTrainedIn} />
+                <EventsIndustryExposure data={data?.industryExposure} />
+                <LandingAppDownload data={data?.appDownload} />
+                <EventsJoinEvent data={data?.joinEvent} />
+                <EventsGallery data={data?.gallery} />
+            </div>
         </>
     )
 }
