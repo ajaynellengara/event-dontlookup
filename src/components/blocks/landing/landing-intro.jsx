@@ -9,7 +9,7 @@ export default function LandingIntro({ data }) {
   return (
     <section className="w-full h-auto bg-[#121212] block py-8 sm:py-10 md:py-16 lg:py-24 xl:py-32 2xl:py-36 3xl:py-44">
       <div className="container">
-        <RevealAnimation className="flex flex-wrap">
+        <RevealAnimation className="flex flex-wrap -mx-3 xl:-mx-5 [&>div]:p-3 xl:[&>div]:p-5">
           <div className="w-full sm:w-6/12 ">
             <div className="w-full">
               <Heading

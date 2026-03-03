@@ -57,7 +57,7 @@ export default function LandingAppDownload({ data }) {
                     className="p-0 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] xl:max-w-[120px] 2xl:max-w-[140px] 3xl:max-w-[160px]"
                     asChild
                   >
-                    <Link href={data?.appLinkPlayStore}>
+                    <Link href={data?.appLinkPlayStore} target="_blank" rel="noopener noreferrer">
                       <Image
                         src={"/images/app-download-playstore.avif"}
                         alt={"app-download-playstore"}
@@ -73,7 +73,7 @@ export default function LandingAppDownload({ data }) {
                     className="p-0 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] xl:max-w-[120px] 2xl:max-w-[140px] 3xl:max-w-[160px]"
                     asChild
                   >
-                    <Link href={data?.appLinkAppStore}>
+                    <Link href={data?.appLinkAppStore} target="_blank" rel="noopener noreferrer">
                       <Image
                         src={"/images/app-download-appstore.avif"}
                         alt={"app-download-playstore"}

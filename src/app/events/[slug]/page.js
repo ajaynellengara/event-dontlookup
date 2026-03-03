@@ -34,7 +34,7 @@ export default async function EventDetails({ params }) {
     return (
         <>
             <LandingHero variant="parallax" data={data?.hero} />
-            <div className="relative z-10 bg-white">
+            <div className="relative z-2 bg-white flex flex-col">
                 <LandingPartners variant="eventDetail" data={data?.partners} />
                 <EventsInfo data={data?.eventInfo} />
                 <EventsExpertsSays data={data?.expertsSays} />

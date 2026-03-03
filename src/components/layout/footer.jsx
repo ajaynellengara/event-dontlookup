@@ -19,7 +19,7 @@ export default function Footer({ footerData, locale }) {
     const { socialLinks } = footerData;
 
     return (
-        <footer className="w-full py-8 xl:pt-[70px] xl:pb-[20px] 2xl:pt-[100px] 2xl:pb-[30px] 3xl:pt-[135px] 3xl:pb-[40px] overflow-hidden bg-[#2d2d2d] relative z-0">
+        <footer className="w-full py-8 xl:pt-[70px] xl:pb-[20px] 2xl:pt-[100px] 2xl:pb-[30px] 3xl:pt-[135px] 3xl:pb-[40px] overflow-hidden bg-[#2d2d2d] relative z-1">
             <div className="container">
                 <div className="flex flex-wrap -mx-1 sm:-mx-2 xl:-mx-3 [&>*]:p-1 sm:[&>*]:p-2 xl:[&>*]:px-3">
                     {footerData?.logoWhiteUrl && (
@@ -158,19 +158,19 @@ export default function Footer({ footerData, locale }) {
                     </div> */}
 
                     <div className="w-full mb-5 lg:mb-5 2xl:mb-6 3xl:mb-7">
-                        <div className="flex flex-wrap items-center justify-center lg:justify-between -mx-1 sm:-mx-2 xl:-mx-3 [&>*]:p-1 sm:[&>*]:p-2 xl:[&>*]:px-3">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-between -mx-2 sm:-mx-2 xl:-mx-3 [&>*]:p-2 sm:[&>*]:p-2 xl:[&>*]:px-3 not:hover:grayscale">
                             {footerData?.partners?.map((item) => (
                                 <div key={item?.id}
                                 >
                                     <a href={item?.slug}
-                                        className="w-6 sm:w-14 lg:w-12 2xl:w-18 3xl:w-22 h-auto block hover:scale-110 transition"
+                                        className="w-12 sm:w-14 lg:w-16 2xl:w-20 3xl:w-22 h-auto aspect-2/1 block hover:scale-110 transition hover:grayscale-0 "
                                         target="_blank">
                                         <Image
                                             src={item?.media?.url}
                                             alt={item?.media?.alt}
                                             width={80}
                                             height={80}
-                                            className="w-full h-full block hover:scale-110 transition"
+                                            className="w-full h-full block hover:scale-120 transition object-contain"
                                             unoptimized
                                         />
                                     </a>

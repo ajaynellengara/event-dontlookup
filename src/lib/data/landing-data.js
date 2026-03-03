@@ -2,12 +2,32 @@
 export const landingData = {
     hero: {
         title: null,
-        backgroundMedia: {
-            type: "image",
-            url: "/images/home-hero-1.jpg",
-            mediaUrl: "/images/home-hero-1.jpg",
-            alt: "Hero Background"
-        }
+        backgroundMedia: [
+            {
+                id: 1,
+                url: "/images/home-hero-1.jpg",
+                mediaUrl: "/images/home-hero-1.jpg",
+                alt: "Hero Background 1"
+            },
+            {
+                id: 2,
+                url: "/images/home-hero-2.jpg",
+                mediaUrl: "/images/home-hero-2.jpg",
+                alt: "Hero Background 2"
+            },
+            {
+                id: 3,
+                url: "/images/home-hero-3.jpg",
+                mediaUrl: "/images/home-hero-3.jpg",
+                alt: "Hero Background 3"
+            },
+            {
+                id: 4,
+                url: "/images/home-hero-4.jpg",
+                mediaUrl: "/images/home-hero-4.jpg",
+                alt: "Hero Background 4"
+            }
+        ]
     },
     partners: {
         title: null,
@@ -71,8 +91,8 @@ export const landingData = {
         title: "Get the App. Book Your Spot.",
         description: "Your all-in-one platform to explore opportunities, book experiences, and stay connected.",
         qrCodeImage: "/images/qr-code.png",
-        appLinkPlayStore: "#",
-        appLinkAppStore: "#"
+        appLinkPlayStore: "https://play.google.com/store/apps/details?id=com.dlu.app&pcampaignid=web_share",
+        appLinkAppStore: "https://apps.apple.com/gb/app/dont-look-up-fashion/id6746240383"
     },
     intro: {
         title: "Where Fashion Events Become Movements",
@@ -84,32 +104,7 @@ export const landingData = {
         items: [
             {
                 id: "1",
-                title: "Where Fashion meets Entrepreneurship",
-                eventLogo: "/images/event-logo-1.svg",
-                media: {
-                    type: "image",
-                    url: "/images/event-1.jpg",
-                    alt: "Where Fashion meets Entrepreneurship"
-                },
-                slug: "stylepreneur",
-                date: "28 Jan 2025",
-                category: "EVENT",
-            },
-            {
-                id: "2",
-                title: "where the next generation of models rise.",
-                eventLogo: "/images/event-logo-2.svg",
-                media: {
-                    type: "image",
-                    url: "/images/event-2.jpg",
-                    alt: "where the next generation of models rise."
-                },
-                slug: "#",
-                date: "July 2025",
-                category: "EVENT",
-            },
-            {
-                id: "3",
+                isActive: true,
                 title: "complete modeling career launchpad",
                 eventLogo: "/images/event-logo-3.svg",
                 media: {
@@ -122,7 +117,36 @@ export const landingData = {
                 category: "EVENT",
             },
             {
+                id: "2",
+                isActive: true,
+                title: "Where Fashion meets Entrepreneurship",
+                eventLogo: "/images/event-logo-1.svg",
+                media: {
+                    type: "image",
+                    url: "/images/event-1.jpg",
+                    alt: "Where Fashion meets Entrepreneurship"
+                },
+                slug: "stylepreneur",
+                date: "28 Jan 2025",
+                category: "EVENT",
+            },
+            {
+                id: "3",
+                isActive: false,
+                title: "where the next generation of models rise.",
+                eventLogo: "/images/event-logo-2.svg",
+                media: {
+                    type: "image",
+                    url: "/images/event-2.jpg",
+                    alt: "where the next generation of models rise."
+                },
+                slug: "#",
+                date: "July 2025",
+                category: "EVENT",
+            },
+            {
                 id: "4",
+                isActive: false,
                 title: "Style Sprouts (8–10): Emotional expression, creativity & social skills",
                 eventLogo: "/images/event-logo-4.svg",
                 media: {
@@ -136,6 +160,7 @@ export const landingData = {
             },
             {
                 id: "5",
+                isActive: false,
                 title: "Fashion Leaders (14–15): Leadership, decision-making & identity building",
                 eventLogo: "/images/event-logo-4.svg",
                 media: {
@@ -149,6 +174,7 @@ export const landingData = {
             },
             {
                 id: "6",
+                isActive: false,
                 title: "Style Innovators (11–13): Confidence, empathy, collaboration & self-management",
                 eventLogo: "/images/event-logo-4.svg",
                 media: {

@@ -6,6 +6,7 @@ import parse from "html-react-parser";
 import Image from "next/image";
 import Link from "next/link";
 import RevealAnimation from "@/components/utils/reveal-animation";
+import { cn } from "@/lib/utils";
 
 
 export default function LandingFeaturedEvents({ data }) {
@@ -39,8 +40,12 @@ export default function LandingFeaturedEvents({ data }) {
             <div className="flex flex-wrap -mx-2 sm:-mx-2 md:-mx-4 lg:-mx-6 xl:-mx-8 2xl:-mx-10 3xl:-mx-12">
               {data?.items?.map((item, index) => (
                 <div key={item?.id}
-                  className="w-full 3xs:w-1/2 2xs:w-1/3 sm:w-1/3">
-                  <div className="group w-full h-auto block hover:bg-[#3a3a3a] p-2 sm:p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 3xl:p-12 rounded-[8px] transition-all duration-300 hover:[&>div]:scale-105">
+                  className="w-full 3xs:w-1/2 2xs:w-1/3 sm:w-1/3"
+                  title={item?.isActive ? item?.title : "Coming Soon"}
+                >
+                  <div className={cn("group w-full h-auto block hover:bg-[#3a3a3a] p-2 sm:p-2 md:p-4 lg:p-6 xl:p-8 2xl:p-10 3xl:p-12 rounded-[8px] transition-all duration-300 hover:[&>div]:scale-105",
+                    !item?.isActive && "opacity-30 grayscale pointer-events-none")}
+                  >
                     <div className="w-full rounded-[8px] xl:rounded-[10px] aspect-396/510 overflow-hidden mb-3 md:mb-3.5 lg:mb-4 xl:mb-4 2xl:mb-5 3xl:mb-6 transition-all duration-300">
                       <Image
                         src={item?.media?.url}
