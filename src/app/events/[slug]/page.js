@@ -13,6 +13,13 @@ import EventsGallery from '@/components/blocks/events/events-gallery'
 import Link from 'next/link'
 import { eventsData } from '@/lib/data/events-data'
 
+export const metadata = {
+    title: 'Fashion Events in Dubai| UAE| Dontlookup Fashion Events',
+    description: 'Discover exclusive fashion events in Dubai, UAE with Dontlookup Fashion Events. Join runway shows, designer showcases, modeling workshops, and fashion networking.',
+}
+
+
+
 export default async function EventDetails({ params }) {
     const resolvedParams = await params
     const { slug } = resolvedParams

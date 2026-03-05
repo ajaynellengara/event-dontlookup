@@ -109,7 +109,7 @@ export const landingData = {
                 eventLogo: "/images/event-logo-3.svg",
                 media: {
                     type: "image",
-                    url: "/images/event-3.jpg",
+                    url: "/images/event-3-1.jpg",
                     alt: "complete modeling career launchpad"
                 },
                 slug: "model-forward-live",
@@ -309,27 +309,27 @@ export const landingData = {
                 media: {
                     type: "image",
                     url: "/images/home-social-1.svg",
-                    alt: "Facebook"
+                    alt: "Instagram"
                 },
-                slug: "#"
+                slug: "https://www.instagram.com/dontlookupfashion.events/"
             },
             {
                 id: 2,
                 media: {
                     type: "image",
                     url: "/images/home-social-2.svg",
-                    alt: "Instagram"
+                    alt: "Facebook"
                 },
-                slug: "#"
+                slug: "https://www.facebook.com/dontlookupfashionevents"
             },
             {
                 id: 3,
                 media: {
                     type: "image",
                     url: "/images/home-social-3.svg",
-                    alt: "Twitter"
+                    alt: "Pinterest"
                 },
-                slug: "#"
+                slug: "https://www.pinterest.com/dontlookupfashionevents/"
             },
             {
                 id: 4,
@@ -338,7 +338,7 @@ export const landingData = {
                     url: "/images/home-social-4.svg",
                     alt: "LinkedIn"
                 },
-                slug: "#"
+                slug: "https://www.linkedin.com/showcase/dontlookup-fashion-events/about/?viewAsMember=true"
             },
             {
                 id: 5,
@@ -347,16 +347,16 @@ export const landingData = {
                     url: "/images/home-social-5.svg",
                     alt: "YouTube"
                 },
-                slug: "#"
+                slug: "https://www.youtube.com/@DontlookupFashionEvents"
             },
             {
                 id: 6,
                 media: {
                     type: "image",
                     url: "/images/home-social-6.svg",
-                    alt: "TikTok"
+                    alt: "DontLookUp"
                 },
-                slug: "#"
+                slug: "https://dontlookup.app.link/y4l8S8uFq0b"
             }
         ]
     }

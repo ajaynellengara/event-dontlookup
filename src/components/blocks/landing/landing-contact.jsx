@@ -37,20 +37,20 @@ export default function LandingContact({ data }) {
             </div>
 
             <div className="w-full sm:w-3/12 mt-6 sm:mt-0">
-              <div className="flex flex-wrap gap-4 md:gap-5 lg:gap-6 xl:gap-6 2xl:gap-8 3xl:gap-10">
+              <div className="flex flex-wrap gap-4 md:gap-5 lg:gap-4 xl:gap-6 2xl:gap-7 3xl:gap-9">
 
                 {
                   data?.socialLinks?.map((item, i) => (
                     <div key={item?.id}
                       className="my-2 md:my-2 lg:my-2.5 xl:my-2.5 2xl:my-3 3xl:my-4"
                     >
-                      <Link href={item?.slug}>
+                      <Link href={item?.slug} target="_blank">
                         <Image
                           src={item?.media?.url}
                           alt={item?.media?.alt}
                           width={30}
                           height={30}
-                          className="w-[20px] md:w-[22px] lg:w-[24px] xl:w-[24px] 2xl:w-[28px] 3xl:w-[32px] aspect-square object-contain hover:scale-115 transition-all duration-300 ease-in-out"
+                          className="w-[20px] sm:w-[22px] xl:w-[24px] 2xl:w-[26px] 3xl:w-[30px] aspect-square object-contain hover:scale-115 transition-all duration-300 ease-in-out"
                         />
                       </Link>
 

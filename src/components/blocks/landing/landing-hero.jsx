@@ -29,9 +29,10 @@ export default function LandingHero({ data, variant = "default" }) {
     return (
         <ParallaxProvider>
             <section className={cn("w-full overflow-hidden bg-white",
-                variant === "parallax" ? "sticky top-0 z-0 h-auto max-h-[768px] sm:max-h-[992px] xl:max-h-[1150px] 2xl:max-h-[1380px] 3xl:max-h-[1720px]" : "relative h-[576px] sm:h-[576px] xl:h-screen")}>
+                variant === "parallax" ? "sticky top-0 z-0 h-auto max-h-[768px] sm:max-h-[992px] xl:max-h-[1150px] 2xl:max-h-[1380px] 3xl:max-h-[1720px]" : "relative h-auto")}>
+                <div className="w-full h-1/3 opacity-15 absolute z-1 inset-0 bg-linear-to-b from-white to-transparent pointer-events-none" />
                 <Parallax translateY={variant === "parallax" ? ['7%', '-7%'] : ['0%', '0%']} className="w-full h-full">
-                    <div className="w-full h-full transform scale-[1.15] origin-center">
+                    <div className={cn("w-full h-full transform origin-center", variant === "parallax" ? "scale-[1.15]" : "")}>
                         <div
                             className="w-full max-w-full overflow-hidden"
                             ref={emblaRef}>

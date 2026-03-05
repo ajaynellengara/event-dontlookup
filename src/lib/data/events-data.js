@@ -2,10 +2,10 @@ export const eventsData = [
     {
         slug: "model-forward-live",
         eventInfo: {
-            date: "29 jan 2025",
-            dateInfo: "Coming Soon",
+            date: "29 mar 2025",
+            dateInfo: "IDS Global business center",
             location: "Dubai",
-            duration: "6 hours",
+            duration: "10 hours",
             media: {
                 type: "image",
                 url: "/images/app-download-1.png",
@@ -201,49 +201,6 @@ export const eventsData = [
                 { id: 8, media: { type: "image", url: "/images/gallery-8.jpg", alt: "gallery Image 8" } },
             ]
         },
-        contact: {
-            quickLinks: [
-                { id: 1, title: "Workshops for models", slug: "#" },
-                { id: 2, title: "Courses for models", slug: "#" },
-                { id: 3, title: "Events", slug: "#" },
-                { id: 4, title: "Subscription plan", slug: "#" },
-                { id: 5, title: "Model Features", slug: "#" },
-                { id: 6, title: "Casting", slug: "#" },
-                { id: 7, title: "DLUF Model Agency", slug: "#" }
-            ],
-            socialLinks: [
-                {
-                    id: 1,
-                    media: { type: "image", url: "/images/home-social-1.svg", alt: "Facebook" },
-                    slug: "#"
-                },
-                {
-                    id: 2,
-                    media: { type: "image", url: "/images/home-social-2.svg", alt: "Instagram" },
-                    slug: "#"
-                },
-                {
-                    id: 3,
-                    media: { type: "image", url: "/images/home-social-3.svg", alt: "Twitter" },
-                    slug: "#"
-                },
-                {
-                    id: 4,
-                    media: { type: "image", url: "/images/home-social-4.svg", alt: "LinkedIn" },
-                    slug: "#"
-                },
-                {
-                    id: 5,
-                    media: { type: "image", url: "/images/home-social-5.svg", alt: "YouTube" },
-                    slug: "#"
-                },
-                {
-                    id: 6,
-                    media: { type: "image", url: "/images/home-social-6.svg", alt: "TikTok" },
-                    slug: "#"
-                }
-            ]
-        }
     },
     {
         slug: "stylepreneur",
@@ -444,49 +401,6 @@ export const eventsData = [
                 { id: 6, media: { type: "image", url: "/images/gallery-6.jpg", alt: "gallery Image 6" } },
                 { id: 7, media: { type: "image", url: "/images/gallery-7.jpg", alt: "gallery Image 7" } },
                 { id: 8, media: { type: "image", url: "/images/gallery-8.jpg", alt: "gallery Image 8" } },
-            ]
-        },
-        contact: {
-            quickLinks: [
-                { id: 1, title: "Workshops for models", slug: "#" },
-                { id: 2, title: "Courses for models", slug: "#" },
-                { id: 3, title: "Events", slug: "#" },
-                { id: 4, title: "Subscription plan", slug: "#" },
-                { id: 5, title: "Model Features", slug: "#" },
-                { id: 6, title: "Casting", slug: "#" },
-                { id: 7, title: "DLUF Model Agency", slug: "#" }
-            ],
-            socialLinks: [
-                {
-                    id: 1,
-                    media: { type: "image", url: "/images/home-social-1.svg", alt: "Facebook" },
-                    slug: "#"
-                },
-                {
-                    id: 2,
-                    media: { type: "image", url: "/images/home-social-2.svg", alt: "Instagram" },
-                    slug: "#"
-                },
-                {
-                    id: 3,
-                    media: { type: "image", url: "/images/home-social-3.svg", alt: "Twitter" },
-                    slug: "#"
-                },
-                {
-                    id: 4,
-                    media: { type: "image", url: "/images/home-social-4.svg", alt: "LinkedIn" },
-                    slug: "#"
-                },
-                {
-                    id: 5,
-                    media: { type: "image", url: "/images/home-social-5.svg", alt: "YouTube" },
-                    slug: "#"
-                },
-                {
-                    id: 6,
-                    media: { type: "image", url: "/images/home-social-6.svg", alt: "TikTok" },
-                    slug: "#"
-                }
             ]
         }
     }

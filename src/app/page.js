@@ -9,6 +9,11 @@ import LandingDubaiStage from '@/components/blocks/landing/landing-dubai-stage'
 import LandingImpact from '@/components/blocks/landing/landing-impact'
 import { landingData } from '@/lib/data/landing-data'
 
+export const metadata = {
+    title: 'Modeling Workshop in Dubai| Uae|ModelforwardbyDontlookupFashion',
+    description: 'Join Model Forward by Dontlookup Fashion, a Dubai, UAE modeling workshop with runway training, casting guidance and paid shoot opportunities.',
+}
+
 export default async function Home() {
     const { hero, partners, appDownload, intro, featuredEvents = [], platform, globalStage, impact, contact } = landingData;
 
