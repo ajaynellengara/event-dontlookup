@@ -13,9 +13,28 @@ import EventsGallery from '@/components/blocks/events/events-gallery'
 import Link from 'next/link'
 import { eventsData } from '@/lib/data/events-data'
 
-export const metadata = {
-    title: 'Fashion Events in Dubai| UAE| Dontlookup Fashion Events',
-    description: 'Discover exclusive fashion events in Dubai, UAE with Dontlookup Fashion Events. Join runway shows, designer showcases, modeling workshops, and fashion networking.',
+export async function generateMetadata({ params }) {
+    const resolvedParams = await params
+    const { slug } = resolvedParams
+
+    if (slug === 'stylepreneur') {
+        return {
+            title: 'Personal Styling Workshop in Dubai| StylepreneurByDontlookupFashion',
+            description: 'Join the Personal Styling Workshop in Dubai by Stylepreneur by Dontlookup Fashion. Learn personal styling, wardrobe planning, and personal branding to enhance your style and confidence.',
+        }
+    }
+
+    if (slug === 'model-forward-live') {
+        return {
+            title: 'Modeling Workshop in Dubai| Uae|ModelforwardbyDontlookupFashion',
+            description: 'Join Model Forward by Dontlookup Fashion, a Dubai, UAE modeling workshop with runway training, casting guidance and paid shoot opportunities.',
+        }
+    }
+
+    return {
+        title: 'Fashion Events in Dubai| UAE| Dontlookup Fashion Events',
+        description: 'Discover exclusive fashion events in Dubai, UAE with Dontlookup Fashion Events. Join runway shows, designer showcases, modeling workshops, and fashion networking.',
+    }
 }
 
 

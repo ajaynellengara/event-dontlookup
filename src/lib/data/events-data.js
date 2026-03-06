@@ -176,12 +176,12 @@ export const eventsData = [
                 },
                 {
                     id: 2,
-                    mediaUrl: "/images/events-joinEvent-1.png",
+                    mediaUrl: "/images/events-joinEvent-2.png",
                     description: "<h5>Now let’s dive right into our purpose - Booking for the event!</h5><h5>Step 2— Explore & Book the Event</h5><p>Browse the Stylepreneur event inside the app, view sessions and coaches, and secure your spot with just a few taps.</p>",
                 },
                 {
                     id: 3,
-                    mediaUrl: "/images/events-joinEvent-1.png",
+                    mediaUrl: "/images/events-joinEvent-3.png",
                     description: "<h5>After Finishing booking, You are in your last step!</h5><h5>Step 3 — Get Ready & Show Up</h5><p>Once you get booking confirmation, your e-ticket will be provided. Please download the ticket. In the event, dont forget to show the QR Code, so that you get your pass.</p><p>Yes, its that easy.<br/>Just arrive, connect, and experience Stylepreneur.</p>",
                 },
             ],
@@ -245,7 +245,7 @@ export const eventsData = [
         expertsSays: {
             media: {
                 type: "youtube",
-                url: "https://www.youtube.com/embed/_Gc6am5tZjg?autoplay=0&mute=0&loop=1&playlist=_Gc6am5tZjg&controls=1&showinfo=0&rel=0",
+                url: "https://www.youtube.com/embed/_yE5v2kgkFo?si=W3CJSaxr2UDoH8_o&autoplay=0&mute=0&loop=1&playlist=_yE5v2kgkFo&controls=1&showinfo=0&rel=0",
                 alt: "eventsExpertsSays-1"
             },
             title: "SEE WHAT THE EXPERTS SAY",

@@ -15,8 +15,8 @@ export default function LandingFeaturedEvents({ data }) {
   return (
     <section className="w-full h-auto bg-[#121212] block">
       <div className="container">
-        <div className="w-full h-px bg-[#767676] mb-5 sm:mb-4 lg:mb-5 xl:mb-5 2xl:mb-6 3xl:mb-8" />
-        <RevealAnimation className="flex flex-wrap md:-mx-4 lg:-mx-6 xl:-mx-8 md:[&>div]:px-4 lg:[&>div]:px-6 xl:[&>div]:px-8 2xl:-mx-10 2xl:[&>div]:px-10 3xl:-mx-12 3xl:[&>div]:px-12">
+        <div className="w-full h-[1px] bg-[#767676] mb-5 sm:mb-4 lg:mb-5 xl:mb-5 2xl:mb-6 3xl:mb-8" />
+        <div className="flex flex-wrap md:-mx-4 lg:-mx-6 md:[&>div]:px-4 lg:[&>div]:px-6 2xl:-mx-8 2xl:[&>div]:px-8 3xl:-mx-12 3xl:[&>div]:px-12">
           <div className="w-full sm:w-3/12 mb-6 sm:mb-0">
             <div className="w-full">
               <Heading
@@ -37,7 +37,8 @@ export default function LandingFeaturedEvents({ data }) {
           </div>
 
           <div className="w-full sm:w-9/12">
-            <div className="flex flex-wrap -mx-2 sm:-mx-2 md:-mx-4 lg:-mx-6 xl:-mx-8 2xl:-mx-10 3xl:-mx-12">
+            {/* -mx-2 sm:-mx-2 md:-mx-4 lg:-mx-6 xl:-mx-8 2xl:-mx-10 3xl:-mx-12 */}
+            <div className="flex flex-wrap">
               {data?.items?.map((item, index) => (
                 <div key={item?.id}
                   className="w-full 3xs:w-1/2 2xs:w-1/3 sm:w-1/3"
@@ -86,7 +87,7 @@ export default function LandingFeaturedEvents({ data }) {
             </div>
             <div className="w-full h-px bg-[#767676]" />
           </div>
-        </RevealAnimation>
+        </div>
       </div>
     </section>
   );

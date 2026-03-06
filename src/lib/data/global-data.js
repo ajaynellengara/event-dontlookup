@@ -25,7 +25,8 @@ export const globalData = {
                 submenu: [
                     { label: "Features", href: "https://dontlookup.fashion/features", external: true },
                     { label: "Learning", href: "https://learning.dontlookup.fashion", external: true },
-                    { label: "Tutors", href: "https://dontlookup.fashion/tutor", external: true },
+                    // { label: "Tutors", href: "https://dontlookup.fashion/tutor", external: true },
+                    { label: "Events", href: "/", external: false },
                 ]
             },
             { label: "Business", external: true, href: "https://dontlookup.fashion/" },

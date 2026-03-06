@@ -10,8 +10,8 @@ import LandingImpact from '@/components/blocks/landing/landing-impact'
 import { landingData } from '@/lib/data/landing-data'
 
 export const metadata = {
-    title: 'Modeling Workshop in Dubai| Uae|ModelforwardbyDontlookupFashion',
-    description: 'Join Model Forward by Dontlookup Fashion, a Dubai, UAE modeling workshop with runway training, casting guidance and paid shoot opportunities.',
+    title: 'Fashion Events in Dubai| UAE| Dontlookup Fashion Events',
+    description: 'Discover exclusive fashion events in Dubai, UAE with Dontlookup Fashion Events. Join runway shows, designer showcases, modeling workshops, and fashion networking.',
 }
 
 export default async function Home() {
