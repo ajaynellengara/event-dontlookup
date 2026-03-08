@@ -24,7 +24,7 @@ export default function EventsIndustryExposure({ data }) {
 
 
   return (
-    <section className="w-full h-auto bg-[#121212] block py-10 xl:py-[120px] 2xl:py-[140px] 3xl:py-[120px]">
+    <section id="industry-exposure" className="w-full h-auto bg-[#121212] block py-10 xl:py-[120px] 2xl:py-[140px] 3xl:py-[120px]">
       <div className="container">
         <Heading
           as="h2"

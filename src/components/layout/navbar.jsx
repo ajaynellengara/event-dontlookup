@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { HoverBorderGradient } from "../ui/hover-border-gradient";
 
 export default function Navbar({ headerData }) {
     const NAV_ITEMS = headerData?.navigation || [];
@@ -73,15 +74,22 @@ export default function Navbar({ headerData }) {
 
                     {/* Right Controls */}
                     <div className="flex items-center gap-6">
-                        <Button
-                            asChild
-                            variant="none"
-                            className="text-[16px] sm:text-[16px] 2xl:text-[16px] 3xl:text-[16px] leading-normal font-normal font-[system-ui] hidden sm:flex min-w-[70px] h-[34px] xl:h-[34px] 2xl:h-[34px] 3xl:h-[34px] bg-[#06B5B9] rounded-[6px] text-center text-white hover:bg-[#017a7d] hover:scale-100"
+                        <HoverBorderGradient
+                            as="div"
+                            className="p-0"
+                            containerClassName="rounded-lg bg-transparent border-white/10"
+                            duration="1"
                         >
-                            <a href="https://learning.dontlookup.fashion/#login" target="_blank">
-                                Login
-                            </a>
-                        </Button>
+                            <Button
+                                asChild
+                                variant="none"
+                                className="text-[16px] sm:text-[16px] 2xl:text-[16px] 3xl:text-[16px] leading-normal font-normal font-[system-ui] hidden sm:flex min-w-[70px] h-[34px] xl:h-[34px] 2xl:h-[34px] 3xl:h-[34px] bg-[#06B5B9] rounded-[6px] text-center text-white hover:bg-[#017a7d] hover:scale-100"
+                            >
+                                <a href="https://learning.dontlookup.fashion/#login" target="_blank">
+                                    Login
+                                </a>
+                            </Button>
+                        </HoverBorderGradient>
 
                         <div className="cursor-pointer p-2 -mr-2 group" onClick={toggleMenu}>
                             <div className="group w-[30px] h-[30px] relative z-[2] flex flex-col justify-center">

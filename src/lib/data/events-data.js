@@ -1,6 +1,7 @@
 export const eventsData = [
     {
         slug: "model-forward-live",
+        pageTitle: "Model Forward Live",
         eventInfo: {
             date: "29 mar 2025",
             dateInfo: "IDS Global business center",
@@ -15,8 +16,8 @@ export const eventsData = [
             description: "Dubai’s Professional Entry Point Into the Modeling Industry<br/>Not a workshop. Not a class. A real-world modeling career preparation experience.",
             longDescription: `<p><span>(About the event)</span></p><p>Model Forward Live by Don’t Look-Up Fashion is a live, in-person career launch. Experience designed for aspiring models who want to enter the industry correctly, with clarity, preparation, and confidence.</p><p>This experience bridges the gap between:<br/>“I want to be a model”<br/>and<br/>“I am ready for agencies, castings, and paid opportunities.”</p><p>No recorded lessons.No theory - only sessions.No unrealistic promises.<br/>Only real training, real exposure, and real industry alignment.</p>`,
             price: "499 dhs",
-            slug: "/model-forward-live",
-            ctaLabel: "Unlock Instant Access",
+            slug: "https://dontlookup.app.link/y4l8S8uFq0b",
+            eventStatus: "announced", // upcoming, announced, finished
         },
         hero: {
             title: null,
@@ -185,6 +186,44 @@ export const eventsData = [
                     description: "<h5>After Finishing booking, You are in your last step!</h5><h5>Step 3 — Get Ready & Show Up</h5><p>Once you get booking confirmation, your e-ticket will be provided. Please download the ticket. In the event, dont forget to show the QR Code, so that you get your pass.</p><p>Yes, its that easy.<br/>Just arrive, connect, and experience Stylepreneur.</p>",
                 },
             ],
+            socialLinks: [
+                {
+                    id: 1,
+                    media: {
+                        type: "image",
+                        url: "/images/icon-facebook-white.svg",
+                        alt: "Facebook"
+                    },
+                    slug: "https://www.facebook.com/ModelForward"
+                },
+                {
+                    id: 2,
+                    media: {
+                        type: "image",
+                        url: "/images/icon-Instagram-white.svg",
+                        alt: "Instagram"
+                    },
+                    slug: "https://www.instagram.com/modelforwardbydlu/ "
+                },
+                {
+                    id: 4,
+                    media: {
+                        type: "image",
+                        url: "/images/icon-linkedIn-white.svg",
+                        alt: "LinkedIn"
+                    },
+                    slug: "https://www.linkedin.com/showcase/model-forward/?viewAsMember=true"
+                },
+                {
+                    id: 5,
+                    media: {
+                        type: "image",
+                        url: "/images/icon-youTube-white.svg",
+                        alt: "YouTube"
+                    },
+                    slug: "https://www.youtube.com/@ModelForward"
+                },
+            ],
         },
         gallery: {
             title: "VISIT THE MODEL FORWARD GALLERY",
@@ -204,8 +243,9 @@ export const eventsData = [
     },
     {
         slug: "stylepreneur",
+        pageTitle: "Stylepreneur",
         eventInfo: {
-            date: "29 jan 2025",
+            date: null,
             dateInfo: "Coming Soon",
             location: "Dubai",
             duration: "6 hours",
@@ -217,9 +257,9 @@ export const eventsData = [
             title: "Get the App. Book Your Spot.",
             description: "In Dubai’s business world, how you are perceived often matters before what you say. <span>STYLEPRENEUR is for people who understand that success is not only built by skills<br/>but by presence, perception, and personal brand.</span>",
             longDescription: `<p><span>(About the event)</span></p><p>STYLEPRENEUR is a premium Dubai experience where fashion meets entrepreneurship, designed for ambitious professionals who know that how you show up shapes opportunity.<br/>From meetings to networking and LinkedIn, presence builds trust before words do.</p><p>In Dubai, how you show up often speaks before you do.<br/>STYLEPRENEUR is a curated experience designed to help you refine your personal brand, presence, and professional image, blending fashion, psychology, communication, and business influence into one powerful upgrade.</p><p>This is not a workshop.<br/>This is a presence reset.</p>`,
-            price: "499 dhs",
-            slug: "/stylepreneur",
-            ctaLabel: "Unlock Instant Access",
+            price: "999 dhs",
+            slug: "https://dontlookup.app.link/y4l8S8uFq0b",
+            eventStatus: "upcoming", // upcoming, announced, finished
         },
         hero: {
             title: null,
@@ -347,26 +387,26 @@ export const eventsData = [
                 },
             ],
         },
-        industryExposure: {
-            title: "LIVE INDUSTRY EXPOSURE",
-            items: [
-                {
-                    id: 1,
-                    title: "Fashion Show Walk",
-                    description: "<ul><li>‣  Group runway participation</li><li>‣  Backstage experience</li><li>‣  Live audience exposure (Starter-level · T&C apply)</li></ul>",
-                },
-                {
-                    id: 2,
-                    title: "Brand Collaboration Opportunity",
-                    description: "<ul><li>‣  Entry-level paid participation</li><li>‣  Selection based on performance & suitability</li><li>‣  (T&C apply)</li></ul>",
-                },
-                {
-                    id: 3,
-                    title: "Face of DLU Selection",
-                    description: "<p>Outstanding participants may be shortlisted for:</p><ul><li>‣  Face of DLU campaigns</li><li>‣  Brand activations</li><li>‣  Future fashion opportunities</li></ul><p>Selection is earned, not promised.</p>",
-                },
-            ],
-        },
+        // industryExposure: {
+        //     title: "LIVE INDUSTRY EXPOSURE",
+        //     items: [
+        //         {
+        //             id: 1,
+        //             title: "Fashion Show Walk",
+        //             description: "<ul><li>‣  Group runway participation</li><li>‣  Backstage experience</li><li>‣  Live audience exposure (Starter-level · T&C apply)</li></ul>",
+        //         },
+        //         {
+        //             id: 2,
+        //             title: "Brand Collaboration Opportunity",
+        //             description: "<ul><li>‣  Entry-level paid participation</li><li>‣  Selection based on performance & suitability</li><li>‣  (T&C apply)</li></ul>",
+        //         },
+        //         {
+        //             id: 3,
+        //             title: "Face of DLU Selection",
+        //             description: "<p>Outstanding participants may be shortlisted for:</p><ul><li>‣  Face of DLU campaigns</li><li>‣  Brand activations</li><li>‣  Future fashion opportunities</li></ul><p>Selection is earned, not promised.</p>",
+        //         },
+        //     ],
+        // },
         joinEvent: {
             title: "HOW CAN I JOIN THE EVENT?",
             description: "<p>Simplify your booking and event experience —<br/>get the app to reserve your seat, plan your day, and enjoy exclusive access.</p>",
@@ -387,21 +427,60 @@ export const eventsData = [
                     description: "<h5>After Finishing booking, You are in your last step!</h5><h5>Step 3 — Get Ready & Show Up</h5><p>Once you get booking confirmation, your e-ticket will be provided. Please download the ticket. In the event, dont forget to show the QR Code, so that you get your pass.</p><p>Yes, its that easy.<br/>Just arrive, connect, and experience Stylepreneur.</p>",
                 },
             ],
+
+            socialLinks: [
+                {
+                    id: 1,
+                    media: {
+                        type: "image",
+                        url: "/images/icon-facebook-white.svg",
+                        alt: "Facebook"
+                    },
+                    slug: "#"
+                },
+                {
+                    id: 2,
+                    media: {
+                        type: "image",
+                        url: "/images/icon-Instagram-white.svg",
+                        alt: "Instagram"
+                    },
+                    slug: "#"
+                },
+                {
+                    id: 4,
+                    media: {
+                        type: "image",
+                        url: "/images/icon-linkedIn-white.svg",
+                        alt: "LinkedIn"
+                    },
+                    slug: "#"
+                },
+                {
+                    id: 5,
+                    media: {
+                        type: "image",
+                        url: "/images/icon-youTube-white.svg",
+                        alt: "YouTube"
+                    },
+                    slug: "#"
+                },
+            ],
         },
-        gallery: {
-            title: "VISIT THE MODEL FORWARD GALLERY",
-            description: null,
-            longDescription: "<h4>DontLookupFashion.Events</h4><p>Beyond events. Beyond borders. Beyond the runway.</p>",
-            items: [
-                { id: 1, media: { type: "image", url: "/images/gallery-1.jpg", alt: "gallery Image 1" } },
-                { id: 2, media: { type: "image", url: "/images/gallery-2.jpg", alt: "gallery Image 2" } },
-                { id: 3, media: { type: "image", url: "/images/gallery-3.jpg", alt: "gallery Image 3" } },
-                { id: 4, media: { type: "image", url: "/images/gallery-4.jpg", alt: "gallery Image 4" } },
-                { id: 5, media: { type: "image", url: "/images/gallery-5.jpg", alt: "gallery Image 5" } },
-                { id: 6, media: { type: "image", url: "/images/gallery-6.jpg", alt: "gallery Image 6" } },
-                { id: 7, media: { type: "image", url: "/images/gallery-7.jpg", alt: "gallery Image 7" } },
-                { id: 8, media: { type: "image", url: "/images/gallery-8.jpg", alt: "gallery Image 8" } },
-            ]
-        }
+        // gallery: {
+        //     title: "VISIT THE MODEL FORWARD GALLERY",
+        //     description: null,
+        //     longDescription: "<h4>DontLookupFashion.Events</h4><p>Beyond events. Beyond borders. Beyond the runway.</p>",
+        //     items: [
+        //         { id: 1, media: { type: "image", url: "/images/gallery-1.jpg", alt: "gallery Image 1" } },
+        //         { id: 2, media: { type: "image", url: "/images/gallery-2.jpg", alt: "gallery Image 2" } },
+        //         { id: 3, media: { type: "image", url: "/images/gallery-3.jpg", alt: "gallery Image 3" } },
+        //         { id: 4, media: { type: "image", url: "/images/gallery-4.jpg", alt: "gallery Image 4" } },
+        //         { id: 5, media: { type: "image", url: "/images/gallery-5.jpg", alt: "gallery Image 5" } },
+        //         { id: 6, media: { type: "image", url: "/images/gallery-6.jpg", alt: "gallery Image 6" } },
+        //         { id: 7, media: { type: "image", url: "/images/gallery-7.jpg", alt: "gallery Image 7" } },
+        //         { id: 8, media: { type: "image", url: "/images/gallery-8.jpg", alt: "gallery Image 8" } },
+        //     ]
+        // }
     }
 ];

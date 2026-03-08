@@ -22,7 +22,7 @@ export default function LandingAppDownload({ data }) {
       />
       <div className="container">
         <RevealAnimation className="flex flex-wrap gap-x-6 sm:gap-x-10 lg:gap-x-20 xl:gap-x-25 2xl:gap-x-32 3xl:gap-x-40">
-          <div className="w-full sm:flex-1">
+          <div className="w-full sm:flex-1 max-sm:mb-5">
             <div className="w-full flex flex-wrap items-center justify-center sm:justify-start">
               <div className="w-full xs:w-[140px] sm:w-[200px] lg:w-[230px] xl:w-[240px] 2xl:w-[260px] 3xl:w-[320px] mb-3 xs:mb-0 mr-8 md:mr-10 lg:mr-12 xl:mr-14 2xl:mr-16 3xl:mr-20 ml-6 md:ml-8 lg:ml-10 xl:ml-10 2xl:ml-12 3xl:ml-16 sm:translate-y-[20px] md:translate-y-[30px] lg:translate-y-[40px] xl:translate-y-[50px]">
                 <Image
@@ -32,7 +32,6 @@ export default function LandingAppDownload({ data }) {
                   height={250}
                   className="w-full h-full object-contain max-xs:max-w-[140px]"
                 />
-
               </div>
               <div className="flex-1">
                 <Heading
@@ -87,7 +86,7 @@ export default function LandingAppDownload({ data }) {
               </div>
             </div>
           </div>
-          <div className="w-full max-w-[80px] sm:max-w-[100px] lg:max-w-[140px] xl:max-w-[150px] 2xl:max-w-[180px] 3xl:max-w-[220px] max-sm:hidden hover:scale-110 transition duration-300">
+          <div className="w-full max-w-[100px] sm:max-w-[100px] lg:max-w-[140px] xl:max-w-[150px] 2xl:max-w-[180px] 3xl:max-w-[220px] hover:scale-110 transition duration-300">
             <Image
               src={data?.qrCodeImage}
               alt={data?.title}

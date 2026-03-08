@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Heading, Text } from "@/components/utils/typography";
 import parse from "html-react-parser";
 import Image from "next/image";
+import Link from "next/link";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { cn } from "@/lib/utils";
 
 export default function EventsInfo({ data }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,7 +49,7 @@ export default function EventsInfo({ data }) {
   };
 
   return (
-    <section className="w-full h-auto bg-[#121212] block py-8 sm:py-10 md:py-16 lg:py-24 xl:py-32 2xl:py-36 3xl:py-44">
+    <section id="events-info" className="w-full h-auto bg-[#121212] block py-8 sm:py-10 md:py-16 lg:py-24 xl:py-32 2xl:py-36 3xl:py-44">
       <div className="container">
         <div className="flex flex-wrap">
           <div className="w-full mb-[60px] xl:mb-[180px] 2xl:mb-[200px] 3xl:mb-[240px]">
@@ -62,9 +65,13 @@ export default function EventsInfo({ data }) {
           <div className="w-full sm:w-7/12 ">
             <div className="w-full">
               <div
-                className="text-[68px] sm:text-[100px] xl:text-[128px] 2xl:text-[150px] 3xl:text-[192px] font-normal uppercase font-big-shoulders -tracking-[0.25rem] scale-y-110 text-white mb-2 xl:mb-4 3xl:mb-6"
+                className={cn("text-[68px] sm:text-[100px] xl:text-[128px] 2xl:text-[150px] 3xl:text-[192px] font-normal uppercase font-big-shoulders -tracking-[0.25rem] scale-y-110 text-white mb-2 xl:mb-4 3xl:mb-6", data?.eventStatus === "finished" ? "text-[#008dd2]" : data?.eventStatus === "upcoming" ? "text-white/40" : "text-white")}
               >
-                {parse(data?.date)}
+                {data?.date ? parse(data?.date) : (
+                  <>
+                    DATE TBA <span className="text-[16px] sm:text-[20px] xl:text-[20px] 2xl:text-[24px] 3xl:text-[28px] font-sans tracking-normal normal-case inline-block max-w-[200px] sm:max-w-[250px] xl:max-w-[300px] align-middle opacity-80 ml-2 sm:ml-4 leading-tight scale-y-90">Click <b>"Notify Me"</b> and download the mobile application for updates</span>
+                  </>
+                )}
               </div>
               <div className="w-full pl-4 xl:pl-6 2xl:pl-6 3xl:pl-6 border-l border-white mx-1 xl:mx-2">
 
@@ -97,69 +104,81 @@ export default function EventsInfo({ data }) {
               >
                 {parse(data?.price)}
               </Heading>
-
-              <Button
-                size="lg"
-                variant={"default"}
-                className="max-w-[220px] xl:max-w-[268px] 2xl:max-w-[320px] 3xl:max-w-[400px]"
-                onClick={() => setIsModalOpen(true)}
+              <HoverBorderGradient
+                as="button"
+                className="p-0.5"
+                containerClassName="rounded-lg"
+                duration="1"
               >
-                {data?.ctaLabel}
-              </Button>
+                <Button
+                  size="lg"
+                  variant={"default"}
+                  className="max-w-[220px] xl:max-w-[268px] 2xl:max-w-[320px] 3xl:max-w-[400px]"
+                  // onClick={() => setIsModalOpen(true)}
+                  title="Download the mobile application for further information"
+                  asChild
+                >
+                  <Link href={data?.slug} target="_blank">
+                    {data?.eventStatus === "finished" ? "View Event" : data?.eventStatus === "upcoming" ? "Notify Me" : "Book Now"}
+                  </Link>
+                </Button>
+              </HoverBorderGradient>
             </div>
           </div>
         </div>
       </div>
 
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 p-4">
-          <div className="bg-[#1a1a1a] rounded-xl p-8 max-w-md w-full relative border border-gray-700">
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white"
-            >
-              ✕
-            </button>
-            <h3 className="text-2xl font-sora text-[#D6A96F] mb-4">Get the Brochure</h3>
-            {isSuccess ? (
-              <div className="text-center py-6">
-                <div className="text-green-400 text-5xl mb-4">✓</div>
-                <p className="text-white text-lg font-medium">Thank you!</p>
-                <p className="text-gray-400 mt-2">The brochure has been sent to your email.</p>
-                <Button
-                  className="mt-6 w-full"
-                  onClick={() => setIsModalOpen(false)}
-                >
-                  Close
-                </Button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <p className="text-gray-300 mb-2">Enter your email address to download the exclusive event brochure.</p>
-                <input
-                  type="email"
-                  required
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="px-4 py-3 rounded-lg bg-[#2A2A2A] text-white border border-gray-600 focus:outline-none focus:border-[#D6A96F] w-full"
-                />
+      {
+        isModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 p-4">
+            <div className="bg-[#1a1a1a] rounded-xl p-8 max-w-md w-full relative border border-gray-700">
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white"
+              >
+                ✕
+              </button>
+              <h3 className="text-2xl font-sora text-[#D6A96F] mb-4">Get the Brochure</h3>
+              {isSuccess ? (
+                <div className="text-center py-6">
+                  <div className="text-green-400 text-5xl mb-4">✓</div>
+                  <p className="text-white text-lg font-medium">Thank you!</p>
+                  <p className="text-gray-400 mt-2">The brochure has been sent to your email.</p>
+                  <Button
+                    className="mt-6 w-full"
+                    onClick={() => setIsModalOpen(false)}
+                  >
+                    Close
+                  </Button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                  <p className="text-gray-300 mb-2">Enter your email address to download the exclusive event brochure.</p>
+                  <input
+                    type="email"
+                    required
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="px-4 py-3 rounded-lg bg-[#2A2A2A] text-white border border-gray-600 focus:outline-none focus:border-[#D6A96F] w-full"
+                  />
 
-                {error && <p className="text-red-400 text-sm">{error}</p>}
+                  {error && <p className="text-red-400 text-sm">{error}</p>}
 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full mt-2"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Brochure'}
-                </Button>
-              </form>
-            )}
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full mt-2"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Brochure'}
+                  </Button>
+                </form>
+              )}
+            </div>
           </div>
-        </div>
-      )}
-    </section>
+        )
+      }
+    </section >
   );
 }
 

@@ -12,46 +12,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
 
-const socialLinks = [
-  {
-    id: 1,
-    media: {
-      type: "image",
-      url: "/images/icon-facebook-white.svg",
-      alt: "Facebook"
-    },
-    slug: "#"
-  },
-  {
-    id: 2,
-    media: {
-      type: "image",
-      url: "/images/icon-Instagram-white.svg",
-      alt: "Instagram"
-    },
-    slug: "#"
-  },
-  {
-    id: 4,
-    media: {
-      type: "image",
-      url: "/images/icon-linkedIn-white.svg",
-      alt: "LinkedIn"
-    },
-    slug: "#"
-  },
-  {
-    id: 5,
-    media: {
-      type: "image",
-      url: "/images/icon-youTube-white.svg",
-      alt: "YouTube"
-    },
-    slug: "#"
-  },
-]
 
-export default function EventsJoinEvent({ data }) {
+export default function EventsJoinEvent({ data, pageTitle }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -82,7 +44,7 @@ export default function EventsJoinEvent({ data }) {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="w-full h-auto bg-white block pt-10 xl:pt-[120px] 2xl:pt-[140px] 3xl:pt-[120px] pb-[15px] xl:pb-[60px] 2xl:pb-[70px] 3xl:pb-[60px]">
+    <section id="join-event" className="w-full h-auto bg-white block pt-10 xl:pt-[120px] 2xl:pt-[140px] 3xl:pt-[120px] pb-[15px] xl:pb-[60px] 2xl:pb-[70px] 3xl:pb-[60px]">
       <div className="container">
         <div className="w-full max-w-[468px] xl:max-w-[600px] 2xl:max-w-[720px] 3xl:w-[900px] mx-auto">
 
@@ -155,10 +117,10 @@ export default function EventsJoinEvent({ data }) {
                           size="p1"
                           className="text-black mb-3 xl:mb-4 2xl:mb-5 3xl:mb-6"
                         >
-                          Follow MODEL FORWARD on:
+                          Follow {pageTitle} on:
                         </Text>
                         <div className="flex flex-wrap justify-start gap-x-4 xl:gap-x-3 2xl:gap-x-4 3xl:gap-x-5">
-                          {socialLinks?.map((item, index) => (
+                          {data?.socialLinks?.map((item, index) => (
                             <div key={"socialLinkData" + index}>
                               <Button variant="link" size="none" asChild>
                                 <a href={item?.slug} target="_blank">

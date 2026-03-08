@@ -9,7 +9,7 @@ export default function EventsWhoIsThisFor({ data }) {
 
 
   return (
-    <section className="w-full h-auto bg-[#121212] block pt-10 xl:pt-[120px] 2xl:pt-[140px] 3xl:pt-[120px] pb-[15px] xl:pb-[60px] 2xl:pb-[70px] 3xl:pb-[60px]">
+    <section id="who-is-this-for" className="w-full h-auto bg-[#121212] block pt-10 xl:pt-[120px] 2xl:pt-[140px] 3xl:pt-[120px] pb-[15px] xl:pb-[60px] 2xl:pb-[70px] 3xl:pb-[60px]">
       <div className="container">
         <div className="flex flex-wrap  -mx-4 xl:-mx-10 2xl:-mx-12.5 3xl:-mx-15 [&>div]:px-4 xl:[&>div]:px-10 2xl:[&>div]:px-12.5 3xl:[&>div]:px-15">
           <div className="w-full sm:w-6/12">

@@ -59,20 +59,20 @@ export default async function EventDetails({ params }) {
 
     return (
         <>
-            <LandingHero variant="parallax" data={data?.hero} />
+            {data?.hero && <LandingHero variant="parallax" data={data?.hero} />}
             <div className="relative z-2 bg-white flex flex-col">
-                <LandingPartners variant="eventDetail" data={data?.partners} />
-                <EventsInfo data={data?.eventInfo} />
-                <EventsExpertsSays data={data?.expertsSays} />
-                <LandingAppDownload data={data?.appDownload} />
-                <EventsWhoIsThisFor data={data?.whoIsThisFor} />
-                <EventsOutcomes data={data?.outcomes} />
-                <EventsMeetYourCoach data={data?.meetYourCoach} />
-                <EventsWhatTrainedIn data={data?.whatTrainedIn} />
-                <EventsIndustryExposure data={data?.industryExposure} />
-                <LandingAppDownload data={data?.appDownload} />
-                <EventsJoinEvent data={data?.joinEvent} />
-                <EventsGallery data={data?.gallery} />
+                {data?.partners && <LandingPartners variant="eventDetail" data={data?.partners} />}
+                {data?.eventInfo && <EventsInfo data={data?.eventInfo} />}
+                {data?.expertsSays && <EventsExpertsSays data={data?.expertsSays} />}
+                {data?.appDownload && <LandingAppDownload data={data?.appDownload} />}
+                {data?.whoIsThisFor && <EventsWhoIsThisFor data={data?.whoIsThisFor} />}
+                {data?.outcomes && <EventsOutcomes data={data?.outcomes} />}
+                {data?.meetYourCoach && <EventsMeetYourCoach data={data?.meetYourCoach} />}
+                {data?.whatTrainedIn && <EventsWhatTrainedIn data={data?.whatTrainedIn} />}
+                {data?.industryExposure && <EventsIndustryExposure data={data?.industryExposure} />}
+                {data?.appDownload && <LandingAppDownload data={data?.appDownload} />}
+                {data?.joinEvent && <EventsJoinEvent pageTitle={data?.pageTitle} data={data?.joinEvent} />}
+                {data?.gallery && <EventsGallery data={data?.gallery} />}
             </div>
         </>
     )

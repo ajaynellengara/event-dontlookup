@@ -25,7 +25,7 @@ export const globalData = {
                 submenu: [
                     { label: "Features", href: "https://dontlookup.fashion/features", external: true },
                     { label: "Learning", href: "https://learning.dontlookup.fashion", external: true },
-                    // { label: "Tutors", href: "https://dontlookup.fashion/tutor", external: true },
+                    { label: "Tutors", href: "https://dontlookup.fashion/tutor", external: true },
                     { label: "Events", href: "/", external: false },
                 ]
             },
@@ -72,6 +72,7 @@ export const globalData = {
                 links: [
                     { label: "Tutors", href: "https://dontlookup.fashion/tutor", external: true },
                     { label: "Learn", href: "https://learning.dontlookup.fashion/learning", external: true },
+                    { label: "Events", href: "/", external: false },
                 ]
             },
             {
@@ -124,10 +125,10 @@ export const globalData = {
             { id: 10, media: { type: "image", url: "/images/footer-partners-10.png", alt: "partners" }, slug: "#" },
         ],
         socialLinks: [
-            { id: 1, media: { type: "image", url: "/images/home-social-1.svg", alt: "Facebook" }, slug: "#" },
-            { id: 2, media: { type: "image", url: "/images/home-social-2.svg", alt: "Instagram" }, slug: "#" },
-            { id: 4, media: { type: "image", url: "/images/home-social-4.svg", alt: "LinkedIn" }, slug: "#" },
-            { id: 5, media: { type: "image", url: "/images/home-social-5.svg", alt: "YouTube" }, slug: "#" },
+            { id: 1, media: { type: "image", url: "/images/home-social-1.svg", alt: "Facebook" }, slug: "https://www.facebook.com/dontlookupfashion" },
+            { id: 2, media: { type: "image", url: "/images/home-social-2.svg", alt: "Instagram" }, slug: "https://www.instagram.com/dontlookup.fashion/" },
+            { id: 4, media: { type: "image", url: "/images/home-social-4.svg", alt: "LinkedIn" }, slug: "https://www.linkedin.com/company/dontlookupfashion/?viewAsMember=true" },
+            { id: 5, media: { type: "image", url: "/images/home-social-5.svg", alt: "YouTube" }, slug: "https://www.youtube.com/@Dontlookup.fashion" },
         ]
     }
 }

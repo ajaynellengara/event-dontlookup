@@ -10,7 +10,7 @@ import Image from "next/image";
 export default function EventsMeetYourCoach({ data }) {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <section className="w-full h-auto bg-white block pt-10 xl:pt-[120px] 2xl:pt-[140px] 3xl:pt-[120px] pb-[15px] xl:pb-[60px] 2xl:pb-[70px] 3xl:pb-[60px]">
+    <section id="meet-your-coach" className="w-full h-auto bg-white block pt-10 xl:pt-[120px] 2xl:pt-[140px] 3xl:pt-[120px] pb-[15px] xl:pb-[60px] 2xl:pb-[70px] 3xl:pb-[60px]">
       <div className="container">
         <div className="w-full">
           <Heading

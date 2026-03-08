@@ -5,8 +5,8 @@ export const landingData = {
         backgroundMedia: [
             {
                 id: 1,
-                url: "/images/home-hero-1.jpg",
-                mediaUrl: "/images/home-hero-1.jpg",
+                url: "/images/home-hero-3.jpg",
+                mediaUrl: "/images/home-hero-3.jpg",
                 alt: "Hero Background 1"
             },
             {
@@ -17,8 +17,8 @@ export const landingData = {
             },
             {
                 id: 3,
-                url: "/images/home-hero-3.jpg",
-                mediaUrl: "/images/home-hero-3.jpg",
+                url: "/images/home-hero-1.jpg",
+                mediaUrl: "/images/home-hero-1.jpg",
                 alt: "Hero Background 3"
             },
             {
@@ -105,6 +105,7 @@ export const landingData = {
             {
                 id: "1",
                 isActive: true,
+                featuredEvent: true,
                 title: "complete modeling career launchpad",
                 eventLogo: "/images/event-logo-3.svg",
                 media: {
@@ -119,6 +120,7 @@ export const landingData = {
             {
                 id: "2",
                 isActive: true,
+                featuredEvent: false,
                 title: "Where Fashion meets Entrepreneurship",
                 eventLogo: "/images/event-logo-1.svg",
                 media: {
@@ -133,6 +135,7 @@ export const landingData = {
             {
                 id: "3",
                 isActive: false,
+                featuredEvent: false,
                 title: "where the next generation of models rise.",
                 eventLogo: "/images/event-logo-2.svg",
                 media: {
@@ -147,6 +150,7 @@ export const landingData = {
             {
                 id: "4",
                 isActive: false,
+                featuredEvent: false,
                 title: "Style Sprouts (8–10): Emotional expression, creativity & social skills",
                 eventLogo: "/images/event-logo-4.svg",
                 media: {
@@ -161,6 +165,7 @@ export const landingData = {
             {
                 id: "5",
                 isActive: false,
+                featuredEvent: false,
                 title: "Fashion Leaders (14–15): Leadership, decision-making & identity building",
                 eventLogo: "/images/event-logo-4.svg",
                 media: {
@@ -175,6 +180,7 @@ export const landingData = {
             {
                 id: "6",
                 isActive: false,
+                featuredEvent: false,
                 title: "Style Innovators (11–13): Confidence, empathy, collaboration & self-management",
                 eventLogo: "/images/event-logo-4.svg",
                 media: {
@@ -188,6 +194,8 @@ export const landingData = {
             },
             {
                 id: "7",
+                isActive: false,
+                featuredEvent: false,
                 title: "ages 6 to 15, helping them discover their inner confidence and express their personality with style",
                 eventLogo: "/images/event-logo-7.svg",
                 media: {
@@ -201,6 +209,8 @@ export const landingData = {
             },
             {
                 id: "8",
+                isActive: false,
+                featuredEvent: false,
                 title: "Step into a world where fashion meets opportunity.",
                 eventLogo: "/images/event-logo-8.svg",
                 media: {
@@ -295,13 +305,13 @@ export const landingData = {
     },
     contact: {
         quickLinks: [
-            { id: 1, title: "Workshops for models", slug: "#" },
-            { id: 2, title: "Courses for models", slug: "#" },
-            { id: 3, title: "Events", slug: "#" },
-            { id: 4, title: "Subscription plan", slug: "#" },
-            { id: 5, title: "Model Features", slug: "#" },
-            { id: 6, title: "Casting", slug: "#" },
-            { id: 7, title: "DLUF Model Agency", slug: "#" }
+            { id: 1, title: "Workshops for models", slug: "/events/model-forward-live#industry-exposure" },
+            { id: 2, title: "Courses for models", slug: "/events/model-forward-live#who-is-this-for" },
+            { id: 3, title: "Events", slug: "/events/model-forward-live#events-info" },
+            { id: 4, title: "Subscription plan", slug: "/events/model-forward-live#events-info" },
+            { id: 5, title: "Model Features", slug: "/events/model-forward-live#what-trained-in" },
+            { id: 6, title: "Casting", slug: "/events/model-forward-live#meet-your-coach" },
+            { id: 7, title: "DLUF Model Agency", slug: "/events/model-forward-live#join-event" }
         ],
         socialLinks: [
             {

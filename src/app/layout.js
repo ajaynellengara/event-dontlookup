@@ -3,6 +3,7 @@ import { sora, bigShouldersDisplay } from '@/lib/fonts'
 import Footer from '@/components/layout/footer'
 import Navbar from '@/components/layout/navbar'
 import { globalData } from '@/lib/data/global-data'
+import FloatSidebar from '@/components/utils/float-sidebar'
 
 export const metadata = {
     title: 'Dontlookup.Events',
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={`${sora.variable} ${bigShouldersDisplay.variable}`}>
+                <FloatSidebar />
                 <Navbar headerData={globalData.header} />
                 {children}
                 {/* <Footer /> */}

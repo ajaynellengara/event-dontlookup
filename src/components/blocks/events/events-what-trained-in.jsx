@@ -10,7 +10,7 @@ export default function EventsWhatTrainedIn({ data }) {
 
 
   return (
-    <section className="w-full h-auto bg-white block pb-10 xl:pb-[120px] 2xl:pb-[140px] 3xl:pb-[120px] pt-[15px] xl:pt-[60px] 2xl:pt-[70px] 3xl:pt-[60px]">
+    <section id="what-trained-in" className="w-full h-auto bg-white block pb-10 xl:pb-[120px] 2xl:pb-[140px] 3xl:pb-[120px] pt-[15px] xl:pt-[60px] 2xl:pt-[70px] 3xl:pt-[60px]">
       <div className="container">
         <Heading
           as="h2"
