@@ -10,7 +10,7 @@ export default function FloatSidebar() {
                 href="https://wa.me/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 xl:w-12 2xl:w-14 aspect-square not-hover:animate-pulse  hover:scale-110 transition-transform duration-300 pointer-events-auto"
+                className="w-11 xl:w-12 2xl:w-14 aspect-square not-hover:animate-whatsapp-bounce pointer-events-auto"
                 aria-label="Chat with us on WhatsApp"
             >
                 <Image
