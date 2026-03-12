@@ -436,7 +436,7 @@ export const eventsData = [
                         url: "/images/icon-facebook-white.svg",
                         alt: "Facebook"
                     },
-                    slug: "#"
+                    slug: "https://www.facebook.com/stylepreneur/"
                 },
                 {
                     id: 2,
@@ -445,7 +445,7 @@ export const eventsData = [
                         url: "/images/icon-Instagram-white.svg",
                         alt: "Instagram"
                     },
-                    slug: "#"
+                    slug: "https://www.instagram.com/stylepreneur.dlu/"
                 },
                 {
                     id: 4,
@@ -454,7 +454,7 @@ export const eventsData = [
                         url: "/images/icon-linkedIn-white.svg",
                         alt: "LinkedIn"
                     },
-                    slug: "#"
+                    slug: "https://www.linkedin.com/showcase/stylepreneur"
                 },
                 {
                     id: 5,
@@ -463,7 +463,7 @@ export const eventsData = [
                         url: "/images/icon-youTube-white.svg",
                         alt: "YouTube"
                     },
-                    slug: "#"
+                    slug: "https://www.youtube.com/@Stylepreneur"
                 },
             ],
         },

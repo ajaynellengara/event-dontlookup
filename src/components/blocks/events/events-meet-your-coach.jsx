@@ -83,7 +83,7 @@ export default function EventsMeetYourCoach({ data }) {
                   as="div"
                   size="p1"
                   className={cn(
-                    "font-sora font-normal px-4 xl:px-6 py-2 xl:py-3 rounded-[50px] absolute z-20 bottom-10 left-10 3xl:bottom-12.5 3xl:left-12.5 transition-colors duration-300",
+                    "max-sm:text-[10px] font-sora font-normal px-2 sm:px-4 xl:px-6 py-1 sm:py-2 xl:py-3 rounded-[50px] absolute z-20 bottom-2 xl:bottom-10 left-2 xl:left-10 3xl:bottom-12.5 3xl:left-12.5 transition-colors duration-300",
                     activeIndex === index ? "bg-[#06B5B9] text-white" : "bg-white/90 text-black group-hover:bg-[#06B5B9] group-hover:text-white"
                   )}
                 >

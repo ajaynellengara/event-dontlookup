@@ -93,7 +93,7 @@ export default function EventsJoinEvent({ data, pageTitle }) {
               >
                 <div className="w-full h-full overflow-hidden bg-[#f2f2f2] p-8 xl:p-13 2xl:p-16 3xl:p-20 rounded-[16px] xl:rounded-[24px] hover:bg-[#e3e3e3] transition-all duration-500 ease-in-out flex flex-wrap xl:gap-x-[160px] 2xl:gap-x-[180px] 3xl:gap-x-[200px]">
                   <div className="w-full xl:w-[220px] 2xl:w-[260px] 3xl:w-[320px]">
-                    <div className="w-full overflow-hidden transition-all duration-500 hover:scale-110">
+                    <div className="w-full sm:w-[160px] xl:w-full aspect-16/33 overflow-hidden transition-all duration-500 hover:scale-110">
                       <Image
                         src={item?.mediaUrl}
                         alt={item?.title || "join event"}
