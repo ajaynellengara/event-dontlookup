@@ -1,6 +1,4 @@
-'use client';
 
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Heading, Text } from "@/components/utils/typography";
 import parse from "html-react-parser";
@@ -10,44 +8,6 @@ import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { cn } from "@/lib/utils";
 
 export default function EventsInfo({ data }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError("");
-
-    try {
-      const response = await fetch('/api/download-brochure', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          eventName: data?.title || 'Stylepreneur Event'
-        }),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || 'Failed to request brochure');
-      }
-
-      setIsSuccess(true);
-      setEmail("");
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section id="events-info" className="w-full h-auto bg-[#121212] block py-8 sm:py-10 md:py-16 lg:py-24 xl:py-32 2xl:py-36 3xl:py-44">
       <div className="container">
@@ -127,57 +87,6 @@ export default function EventsInfo({ data }) {
           </div>
         </div>
       </div>
-
-      {
-        isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 p-4">
-            <div className="bg-[#1a1a1a] rounded-xl p-8 max-w-md w-full relative border border-gray-700">
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white"
-              >
-                ✕
-              </button>
-              <h3 className="text-2xl font-sora text-[#D6A96F] mb-4">Get the Brochure</h3>
-              {isSuccess ? (
-                <div className="text-center py-6">
-                  <div className="text-green-400 text-5xl mb-4">✓</div>
-                  <p className="text-white text-lg font-medium">Thank you!</p>
-                  <p className="text-gray-400 mt-2">The brochure has been sent to your email.</p>
-                  <Button
-                    className="mt-6 w-full"
-                    onClick={() => setIsModalOpen(false)}
-                  >
-                    Close
-                  </Button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                  <p className="text-gray-300 mb-2">Enter your email address to download the exclusive event brochure.</p>
-                  <input
-                    type="email"
-                    required
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="px-4 py-3 rounded-lg bg-[#2A2A2A] text-white border border-gray-600 focus:outline-none focus:border-[#D6A96F] w-full"
-                  />
-
-                  {error && <p className="text-red-400 text-sm">{error}</p>}
-
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full mt-2"
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Brochure'}
-                  </Button>
-                </form>
-              )}
-            </div>
-          </div>
-        )
-      }
     </section >
   );
 }

@@ -88,6 +88,57 @@ export const eventsData = [
             ],
             longDescription: "This experience is designed to help you step into the industry with confidence — not confusion."
         },
+        portfolio: {
+            title: "INSIDE MODEL FORWARD",
+            description: "<p>Get a glimpse of the Model Forward experience. From makeup and styling sessions to photoshoots and runway training, explore short highlights from our fashion workshop moments.</p>",
+            items: [
+                {
+                    id: 1,
+                    title: "Photoshoot",
+                    media: {
+                        type: "video",
+                        url: "/videos/placeholder-video.mp4",
+                        alt: "placeholder"
+                    }
+                },
+                {
+                    id: 2,
+                    title: "Ramp Walk",
+                    media: {
+                        type: "image",
+                        url: "/images/placeholder.jpg",
+                        alt: "placeholder"
+                    }
+                },
+                {
+                    id: 3,
+                    title: "Make Up Session",
+                    media: {
+                        type: "video",
+                        url: "/videos/placeholder-video.mp4",
+                        alt: "placeholder"
+                    }
+                },
+                {
+                    id: 4,
+                    title: "Make Up Session",
+                    media: {
+                        type: "video",
+                        url: "/videos/placeholder-video.mp4",
+                        alt: "placeholder"
+                    }
+                },
+                {
+                    id: 5,
+                    title: "Make Up Session",
+                    media: {
+                        type: "image",
+                        url: "/images/placeholder.jpg",
+                        alt: "placeholder"
+                    }
+                },
+            ],
+        },
         meetYourCoach: {
             title: "MEET YOUR COACH",
             items: [
@@ -145,6 +196,15 @@ export const eventsData = [
                     description: "<h5>Starter Professional Portfolio</h5><ul><li>‣  One group-based portfolio shoot</li><li>‣  6 High-quality edited images.</li><li>‣  3 Professional modelling videos:</li><li>Runway walk, Posing, Expressions.</li></ul><h5>Perfect for:</h5><ul><li>‣  Agency submissions.</li><li>‣  Casting calls</li><li>‣  Brand Introductions</li><li>‣  Digital Modelling Profiles</li></ul>",
                 },
             ],
+        },
+        certificate: {
+            title: "EARN YOUR CERTIFICATE",
+            description: "<p>Participants will receive an official digital certificate after completing the webinar, acknowledging their participation in the Fashion Event Workshop.</p>",
+            media: {
+                type: "image",
+                url: "/images/events-certi-1.png",
+                alt: "events-certi-1"
+            }
         },
         industryExposure: {
             title: "LIVE INDUSTRY EXPOSURE",
@@ -240,6 +300,153 @@ export const eventsData = [
                 { id: 8, media: { type: "image", url: "/images/gallery-8.jpg", alt: "gallery Image 8" } },
             ]
         },
+        moreGallery: {
+            title: "Gallery",
+            galleryCategory: [
+                {
+                    id: 1,
+                    title: "Model Forward Edition 1: ",
+                    description: "12 March 2026, Venue name, Dubai",
+                    items: [
+                        {
+                            id: 1,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 2,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 3,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 4,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 5,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 6,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 7,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 8,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 9,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 10,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                    ]
+                },
+                {
+                    id: 2,
+                    title: "Model Forward Edition 2: ",
+                    description: "12 March 2026, Venue name, Dubai",
+                    items: [
+                        {
+                            id: 1,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 2,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 3,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 4,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 5,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                        {
+                            id: 6,
+                            media: {
+                                type: "image",
+                                url: "/images/placeholder.jpg",
+                                alt: "placeholder"
+                            }
+                        },
+                    ]
+                },
+            ],
+        }
     },
     {
         slug: "stylepreneur",

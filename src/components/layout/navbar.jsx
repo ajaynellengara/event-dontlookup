@@ -121,77 +121,83 @@ export default function Navbar({ headerData }) {
             <AnimatePresence>
                 {isMenuOpen && (
                     <motion.div
-                        variants={menuVariants}
-                        initial="closed"
-                        animate="open"
-                        exit="closed"
-                        className="fixed top-0 right-0 w-full h-screen bg-black backdrop-blur-[20px] z-[98] flex overflow-y-auto"
+                        // variants={menuVariants}
+                        // initial="closed"
+                        // animate="open"
+                        // exit="closed"
+                        className="fixed top-0 right-0 w-full h-screen z-[98] flex overflow-y-auto"
                     >
-                        <div className="container">
-                            <div className="w-auto h-full overflow-y-auto pt-[var(--header-y-sm)] lg:pt-[var(--header-y-lg)] 2xl:pt-[var(--header-y-2xl)] 3xl:pt-[var(--header-y-3xl)] ">
-                                <ul className="max-h-[calc(100vh-var(--header-y-sm))] lg:max-h-[calc(100vh-var(--header-y-lg))] 2xl:max-h-[calc(100vh-var(--header-y-2xl))] 3xl:max-h-[calc(100vh-var(--header-y-3xl))] overflow-y-auto list-none flex flex-col gap-y-2 py-10 m-0">
-                                    {NAV_ITEMS.map((item, index) => (
-                                        <li key={index}
-                                            className="w-auto"
-                                        >
-                                            {item.submenu ? (
-                                                <div>
-                                                    <div
-                                                        className="text-[32px] xl:text-[48px] 2xl:text-[56px] 3xl:text-[64px] leading-none font-normal uppercase text-white flex gap-x-2 items-center cursor-pointer py-1.5"
-                                                        onClick={() => toggleSubmenu(index)}
-                                                    >
-                                                        <span>
-                                                            {item.label}
-                                                        </span>
-                                                        <span>
-                                                            {openSubmenu === index ? (
-                                                                <ChevronUp className="size-6 xl:size-10 font-normal text-white/40 hover:text-white transition duration-300" />
-                                                            ) : (
-                                                                <ChevronDown className="size-6 xl:size-10 font-normal text-white/40 hover:text-white transition duration-300" />
-                                                            )
-                                                            }
-                                                        </span>
+                        <div className="w-full h-full relative z-0 inset-0 border border-red-500">
+                            <div className={cn("w-screen h-screen fixed -z-1 inset-0 bg-[#09090c] transition-all duration-1000 ease-in-out border border-yellow-500",
+                                isMenuOpen ? "translate-x-0 translate-y-0 rounded-none delay-100" : "translate-x-full -translate-y-full rounded-tl-full delay-0")} />
+                            <div className={cn("w-screen h-screen fixed -z-2 inset-0 bg-[#ff0] transition-all duration-1000 ease-in-out border border-yellow-500",
+                                isMenuOpen ? "translate-x-0 translate-y-0 rounded-none delay-0" : "translate-x-full -translate-y-full rounded-tl-full delay-100")} />
+                            <div className="container">
+                                <div className="w-auto h-full overflow-y-auto pt-[var(--header-y-sm)] lg:pt-[var(--header-y-lg)] 2xl:pt-[var(--header-y-2xl)] 3xl:pt-[var(--header-y-3xl)] ">
+                                    <ul className="max-h-[calc(100vh-var(--header-y-sm))] lg:max-h-[calc(100vh-var(--header-y-lg))] 2xl:max-h-[calc(100vh-var(--header-y-2xl))] 3xl:max-h-[calc(100vh-var(--header-y-3xl))] overflow-y-auto list-none flex flex-col gap-y-2 py-10 m-0">
+                                        {NAV_ITEMS.map((item, index) => (
+                                            <li key={index}
+                                                className="w-auto"
+                                            >
+                                                {item.submenu ? (
+                                                    <div>
+                                                        <div
+                                                            className="text-[32px] xl:text-[48px] 2xl:text-[56px] 3xl:text-[64px] leading-none font-normal uppercase text-white flex gap-x-2 items-center cursor-pointer py-1.5"
+                                                            onClick={() => toggleSubmenu(index)}
+                                                        >
+                                                            <span>
+                                                                {item.label}
+                                                            </span>
+                                                            <span>
+                                                                {openSubmenu === index ? (
+                                                                    <ChevronUp className="size-6 xl:size-10 font-normal text-white/40 hover:text-white transition duration-300" />
+                                                                ) : (
+                                                                    <ChevronDown className="size-6 xl:size-10 font-normal text-white/40 hover:text-white transition duration-300" />
+                                                                )
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                        <AnimatePresence>
+                                                            {openSubmenu === index && (
+                                                                <motion.ul
+                                                                    initial={{ height: 0, opacity: 0 }}
+                                                                    animate={{ height: "auto", opacity: 1 }}
+                                                                    exit={{ height: 0, opacity: 0 }}
+                                                                    className="flex flex-col overflow-hidden my-3 space-y-3"
+                                                                >
+                                                                    {item.submenu.map((subItem, subIndex) => (
+                                                                        <li key={subIndex}>
+                                                                            <Link
+                                                                                href={subItem.href}
+                                                                                target={subItem.external ? "_blank" : undefined}
+                                                                                onClick={toggleMenu}
+                                                                                className="text-[18px] xl:text-[28px] 2xl:text-[38px] 3xl:text-[48px] font-primary text-white/70 hover:text-[#06B5B9] block transition-colors"
+                                                                            >
+                                                                                {subItem.label}
+                                                                            </Link>
+                                                                        </li>
+                                                                    ))}
+                                                                </motion.ul>
+                                                            )}
+                                                        </AnimatePresence>
                                                     </div>
-                                                    <AnimatePresence>
-                                                        {openSubmenu === index && (
-                                                            <motion.ul
-                                                                initial={{ height: 0, opacity: 0 }}
-                                                                animate={{ height: "auto", opacity: 1 }}
-                                                                exit={{ height: 0, opacity: 0 }}
-                                                                className="flex flex-col overflow-hidden my-3 space-y-3"
-                                                            >
-                                                                {item.submenu.map((subItem, subIndex) => (
-                                                                    <li key={subIndex}>
-                                                                        <Link
-                                                                            href={subItem.href}
-                                                                            target={subItem.external ? "_blank" : undefined}
-                                                                            onClick={toggleMenu}
-                                                                            className="text-[18px] xl:text-[28px] 2xl:text-[38px] 3xl:text-[48px] font-primary text-white/70 hover:text-[#06B5B9] block transition-colors"
-                                                                        >
-                                                                            {subItem.label}
-                                                                        </Link>
-                                                                    </li>
-                                                                ))}
-                                                            </motion.ul>
+                                                ) : (
+                                                    <Link
+                                                        href={item.href}
+                                                        onClick={toggleMenu}
+                                                        target={item.external ? "_blank" : undefined}
+                                                        className={cn(
+                                                            "text-[32px] xl:text-[48px] 2xl:text-[56px] 3xl:text-[64px] leading-none font-normal uppercase text-white py-1.5 flex items-center hover:text-[#06B5B9] transition-colors",
+                                                            pathname === item.href && "text-[#06B5B9]"
                                                         )}
-                                                    </AnimatePresence>
-                                                </div>
-                                            ) : (
-                                                <Link
-                                                    href={item.href}
-                                                    onClick={toggleMenu}
-                                                    target={item.external ? "_blank" : undefined}
-                                                    className={cn(
-                                                        "text-[32px] xl:text-[48px] 2xl:text-[56px] 3xl:text-[64px] leading-none font-normal uppercase text-white py-1.5 flex items-center hover:text-[#06B5B9] transition-colors",
-                                                        pathname === item.href && "text-[#06B5B9]"
-                                                    )}
-                                                >
-                                                    {item.label}
-                                                </Link>
-                                            )}
-                                        </li>
-                                    ))}
-                                </ul>
+                                                    >
+                                                        {item.label}
+                                                    </Link>
+                                                )}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </motion.div>

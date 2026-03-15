@@ -12,6 +12,9 @@ import EventsJoinEvent from '@/components/blocks/events/events-join-event'
 import EventsGallery from '@/components/blocks/events/events-gallery'
 import Link from 'next/link'
 import { eventsData } from '@/lib/data/events-data'
+import EventsCatalogue from '@/components/blocks/events/events-catalogue'
+import EventsPortfolio from '@/components/blocks/events/events-portfolio'
+import EventsCertificate from '@/components/blocks/events/events-certificate'
 
 export async function generateMetadata({ params }) {
     const resolvedParams = await params
@@ -67,12 +70,15 @@ export default async function EventDetails({ params }) {
                 {data?.appDownload && <LandingAppDownload data={data?.appDownload} />}
                 {data?.whoIsThisFor && <EventsWhoIsThisFor data={data?.whoIsThisFor} />}
                 {data?.outcomes && <EventsOutcomes data={data?.outcomes} />}
+                <EventsCatalogue />
+                {data?.portfolio && <EventsPortfolio data={data?.portfolio} />}
                 {data?.meetYourCoach && <EventsMeetYourCoach data={data?.meetYourCoach} />}
                 {data?.whatTrainedIn && <EventsWhatTrainedIn data={data?.whatTrainedIn} />}
+                {data?.certificate && <EventsCertificate data={data?.certificate} />}
                 {data?.industryExposure && <EventsIndustryExposure data={data?.industryExposure} />}
                 {data?.appDownload && <LandingAppDownload data={data?.appDownload} />}
                 {data?.joinEvent && <EventsJoinEvent pageTitle={data?.pageTitle} data={data?.joinEvent} />}
-                {data?.gallery && <EventsGallery data={data?.gallery} />}
+                {data?.gallery && <EventsGallery data={data?.gallery} slug={slug} />}
             </div>
         </>
     )

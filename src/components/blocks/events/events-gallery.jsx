@@ -11,10 +11,12 @@ import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import { useEffect } from "react";
 import RevealAnimation from "@/components/utils/reveal-animation";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 
 
-export default function EventsGallery({ data }) {
+export default function EventsGallery({ data, slug }) {
   useEffect(() => {
     Fancybox.bind('[data-fancybox="gallery"]', {
       // Your custom options
@@ -61,10 +63,23 @@ export default function EventsGallery({ data }) {
           )}
 
           <div
-            className="typography sm:text-center [--text-color:#121212] [&_h4]:[--text-color:#06B5B9] mb-6 md:mb-14 lg:mb-16 xl:mb-20 2xl:mb-24 3xl:mb-32"
+            className="typography sm:text-center [--text-color:#121212] [&_h4]:[--text-color:#06B5B9] mb-2 lg:mb-1.5 2xl:mb-2"
             dir="ltr"
           >
             {parse(data?.longDescription)}
+          </div>
+          <div className="flex mb-8 sm:mb-10 lg:mb-15 2xl:mb-[100px] 3xl:mb-[120px]">
+            <Button
+              size="lg"
+              variant={"default"}
+              className="max-w-[220px] xl:max-w-[268px] 2xl:max-w-[320px] 3xl:max-w-[400px] sm:mx-auto"
+
+              asChild
+            >
+              <Link href={`/events/${slug}/gallery`}>
+                View Full Gallery
+              </Link>
+            </Button>
           </div>
         </RevealAnimation>
 
