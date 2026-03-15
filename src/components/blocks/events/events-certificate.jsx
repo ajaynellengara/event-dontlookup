@@ -40,7 +40,7 @@ export default function EventsCertificate({ data }) {
         </div>
 
         <div
-          className="w-full max-w-[468px] sm:max-w-[576px] xl:max-w-[880px] 2xl:max-w-[1328px] 3xl:max-w-[1328px] h-auto block mx-auto"
+          className="w-full max-w-[360px] sm:max-w-[468px] xl:max-w-[576px] 2xl:max-w-[768px] 3xl:max-w-[1080px] h-auto block mx-auto"
         >
           <Image
             src={data?.media?.url}

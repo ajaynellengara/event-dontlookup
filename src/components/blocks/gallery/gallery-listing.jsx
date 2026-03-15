@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import { useEffect } from "react";
+import { cn } from "@/lib/utils";
+import { Skeleton } from "@/components/ui/skeleton";
 
 
 
@@ -58,18 +60,23 @@ export default function GalleryListing({ data = localData }) {
                                         key={item?.id}
                                         className="w-1/2 sm:w-1/4 lg:w-1/6"
                                     >
-                                        <a
-                                            href={item?.media?.url}
-                                            data-fancybox={`gallery-${category?.id}`}
-                                            className="w-full aspect-square overflow-hidden border border-gray-100 block cursor-pointer">
-                                            <Image
-                                                src={item?.media?.url}
-                                                alt={item?.media?.alt || "Gallery Image"}
-                                                width={300}
-                                                height={300}
-                                                className="w-full h-full object-cover hover:scale-110 transition-all duration-500 ease-in-out"
-                                            />
-                                        </a>
+                                        {category?.status === "upcoming" ? (
+                                            <Skeleton className="w-full aspect-1080/1440 overflow-hidden border border-gray-100 block cursor-pointer bg-gray-200" title="Upcoming, Join the event.">
+                                            </Skeleton>
+                                        ) : (
+                                            <a
+                                                href={item?.media?.url}
+                                                data-fancybox={`gallery-${category?.id}`}
+                                                className={cn("w-full aspect-1080/1440 overflow-hidden border border-gray-100 block cursor-pointer")}>
+                                                <Image
+                                                    src={item?.media?.url}
+                                                    alt={item?.media?.alt || "Gallery Image"}
+                                                    width={1080}
+                                                    height={1440}
+                                                    className="w-full h-full object-cover hover:scale-110 transition-all duration-500 ease-in-out"
+                                                />
+                                            </a>
+                                        )}
                                     </div>
                                 ))}
                             </div>

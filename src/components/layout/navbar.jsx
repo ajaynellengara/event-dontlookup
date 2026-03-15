@@ -9,6 +9,15 @@ import { Button } from "../ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { HoverBorderGradient } from "../ui/hover-border-gradient";
 
+const NAV_LINK_BASE_CLASSES = "group text-[32px] xl:text-[48px] 2xl:text-[56px] 3xl:text-[64px] leading-none uppercase font-medium text-white py-1.5 flex items-center transition-colors";
+const NAV_LINK_UNDERLINE_CLASSES = "w-full h-0.5 lg:h-1 bg-[#06B5B9] absolute z-0 inset-0 m-auto transform origin-center transition-all duration-300 ease-out";
+
+const itemVariants = {
+    hidden: { opacity: 0, x: 50 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } },
+    exit: { opacity: 0, x: 30, transition: { duration: 0.3 } }
+};
+
 export default function Navbar({ headerData }) {
     const NAV_ITEMS = headerData?.navigation || [];
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -127,76 +136,51 @@ export default function Navbar({ headerData }) {
                         // exit="closed"
                         className="fixed top-0 right-0 w-full h-screen z-[98] flex overflow-y-auto"
                     >
-                        <div className="w-full h-full relative z-0 inset-0 border border-red-500">
-                            <div className={cn("w-screen h-screen fixed -z-1 inset-0 bg-[#09090c] transition-all duration-1000 ease-in-out border border-yellow-500",
-                                isMenuOpen ? "translate-x-0 translate-y-0 rounded-none delay-100" : "translate-x-full -translate-y-full rounded-tl-full delay-0")} />
-                            <div className={cn("w-screen h-screen fixed -z-2 inset-0 bg-[#ff0] transition-all duration-1000 ease-in-out border border-yellow-500",
-                                isMenuOpen ? "translate-x-0 translate-y-0 rounded-none delay-0" : "translate-x-full -translate-y-full rounded-tl-full delay-100")} />
-                            <div className="container">
+                        <div className="w-full h-full relative z-0 inset-0">
+                            <motion.div
+                                initial={{ clipPath: "circle(0px at calc(100% - 40px) 40px)" }}
+                                animate={{ clipPath: "circle(250vh at calc(100% - 40px) 40px)" }}
+                                exit={{ clipPath: "circle(0px at calc(100% - 40px) 40px)", transition: { delay: 0.1, duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
+                                transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
+                                className="w-screen h-screen fixed -z-1 inset-0 bg-[#09090c]"
+                            />
+                            <motion.div
+                                initial={{ clipPath: "circle(0px at calc(100% - 40px) 40px)" }}
+                                animate={{ clipPath: "circle(250vh at calc(100% - 40px) 40px)" }}
+                                exit={{ clipPath: "circle(0px at calc(100% - 40px) 40px)", transition: { delay: 0, duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
+                                transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0 }}
+                                className="w-screen h-screen fixed -z-2 inset-0 bg-black/50"
+                            />
+                            <div className="container relative z-10">
                                 <div className="w-auto h-full overflow-y-auto pt-[var(--header-y-sm)] lg:pt-[var(--header-y-lg)] 2xl:pt-[var(--header-y-2xl)] 3xl:pt-[var(--header-y-3xl)] ">
-                                    <ul className="max-h-[calc(100vh-var(--header-y-sm))] lg:max-h-[calc(100vh-var(--header-y-lg))] 2xl:max-h-[calc(100vh-var(--header-y-2xl))] 3xl:max-h-[calc(100vh-var(--header-y-3xl))] overflow-y-auto list-none flex flex-col gap-y-2 py-10 m-0">
+                                    <motion.ul
+                                        initial="hidden"
+                                        animate="show"
+                                        exit="hidden"
+                                        variants={{
+                                            hidden: { opacity: 0 },
+                                            show: {
+                                                opacity: 1,
+                                                transition: {
+                                                    staggerChildren: 0.1,
+                                                    delayChildren: 0.4
+                                                }
+                                            }
+                                        }}
+                                        className="max-h-[calc(100vh-var(--header-y-sm))] lg:max-h-[calc(100vh-var(--header-y-lg))] 2xl:max-h-[calc(100vh-var(--header-y-2xl))] 3xl:max-h-[calc(100vh-var(--header-y-3xl))] overflow-y-auto list-none flex flex-col gap-y-2 py-10 m-0"
+                                    >
                                         {NAV_ITEMS.map((item, index) => (
-                                            <li key={index}
-                                                className="w-auto"
-                                            >
-                                                {item.submenu ? (
-                                                    <div>
-                                                        <div
-                                                            className="text-[32px] xl:text-[48px] 2xl:text-[56px] 3xl:text-[64px] leading-none font-normal uppercase text-white flex gap-x-2 items-center cursor-pointer py-1.5"
-                                                            onClick={() => toggleSubmenu(index)}
-                                                        >
-                                                            <span>
-                                                                {item.label}
-                                                            </span>
-                                                            <span>
-                                                                {openSubmenu === index ? (
-                                                                    <ChevronUp className="size-6 xl:size-10 font-normal text-white/40 hover:text-white transition duration-300" />
-                                                                ) : (
-                                                                    <ChevronDown className="size-6 xl:size-10 font-normal text-white/40 hover:text-white transition duration-300" />
-                                                                )
-                                                                }
-                                                            </span>
-                                                        </div>
-                                                        <AnimatePresence>
-                                                            {openSubmenu === index && (
-                                                                <motion.ul
-                                                                    initial={{ height: 0, opacity: 0 }}
-                                                                    animate={{ height: "auto", opacity: 1 }}
-                                                                    exit={{ height: 0, opacity: 0 }}
-                                                                    className="flex flex-col overflow-hidden my-3 space-y-3"
-                                                                >
-                                                                    {item.submenu.map((subItem, subIndex) => (
-                                                                        <li key={subIndex}>
-                                                                            <Link
-                                                                                href={subItem.href}
-                                                                                target={subItem.external ? "_blank" : undefined}
-                                                                                onClick={toggleMenu}
-                                                                                className="text-[18px] xl:text-[28px] 2xl:text-[38px] 3xl:text-[48px] font-primary text-white/70 hover:text-[#06B5B9] block transition-colors"
-                                                                            >
-                                                                                {subItem.label}
-                                                                            </Link>
-                                                                        </li>
-                                                                    ))}
-                                                                </motion.ul>
-                                                            )}
-                                                        </AnimatePresence>
-                                                    </div>
-                                                ) : (
-                                                    <Link
-                                                        href={item.href}
-                                                        onClick={toggleMenu}
-                                                        target={item.external ? "_blank" : undefined}
-                                                        className={cn(
-                                                            "text-[32px] xl:text-[48px] 2xl:text-[56px] 3xl:text-[64px] leading-none font-normal uppercase text-white py-1.5 flex items-center hover:text-[#06B5B9] transition-colors",
-                                                            pathname === item.href && "text-[#06B5B9]"
-                                                        )}
-                                                    >
-                                                        {item.label}
-                                                    </Link>
-                                                )}
-                                            </li>
+                                            <NavItem
+                                                key={index}
+                                                item={item}
+                                                index={index}
+                                                pathname={pathname}
+                                                toggleMenu={toggleMenu}
+                                                openSubmenu={openSubmenu}
+                                                toggleSubmenu={toggleSubmenu}
+                                            />
                                         ))}
-                                    </ul>
+                                    </motion.ul>
                                 </div>
                             </div>
                         </div>
@@ -215,5 +199,92 @@ function LogoLink({ href, className, visible, src, width }) {
         )}>
             <Image src={src} width={width} height={109} loading="lazy" alt="logo" className="w-auto h-auto" />
         </Link>
+    );
+}
+
+// Sub-components for cleaner modular architecture
+
+function NavItem({ item, index, pathname, toggleMenu, openSubmenu, toggleSubmenu }) {
+    const isActive = pathname === item.href;
+    const isSubmenuOpen = openSubmenu === index;
+
+    if (item.submenu) {
+        return (
+            <motion.li variants={itemVariants} className="w-auto">
+                <div>
+                    <div
+                        className={cn(NAV_LINK_BASE_CLASSES, "gap-x-2 cursor-pointer")}
+                        onClick={() => toggleSubmenu(index)}
+                    >
+                        <span className="relative z-0">
+                            {item.label}
+                            <AnimatedUnderline isActive={isSubmenuOpen} />
+                        </span>
+                        <DropdownIcon isOpen={isSubmenuOpen} />
+                    </div>
+                    <AnimatePresence>
+                        {isSubmenuOpen && <SubMenuList items={item.submenu} toggleMenu={toggleMenu} />}
+                    </AnimatePresence>
+                </div>
+            </motion.li>
+        );
+    }
+
+    return (
+        <motion.li variants={itemVariants} className="w-auto">
+            <Link
+                href={item.href}
+                onClick={toggleMenu}
+                target={item.external ? "_blank" : undefined}
+                className={cn(NAV_LINK_BASE_CLASSES, !isActive && "text-[#9d9d9e] hover:text-[#06B5B9]")}
+            >
+                <span className="relative">
+                    {item.label}
+                    <AnimatedUnderline isActive={isActive} />
+                </span>
+            </Link>
+        </motion.li>
+    );
+}
+
+function AnimatedUnderline({ isActive }) {
+    return (
+        <span className={cn(
+            NAV_LINK_UNDERLINE_CLASSES,
+            isActive ? "scale-100 opacity-100" : "scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100"
+        )} />
+    );
+}
+
+function DropdownIcon({ isOpen }) {
+    const Icon = isOpen ? ChevronUp : ChevronDown;
+    return (
+        <span>
+            <Icon className="size-6 xl:size-10 font-normal text-white/40 hover:text-white transition duration-300" />
+        </span>
+    );
+}
+
+function SubMenuList({ items, toggleMenu }) {
+    return (
+        <motion.ul
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="flex flex-col overflow-hidden my-3 space-y-3"
+        >
+            {items.map((subItem, subIndex) => (
+                <li key={subIndex}>
+                    <Link
+                        href={subItem.href}
+                        target={subItem.external ? "_blank" : undefined}
+                        onClick={toggleMenu}
+                        className="text-[18px] xl:text-[28px] 2xl:text-[38px] 3xl:text-[48px] font-primary text-white/70 hover:text-[#06B5B9] block transition-colors"
+                    >
+                        {subItem.label}
+                    </Link>
+                </li>
+            ))}
+        </motion.ul>
     );
 }

@@ -192,7 +192,7 @@ export default function Footer({ footerData, locale }) {
                                 size="p3"
                                 className="font-normal text-center text-[#a0a0a0] my-0.5 xl:my-1 max-lg:mb-5"
                             >
-                                © {new Date().getFullYear()}, {footerData?.designedBy}
+                                Copyright © {new Date().getFullYear()} {footerData?.rightsReserved}
                             </Text>
                         </div>
                     </div>

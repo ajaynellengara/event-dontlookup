@@ -97,26 +97,17 @@ export const eventsData = [
                     title: "Photoshoot",
                     media: {
                         type: "video",
-                        url: "/videos/placeholder-video.mp4",
-                        alt: "placeholder"
-                    }
-                },
-                {
-                    id: 2,
-                    title: "Ramp Walk",
-                    media: {
-                        type: "image",
-                        url: "/images/placeholder.jpg",
-                        alt: "placeholder"
+                        url: "/videos/IMG_2472.MOV",
+                        alt: "Photoshoot Video"
                     }
                 },
                 {
                     id: 3,
-                    title: "Make Up Session",
+                    title: "Ramp Walk",
                     media: {
                         type: "video",
-                        url: "/videos/placeholder-video.mp4",
-                        alt: "placeholder"
+                        url: "/videos/IMG_3745.MOV",
+                        alt: "Ramp Walk Video 1"
                     }
                 },
                 {
@@ -124,17 +115,17 @@ export const eventsData = [
                     title: "Make Up Session",
                     media: {
                         type: "video",
-                        url: "/videos/placeholder-video.mp4",
-                        alt: "placeholder"
+                        url: "/videos/IMG_3746 (1).mov",
+                        alt: "Make Up Session Video 2"
                     }
                 },
                 {
                     id: 5,
-                    title: "Make Up Session",
+                    title: "On stage",
                     media: {
-                        type: "image",
-                        url: "/images/placeholder.jpg",
-                        alt: "placeholder"
+                        type: "video",
+                        url: "/videos/IMG_3819.MOV",
+                        alt: "Tra Video 3"
                     }
                 },
             ],
@@ -305,6 +296,7 @@ export const eventsData = [
             galleryCategory: [
                 {
                     id: 1,
+                    status: "past",
                     title: "Model Forward Edition 1: ",
                     description: "12 March 2026, Venue name, Dubai",
                     items: [
@@ -312,86 +304,207 @@ export const eventsData = [
                             id: 1,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/1000006829.jpg",
+                                alt: "gallery image 1"
                             }
                         },
                         {
                             id: 2,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/1000006862.jpg",
+                                alt: "gallery image 2"
                             }
                         },
                         {
                             id: 3,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/1000006863.jpg",
+                                alt: "gallery image 3"
                             }
                         },
                         {
                             id: 4,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/1000006864.jpg",
+                                alt: "gallery image 4"
                             }
                         },
                         {
                             id: 5,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/1000006865.jpg",
+                                alt: "gallery image 5"
                             }
                         },
                         {
                             id: 6,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/1000006866 (1).jpg",
+                                alt: "gallery image 6"
                             }
                         },
                         {
                             id: 7,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/1000006867 (1).jpg",
+                                alt: "gallery image 7"
                             }
                         },
                         {
                             id: 8,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/1000006868.jpg",
+                                alt: "gallery image 8"
                             }
                         },
                         {
                             id: 9,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/1000006869.jpg",
+                                alt: "gallery image 9"
                             }
                         },
                         {
                             id: 10,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/1000006870.jpg",
+                                alt: "gallery image 10"
                             }
                         },
+                        {
+                            id: 11,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006871.jpg",
+                                alt: "gallery image 11"
+                            }
+                        },
+                        {
+                            id: 12,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006872.jpg",
+                                alt: "gallery image 12"
+                            }
+                        },
+                        {
+                            id: 13,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006873.jpg",
+                                alt: "gallery image 13"
+                            }
+                        },
+                        {
+                            id: 14,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006874-2.jpg",
+                                alt: "gallery image 14"
+                            }
+                        },
+                        {
+                            id: 15,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006875.jpg",
+                                alt: "gallery image 15"
+                            }
+                        },
+                        {
+                            id: 16,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006876-2.jpg",
+                                alt: "gallery image 16"
+                            }
+                        },
+                        {
+                            id: 17,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006877.jpg",
+                                alt: "gallery image 17"
+                            }
+                        },
+                        {
+                            id: 18,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006878.jpg",
+                                alt: "gallery image 18"
+                            }
+                        },
+                        {
+                            id: 19,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006879.jpg",
+                                alt: "gallery image 19"
+                            }
+                        },
+                        {
+                            id: 20,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006880.jpg",
+                                alt: "gallery image 20"
+                            }
+                        },
+                        {
+                            id: 21,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006881.jpg",
+                                alt: "gallery image 21"
+                            }
+                        },
+                        {
+                            id: 22,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006882.jpg",
+                                alt: "gallery image 22"
+                            }
+                        },
+                        {
+                            id: 23,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006883.jpg",
+                                alt: "gallery image 23"
+                            }
+                        },
+                        {
+                            id: 24,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006884.jpg",
+                                alt: "gallery image 24"
+                            }
+                        },
+                        {
+                            id: 25,
+                            media: {
+                                type: "image",
+                                url: "/images/1000006885.jpg",
+                                alt: "gallery image 25"
+                            }
+                        }
                     ]
                 },
                 {
                     id: 2,
+                    status: "upcoming",
                     title: "Model Forward Edition 2: ",
                     description: "12 March 2026, Venue name, Dubai",
                     items: [

@@ -106,7 +106,7 @@ export const globalData = {
             { label: "DLU", href: "https://dontlookup.fashion/", external: true },
         ],
         copyright: "Conditions of Use. Privacy Notice consumer Health Data Privacy Disclosure, Your Ads Privacy Choices",
-        designedBy: "Dontlookup. or its affiliates",
+        rightsReserved: "Fboxx and Dontlookup FZC LLC. All Rights Reserved.",
         partnersMedia: {
             slug: "https://www.dontlookup.fashion/",
             url: "/images/footer-brand-partners.png",
