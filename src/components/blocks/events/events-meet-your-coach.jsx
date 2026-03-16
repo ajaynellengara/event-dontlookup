@@ -53,13 +53,13 @@ export default function EventsMeetYourCoach({ data }) {
           </AnimatePresence>
         </div>
 
-        <div className="w-full grid grid-cols-3 grid-rows-2 gap-4 xl:gap-6 2xl:gap-7 3xl:gap-8">
+        <div className="w-full grid grid-cols-2 sm:grid-cols-3 grid-rows-2 gap-2 sm:gap-4 xl:gap-6 2xl:gap-7 3xl:gap-8">
           {data?.items?.map((item, index) => (
             <div key={index}
               className={cn("w-full h-full",
-                index === 0 && "col-span-2 row-span-2",
-                index === 1 && "col-start-3",
-                index === 2 && "col-start-3 row-start-2")}
+                index === 0 && "sm:col-span-2 row-span-2",
+                index === 1 && "sm:col-start-3",
+                index === 2 && "col-start-2 sm:col-start-3 sm:row-start-2")}
             >
               <div
                 className={cn(
@@ -81,9 +81,9 @@ export default function EventsMeetYourCoach({ data }) {
                 />
                 <Text
                   as="div"
-                  size="p1"
+                  size="p2"
                   className={cn(
-                    "max-sm:text-[10px] font-sora font-normal px-2 sm:px-4 xl:px-6 py-1 sm:py-2 xl:py-3 rounded-[50px] absolute z-20 bottom-2 xl:bottom-10 left-2 xl:left-10 3xl:bottom-12.5 3xl:left-12.5 transition-colors duration-300",
+                    "max-sm:text-[10px] font-sora font-normal px-2 sm:px-3 xl:px-5 py-1 sm:py-1.5 xl:py-2 rounded-[50px] absolute z-20 bottom-2 left-2 xl:bottom-6 xl:left-6 3xl:bottom-8 3xl:left-8 transition-colors duration-300",
                     activeIndex === index ? "bg-[#06B5B9] text-white" : "bg-white/90 text-black group-hover:bg-[#06B5B9] group-hover:text-white"
                   )}
                 >

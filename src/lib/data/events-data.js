@@ -43,7 +43,7 @@ export const eventsData = [
         expertsSays: {
             media: {
                 type: "youtube",
-                url: "https://www.youtube.com/embed/_Gc6am5tZjg?autoplay=0&mute=0&loop=1&playlist=_Gc6am5tZjg&controls=1&showinfo=0&rel=0",
+                url: "https://www.youtube.com/embed/2hLORZZI-M4?autoplay=0&mute=0&loop=1&playlist=2hLORZZI-M4&controls=1&showinfo=0&rel=0",
                 alt: "eventsExpertsSays-1"
             },
             title: "SEE WHAT THE EXPERTS SAY",
@@ -137,7 +137,7 @@ export const eventsData = [
                     id: 1,
                     mediaUrl: "/images/events-meetYourCoach-1.jpg",
                     title: "Zayah D’or",
-                    description: "<p>globally recognised business and personal brand coach who helps ambitious professionals turn visibility into authority and authority into revenue.<br/>With over 15 years of experience working with entrepreneurs, consultants, creatives, and corporate leaders, Aarav has built a reputation for blending strategy, mindset, and personal branding into sustainable growth systems.<br/>He has coached founders across fashion, real estate, tech, and service-based businesses—helping them position themselves as premium brands in competitive markets.</p>",
+                    description: "<p>Zayah D’or is a Dubai-based fashion professional and <b>Fashion Industry Award 2024/2025</b> recipient. Known as an international runway model, choreography director, modeling coach, and MC, he has appeared in numerous fashion shows and luxury events across the UAE. Starting his career on the runway, he developed strong stage presence and performance skills. Today, Zayah mentors aspiring models, helping them build confidence, perfect their runway walk, and understand the professionalism needed to succeed in the competitive fashion industry.</p>",
                 },
                 {
                     id: 2,

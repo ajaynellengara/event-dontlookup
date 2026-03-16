@@ -7,7 +7,14 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
-
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 
 export default function GalleryListing({ data = localData }) {
@@ -24,8 +31,25 @@ export default function GalleryListing({ data = localData }) {
     }, []);
 
     return (
-        <section className="w-full h-auto bg-white block py-10 xl:py-[80px_120px] 2xl:py-[100px_140px] 3xl:py-[120px_160px] ">
+        <section className="w-full h-auto bg-white block pb-10 xl:pb-[120px] 2xl:pb-[140px] 3xl:pb-[160px] ">
             <div className="container">
+                <Breadcrumb
+                    className="mb-10 xl:mb-[80px] 2xl:mb-[100px] 3xl:mb-[120px] mt-2 xl:mt-4"
+                >
+                    <BreadcrumbList>
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href="/events/model-forward-live">Model Forward Live</BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                            <BreadcrumbPage>Gallery</BreadcrumbPage>
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                </Breadcrumb>
                 <Heading
                     as="h3"
                     size="h3"

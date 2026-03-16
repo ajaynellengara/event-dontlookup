@@ -11,7 +11,7 @@ export default function LandingPlatform({ data }) {
 
   return (
     <section className="w-full h-auto bg-[#121212] block py-10 xl:py-25 2xl:py-32 3xl:py-40">
-      <div className="w-full h-auto aspect-1280/520 overflow-hidden block relative z-0">
+      <div className="w-full h-auto aspect-4/3 sm:aspect-1280/520 overflow-hidden block relative z-0">
         {data?.media?.type === "video" ? (
           <video
             autoPlay

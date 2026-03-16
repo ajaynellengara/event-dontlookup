@@ -170,8 +170,8 @@
   }
 
   ::selection {
-    background-color: var(--color-foreground);
-    color: var(--color-background);
+    background-color: #000;
+    color: #fff;
   }
 
   /* Enhanced link and button hover effects */

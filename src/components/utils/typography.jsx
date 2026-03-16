@@ -13,7 +13,7 @@ const headingVariants = cva("leading-tight font-big-shoulders font-bold", {
       h2: "text-[22px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[48px] 2xl:text-[56px] 3xl:text-[64px]",
       h3: "text-[18px] sm:text-[22px] md:text-[26px] lg:text-[30px] xl:text-[32px] 2xl:text-[42px] 3xl:text-[48px]",
       h4: "text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] 2xl:text-[32px] 3xl:text-[36px]",
-      h5: "text-[16px] sm:text-[16px] md:text-[16px] lg:text-[16px] xl:text-[18px] 2xl:text-[21px] 3xl:text-[27px]",
+      h5: "text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[18px] 2xl:text-[21px] 3xl:text-[27px]",
     },
   },
   defaultVariants: {

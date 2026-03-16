@@ -21,7 +21,7 @@ export default function LandingPartners({ data, variant }) {
   );
 
   return (
-    <section className={cn("w-full h-auto bg-white block py-[8px] sm:py-[10px] xl:py-12 2xl:py-14 overflow-hidden",
+    <section className={cn("w-full h-auto bg-white block py-[8px] sm:py-[10px] xl:py-6 2xl:py-8 overflow-hidden",
       variant === "eventDetail" && "bg-[#047F82]"
     )}>
       <div
@@ -53,7 +53,7 @@ export default function LandingPartners({ data, variant }) {
                   )}
                 >
                   <div className={cn("mx-auto",
-                    variant === "eventDetail" ? "w-full aspect-333/45" : "w-[60px] 2xs:w-[80px] sm:w-[100px] xl:w-[140px] mx-auto aspect-2/1"
+                    variant === "eventDetail" ? "w-full mx-w-8/10 aspect-333/45" : "w-[50px] 2xs:w-[60px] sm:w-[80px] xl:w-[100px] mx-auto aspect-2/1"
                   )}>
                     <Image
                       src={item?.media?.url}

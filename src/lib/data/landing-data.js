@@ -229,7 +229,7 @@ export const landingData = {
             // type: "image",
             type: "youtube",
             posterUrl: "/images/platform-bg.jpg",
-            url: "https://www.youtube.com/embed/_Gc6am5tZjg?autoplay=0&mute=0&loop=1&playlist=_Gc6am5tZjg&controls=1&showinfo=0&rel=0",
+            url: "https://www.youtube.com/embed/2hLORZZI-M4?autoplay=0&mute=0&loop=1&playlist=2hLORZZI-M4&controls=1&showinfo=0&rel=0",
             alt: "Platform Background",
         },
         title: "A Platform Built for Fashion Events",
