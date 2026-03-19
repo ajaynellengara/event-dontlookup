@@ -14,7 +14,7 @@ export default function LandingFeaturedEvents({ data }) {
 
 
   return (
-    <section className="w-full h-auto bg-[#121212] block">
+    <section className="w-full h-auto bg-[#121212] block overflow-hidden">
       <div className="container">
         <div className="w-full h-[1px] bg-[#767676] mb-5 sm:mb-4 lg:mb-5 xl:mb-5 2xl:mb-6 3xl:mb-8" />
         <div className="flex flex-wrap md:-mx-4 lg:-mx-6 md:[&>div]:px-4 lg:[&>div]:px-6 2xl:-mx-8 2xl:[&>div]:px-8 3xl:-mx-12 3xl:[&>div]:px-12">

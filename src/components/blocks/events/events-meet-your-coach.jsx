@@ -30,7 +30,7 @@ export default function EventsMeetYourCoach({ data }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.3 }}
-              className="flex flex-wrap w-full"
+              className="flex flex-wrap gap-x-4 xl:gap-x-10 w-full"
             >
               <div className="w-full sm:w-[100px] xl:w-[180px] 2xl:w-[220px] 3xl:w-[260px]">
                 <Heading

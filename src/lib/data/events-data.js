@@ -3,7 +3,7 @@ export const eventsData = [
         slug: "model-forward-live",
         pageTitle: "Model Forward Live",
         eventInfo: {
-            date: "29 mar 2025",
+            date: "29 mar 2026",
             dateInfo: "IDS Global business center",
             location: "Dubai",
             duration: "10 hours",
@@ -121,7 +121,7 @@ export const eventsData = [
                 },
                 {
                     id: 5,
-                    title: "On stage",
+                    title: "Highlights",
                     media: {
                         type: "video",
                         url: "/videos/IMG_3819.MOV",
@@ -298,7 +298,7 @@ export const eventsData = [
                     id: 1,
                     status: "past",
                     title: "Model Forward Edition 1: ",
-                    description: "12 March 2026, Venue name, Dubai",
+                    description: "22 January 2026, Arjaan Rotana Dubai Media City, Dubai",
                     items: [
                         {
                             id: 1,
@@ -506,7 +506,7 @@ export const eventsData = [
                     id: 2,
                     status: "upcoming",
                     title: "Model Forward Edition 2: ",
-                    description: "12 March 2026, Venue name, Dubai",
+                    description: "29 March 2026, IDS Global Business Center, Dubai",
                     items: [
                         {
                             id: 1,
@@ -655,8 +655,8 @@ export const eventsData = [
                 {
                     id: 1,
                     mediaUrl: "/images/events2-meetYourCoach-1.jpg",
-                    title: "John Doe",
-                    description: "<p>globally recognised business and personal brand coach who helps ambitious professionals turn visibility into authority and authority into revenue.<br/>With over 15 years of experience working with entrepreneurs, consultants, creatives, and corporate leaders, Aarav has built a reputation for blending strategy, mindset, and personal branding into sustainable growth systems.<br/>He has coached founders across fashion, real estate, tech, and service-based businesses—helping them position themselves as premium brands in competitive markets.</p>",
+                    title: "Bhavninder Sanghera",
+                    description: "<p>Bhavninder Sanghera is a professional fashion stylist and content creator with over 8 years of experience empowering individuals to express their unique identity through style. Operating under the Instagram handle @bhav.xo and the YouTube Channel Dress Better Live Better, Bhavninder combines expertise in fashion, storytelling, and digital content creation to deliver visually striking, high-impact campaigns that resonate with audiences.</p><p>He has collaborated with global brands including Louis Vuitton, H&M, Hugo Boss, Gentle Monster, Burberry, and Virgin Active, and his work has been featured in GQ, Playboy Magazine, Vogue Australia, ABC News, Sydney Morning Herald, and numerous other high-profile publications. Bhavninder’s approach goes beyond aesthetics, focusing on personal empowerment, confidence-building, and helping clients and audiences discover their authentic selves through curated fashion experiences.</p><p>Whether creating viral social media content, styling clientsinto the best versions of themselves, or leading innovative digital campaigns, Bhavninder brings creativity, strategic insight, and a deep understanding of fashion’s transformative power to every project.</p>",
                 },
                 {
                     id: 2,
@@ -738,12 +738,12 @@ export const eventsData = [
                 },
                 {
                     id: 2,
-                    mediaUrl: "/images/events-joinEvent-2.png",
+                    mediaUrl: "/images/events-stylepreneur-joinEvent-2.png",
                     description: "<h5>Now let’s dive right into our purpose - Booking for the event!</h5><h5>Step 2— Explore & Book the Event</h5><p>Browse the Stylepreneur event inside the app, view sessions and coaches, and secure your spot with just a few taps.</p>",
                 },
                 {
                     id: 3,
-                    mediaUrl: "/images/events-joinEvent-3.png",
+                    mediaUrl: "/images/events-stylepreneur-joinEvent-2.png",
                     description: "<h5>After Finishing booking, You are in your last step!</h5><h5>Step 3 — Get Ready & Show Up</h5><p>Once you get booking confirmation, your e-ticket will be provided. Please download the ticket. In the event, dont forget to show the QR Code, so that you get your pass.</p><p>Yes, its that easy.<br/>Just arrive, connect, and experience Stylepreneur.</p>",
                 },
             ],

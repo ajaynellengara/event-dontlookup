@@ -114,7 +114,6 @@ export const landingData = {
                     alt: "complete modeling career launchpad"
                 },
                 slug: "model-forward-live",
-                date: "July 2025",
                 category: "EVENT",
             },
             {
@@ -129,7 +128,6 @@ export const landingData = {
                     alt: "Where Fashion meets Entrepreneurship"
                 },
                 slug: "stylepreneur",
-                date: "28 Jan 2025",
                 category: "EVENT",
             },
             {
@@ -144,7 +142,6 @@ export const landingData = {
                     alt: "where the next generation of models rise."
                 },
                 slug: "#",
-                date: "July 2025",
                 category: "EVENT",
             },
             {
@@ -159,7 +156,6 @@ export const landingData = {
                     alt: "Style Sprouts (8–10): Emotional expression, creativity & social skills"
                 },
                 slug: "#",
-                date: "July 2025",
                 category: "EVENT",
             },
             {
@@ -174,7 +170,6 @@ export const landingData = {
                     alt: "Fashion Leaders (14–15): Leadership, decision-making & identity building"
                 },
                 slug: "#",
-                date: "July 2025",
                 category: "EVENT",
             },
             {
@@ -189,7 +184,6 @@ export const landingData = {
                     alt: "Style Innovators (11–13): Confidence, empathy, collaboration & self-management"
                 },
                 slug: "#",
-                date: "July 2025",
                 category: "EVENT",
             },
             {
@@ -204,7 +198,6 @@ export const landingData = {
                     alt: "ages 6 to 15, helping them discover their inner confidence and express their personality with style"
                 },
                 slug: "#",
-                date: "July 2025",
                 category: "EVENT",
             },
             {
@@ -219,7 +212,6 @@ export const landingData = {
                     alt: "Step into a world where fashion meets opportunity."
                 },
                 slug: "#",
-                date: "July 2025",
                 category: "EVENT",
             },
         ]

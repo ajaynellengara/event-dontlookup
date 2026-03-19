@@ -30,9 +30,9 @@
   --breakpoint-sm: 40rem;
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
-  --breakpoint-xl: 77rem;
-  --breakpoint-2xl: 90rem;
-  --breakpoint-3xl: 112.5rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 86.25rem;
+  --breakpoint-3xl: 98.75rem;
 }
 
 :root {
@@ -103,6 +103,7 @@
 @layer base {
   html {
     tab-size: 4;
+    font-size: 16px;
     font-feature-settings: normal;
     font-variation-settings: normal;
     -webkit-tap-highlight-color: transparent;

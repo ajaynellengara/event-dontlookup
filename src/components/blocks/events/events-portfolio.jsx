@@ -147,7 +147,7 @@ export default function EventsPortfolio({ data }) {
                 <div
                   key={"industry-exposure" + item?.id}
                   className={cn(
-                    "flex-[0_0_180px] sm:flex-[0_0_200px] lg:flex-[0_0_320px] 2xl:flex-[0_0_340px] 3xl:flex-[0_0_400px] min-w-0 select-none",
+                    "flex-[0_0_180px] sm:flex-[0_0_200px] lg:flex-[0_0_25%] min-w-0 select-none",
                   )}
                 >
                   <div className="w-full h-full transition-all duration-500 ease-in-out">

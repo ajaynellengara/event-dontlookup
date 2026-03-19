@@ -11,7 +11,7 @@ export default function LandingDubaiStage({ data }) {
 
 
   return (
-    <section className="w-full h-auto bg-[#121212] block py-10 sm:py-14 xl:py-35">
+    <section className="w-full h-auto bg-[#121212] block overflow-hidden py-10 sm:py-14 xl:py-35">
 
       <div className="container">
 

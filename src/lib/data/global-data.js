@@ -8,7 +8,7 @@ export const globalData = {
     header: {
         logo: { url: "/images/brand-logo.svg", alt: "DontLookupFashion" },
         navigation: [
-            { label: "Home", external: false, href: "/" },
+            { label: "Home", external: true, href: "https://dontlookup.fashion/" },
             {
                 label: "About",
                 href: null,
@@ -38,7 +38,7 @@ export const globalData = {
         id: "uuid-primary-key",
         name: "Hykon",
         tagline: "Powering the Nation",
-        slug: "/",
+        slug: "https://dontlookup.fashion/",
         logoUrl: "/images/brand-logo.svg",
         logoWhiteUrl: "/images/brand-logo-footer.webp",
         description: "Hykon India Has Successfully Evolved Its Expertise From Power Electronics Into A Leader In Sustainable Energy.",
