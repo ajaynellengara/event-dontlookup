@@ -6,25 +6,25 @@ export const landingData = {
             {
                 id: 1,
                 url: "/images/home-hero-3.jpg",
-                mediaUrl: "/images/home-hero-3.jpg",
+                mobileUrl: "/images/home-hero-mob-3.jpg",
                 alt: "Hero Background 1"
             },
             {
                 id: 2,
                 url: "/images/home-hero-2.jpg",
-                mediaUrl: "/images/home-hero-2.jpg",
+                mobileUrl: "/images/home-hero-mob-2.jpg",
                 alt: "Hero Background 2"
             },
             {
                 id: 3,
                 url: "/images/home-hero-1.jpg",
-                mediaUrl: "/images/home-hero-1.jpg",
+                mobileUrl: "/images/home-hero-mob-1.jpg",
                 alt: "Hero Background 3"
             },
             {
                 id: 4,
                 url: "/images/home-hero-4.jpg",
-                mediaUrl: "/images/home-hero-4.jpg",
+                mobileUrl: "/images/home-hero-mob-4.jpg",
                 alt: "Hero Background 4"
             }
         ]

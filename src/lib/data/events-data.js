@@ -31,13 +31,24 @@ export const eventsData = [
         partners: {
             title: "Sponsored By",
             items: [
-                { id: 1, media: { type: "image", url: "/images/sponsored-logo-1.png", alt: "Partner Logo 1" } },
-                { id: 2, media: { type: "image", url: "/images/sponsored-logo-2.png", alt: "Partner Logo 2" } },
-                { id: 3, media: { type: "image", url: "/images/sponsored-logo-3.png", alt: "Partner Logo 3" } },
-                { id: 4, media: { type: "image", url: "/images/sponsored-logo-4.png", alt: "Partner Logo 4" } },
-                { id: 5, media: { type: "image", url: "/images/sponsored-logo-5.png", alt: "Partner Logo 5" } },
-                { id: 6, media: { type: "image", url: "/images/sponsored-logo-6.png", alt: "Partner Logo 6" } },
-                { id: 7, media: { type: "image", url: "/images/sponsored-logo-6.png", alt: "Partner Logo 6" } },
+                //     { id: 1, media: { type: "image", url: "/images/sponsored-logo-1.png", alt: "Partner Logo 1" } },
+                //     { id: 2, media: { type: "image", url: "/images/sponsored-logo-2.png", alt: "Partner Logo 2" } },
+                //     { id: 3, media: { type: "image", url: "/images/sponsored-logo-3.png", alt: "Partner Logo 3" } },
+                //     { id: 4, media: { type: "image", url: "/images/sponsored-logo-4.png", alt: "Partner Logo 4" } },
+                //     { id: 5, media: { type: "image", url: "/images/sponsored-logo-5.png", alt: "Partner Logo 5" } },
+                //     { id: 6, media: { type: "image", url: "/images/sponsored-logo-6.png", alt: "Partner Logo 6" } },
+                //     { id: 7, media: { type: "image", url: "/images/sponsored-logo-6.png", alt: "Partner Logo 6" } },
+                // ],
+                { id: 1, media: { type: "image", url: "/images/footer-partners-1.png", alt: "partners" }, slug: "#" },
+                { id: 2, media: { type: "image", url: "/images/footer-partners-2.png", alt: "partners" }, slug: "#" },
+                { id: 3, media: { type: "image", url: "/images/footer-partners-3.png", alt: "partners" }, slug: "#" },
+                { id: 4, media: { type: "image", url: "/images/footer-partners-4.png", alt: "partners" }, slug: "#" },
+                { id: 5, media: { type: "image", url: "/images/footer-partners-5.png", alt: "partners" }, slug: "#" },
+                { id: 6, media: { type: "image", url: "/images/footer-partners-6.png", alt: "partners" }, slug: "#" },
+                { id: 7, media: { type: "image", url: "/images/footer-partners-7.png", alt: "partners" }, slug: "#" },
+                { id: 8, media: { type: "image", url: "/images/footer-partners-8.png", alt: "partners" }, slug: "#" },
+                { id: 9, media: { type: "image", url: "/images/footer-partners-9.png", alt: "partners" }, slug: "#" },
+                { id: 10, media: { type: "image", url: "/images/footer-partners-10.png", alt: "partners" }, slug: "#" },
             ],
         },
         expertsSays: {
@@ -97,7 +108,7 @@ export const eventsData = [
                     title: "Photoshoot",
                     media: {
                         type: "video",
-                        url: "/videos/IMG_2472.MOV",
+                        url: "/videos/IMG_2472.mp4",
                         alt: "Photoshoot Video"
                     }
                 },
@@ -106,7 +117,7 @@ export const eventsData = [
                     title: "Ramp Walk",
                     media: {
                         type: "video",
-                        url: "/videos/IMG_3745.MOV",
+                        url: "/videos/IMG_3745.mp4",
                         alt: "Ramp Walk Video 1"
                     }
                 },
@@ -115,7 +126,7 @@ export const eventsData = [
                     title: "Make Up Session",
                     media: {
                         type: "video",
-                        url: "/videos/IMG_3746 (1).mov",
+                        url: "/videos/IMG_3746 (1).mp4",
                         alt: "Make Up Session Video 2"
                     }
                 },
@@ -124,7 +135,7 @@ export const eventsData = [
                     title: "Highlights",
                     media: {
                         type: "video",
-                        url: "/videos/IMG_3819.MOV",
+                        url: "/videos/IMG_3819.mp4",
                         alt: "Tra Video 3"
                     }
                 },

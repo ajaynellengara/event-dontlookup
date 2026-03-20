@@ -43,7 +43,7 @@ export default function LandingHero({ data, variant = "default" }) {
                                             <picture className="w-full h-full min-h-[376px] sm:min-h-[420px] xl:min-h-[576px] 2xl:min-h-[768px] 3xl:min-h-[900px] block origin-center">
                                                 <source
                                                     media="(max-width: 640px)"
-                                                    srcSet={item?.mediaUrl || item?.url}
+                                                    srcSet={item?.mobileUrl || item?.url}
                                                 />
                                                 <Image
                                                     src={item?.url}
