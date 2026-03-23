@@ -7,7 +7,7 @@ export default function FloatSidebar() {
     return (
         <div className="fixed bottom-8 right-6 z-100 flex flex-col gap-3">
             <a
-                href="https://wa.me/"
+                href="https://wa.me/+971565345046"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-11 xl:w-12 2xl:w-14 aspect-square not-hover:animate-whatsapp-bounce pointer-events-auto"

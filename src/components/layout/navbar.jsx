@@ -71,7 +71,7 @@ export default function Navbar({ headerData }) {
         <>
             <header className={cn(
                 "fixed w-full flex items-center top-0 left-0 z-[100] transition-all duration-500",
-                scrolled ? "bg-[#000000e6] backdrop-blur-[20px] h-[100px] py-0" : " h-[var(--header-y-sm)] lg:h-[var(--header-y-lg)] 2xl:h-[var(--header-y-2xl)] 3xl:h-[var(--header-y-3xl)] bg-transparent py-[15px]",
+                scrolled ? "bg-[#000000e6] backdrop-blur-[20px] h-[100px] py-0" : "h-[var(--header-y-sm)] lg:h-[var(--header-y-lg)] 2xl:h-[var(--header-y-2xl)] 3xl:h-[var(--header-y-3xl)] bg-transparent py-[15px]",
                 !isVisible && !isMenuOpen ? "-translate-y-full" : "translate-y-0"
             )}>
                 <div className="container flex justify-between items-center">
@@ -103,19 +103,19 @@ export default function Navbar({ headerData }) {
                         <div className="cursor-pointer p-2 -mr-2 group" onClick={toggleMenu}>
                             <div className="group w-[30px] h-[30px] relative z-[2] flex flex-col justify-center">
                                 <span className={cn(
-                                    "h-[2px] block mb-[7px] transition-all duration-300 ease-in-out origin-center mr-auto",
+                                    "h-[2px] block mb-[7px] transition-all duration-300 ease-in-out origin-center mr-auto ring-1 ring-white/10",
                                     isMenuOpen
                                         ? "w-[30px] translate-y-[9px] rotate-45 bg-white"
                                         : cn("w-[16.5px] group-hover:w-full", scrolled ? "bg-white" : "bg-black")
                                 )} />
                                 <span className={cn(
-                                    "h-[2px] block mb-[7px] transition-all duration-300 ease-in-out origin-center",
+                                    "h-[2px] block mb-[7px] transition-all duration-300 ease-in-out origin-center  ring-1 ring-white/10",
                                     isMenuOpen
                                         ? "w-[30px] opacity-0 bg-white"
                                         : cn("w-full", scrolled ? "bg-white" : "bg-black")
                                 )} />
                                 <span className={cn(
-                                    "h-[2px] block transition-all duration-300 ease-in-out origin-center ml-auto",
+                                    "h-[2px] block transition-all duration-300 ease-in-out origin-center ml-auto  ring-1 ring-white/10",
                                     isMenuOpen
                                         ? "w-[30px] -translate-y-[9px] -rotate-45 bg-white"
                                         : cn("w-[16.5px] group-hover:w-full", scrolled ? "bg-white" : "bg-black")

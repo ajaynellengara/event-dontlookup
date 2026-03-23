@@ -109,6 +109,7 @@ export const eventsData = [
                     media: {
                         type: "video",
                         url: "/videos/IMG_2472.mp4",
+                        thumbnail: "/images/portfolio-thumb-1.png",
                         alt: "Photoshoot Video"
                     }
                 },
@@ -118,6 +119,7 @@ export const eventsData = [
                     media: {
                         type: "video",
                         url: "/videos/IMG_3745.mp4",
+                        thumbnail: "/images/portfolio-thumb-2.png",
                         alt: "Ramp Walk Video 1"
                     }
                 },
@@ -127,6 +129,7 @@ export const eventsData = [
                     media: {
                         type: "video",
                         url: "/videos/IMG_3746 (1).mp4",
+                        thumbnail: "/images/portfolio-thumb-3.png",
                         alt: "Make Up Session Video 2"
                     }
                 },
@@ -136,6 +139,7 @@ export const eventsData = [
                     media: {
                         type: "video",
                         url: "/videos/IMG_3819.mp4",
+                        thumbnail: "/images/portfolio-thumb-4.png",
                         alt: "Tra Video 3"
                     }
                 },

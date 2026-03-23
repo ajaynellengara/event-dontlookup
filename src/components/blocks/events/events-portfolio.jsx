@@ -11,7 +11,7 @@ import Image from "next/image";
 import { Pause, Play, Volume2, VolumeX } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
-const VideoPlayer = ({ src, index, isActive, onVideoEnd, onVideoClick }) => {
+const VideoPlayer = ({ src, thumbnail, index, isActive, onVideoEnd, onVideoClick }) => {
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -53,6 +53,7 @@ const VideoPlayer = ({ src, index, isActive, onVideoEnd, onVideoClick }) => {
         muted={isMuted}
         playsInline
         onEnded={onVideoEnd}
+        poster={thumbnail}
         className="w-full h-full object-cover"
       >
         <source src={src} type="video/mp4" />
@@ -155,6 +156,7 @@ export default function EventsPortfolio({ data }) {
                       {isVideo ? (
                         <VideoPlayer
                           src={item?.media?.url}
+                          thumbnail={item?.media?.thumbnail}
                           index={myVideoIndex}
                           isActive={activeVideoIndex === myVideoIndex}
                           onVideoClick={(clickedIndex) => {

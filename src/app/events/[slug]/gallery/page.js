@@ -13,7 +13,7 @@ export default async function GalleryDetailsPage({ params }) {
 
     return (
         <>
-            <div className="w-full h-[var(--header-y-sm)] lg:h-[var(--header-y-lg)] 2xl:h-[var(--header-y-2xl)] 3xl:h-[var(--header-y-3xl)] bg-[#488485]" />
+            <div className="w-full h-[var(--header-y-sm)] lg:h-[var(--header-y-lg)] 2xl:h-[var(--header-y-2xl)] 3xl:h-[var(--header-y-3xl)] bg-linear-to-b from-[#012124] to-[#215254] " />
             <GalleryListing data={event.moreGallery} />
         </>
     )
