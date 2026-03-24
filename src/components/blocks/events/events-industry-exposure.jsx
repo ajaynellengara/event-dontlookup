@@ -1,5 +1,6 @@
 
 "use client";
+import { useState, useEffect, useCallback } from "react";
 import { Heading, Text } from "@/components/utils/typography";
 
 import parse from "html-react-parser";
@@ -11,7 +12,10 @@ import { cn } from "@/lib/utils";
 
 
 export default function EventsIndustryExposure({ data }) {
-  const [emblaRef] = useEmblaCarousel(
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState([]);
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: false,
       direction: "ltr",
@@ -21,6 +25,28 @@ export default function EventsIndustryExposure({ data }) {
     },
     [Autoplay({ delay: 5000, stopOnInteraction: true, pauseOnHover: true })],
   );
+
+  const scrollTo = useCallback((index) => {
+    if (emblaApi) emblaApi.scrollTo(index);
+  }, [emblaApi]);
+
+  const onInit = useCallback((emblaApi) => {
+    setScrollSnaps(emblaApi.scrollSnapList());
+  }, []);
+
+  const onSelect = useCallback((emblaApi) => {
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, []);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    onInit(emblaApi);
+    onSelect(emblaApi);
+    emblaApi.on("reInit", onInit);
+    emblaApi.on("reInit", onSelect);
+    emblaApi.on("select", onSelect);
+  }, [emblaApi, onInit, onSelect]);
 
 
   return (
@@ -68,6 +94,22 @@ export default function EventsIndustryExposure({ data }) {
 
           </div>
         </div>
+
+        {scrollSnaps.length > 1 && (
+          <div className="flex justify-center items-center gap-2 mt-5 xl:mt-8 2xl:mt-10">
+            {scrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollTo(index)}
+                className={cn(
+                  "w-2.5 h-2.5 xl:w-3 xl:h-3 rounded-full transition-all duration-300",
+                  index === selectedIndex ? "bg-[#06B5B9] w-6 xl:w-8" : "bg-[#3a3a3a] hover:bg-[#4e4e4e]"
+                )}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
 
       </div>
     </section >

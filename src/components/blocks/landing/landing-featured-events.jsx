@@ -49,10 +49,14 @@ export default function LandingFeaturedEvents({ data }) {
                     <NoiseBackground
                       gradientColors={[
                         "rgb(255, 100, 150)",
-                        "rgb(100, 150, 255)",
-                        "rgb(255, 200, 100)",
+                        "rgb(0, 0, 0)",
+                        "rgb(0, 0, 0)",
+                        // "rgb(255, 100, 150)",
+                        // "rgb(100, 150, 255)",
+                        // "rgb(255, 200, 100)",
                       ]}
                       containerClassName="p-0"
+                      className={"bg-[#121212]/60"}
                     >
                       <EventCard item={item} />
                     </NoiseBackground>
