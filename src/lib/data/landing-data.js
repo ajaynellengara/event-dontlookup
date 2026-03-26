@@ -38,7 +38,8 @@ export const landingData = {
                     type: "image",
                     url: "/images/partner-logo-1.png",
                     alt: "Partner Logo 1"
-                }
+                },
+                slug: "/events/model-forward-live",
             },
             {
                 id: 2,
@@ -46,7 +47,8 @@ export const landingData = {
                     type: "image",
                     url: "/images/partner-logo-2.png",
                     alt: "Partner Logo 2"
-                }
+                },
+                slug: "/events/stylepreneur",
             },
             {
                 id: 3,
@@ -54,7 +56,8 @@ export const landingData = {
                     type: "image",
                     url: "/images/partner-logo-3.png",
                     alt: "Partner Logo 3"
-                }
+                },
+                slug: "#",
             },
             {
                 id: 4,
@@ -62,7 +65,8 @@ export const landingData = {
                     type: "image",
                     url: "/images/partner-logo-4.png",
                     alt: "Partner Logo 4"
-                }
+                },
+                slug: "#",
             },
             {
                 id: 5,
@@ -70,7 +74,8 @@ export const landingData = {
                     type: "image",
                     url: "/images/partner-logo-5.png",
                     alt: "Partner Logo 5"
-                }
+                },
+                slug: "#",
             },
             {
                 id: 6,
@@ -78,7 +83,8 @@ export const landingData = {
                     type: "image",
                     url: "/images/partner-logo-6.png",
                     alt: "Partner Logo 6"
-                }
+                },
+                slug: "#",
             }
         ],
     },
@@ -113,7 +119,7 @@ export const landingData = {
                     url: "/images/event-3-1.jpg",
                     alt: "complete modeling career launchpad"
                 },
-                slug: "model-forward-live",
+                slug: "/events/model-forward-live",
                 category: "EVENT",
             },
             {

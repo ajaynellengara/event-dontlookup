@@ -40,7 +40,7 @@ export default function LandingHero({ data, variant = "default" }) {
                                 {Array.isArray(data?.backgroundMedia) && data.backgroundMedia.length > 0 ? (
                                     data.backgroundMedia.map((item) => (
                                         <div key={item?.id} className="flex-[0_0_100%] min-w-0 select-none" >
-                                            <picture className="w-full h-full min-h-[376px] sm:min-h-[420px] xl:min-h-[576px] 2xl:min-h-[768px] 3xl:min-h-[900px] block origin-center">
+                                            <picture className="w-full h-full min-h-[376px] sm:min-h-[420px] xl:min-h-[576px] 2xl:min-h-[668px] 3xl:min-h-[720px] max-h-screen block origin-center">
                                                 <source
                                                     media="(max-width: 640px)"
                                                     srcSet={item?.mobileUrl || item?.url}

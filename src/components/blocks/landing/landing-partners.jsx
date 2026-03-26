@@ -7,6 +7,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 import Image from "next/image";
 import { Text } from "@/components/utils/typography";
+import Link from "next/link";
 
 export default function LandingPartners({ data, variant }) {
   const [emblaRef] = useEmblaCarousel(
@@ -52,7 +53,7 @@ export default function LandingPartners({ data, variant }) {
                     "flex-[0_0_100px] 2xs:flex-[0_0_120px] sm:flex-[0_0_20%] lg:flex-[0_0_16.666%] min-w-0 select-none",
                   )}
                 >
-                  <div className={cn("mx-auto",
+                  <Link href={item?.slug || "#"} className={cn("mx-auto block",
                     variant === "eventDetail" ? "w-full mx-w-8/10 aspect-333/45" : "w-[50px] 2xs:w-[60px] sm:w-[80px] xl:w-[100px] mx-auto aspect-2/1"
                   )}>
                     <Image
@@ -62,7 +63,7 @@ export default function LandingPartners({ data, variant }) {
                       height={57}
                       className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
                     />
-                  </div>
+                  </Link>
                 </div>
               ))}
             </div>
