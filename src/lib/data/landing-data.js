@@ -119,7 +119,7 @@ export const landingData = {
                     url: "/images/event-3-1.jpg",
                     alt: "complete modeling career launchpad"
                 },
-                slug: "/events/model-forward-live",
+                slug: "model-forward-live",
                 category: "EVENT",
             },
             {
