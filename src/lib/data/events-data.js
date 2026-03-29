@@ -158,13 +158,13 @@ export const eventsData = [
                     id: 2,
                     mediaUrl: "/images/events-meetYourCoach-2.jpg",
                     title: "Rashique Firoz",
-                    description: "<p>globally recognised business and personal brand coach who helps ambitious professionals turn visibility into authority and authority into revenue.<br/>With over 15 years of experience working with entrepreneurs, consultants, creatives, and corporate leaders, Aarav has built a reputation for blending strategy, mindset, and personal branding into sustainable growth systems.<br/>He has coached founders across fashion, real estate, tech, and service-based businesses—helping them position themselves as premium brands in competitive markets.</p>",
+                    description: "<p>Rashiqua Feroze is a Personal Branding Strategist and Founder who helps models master the business side of the lens.</p><p>From defining your unique signature to navigating the professional world with strategic visibility, Rashiqua focuses on career longevity and market authority. She helps professionals narrate their stories to connect with the audience and position themselves as well-known figures in the industry.</br>Move beyond the influencer tag and start building a professional presence that scales.</p>",
                 },
                 {
                     id: 3,
                     mediaUrl: "/images/events-meetYourCoach-3.jpg",
                     title: "Deepak",
-                    description: "<p>globally recognised business and personal brand coach who helps ambitious professionals turn visibility into authority and authority into revenue.<br/>With over 15 years of experience working with entrepreneurs, consultants, creatives, and corporate leaders, Aarav has built a reputation for blending strategy, mindset, and personal branding into sustainable growth systems.<br/>He has coached founders across fashion, real estate, tech, and service-based businesses—helping them position themselves as premium brands in competitive markets.</p>",
+                    description: `<p>A seasoned management authority with over two decades of experience driving organizational growth within the UAE’s healthcare landscape. Proven success in designing and executing training frameworks that shift employees from "task-oriented" to "ownership-driven," fostering a culture of high performance. Developer of the "Ownership Mindset" framework, transitioning staff from protocol-following to proactive problem-solving.</p><p>Build training ecosystems that improve outcomes by empowering people who deliver the service.</p>`,
                 },
             ]
         },
@@ -677,13 +677,13 @@ export const eventsData = [
                     id: 2,
                     mediaUrl: "/images/events-meetYourCoach-2.jpg",
                     title: "Rashique Firoz",
-                    description: "<p>globally recognised business and personal brand coach who helps ambitious professionals turn visibility into authority and authority into revenue.<br/>With over 15 years of experience working with entrepreneurs, consultants, creatives, and corporate leaders, Aarav has built a reputation for blending strategy, mindset, and personal branding into sustainable growth systems.<br/>He has coached founders across fashion, real estate, tech, and service-based businesses—helping them position themselves as premium brands in competitive markets.</p>",
+                    description: "<p>Rashiqua Feroze is a Personal Branding Strategist and Founder who helps models master the business side of the lens.</p><p>From defining your unique signature to navigating the professional world with strategic visibility, Rashiqua focuses on career longevity and market authority. She helps professionals narrate their stories to connect with the audience and position themselves as well-known figures in the industry.</br>Move beyond the influencer tag and start building a professional presence that scales.</p>",
                 },
                 {
                     id: 3,
                     mediaUrl: "/images/events-meetYourCoach-3.jpg",
                     title: "Deepak",
-                    description: "<p>globally recognised business and personal brand coach who helps ambitious professionals turn visibility into authority and authority into revenue.<br/>With over 15 years of experience working with entrepreneurs, consultants, creatives, and corporate leaders, Aarav has built a reputation for blending strategy, mindset, and personal branding into sustainable growth systems.<br/>He has coached founders across fashion, real estate, tech, and service-based businesses—helping them position themselves as premium brands in competitive markets.</p>",
+                    description: `<p>A seasoned management authority with over two decades of experience driving organizational growth within the UAE’s healthcare landscape. Proven success in designing and executing training frameworks that shift employees from "task-oriented" to "ownership-driven," fostering a culture of high performance. Developer of the "Ownership Mindset" framework, transitioning staff from protocol-following to proactive problem-solving.</p><p>Build training ecosystems that improve outcomes by empowering people who deliver the service.</p>`,
                 },
             ]
         },

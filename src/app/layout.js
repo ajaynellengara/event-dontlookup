@@ -8,6 +8,13 @@ import FloatSidebar from '@/components/utils/float-sidebar'
 export const metadata = {
     title: 'Dontlookup.Events',
     description: 'Features: Feeds, Flicks , Jobs, Learning, Collabs &amp; More',
+    openGraph: {
+        images: ['/images/dontlookup-events-og.png'],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        images: ['/images/dontlookup-events-og.png'],
+    },
 }
 
 export default function RootLayout({ children }) {

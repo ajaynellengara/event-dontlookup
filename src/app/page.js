@@ -12,6 +12,13 @@ import { landingData } from '@/lib/data/landing-data'
 export const metadata = {
     title: 'Fashion Events in Dubai| UAE| Dontlookup Fashion Events',
     description: 'Discover exclusive fashion events in Dubai, UAE with Dontlookup Fashion Events. Join runway shows, designer showcases, modeling workshops, and fashion networking.',
+    openGraph: {
+        images: ['/images/dontlookup-events-og.png'],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        images: ['/images/dontlookup-events-og.png'],
+    },
 }
 
 export default async function Home() {
