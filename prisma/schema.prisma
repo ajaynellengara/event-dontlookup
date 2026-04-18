@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  pageTitle   String
+  status      String   @default("upcoming") // upcoming, announced, finished
+  date        String?
+  location    String?
+  description String?
+  contentData String   // JSON string of all complex nested data
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Just in case "4-10 form submissions" meant a contact form
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  createdAt DateTime @default(now())
+}

@@ -12,6 +12,7 @@ import EventsJoinEvent from '@/components/blocks/events/events-join-event'
 import EventsGallery from '@/components/blocks/events/events-gallery'
 import Link from 'next/link'
 import { eventsData } from '@/lib/data/events-data'
+import { getEventBySlug } from '@/lib/api/events'
 import EventsCatalogue from '@/components/blocks/events/events-catalogue'
 import EventsPortfolio from '@/components/blocks/events/events-portfolio'
 import EventsCertificate from '@/components/blocks/events/events-certificate'
@@ -45,7 +46,29 @@ export async function generateMetadata({ params }) {
 export default async function EventDetails({ params }) {
     const resolvedParams = await params
     const { slug } = resolvedParams
-    const event = eventsData.find((e) => e.slug === slug) || null
+    
+    // First check db, fallback to hardcoded
+    const dbEvent = await getEventBySlug(slug)
+    let event = eventsData.find((e) => e.slug === slug) || null
+
+    if (dbEvent) {
+        let parsedContent = {}
+        try { parsedContent = JSON.parse(dbEvent.contentData || '{}') } catch(e){}
+        event = {
+            ...(event || {}),
+            slug: dbEvent.slug,
+            pageTitle: dbEvent.pageTitle,
+            eventInfo: {
+                ...(event?.eventInfo || {}),
+                date: dbEvent.date || event?.eventInfo?.date,
+                location: dbEvent.location || event?.eventInfo?.location,
+                description: dbEvent.description || event?.eventInfo?.description,
+                eventStatus: dbEvent.status || event?.eventInfo?.eventStatus,
+                ...(parsedContent.eventInfo || {})
+            },
+            ...parsedContent
+        }
+    }
 
     if (!event) {
         return (
