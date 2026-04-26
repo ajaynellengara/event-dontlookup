@@ -3,7 +3,7 @@ export const eventsData = [
         slug: "model-forward-live",
         pageTitle: "Model Forward Live",
         eventInfo: {
-            date: "31 may 2026",
+            date: "06 June 2026",
             dateInfo: "IDS Global business center",
             location: "Dubai",
             duration: "10 hours",
@@ -521,7 +521,7 @@ export const eventsData = [
                     id: 2,
                     status: "upcoming",
                     title: "Model Forward Edition 2: ",
-                    description: "31 May 2026, IDS Global Business Center, Dubai",
+                    description: "06 June 2026, IDS Global Business Center, Dubai",
                     items: [
                         {
                             id: 1,
