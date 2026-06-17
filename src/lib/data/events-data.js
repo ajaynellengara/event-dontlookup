@@ -519,7 +519,7 @@ export const eventsData = [
                 },
                 {
                     id: 2,
-                    status: "upcoming",
+                    status: "past",
                     title: "Model Forward Edition 2: ",
                     description: "06 June 2026, IDS Global Business Center, Dubai",
                     items: [
@@ -527,48 +527,152 @@ export const eventsData = [
                             id: 1,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/model-forward-edition-2/1000006967.jpg",
+                                alt: "Model Forward Edition 2 image 1"
                             }
                         },
                         {
                             id: 2,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/model-forward-edition-2/1000006968.jpg",
+                                alt: "Model Forward Edition 2 image 2"
                             }
                         },
                         {
                             id: 3,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/model-forward-edition-2/1000006969.jpg",
+                                alt: "Model Forward Edition 2 image 3"
                             }
                         },
                         {
                             id: 4,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/model-forward-edition-2/1000007002.jpg",
+                                alt: "Model Forward Edition 2 image 4"
                             }
                         },
                         {
                             id: 5,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/model-forward-edition-2/1000007003.jpg",
+                                alt: "Model Forward Edition 2 image 5"
                             }
                         },
                         {
                             id: 6,
                             media: {
                                 type: "image",
-                                url: "/images/placeholder.jpg",
-                                alt: "placeholder"
+                                url: "/images/model-forward-edition-2/1000007004.jpg",
+                                alt: "Model Forward Edition 2 image 6"
+                            }
+                        },
+                        {
+                            id: 7,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007005.jpg",
+                                alt: "Model Forward Edition 2 image 7"
+                            }
+                        },
+                        {
+                            id: 8,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007006.jpg",
+                                alt: "Model Forward Edition 2 image 8"
+                            }
+                        },
+                        {
+                            id: 9,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007007.jpg",
+                                alt: "Model Forward Edition 2 image 9"
+                            }
+                        },
+                        {
+                            id: 10,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007008.jpg",
+                                alt: "Model Forward Edition 2 image 10"
+                            }
+                        },
+                        {
+                            id: 11,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007009.jpg",
+                                alt: "Model Forward Edition 2 image 11"
+                            }
+                        },
+                        {
+                            id: 12,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007010.jpg",
+                                alt: "Model Forward Edition 2 image 12"
+                            }
+                        },
+                        {
+                            id: 13,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007011.jpg",
+                                alt: "Model Forward Edition 2 image 13"
+                            }
+                        },
+                        {
+                            id: 14,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007012.jpg",
+                                alt: "Model Forward Edition 2 image 14"
+                            }
+                        },
+                        {
+                            id: 15,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007013.jpg",
+                                alt: "Model Forward Edition 2 image 15"
+                            }
+                        },
+                        {
+                            id: 16,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007014.jpg",
+                                alt: "Model Forward Edition 2 image 16"
+                            }
+                        },
+                        {
+                            id: 17,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007015.jpg",
+                                alt: "Model Forward Edition 2 image 17"
+                            }
+                        },
+                        {
+                            id: 18,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007016.jpg",
+                                alt: "Model Forward Edition 2 image 18"
+                            }
+                        },
+                        {
+                            id: 19,
+                            media: {
+                                type: "image",
+                                url: "/images/model-forward-edition-2/1000007017.jpg",
+                                alt: "Model Forward Edition 2 image 19"
                             }
                         },
                     ]
@@ -817,5 +921,211 @@ export const eventsData = [
         //         { id: 8, media: { type: "image", url: "/images/gallery-8.jpg", alt: "gallery Image 8" } },
         //     ]
         // }
+    },
+    {
+        slug: "model-rise",
+        pageTitle: "Model Rise",
+        eventInfo: {
+            date: "July 2026",
+            dateInfo: "Florida gym building, Mahtha area, 8th floor, office 805, Sharjah",
+            location: "Sharjah",
+            duration: "1 day",
+            media: {
+                type: "image",
+                url: "/images/app-download-1.png",
+                alt: "App Download"
+            },
+            title: "Get the App. Book Your Spot.",
+            description: "Dubai's Entry Point Into Young Talent Development<br/>More than a workshop. A real-world confidence and creative experience.",
+            longDescription: `<p><span>(About the event)</span></p><p>MODEL RISE is designed for kids and teens ages 6 to 15, helping them discover their inner confidence and express their personality with style.</p><p>They'll learn:</p><ul><li>How to walk, pose, and express themselves naturally</li><li>Stage and camera confidence</li><li>The basics of emotional intelligence and teamwork</li><li>Creative styling and personality building</li></ul><p>No competition. No stress.<br/>Just confidence, creativity, and fun in a safe, inspiring environment.</p><p>MODEL RISE — Dubai's Entry Point Into Young Talent Development<br/>More than a workshop. A real-world confidence and creative experience.</p>`,
+            price: "499 AED",
+            slug: "https://dontlookup.app.link/y4l8S8uFq0b",
+            eventStatus: "upcoming",
+        },
+        hero: {
+            title: null,
+            backgroundMedia: {
+                type: "image",
+                url: "/images/hero-model-rise.jpg",
+                mediaUrl: "/images/hero-model-rise.jpg",
+                alt: "Hero Background"
+            }
+        },
+        partners: {
+            title: "Sponsored By",
+            items: [
+                { id: 1, media: { type: "image", url: "/images/footer-partners-1.png", alt: "partners" }, slug: "#" },
+                { id: 2, media: { type: "image", url: "/images/footer-partners-2.png", alt: "partners" }, slug: "#" },
+                { id: 3, media: { type: "image", url: "/images/footer-partners-3.png", alt: "partners" }, slug: "#" },
+                { id: 4, media: { type: "image", url: "/images/footer-partners-4.png", alt: "partners" }, slug: "#" },
+                { id: 5, media: { type: "image", url: "/images/footer-partners-5.png", alt: "partners" }, slug: "#" },
+                { id: 6, media: { type: "image", url: "/images/footer-partners-6.png", alt: "partners" }, slug: "#" },
+                { id: 7, media: { type: "image", url: "/images/footer-partners-7.png", alt: "partners" }, slug: "#" },
+                { id: 8, media: { type: "image", url: "/images/footer-partners-8.png", alt: "partners" }, slug: "#" },
+                { id: 9, media: { type: "image", url: "/images/footer-partners-9.png", alt: "partners" }, slug: "#" },
+                { id: 10, media: { type: "image", url: "/images/footer-partners-10.png", alt: "partners" }, slug: "#" },
+            ],
+        },
+        expertsSays: {
+            media: {
+                type: "youtube",
+                url: "https://www.youtube.com/embed/2hLORZZI-M4?autoplay=0&mute=0&loop=1&playlist=2hLORZZI-M4&controls=1&showinfo=0&rel=0",
+                alt: "eventsExpertsSays-1"
+            },
+            title: "SEE WHAT THE EXPERTS SAY",
+        },
+        appDownload: {
+            media: {
+                type: "image",
+                url: "/images/app-download-1.png",
+                alt: "App Download"
+            },
+            title: "Get the App. Book Your Spot.",
+            description: "Your all-in-one platform to explore opportunities, book experiences, and stay connected.",
+            qrCodeImage: "/images/qr-code.png",
+            appLinkPlayStore: "https://play.google.com/store/apps/details?id=com.dlu.app&pcampaignid=web_share",
+            appLinkAppStore: "https://apps.apple.com/gb/app/dont-look-up-fashion/id6746240383"
+        },
+        whoIsThisFor: {
+            media: {
+                type: "image",
+                url: "/images/events-whoIsThisFor-model-rise.jpg",
+                alt: "events-whoIsThisFor"
+            },
+            title: "WHO IS THIS REALLY FOR",
+            description: "<p>MODEL RISE is designed for parents who want more than just an activity for their child.</p><p>This experience is for you if:</p><ul><li>You want your child to build real confidence and self-expression</li><li>You're looking for a safe, positive, and structured environment</li><li>You want your child to learn communication, teamwork, and discipline</li><li>You want them to explore creativity beyond screens</li><li>You're interested in introducing them to modeling in a healthy, guided way</li></ul><p>We focus on growth, not pressure.<br/>No competition. No unrealistic expectations.</p>"
+        },
+        outcomes: {
+            media: {
+                type: "image",
+                url: "/images/events-outcomes-model-rise.jpg",
+                alt: "events-outcomes"
+            },
+            title: "EVENT OUTCOMES",
+            description: "<p>By the end of MODEL RISE, every child will:</p>",
+            items: [
+                { id: 1, label: "<b>Gain confidence in how they walk, pose, and express themselves</b>" },
+                { id: 2, label: "<b>Feel comfortable in front of the camera and on stage</b>" },
+                { id: 3, label: "<b>Understand basic modeling skills in a fun, age-appropriate way</b>" },
+                { id: 4, label: "<b>Develop communication, teamwork, and social confidence</b>" },
+                { id: 5, label: "<b>Discover their personal style and creativity</b>" },
+            ],
+            longDescription: "This experience is designed to help children build confidence — not pressure."
+        },
+        meetYourCoach: {
+            title: "MEET YOUR COACH",
+            items: [
+                {
+                    id: 1,
+                    mediaUrl: "/images/events-meetYourCoach-3.jpg",
+                    title: "Deepak",
+                    description: `<p>A seasoned management authority with over two decades of experience driving organizational growth within the UAE's healthcare landscape. Proven success in designing and executing training frameworks that shift employees from "task-oriented" to "ownership-driven," fostering a culture of high performance. Developer of the "Ownership Mindset" framework, transitioning staff from protocol-following to proactive problem-solving.</p><p>Build training ecosystems that improve outcomes by empowering people who deliver the service.</p>`,
+                },
+            ]
+        },
+        whatTrainedIn: {
+            title: "EVENT SESSIONS",
+            items: [
+                {
+                    id: 1,
+                    title: "1. Model Mode",
+                    description: "<h5>The Modeling Launchpad (Ages 6–15)</h5><p>A comprehensive workshop guiding young aspiring models from beginner basics to confidently navigating poses, expressions, castings, and mini professional shoots.</p>",
+                },
+                {
+                    id: 2,
+                    title: "2. Little Lens",
+                    description: "<h5>Camera Confidence Workshop</h5><p>A mini photo & video shoot where kids learn to pose, smile, and connect with the camera naturally.</p>",
+                },
+                {
+                    id: 3,
+                    title: "3. EQ & Body Language Junior",
+                    description: "<h5>Building Confidence from Within</h5><p>A guided experience where kids develop emotional awareness, resilience, and expressive body language — the foundation of true confidence.</p>",
+                },
+                {
+                    id: 4,
+                    title: "4. Runway Rise",
+                    description: "<h5>Mini Fashion Show Experience</h5><p>A guided, live runway show where kids proudly walk, pose, and celebrate their individuality with parents cheering them on.</p>",
+                },
+                {
+                    id: 5,
+                    title: "5. What They Take Home",
+                    description: "<ul><li>Photos & videos from their shoot experience</li><li>A real runway moment they'll never forget</li><li>Improved confidence and self-expression</li><li>A memorable experience in a positive environment</li></ul>",
+                },
+            ],
+        },
+        joinEvent: {
+            title: "HOW CAN I JOIN THE EVENT?",
+            description: "<p>Simplify your booking and event experience —<br/>get the app to reserve your seat, plan your day, and enjoy exclusive access.</p>",
+            items: [
+                {
+                    id: 1,
+                    mediaUrl: "/images/events-joinEvent-1.png",
+                    description: "<h5>Download the app.<br/>Wohoo! You're in. Here's what to do next.</h5><h5>Step 1 — Create Your Profile</h5><p>Set up your profile with basic details so we can personalise your experience with Dont Look Up and recommend the right sessions for you.</p>",
+                },
+                {
+                    id: 2,
+                    mediaUrl: "/images/event-model-rise-app-1.png",
+                    description: "<h5>Now let's dive right into our purpose - Booking for the event!</h5><h5>Step 2— Explore & Book the Event</h5><p>Browse the Model Rise event inside the app, view sessions and coaches, and secure your spot with just a few taps.</p>",
+                },
+                {
+                    id: 3,
+                    mediaUrl: "/images/event-model-rise-app-1.png",
+                    description: "<h5>After Finishing booking, You are in your last step!</h5><h5>Step 3 — Get Ready & Show Up</h5><p>Once you get booking confirmation, your e-ticket will be provided. Please download the ticket. In the event, dont forget to show the QR Code, so that you get your pass.</p><p>Yes, its that easy.<br/>Just arrive, connect, and experience Model Rise.</p>",
+                },
+            ],
+            socialLinks: [
+                {
+                    id: 1,
+                    media: {
+                        type: "image",
+                        url: "/images/icon-facebook-white.svg",
+                        alt: "Facebook"
+                    },
+                    slug: "#"
+                },
+                {
+                    id: 2,
+                    media: {
+                        type: "image",
+                        url: "/images/icon-Instagram-white.svg",
+                        alt: "Instagram"
+                    },
+                    slug: "#"
+                },
+                {
+                    id: 4,
+                    media: {
+                        type: "image",
+                        url: "/images/icon-linkedIn-white.svg",
+                        alt: "LinkedIn"
+                    },
+                    slug: "#"
+                },
+                {
+                    id: 5,
+                    media: {
+                        type: "image",
+                        url: "/images/icon-youTube-white.svg",
+                        alt: "YouTube"
+                    },
+                    slug: "#"
+                },
+            ],
+        },
+        // gallery: {
+        //     title: "VISIT THE MODEL RISE GALLERY",
+        //     description: null,
+        //     longDescription: "<h4>DontLookupFashion.Events</h4><p>Beyond events. Beyond borders. Beyond the runway.</p>",
+        //     items: [
+        //         { id: 1, media: { type: "image", url: "/images/placeholder.jpg", alt: "gallery Image 1" } },
+        //         { id: 2, media: { type: "image", url: "/images/placeholder.jpg", alt: "gallery Image 2" } },
+        //         { id: 3, media: { type: "image", url: "/images/placeholder.jpg", alt: "gallery Image 3" } },
+        //         { id: 4, media: { type: "image", url: "/images/placeholder.jpg", alt: "gallery Image 4" } },
+        //         { id: 5, media: { type: "image", url: "/images/placeholder.jpg", alt: "gallery Image 5" } },
+        //         { id: 6, media: { type: "image", url: "/images/placeholder.jpg", alt: "gallery Image 6" } },
+        //         { id: 7, media: { type: "image", url: "/images/placeholder.jpg", alt: "gallery Image 7" } },
+        //         { id: 8, media: { type: "image", url: "/images/placeholder.jpg", alt: "gallery Image 8" } },
+        //     ]
+        // },
     }
 ];

@@ -109,9 +109,23 @@ export const landingData = {
         description: "Catch events from DontLookUp. Download the app now to register and be a part of it!",
         items: [
             {
-                id: "1",
+                id: "7",
                 isActive: true,
                 featuredEvent: true,
+                title: "ages 6 to 15, helping them discover their inner confidence and express their personality with style",
+                eventLogo: "/images/event-logo-7.svg",
+                media: {
+                    type: "image",
+                    url: "/images/event-7.jpg",
+                    alt: "ages 6 to 15, helping them discover their inner confidence and express their personality with style"
+                },
+                slug: "model-rise",
+                category: "EVENT",
+            },
+            {
+                id: "1",
+                isActive: true,
+                featuredEvent: false,
                 title: "complete modeling career launchpad",
                 eventLogo: "/images/event-logo-3.svg",
                 media: {
