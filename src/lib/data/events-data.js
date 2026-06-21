@@ -3,7 +3,7 @@ export const eventsData = [
         slug: "model-forward-live",
         pageTitle: "Model Forward Live",
         eventInfo: {
-            date: "06 June 2026",
+            date: "05 April 2026",
             dateInfo: "IDS Global business center",
             location: "Dubai",
             duration: "10 hours",
@@ -521,7 +521,7 @@ export const eventsData = [
                     id: 2,
                     status: "past",
                     title: "Model Forward Edition 2: ",
-                    description: "06 June 2026, IDS Global Business Center, Dubai",
+                    description: "05 April 2026, IDS Global Business Center, Dubai",
                     items: [
                         {
                             id: 1,
@@ -927,7 +927,7 @@ export const eventsData = [
         pageTitle: "Model Rise",
         eventInfo: {
             date: "July 2026",
-            dateInfo: "Florida gym building, Mahtha area, 8th floor, office 805, Sharjah",
+            dateInfo: "Collective by DLU, Florida gym building, Mahtha area,<br/> 8th floor, office 805, Sharjah",
             location: "Sharjah",
             duration: "1 day",
             media: {
@@ -946,8 +946,8 @@ export const eventsData = [
             title: null,
             backgroundMedia: {
                 type: "image",
-                url: "/images/hero-model-rise.jpg",
-                mediaUrl: "/images/hero-model-rise.jpg",
+                url: "/images/home-hero-mob-4.png",
+                mediaUrl: "/images/home-hero-mob-4.png",
                 alt: "Hero Background"
             }
         },
@@ -969,7 +969,7 @@ export const eventsData = [
         expertsSays: {
             media: {
                 type: "youtube",
-                url: "https://www.youtube.com/embed/2hLORZZI-M4?autoplay=0&mute=0&loop=1&playlist=2hLORZZI-M4&controls=1&showinfo=0&rel=0",
+                url: "https://www.youtube.com/embed/_yE5v2kgkFo?si=W3CJSaxr2UDoH8_o&autoplay=0&mute=0&loop=1&playlist=_yE5v2kgkFo&controls=1&showinfo=0&rel=0",
                 alt: "eventsExpertsSays-1"
             },
             title: "SEE WHAT THE EXPERTS SAY",
@@ -989,7 +989,7 @@ export const eventsData = [
         whoIsThisFor: {
             media: {
                 type: "image",
-                url: "/images/events-whoIsThisFor-model-rise.jpg",
+                url: "/images/events-whoIsThisFor-model-rise-1.png",
                 alt: "events-whoIsThisFor"
             },
             title: "WHO IS THIS REALLY FOR",
@@ -998,7 +998,7 @@ export const eventsData = [
         outcomes: {
             media: {
                 type: "image",
-                url: "/images/events-outcomes-model-rise.jpg",
+                url: "/images/events-whoIsThisFor-model-rise-2.png",
                 alt: "events-outcomes"
             },
             title: "EVENT OUTCOMES",
@@ -1081,7 +1081,7 @@ export const eventsData = [
                         url: "/images/icon-facebook-white.svg",
                         alt: "Facebook"
                     },
-                    slug: "#"
+                    slug: "https://www.facebook.com/profile.php?id=61569749549370"
                 },
                 {
                     id: 2,
@@ -1090,26 +1090,26 @@ export const eventsData = [
                         url: "/images/icon-Instagram-white.svg",
                         alt: "Instagram"
                     },
-                    slug: "#"
+                    slug: "https://www.instagram.com/modelrisebydlu/"
                 },
-                {
-                    id: 4,
-                    media: {
-                        type: "image",
-                        url: "/images/icon-linkedIn-white.svg",
-                        alt: "LinkedIn"
-                    },
-                    slug: "#"
-                },
-                {
-                    id: 5,
-                    media: {
-                        type: "image",
-                        url: "/images/icon-youTube-white.svg",
-                        alt: "YouTube"
-                    },
-                    slug: "#"
-                },
+                // {
+                //     id: 4,
+                //     media: {
+                //         type: "image",
+                //         url: "/images/icon-linkedIn-white.svg",
+                //         alt: "LinkedIn"
+                //     },
+                //     slug: "#"
+                // },
+                // {
+                //     id: 5,
+                //     media: {
+                //         type: "image",
+                //         url: "/images/icon-youTube-white.svg",
+                //         alt: "YouTube"
+                //     },
+                //     slug: "#"
+                // },
             ],
         },
         // gallery: {

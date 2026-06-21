@@ -41,7 +41,7 @@ export default function LandingFeaturedEvents({ data }) {
             {/* -mx-2 sm:-mx-2 md:-mx-4 lg:-mx-6 xl:-mx-8 2xl:-mx-10 3xl:-mx-12 */}
             <div className="flex flex-wrap -mx-1 sm:mx-0 [&>div]:p-1 sm:[&>div]:p-0">
               {data?.items?.map((item, index) => (
-                <div key={item?.id}
+                <div key={"featured" + index}
                   className="w-full 3xs:w-1/2 2xs:w-1/3 sm:w-1/3"
                   title={item?.isActive ? item?.title : "Coming Soon"}
                 >

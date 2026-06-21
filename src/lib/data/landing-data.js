@@ -23,8 +23,8 @@ export const landingData = {
             },
             {
                 id: 4,
-                url: "/images/home-hero-4.jpg",
-                mobileUrl: "/images/home-hero-mob-4.jpg",
+                url: "/images/home-hero-mob-4.png",
+                mobileUrl: "/images/home-hero-mob-4.png",
                 alt: "Hero Background 4"
             }
         ]
