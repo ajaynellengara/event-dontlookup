@@ -1053,6 +1053,15 @@ export const eventsData = [
                 },
             ],
         },
+        certificate: {
+            title: "EARN YOUR CERTIFICATE",
+            description: "<p>Participants will receive an official digital certificate after completing the webinar, acknowledging their participation in the Fashion Event Workshop.</p>",
+            media: {
+                type: "image",
+                url: "/images/Certificate_model Rise_page-0001.jpg",
+                alt: "Certificate Model Rise"
+            }
+        },
         joinEvent: {
             title: "HOW CAN I JOIN THE EVENT?",
             description: "<p>Simplify your booking and event experience —<br/>get the app to reserve your seat, plan your day, and enjoy exclusive access.</p>",

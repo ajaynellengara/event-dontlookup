@@ -77,7 +77,7 @@ export default async function EventDetails({ params }) {
                 {data?.appDownload && <LandingAppDownload data={data?.appDownload} />}
                 {data?.whoIsThisFor && <EventsWhoIsThisFor data={data?.whoIsThisFor} />}
                 {data?.outcomes && <EventsOutcomes data={data?.outcomes} />}
-                <EventsCatalogue />
+                <EventsCatalogue eventName={data?.pageTitle} />
                 {data?.portfolio && <EventsPortfolio data={data?.portfolio} />}
                 {data?.meetYourCoach && <EventsMeetYourCoach data={data?.meetYourCoach} />}
                 {data?.whatTrainedIn && <EventsWhatTrainedIn data={data?.whatTrainedIn} />}
