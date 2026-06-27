@@ -79,7 +79,7 @@ export default function EventsInfo({ data }) {
                   asChild
                 >
                   <Link href={data?.slug} target="_blank">
-                    {data?.eventStatus === "finished" ? "View Event" : data?.eventStatus === "upcoming" ? "Notify Me" : "Book Now"}
+                    {data?.buttonLabel || (data?.eventStatus === "finished" ? "View Event" : data?.eventStatus === "upcoming" ? "Notify Me" : "Book Now")}
                   </Link>
                 </Button>
               </HoverBorderGradient>

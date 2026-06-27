@@ -941,6 +941,7 @@ export const eventsData = [
             price: "499 AED",
             slug: "https://dontlookup.app.link/y4l8S8uFq0b",
             eventStatus: "upcoming",
+            buttonLabel: "Book Now",
         },
         hero: {
             title: null,
