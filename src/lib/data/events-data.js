@@ -990,7 +990,7 @@ export const eventsData = [
         whoIsThisFor: {
             media: {
                 type: "image",
-                url: "/images/events-whoIsThisFor-model-rise-1.png",
+                url: "/images/model-rise-1.jpg",
                 alt: "events-whoIsThisFor"
             },
             title: "WHO IS THIS REALLY FOR",
@@ -999,7 +999,7 @@ export const eventsData = [
         outcomes: {
             media: {
                 type: "image",
-                url: "/images/events-whoIsThisFor-model-rise-2.png",
+                url: "/images/model-rise-2.jpg",
                 alt: "events-outcomes"
             },
             title: "EVENT OUTCOMES",
