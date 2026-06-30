@@ -36,8 +36,8 @@ export async function generateMetadata({ params }) {
 
     if (slug === 'model-rise') {
         return {
-            title: 'Model Rise for Kids & Teens in Sharjah| Dubai| Dontlookup Fashion',
-            description: 'Join Model Rise by Dontlookup Fashion — a confidence-building workshop for kids and teens ages 6-15 in Sharjah, Dubai. Learn modeling, posing, and self-expression in a safe environment.',
+            title: 'Kids Modelling Workshops in Dubai| Uae| ModelRise by DLU - Dontlookup Fashion Events',
+            description: 'Help your child shine with ModelRise by Dontlookup Fashion Events kids modelling workshops in Dubai, UAE for ages 5–14. Designed to build confidence, runway walking, posing, communication, and presentation skills in a fun, supportive, and creative environment. Enroll today!',
         }
     }
 
